@@ -5,9 +5,34 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              mc:Ignorable="d" d:DesignHeight="720" d:DesignWidth="1280">
     <UserControl.Resources>
-        <ResourceDictionary Source="pack://application:,,,/SpaceResidentClient;component/ResourceDictionaries/Brushes.xaml"/>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/SpaceResidentClient;component/ResourceDictionaries/Brushes.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/SpaceResidentClient;component/ResourceDictionaries/Colors.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </UserControl.Resources>
 
     <Grid Background="{StaticResource BGGradient}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.1*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="1.5*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="0.1*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.1*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="1.3*"/>
+            <ColumnDefinition Width="1.2*"/>
+            <ColumnDefinition Width="0.1*"/>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock
+            Grid.Column="2"
+            Grid.Row="1"
+            Style="{StaticResource txtblBase}">
+        </TextBlock>
     </Grid>
 </UserControl>

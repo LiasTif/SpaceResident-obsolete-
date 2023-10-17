@@ -1,0 +1,17 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="Colors.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+
+    <!--TextBlocks-->
+    <Style TargetType="{x:Type TextBlock}" x:Key="txtblBase">
+        <Setter Property="Opacity" Value="0.1"/>
+        <Setter Property="Background">
+            <Setter.Value>
+                <SolidColorBrush Color="{StaticResource BorderColor}"/>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>
