@@ -5,9 +5,12 @@
         <ResourceDictionary Source="Colors.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
-    <!--TextBlocks-->
-    <Style TargetType="{x:Type TextBlock}" x:Key="txtblBase">
-        <Setter Property="Opacity" Value="0.1"/>
+    <Style TargetType="{x:Type Window}" x:Key="winBase">
+        <Setter Property="FontFamily" Value="Source Code Pro"/>
+    </Style>
+    
+    <!--Border-->
+    <Style TargetType="{x:Type Border}" x:Key="brdBase">
         <Setter Property="Background">
             <Setter.Value>
                 <SolidColorBrush Color="{StaticResource BorderColor}"/>

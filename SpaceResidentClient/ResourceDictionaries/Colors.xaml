@@ -3,7 +3,7 @@
 
     <Color x:Key="AccentColor">#F14D21</Color>
 
-    <Color x:Key="BorderColor">#000</Color>
+    <Color x:Key="BorderColor">#19000000</Color>
     
     <Color x:Key="ActiveWhiterColor">#fff</Color>
     <Color x:Key="ActiveColor">#889BAD</Color>
