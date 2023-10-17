@@ -1,0 +1,14 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Color x:Key="AccentColor">#F14D21</Color>
+
+    <Color x:Key="BorderColor">#000</Color>
+    
+    <Color x:Key="ActiveWhiterColor">#fff</Color>
+    <Color x:Key="ActiveColor">#889BAD</Color>
+    <Color x:Key="PassiveColor">#4B5156</Color>
+
+    <Color x:Key="BGLighterColor">#33465B</Color>
+    <Color x:Key="BGDarkerColor">#273849</Color>
+</ResourceDictionary>
