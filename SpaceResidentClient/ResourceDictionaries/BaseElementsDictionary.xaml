@@ -17,4 +17,90 @@
             </Setter.Value>
         </Setter>
     </Style>
+    
+    <!--Buttons-->
+    <Style TargetType="{x:Type Button}" x:Key="btnBase">
+        <Setter Property="Margin" Value="5"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border
+                        x:Name="btnBorder"
+                        BorderThickness="4">
+                        <Border.BorderBrush>
+                            <SolidColorBrush Color="{StaticResource PassiveColor}"/>
+                        </Border.BorderBrush>
+
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="3*"/>
+                                <ColumnDefinition Width="2*"/>
+                                <ColumnDefinition Width="0.4*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Viewbox
+                                x:Name="txtblContentViewBox"
+                                HorizontalAlignment="Left"
+                                Margin="10,0,0,0">
+                                <TextBlock
+                                    x:Name="txtblContent"
+                                    Text="{TemplateBinding Content}">
+                                    <TextBlock.Foreground>
+                                        <SolidColorBrush Color="{StaticResource PassiveColor}"/>
+                                    </TextBlock.Foreground>
+                                </TextBlock>
+                            </Viewbox>
+
+                            <Viewbox
+                                x:Name="txtblSideContentViewBox"
+                                Grid.Column="2"
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Bottom">
+                                <TextBlock
+                                    x:Name="txtblSideContent"
+                                    Text="TRIASSIC">
+                                    <TextBlock.Foreground>
+                                        <SolidColorBrush Color="{StaticResource PassiveColor}"/>
+                                    </TextBlock.Foreground>
+                                </TextBlock>
+                            </Viewbox>
+                        </Grid>
+                    </Border>
+
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="btnBorder" Property="Background">
+                                <Setter.Value>
+                                    <SolidColorBrush Color="{StaticResource ActiveColor}"/>
+                                </Setter.Value>
+                            </Setter>
+                            <Setter TargetName="txtblContent" Property="Foreground">
+                                <Setter.Value>
+                                    <SolidColorBrush Color="{StaticResource ActiveWhiterColor}"/>
+                                </Setter.Value>
+                            </Setter>
+                            <Setter TargetName="txtblSideContent" Property="Foreground">
+                                <Setter.Value>
+                                    <SolidColorBrush Color="{StaticResource ActiveWhiterColor}"/>
+                                </Setter.Value>
+                            </Setter>
+
+                            <Setter
+                                TargetName="txtblSideContentViewBox"
+                                Property="Margin"
+                                Value="0,0,4,4"/>
+                            <Setter
+                                TargetName="btnBorder"
+                                Property="BorderThickness"
+                                Value="0"/>
+                            <Setter
+                                TargetName="txtblContentViewBox"
+                                Property="Margin"
+                                Value="14,4,4,4"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
 </ResourceDictionary>
