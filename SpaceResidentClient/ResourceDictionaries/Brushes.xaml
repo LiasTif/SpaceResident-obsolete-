@@ -6,10 +6,17 @@
     </ResourceDictionary.MergedDictionaries>
 
     <LinearGradientBrush x:Key="BGGradient" StartPoint="0,0" EndPoint="1,0">
-        <GradientStop Offset="0" Color="{StaticResource BGDarkerColor}"/>
-        <GradientStop Offset="1" Color="{StaticResource BGLighterColor}"/>
+        <GradientStop Offset="0.0" Color="{StaticResource BGDarkerColor}"/>
+        <GradientStop Offset="2.0" Color="{StaticResource BGLighterColor}"/>
         <LinearGradientBrush.RelativeTransform>
             <RotateTransform Angle="270" CenterX="0.5" CenterY="0.5"/>
         </LinearGradientBrush.RelativeTransform>
+    </LinearGradientBrush>
+
+    <LinearGradientBrush x:Key="CanselButBGGradient" StartPoint="0.33,0.5" EndPoint="0.66,0.5" SpreadMethod="Repeat" Opacity=".2">
+        <GradientStop Offset="0.0" Color="Transparent"/>
+        <GradientStop Offset="0.01" Color="{StaticResource AccentColor}"/>
+        <GradientStop Offset="0.09" Color="{StaticResource AccentColor}"/>
+        <GradientStop Offset="0.1" Color="Transparent"/>
     </LinearGradientBrush>
 </ResourceDictionary>

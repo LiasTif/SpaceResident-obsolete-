@@ -3,6 +3,7 @@
 
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="Colors.xaml"/>
+        <ResourceDictionary Source="Brushes.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
     <Style TargetType="{x:Type Window}" x:Key="winBase">
@@ -23,7 +24,7 @@
         <Setter Property="Margin" Value="5"/>
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="Button">
+                <ControlTemplate TargetType="{x:Type Button}">
                     <Border
                         x:Name="btnBorder"
                         BorderThickness="4">
@@ -98,6 +99,132 @@
                                 Property="Margin"
                                 Value="14,4,4,4"/>
                         </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style
+        TargetType="{x:Type Button}"
+        x:Key="btnCancelBase"
+        BasedOn="{StaticResource btnBase}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border
+                        x:Name="btnBorder"
+                        BorderThickness="4">
+                        <Border.Background>
+                            <LinearGradientBrush StartPoint="0.2,0.5" EndPoint="0.3,0.5" SpreadMethod="Repeat" Opacity=".2">
+                                <GradientStop x:Name="GradientStop1" Offset="0" Color="Transparent"/>
+                                <GradientStop x:Name="GradientStop2" Offset="0.01" Color="{StaticResource AccentColor}"/>
+                                <GradientStop x:Name="GradientStop3" Offset="0.34" Color="{StaticResource AccentColor}"/>
+                                <GradientStop x:Name="GradientStop4" Offset="0.35" Color="Transparent"/>
+                            </LinearGradientBrush>
+                        </Border.Background>
+                        
+                        <Border.BorderBrush>
+                            <SolidColorBrush Color="{StaticResource AccentColor}"/>
+                        </Border.BorderBrush>
+
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="3*"/>
+                                <ColumnDefinition Width="2*"/>
+                                <ColumnDefinition Width="0.4*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Viewbox
+                                x:Name="txtblContentViewBox"
+                                HorizontalAlignment="Left"
+                                Margin="10,0,0,0">
+                                <TextBlock
+                                    x:Name="txtblContent"
+                                    Text="{TemplateBinding Content}">
+                                    <TextBlock.Foreground>
+                                        <SolidColorBrush Color="{StaticResource AccentColor}"/>
+                                    </TextBlock.Foreground>
+                                </TextBlock>
+                            </Viewbox>
+
+                            <Viewbox
+                                x:Name="txtblSideContentViewBox"
+                                Grid.Column="2"
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Bottom">
+                                <TextBlock
+                                    x:Name="txtblSideContent"
+                                    Text="INTHEEND">
+                                    <TextBlock.Foreground>
+                                        <SolidColorBrush Color="{StaticResource AccentColor}"/>
+                                    </TextBlock.Foreground>
+                                </TextBlock>
+                            </Viewbox>
+                        </Grid>
+
+                    </Border>
+
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="btnBorder" Property="Background">
+                                <Setter.Value>
+                                    <SolidColorBrush Color="{StaticResource AccentColor}"/>
+                                </Setter.Value>
+                            </Setter>
+                            <Setter TargetName="txtblContent" Property="Foreground">
+                                <Setter.Value>
+                                    <SolidColorBrush Color="{StaticResource ActiveWhiterColor}"/>
+                                </Setter.Value>
+                            </Setter>
+                            <Setter TargetName="txtblSideContent" Property="Foreground">
+                                <Setter.Value>
+                                    <SolidColorBrush Color="{StaticResource ActiveWhiterColor}"/>
+                                </Setter.Value>
+                            </Setter>
+
+                            <Setter
+                                TargetName="txtblSideContentViewBox"
+                                Property="Margin"
+                                Value="0,0,4,4"/>
+                            <Setter
+                                TargetName="btnBorder"
+                                Property="BorderThickness"
+                                Value="0"/>
+                            <Setter
+                                TargetName="txtblContentViewBox"
+                                Property="Margin"
+                                Value="14,4,4,4"/>
+                        </Trigger>
+
+                        <EventTrigger RoutedEvent="Button.Loaded">
+                            <BeginStoryboard Name="CanselButBeginStoryboard">
+                                <Storyboard RepeatBehavior="Forever" Duration="0:0:1">
+                                    <DoubleAnimation
+                                        Storyboard.TargetName="GradientStop1"
+                                        Storyboard.TargetProperty="Offset"
+                                        To="0.65"/>
+                                    <DoubleAnimation
+                                        Storyboard.TargetName="GradientStop2"
+                                        Storyboard.TargetProperty="Offset"
+                                        To="0.66"/>
+                                    <DoubleAnimation
+                                        Storyboard.TargetName="GradientStop3"
+                                        Storyboard.TargetProperty="Offset"
+                                        To="0.99"/>
+                                    <DoubleAnimation
+                                        Storyboard.TargetName="GradientStop4"
+                                        Storyboard.TargetProperty="Offset"
+                                        To="1.0"/>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+
+                        <EventTrigger RoutedEvent="Page.Unloaded">
+                            <EventTrigger.Actions>
+                                <RemoveStoryboard BeginStoryboardName="CanselButBeginStoryboard" />
+                            </EventTrigger.Actions>
+                        </EventTrigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
