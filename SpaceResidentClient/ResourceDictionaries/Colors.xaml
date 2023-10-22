@@ -3,10 +3,11 @@
 
     <Color x:Key="AccentColor">#F14D21</Color>
 
-    <Color x:Key="BorderColor">#19000000</Color>
+    <Color x:Key="MainBorderColor">#3F000000</Color>
+    <Color x:Key="SecondBorderColor">#19000000</Color>
     
     <Color x:Key="ActiveWhiterColor">#ffffff</Color>
-    <Color x:Key="ActiveColor">#889BAD</Color>
+    <Color x:Key="ActiveColor">#667482</Color>
     <Color x:Key="PassiveColor">#4B5156</Color>
 
     <Color x:Key="BGLighterColor">#33465B</Color>

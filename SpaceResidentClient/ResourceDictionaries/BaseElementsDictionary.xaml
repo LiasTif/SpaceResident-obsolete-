@@ -13,10 +13,27 @@
     <!--endregion-->
     
     <!--region Borders-->
-    <Style TargetType="{x:Type Border}" x:Key="brdBase">
+    <Style TargetType="{x:Type Border}" x:Key="brdMainElementBase">
         <Setter Property="Background">
             <Setter.Value>
-                <SolidColorBrush Color="{StaticResource BorderColor}"/>
+                <SolidColorBrush Opacity="25" Color="{StaticResource MainBorderColor}"/>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="{x:Type Border}" x:Key="brdSecondElementBase">
+        <Setter Property="Background">
+            <Setter.Value>
+                <SolidColorBrush Opacity="10" Color="{StaticResource SecondBorderColor}"/>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="{x:Type Border}" x:Key="brdLineBase">
+        <Setter Property="Height" Value="3"/>
+        <Setter Property="Background">
+            <Setter.Value>
+                <SolidColorBrush Color="{StaticResource ActiveColor}"/>
             </Setter.Value>
         </Setter>
     </Style>
