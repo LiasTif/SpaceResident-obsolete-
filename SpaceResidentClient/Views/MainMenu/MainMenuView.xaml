@@ -4,7 +4,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:c="clr-namespace:SpaceResidentClient.Converters"
-             mc:Ignorable="d" d:DesignHeight="720" d:DesignWidth="1280">
+             mc:Ignorable="d" d:DesignHeight="720" d:DesignWidth="1280"
+             Background="#1E1E1E">
     <UserControl.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -99,7 +100,7 @@
 
             <Border
                 x:Name="MenuBorder"
-                Style="{StaticResource brdSecondElementBase}"
+                Style="{StaticResource brdMainElementBase}"
                 Grid.Row="1"
                 Grid.RowSpan="5"/>
             
@@ -135,21 +136,30 @@
                 Grid.Column="1"
                 Grid.Row="1"
                 Grid.RowSpan="5"
-                Margin="1">
+                Margin="1,0,0,0">
                 <Border
                     x:Name="SideMainMenuDecorativeBorder"
-                    Style="{StaticResource brdSecondElementBase}"
+                    Style="{StaticResource brdMainElementBase}"
                     VerticalAlignment="Top"
                     Height="{Binding ActualWidth,
                                      ElementName=SideMainMenuDecorativeBorder}"/>
 
                 <Border
-                    Height="150"
+                    MinHeight="180"
                     Margin="0,10,0,0"
-                    Style="{StaticResource brdSecondElementBase}"
+                    Style="{StaticResource brdMainElementBase}"
                     VerticalAlignment="Top"
                     Width="{Binding ActualWidth,
                                     ElementName=SideMainMenuDecorativeBorder}">
+                    <Viewbox VerticalAlignment="Top">
+                        <TextBlock
+                            Style="{StaticResource txtblDecorativeBase}"
+                            Text="Build 0.0.1">
+                            <TextBlock.LayoutTransform>
+                                <RotateTransform Angle="90"/>
+                            </TextBlock.LayoutTransform>
+                        </TextBlock>
+                    </Viewbox>
                 </Border>
             </StackPanel>
         </Grid>

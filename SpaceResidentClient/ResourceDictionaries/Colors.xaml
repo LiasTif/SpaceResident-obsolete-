@@ -10,6 +10,6 @@
     <Color x:Key="ActiveColor">#667482</Color>
     <Color x:Key="PassiveColor">#4B5156</Color>
 
-    <Color x:Key="BGLighterColor">#33465B</Color>
-    <Color x:Key="BGDarkerColor">#273849</Color>
+    <Color x:Key="BGLighterColor">#B233465B</Color>
+    <Color x:Key="BGDarkerColor">#0C273849</Color>
 </ResourceDictionary>

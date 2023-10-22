@@ -135,16 +135,9 @@
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Border
                         x:Name="btnBorder"
-                        BorderThickness="4">
-                        <Border.Background>
-                            <LinearGradientBrush StartPoint="0.2,0.5" EndPoint="0.3,0.5" SpreadMethod="Repeat" Opacity=".2">
-                                <GradientStop x:Name="GradientStop1" Offset="0" Color="Transparent"/>
-                                <GradientStop x:Name="GradientStop2" Offset="0.01" Color="{StaticResource AccentColor}"/>
-                                <GradientStop x:Name="GradientStop3" Offset="0.34" Color="{StaticResource AccentColor}"/>
-                                <GradientStop x:Name="GradientStop4" Offset="0.35" Color="Transparent"/>
-                            </LinearGradientBrush>
-                        </Border.Background>
-                        
+                        BorderThickness="4"
+                        Background="{DynamicResource CancelGradient}">
+
                         <Border.BorderBrush>
                             <SolidColorBrush Color="{StaticResource AccentColor}"/>
                         </Border.BorderBrush>
@@ -218,28 +211,31 @@
                                 Value="14,4,4,4"/>
                         </Trigger>
 
-                        <EventTrigger RoutedEvent="Button.Loaded">
-                            <BeginStoryboard Name="CanselButBeginStoryboard">
-                                <Storyboard RepeatBehavior="Forever" Duration="0:0:1">
-                                    <DoubleAnimation
-                                        Storyboard.TargetName="GradientStop1"
-                                        Storyboard.TargetProperty="Offset"
-                                        To="0.65"/>
-                                    <DoubleAnimation
-                                        Storyboard.TargetName="GradientStop2"
-                                        Storyboard.TargetProperty="Offset"
-                                        To="0.66"/>
-                                    <DoubleAnimation
-                                        Storyboard.TargetName="GradientStop3"
-                                        Storyboard.TargetProperty="Offset"
-                                        To="0.99"/>
-                                    <DoubleAnimation
-                                        Storyboard.TargetName="GradientStop4"
-                                        Storyboard.TargetProperty="Offset"
-                                        To="1.0"/>
-                                </Storyboard>
-                            </BeginStoryboard>
-                        </EventTrigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsEnabled" Value="True"/>
+                                <Condition Property="IsMouseOver" Value="False"/>
+                            </MultiTrigger.Conditions>
+                            <MultiTrigger.EnterActions>
+                                <BeginStoryboard Name="CanselButBeginStoryboard">
+                                    <Storyboard x:Name="CanselButIdleStorybord" RepeatBehavior="Forever" Duration="0:0:1" TargetName="btnBorder">
+                                        <DoubleAnimation
+                                            Storyboard.TargetProperty="(Border.Background).(LinearGradientBrush.GradientStops)[0].Offset"
+                                            To="0.65"/>
+                                        <DoubleAnimation
+                                            Storyboard.TargetProperty="(Border.Background).(LinearGradientBrush.GradientStops)[1].Offset"
+                                            To="0.66"/>
+                                        <DoubleAnimation
+                                            Storyboard.TargetProperty="(Border.Background).(LinearGradientBrush.GradientStops)[2].Offset"
+                                            To="0.99"/>
+                                        <DoubleAnimation
+                                            Storyboard.TargetProperty="(Border.Background).(LinearGradientBrush.GradientStops)[3].Offset"
+                                            To="1.0"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </MultiTrigger.EnterActions>
+                            
+                        </MultiTrigger>
 
                         <EventTrigger RoutedEvent="Page.Unloaded">
                             <EventTrigger.Actions>
@@ -252,4 +248,14 @@
         </Setter>
     </Style>
     <!--endregion-->
+    
+    <!--#region TextBlocks-->
+    <Style TargetType="{x:Type TextBlock}" x:Key="txtblDecorativeBase">
+        <Setter Property="Foreground">
+            <Setter.Value>
+                <SolidColorBrush Color="{StaticResource PassiveColor}"/>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <!--#endregion-->
 </ResourceDictionary>
