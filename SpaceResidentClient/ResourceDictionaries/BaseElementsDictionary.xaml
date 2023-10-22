@@ -6,11 +6,13 @@
         <ResourceDictionary Source="Brushes.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
+    <!--region Windows-->
     <Style TargetType="{x:Type Window}" x:Key="winBase">
         <Setter Property="FontFamily" Value="Source Code Pro"/>
     </Style>
+    <!--endregion-->
     
-    <!--Border-->
+    <!--region Borders-->
     <Style TargetType="{x:Type Border}" x:Key="brdBase">
         <Setter Property="Background">
             <Setter.Value>
@@ -18,8 +20,9 @@
             </Setter.Value>
         </Setter>
     </Style>
-    
-    <!--Buttons-->
+    <!--endregion-->
+
+    <!--region Buttons-->
     <Style TargetType="{x:Type Button}" x:Key="btnBase">
         <Setter Property="Margin" Value="5"/>
         <Setter Property="Template">
@@ -27,7 +30,8 @@
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Border
                         x:Name="btnBorder"
-                        BorderThickness="4">
+                        BorderThickness="4"
+                        Background="Transparent">
                         <Border.BorderBrush>
                             <SolidColorBrush Color="{StaticResource PassiveColor}"/>
                         </Border.BorderBrush>
@@ -230,4 +234,5 @@
             </Setter.Value>
         </Setter>
     </Style>
+    <!--endregion-->
 </ResourceDictionary>

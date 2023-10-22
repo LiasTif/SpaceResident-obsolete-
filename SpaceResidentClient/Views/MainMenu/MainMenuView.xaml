@@ -62,46 +62,54 @@
         <!--#endregion-->
 
         <!--#region Menu-->
-        <Border
-            Style="{StaticResource brdBase}"
+        <Grid
             Grid.Column="1"
             Grid.Row="3">
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="10*"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="1*"/>
-                    <RowDefinition Height="10*"/>
-                    <RowDefinition Height="10*"/>
-                    <RowDefinition Height="10*"/>
-                    <RowDefinition Height="10*"/>
-                    <RowDefinition Height="10*"/>
-                </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="10*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="10*"/>
+                <RowDefinition Height="10*"/>
+                <RowDefinition Height="10*"/>
+                <RowDefinition Height="10*"/>
+                <RowDefinition Height="10*"/>
+            </Grid.RowDefinitions>
 
-                <Button
-                    Content="New Game"
-                    Grid.Row="1"
-                    Style="{StaticResource btnBase}"/>
-                <Button
-                    Content="Continue"
-                    Grid.Row="2"
-                    Style="{StaticResource btnBase}"/>
-                <Button
-                    Content="Load"
-                    Grid.Row="3"
-                    Style="{StaticResource btnBase}"/>
-                <Button
-                    Content="Settings"
-                    Grid.Row="4"
-                    Style="{StaticResource btnBase}"/>
-                <Button
-                    Content="Exit"
-                    Grid.Row="5"
-                    Style="{StaticResource btnCancelBase}"/>
-            </Grid>
-        </Border>
+            <Border
+                Style="{StaticResource brdBase}"
+                Grid.Row="1"
+                Grid.RowSpan="5"/>
+            
+            <!--Buttons-->
+            <Button
+                Content="New Game"
+                Grid.Row="1"
+                Style="{StaticResource btnBase}"
+                MouseEnter="Button_MouseEnter"/>
+            <Button
+                Content="Continue"
+                Grid.Row="2"
+                Style="{StaticResource btnBase}"
+                MouseEnter="Button_MouseEnter"/>
+            <Button
+                Content="Load"
+                Grid.Row="3"
+                Style="{StaticResource btnBase}"
+                MouseEnter="Button_MouseEnter"/>
+            <Button
+                Content="Settings"
+                Grid.Row="4"
+                Style="{StaticResource btnBase}"
+                MouseEnter="Button_MouseEnter"/>
+            <Button
+                Content="Exit"
+                Grid.Row="5"
+                Style="{StaticResource btnCancelBase}"
+                MouseEnter="Button_MouseEnter"/>
+        </Grid>
         <!--#endregion-->
     </Grid>
 </UserControl>
