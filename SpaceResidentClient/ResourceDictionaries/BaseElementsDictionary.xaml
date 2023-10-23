@@ -218,7 +218,10 @@
                             </MultiTrigger.Conditions>
                             <MultiTrigger.EnterActions>
                                 <BeginStoryboard Name="CanselButBeginStoryboard">
-                                    <Storyboard x:Name="CanselButIdleStorybord" RepeatBehavior="Forever" Duration="0:0:1" TargetName="btnBorder">
+                                    <Storyboard
+                                        RepeatBehavior="Forever"
+                                        Duration="0:0:1"
+                                        TargetName="btnBorder">
                                         <DoubleAnimation
                                             Storyboard.TargetProperty="(Border.Background).(LinearGradientBrush.GradientStops)[0].Offset"
                                             To="0.65"/>

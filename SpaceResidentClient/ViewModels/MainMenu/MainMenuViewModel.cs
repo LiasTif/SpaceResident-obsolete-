@@ -2,6 +2,7 @@
 using CommunityToolkit.Mvvm.Input;
 using SpaceResidentClient.API;
 using System;
+using System.Threading.Tasks;
 using System.Timers;
 using System.Windows.Input;
 
@@ -16,10 +17,7 @@ namespace SpaceResidentClient.ViewModels.MainMenu
             set
             {
                 if (value != _consoleText)
-                {
-                    _consoleText = value;
-                    OnPropertyChanged(nameof(ConsoleText));
-                }
+                    SetProperty(ref _consoleText, value);
             }
         }
 
@@ -32,26 +30,48 @@ namespace SpaceResidentClient.ViewModels.MainMenu
         {
             ShutdownCommand = new RelayCommand(Shutdown);
 
-            ConsoleText = $"command: install AllOrganicDB -force\nisntalling: AllOrganicDB package1 |";
-            MyTimer();
+            MyTimerAsync();
         }
 
-        private void MyTimer()
+        #region Animations
+        // Console download animation timer
+        private async Task MyTimerAsync()
         {
-            Timer timer = new(100);
-            timer.Elapsed += HandleTimer;
-            timer.AutoReset = true;
-            timer.Enabled = true;
+            // run async metod ConsoleTypewriteAsync in another thread
+            await Task.Run(ConsoleTypewriteAsync);
+
+            Timer timer = new(100)
+            {
+                AutoReset = true,
+                Enabled = true
+            };
+            timer.Elapsed += new ElapsedEventHandler(OnTimedEvent);
         }
 
-        private void HandleTimer(Object source, ElapsedEventArgs e)
+        // Console typewrite animation thread
+        private async Task ConsoleTypewriteAsync()
         {
-            if (ConsoleText == $"command: install AllOrganicDB -force\nisntalling: AllOrganicDB package1 /")
-                ConsoleText = $"command: install AllOrganicDB -force\nisntalling: AllOrganicDB package1 \\";
-            else if (ConsoleText == $"command: install AllOrganicDB -force\nisntalling: AllOrganicDB package1 |")
-                ConsoleText = $"command: install AllOrganicDB -force\nisntalling: AllOrganicDB package1 /";
+            string message = $"command: install AllOrganicDB -force\nisntalling: AllOrganicDB package1 |";
+
+            // typewrite the text in console
+            for (int i = 0; i < message.Length; i++)
+            {
+                ConsoleText += message[i];
+                await Task.Delay(30);
+            }
+        }
+
+        private void OnTimedEvent(Object source, ElapsedEventArgs e)
+        {
+            int lastLetterIndex = ConsoleText.Length - 1;
+
+            if (ConsoleText[^1] == '/')
+                ConsoleText = ConsoleText.Remove(lastLetterIndex, 1) + "\\";
+            else if (ConsoleText[^1] == '|')
+                ConsoleText = ConsoleText.Remove(lastLetterIndex, 1) + "/";
             else
-                ConsoleText = $"command: install AllOrganicDB -force\nisntalling: AllOrganicDB package1 |";
+                ConsoleText = ConsoleText.Remove(lastLetterIndex, 1) + "|";
         }
+        #endregion
     }
 }
