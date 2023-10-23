@@ -8,6 +8,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Data\UI\pluses.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.1" />
   </ItemGroup>
 
@@ -16,6 +20,13 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Data\UI\pluses.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Data\music\Menu Music.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Update="Data\sounds\UI\Button Hover.mp3">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

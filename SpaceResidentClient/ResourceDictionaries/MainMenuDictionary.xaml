@@ -1,0 +1,22 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    
+    <!--pluses on bg-->
+    <Style TargetType="{x:Type Image}" x:Key="imgBgPluses">
+        <Setter Property="Source" Value="/Data/UI/pluses.png"/>
+        <Setter Property="Stretch" Value="Uniform"/>
+        <Style.Triggers>
+            <EventTrigger RoutedEvent="Loaded">
+                <BeginStoryboard>
+                    <Storyboard>
+                        <DoubleAnimation
+                            Storyboard.TargetProperty="Opacity"
+                            From="0" To="1" Duration="0:0:0.25"
+                            AccelerationRatio="0.1" RepeatBehavior="6x"/>
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger>
+        </Style.Triggers>
+    </Style>
+    
+</ResourceDictionary>

@@ -13,6 +13,8 @@
                     Source="pack://application:,,,/SpaceResidentClient;component/ResourceDictionaries/Brushes.xaml"/>
                 <ResourceDictionary
                     Source="pack://application:,,,/SpaceResidentClient;component/ResourceDictionaries/Colors.xaml"/>
+                <ResourceDictionary
+    Source="pack://application:,,,/SpaceResidentClient;component/ResourceDictionaries/MainMenuDictionary.xaml"/>
             </ResourceDictionary.MergedDictionaries>
             <c:SizeFromSizePercentageConventer x:Key="SizeFromSizePercentageConventer"/>
         </ResourceDictionary>
@@ -33,6 +35,33 @@
             <ColumnDefinition Width="1.2*"/>
             <ColumnDefinition Width="0.1*"/>
         </Grid.ColumnDefinitions>
+        
+        <!--#region bg decorations-->
+        <Image
+            Style="{StaticResource imgBgPluses}"
+            Grid.ColumnSpan="5"
+            Grid.RowSpan="5">
+            <Image.OpacityMask>
+                <LinearGradientBrush StartPoint="0.0,0.5" EndPoint="1.0,0.5" x:Name="sdsd">
+                    <GradientStop Color="{StaticResource ActiveWhiterColor}" Offset="0"/>
+                    <GradientStop Color="Transparent" Offset="0.1" x:Name="GradientStop2"/>
+                </LinearGradientBrush>
+            </Image.OpacityMask>
+            <Image.Triggers>
+                <EventTrigger RoutedEvent="Loaded">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation
+                                Storyboard.TargetName="GradientStop2"
+                                Storyboard.TargetProperty="Offset"
+                                To="5" Duration="0:0:3"
+                                AccelerationRatio="0.5"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Image.Triggers>
+        </Image>
+        <!--#endregion-->
 
         <!--#region Header-->
         <!--Header label-->
