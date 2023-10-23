@@ -10,11 +10,11 @@
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary
-                    Source="pack://application:,,,/SpaceResidentClient;component/ResourceDictionaries/Brushes.xaml"/>
+                    Source="/ResourceDictionaries/Brushes.xaml"/>
                 <ResourceDictionary
-                    Source="pack://application:,,,/SpaceResidentClient;component/ResourceDictionaries/Colors.xaml"/>
+                    Source="/ResourceDictionaries/Colors.xaml"/>
                 <ResourceDictionary
-    Source="pack://application:,,,/SpaceResidentClient;component/ResourceDictionaries/MainMenuDictionary.xaml"/>
+                    Source="/ResourceDictionaries/MainMenuDictionary.xaml"/>
             </ResourceDictionary.MergedDictionaries>
             <c:SizeFromSizePercentageConventer x:Key="SizeFromSizePercentageConventer"/>
         </ResourceDictionary>
@@ -61,6 +61,33 @@
                 </EventTrigger>
             </Image.Triggers>
         </Image>
+
+        <!--Decorative Console-->
+        <Border
+            Style="{StaticResource brdMainElementBase}"
+            Grid.Column="3"
+            Grid.Row="3"
+            VerticalAlignment="Bottom">
+            <Border.Height>
+                <MultiBinding Converter="{StaticResource SizeFromSizePercentageConventer}">
+                    <Binding
+                        ElementName="MenuBorder"
+                        Path="ActualHeight"
+                        UpdateSourceTrigger="PropertyChanged"/>
+                    <Binding Source="60"/>
+                </MultiBinding>
+            </Border.Height>
+
+            <!--Console Text-->
+            <TextBlock
+                HorizontalAlignment="Left"
+                TextWrapping="Wrap"
+                Text="{Binding ConsoleText,
+                               Mode=TwoWay,
+                               UpdateSourceTrigger=PropertyChanged}"
+                Style="{StaticResource txtblWhiteTextBase}">
+            </TextBlock>
+        </Border>
         <!--#endregion-->
 
         <!--#region Header-->
@@ -68,7 +95,8 @@
         <Border
             Style="{StaticResource brdMainElementBase}"
             Grid.Column="2"
-            Grid.Row="1"/>
+            Grid.Row="1"
+            Margin="0,0,0,20"/>
         <Viewbox
             Margin="50,0,50,0"
             Grid.Column="2"
@@ -113,21 +141,6 @@
             </Grid.RowDefinitions>
 
             <Border
-                Style="{StaticResource brdLineBase}"
-                HorizontalAlignment="Center"
-                Margin="10,0,0,0">
-                <Border.Width>
-                    <MultiBinding Converter="{StaticResource SizeFromSizePercentageConventer}">
-                        <Binding
-                            ElementName="MenuBorder"
-                            Path="ActualWidth"
-                            UpdateSourceTrigger="PropertyChanged"/>
-                        <Binding Source="75"/>
-                    </MultiBinding>
-                </Border.Width>
-            </Border>
-
-            <Border
                 x:Name="MenuBorder"
                 Style="{StaticResource brdMainElementBase}"
                 Grid.Row="1"
@@ -155,12 +168,28 @@
                 Style="{StaticResource btnBase}"
                 MouseEnter="Button_MouseEnter"/>
             <Button
+                Command="{Binding ShutdownCommand}"
                 Content="Exit"
                 Grid.Row="5"
                 Style="{StaticResource btnCancelBase}"
                 MouseEnter="Button_MouseEnter"/>
 
             <!--Menu Decorative Side Elements-->
+            <Border
+                Style="{StaticResource brdLineBase}"
+                HorizontalAlignment="Center"
+                Margin="10,0,0,0">
+                <Border.Width>
+                    <MultiBinding Converter="{StaticResource SizeFromSizePercentageConventer}">
+                        <Binding
+                            ElementName="MenuBorder"
+                            Path="ActualWidth"
+                            UpdateSourceTrigger="PropertyChanged"/>
+                        <Binding Source="75"/>
+                    </MultiBinding>
+                </Border.Width>
+            </Border>
+            
             <StackPanel
                 Grid.Column="1"
                 Grid.Row="1"
