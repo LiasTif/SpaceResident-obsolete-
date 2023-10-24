@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Data\UI\icon.ico" />
     <None Remove="Data\UI\pluses.png" />
   </ItemGroup>
 
@@ -20,6 +21,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Data\UI\icon.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Data\UI\pluses.png" />
   </ItemGroup>
 

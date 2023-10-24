@@ -7,7 +7,7 @@
         xmlns:v="clr-namespace:SpaceResidentClient.Views.MainMenu"
         mc:Ignorable="d" Title="Space Resident"
         MinHeight="720" MinWidth="1280" WindowStartupLocation="CenterScreen"
-        Style="{StaticResource winBase}">
+        Style="{StaticResource winBase}" Icon="/Data/UI/icon.ico">
     <Grid>
         <ContentControl
             Content="{Binding Path=DataContext.CurrentViewModel,
