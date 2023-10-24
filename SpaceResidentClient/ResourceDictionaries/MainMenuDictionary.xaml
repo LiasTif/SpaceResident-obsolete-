@@ -4,7 +4,7 @@
     <!--pluses on bg-->
     <Style TargetType="{x:Type Image}" x:Key="imgBgPluses">
         <Setter Property="Source" Value="/Data/UI/pluses.png"/>
-        <Setter Property="Stretch" Value="Uniform"/>
+        <Setter Property="Stretch" Value="UniformToFill"/>
         <Style.Triggers>
             <EventTrigger RoutedEvent="Loaded">
                 <BeginStoryboard>

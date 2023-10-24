@@ -19,4 +19,19 @@
         <GradientStop x:Name="GradientStop3" Offset="0.34" Color="{StaticResource AccentColor}"/>
         <GradientStop x:Name="GradientStop4" Offset="0.35" Color="Transparent"/>
     </LinearGradientBrush>
+
+    <LinearGradientBrush StartPoint="0.5,0.0" EndPoint="0.5,1.0" Opacity=".8" x:Key="LightersForLineGradient">
+        <GradientStop x:Name="LighterGradientStop1" Offset="0.2" Color="{StaticResource PassiveColor}"/>
+        <GradientStop x:Name="LighterGradientStop2" Offset="0.21" Color="{StaticResource ActiveWhiterColor}"/>
+        <GradientStop x:Name="LighterGradientStop3" Offset="0.23" Color="{StaticResource ActiveWhiterColor}"/>
+        <GradientStop x:Name="LighterGradientStop4" Offset="0.24" Color="{StaticResource PassiveColor}"/>
+        <GradientStop x:Name="LighterGradientStop5" Offset="0.7" Color="{StaticResource PassiveColor}"/>
+        <GradientStop x:Name="LighterGradientStop6" Offset="0.71" Color="{StaticResource ActiveWhiterColor}"/>
+        <GradientStop x:Name="LighterGradientStop7" Offset="0.73" Color="{StaticResource ActiveWhiterColor}"/>
+        <GradientStop x:Name="LighterGradientStop8" Offset="0.74" Color="{StaticResource PassiveColor}"/>
+        <GradientStop x:Name="LighterGradientStop9" Offset="0.8" Color="{StaticResource PassiveColor}"/>
+        <GradientStop x:Name="LighterGradientStop10" Offset="0.81" Color="{StaticResource ActiveWhiterColor}"/>
+        <GradientStop x:Name="LighterGradientStop11" Offset="0.83" Color="{StaticResource ActiveWhiterColor}"/>
+        <GradientStop x:Name="LighterGradientStop12" Offset="0.84" Color="{StaticResource PassiveColor}"/>
+    </LinearGradientBrush>
 </ResourceDictionary>

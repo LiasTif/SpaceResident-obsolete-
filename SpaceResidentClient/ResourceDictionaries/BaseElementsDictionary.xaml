@@ -30,12 +30,29 @@
     </Style>
 
     <Style TargetType="{x:Type Border}" x:Key="brdLineBase">
+        <Setter Property="Width" Value="3"/>
+        <Setter Property="Height" Value="3"/>
+        <Setter Property="Background">
+            <Setter.Value>
+                <SolidColorBrush Color="{StaticResource PassiveColor}"/>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="{x:Type Border}" x:Key="brdLineActiveAlternative">
+        <Setter Property="Width" Value="3"/>
         <Setter Property="Height" Value="3"/>
         <Setter Property="Background">
             <Setter.Value>
                 <SolidColorBrush Color="{StaticResource ActiveColor}"/>
             </Setter.Value>
         </Setter>
+    </Style>
+
+    <Style TargetType="{x:Type Border}" x:Key="brdLineLightsEffectBase">
+        <Setter Property="Width" Value="3"/>
+        <Setter Property="Height" Value="3"/>
+        <Setter Property="Background" Value="{StaticResource LightersForLineGradient}"/>
     </Style>
     <!--endregion-->
 
@@ -265,6 +282,14 @@
         <Setter Property="Foreground">
             <Setter.Value>
                 <SolidColorBrush Color="{StaticResource ActiveWhiterColor}"/>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="{x:Type TextBlock}" x:Key="txtblAccentTextBase">
+        <Setter Property="Foreground">
+            <Setter.Value>
+                <SolidColorBrush Color="{StaticResource AccentColor}"/>
             </Setter.Value>
         </Setter>
     </Style>

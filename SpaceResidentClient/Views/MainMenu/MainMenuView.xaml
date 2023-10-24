@@ -42,7 +42,7 @@
             Grid.ColumnSpan="5"
             Grid.RowSpan="5">
             <Image.OpacityMask>
-                <LinearGradientBrush StartPoint="0.0,0.5" EndPoint="1.0,0.5" x:Name="sdsd">
+                <LinearGradientBrush StartPoint="0.0,0.5" EndPoint="1.0,0.5">
                     <GradientStop Color="{StaticResource ActiveWhiterColor}" Offset="0"/>
                     <GradientStop Color="Transparent" Offset="0.1" x:Name="GradientStop2"/>
                 </LinearGradientBrush>
@@ -64,6 +64,7 @@
 
         <!--Decorative Console-->
         <Border
+            x:Name="brdConsole"
             Style="{StaticResource brdMainElementBase}"
             Grid.Column="3"
             Grid.Row="3"
@@ -88,6 +89,195 @@
                 Style="{StaticResource txtblWhiteTextBase}">
             </TextBlock>
         </Border>
+        
+        <!--Lines at right side-->
+        <Grid
+            x:Name="gridRightSideLines"
+            HorizontalAlignment="Right"
+            Grid.Row="1"
+            Grid.RowSpan="3"
+            Grid.Column="3"
+            Grid.ColumnSpan="2">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1.75*"/>
+                <ColumnDefinition Width="0.75*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1.75*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="4*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="3*"/>
+            </Grid.RowDefinitions>
+
+            <Grid.MinWidth>
+                <MultiBinding Converter="{StaticResource SizeFromSizePercentageConventer}">
+                    <Binding
+                        ElementName="brdConsole"
+                        Path="ActualWidth"
+                        UpdateSourceTrigger="PropertyChanged"/>
+                    <Binding Source="10"/>
+                </MultiBinding>
+            </Grid.MinWidth>
+
+            <!--main line 1-->
+            <Border
+                Grid.Column="0"
+                Grid.RowSpan="4"
+                VerticalAlignment="Stretch"
+                Height="Auto"
+                Style="{StaticResource brdLineLightsEffectBase}"
+                Margin="0,10,0,10">
+            </Border>
+
+            <!--main line 2-->
+            <Border
+                Grid.Column="2"
+                VerticalAlignment="Stretch"
+                Height="Auto"
+                Style="{StaticResource brdLineBase}"
+                Margin="0,0,0,5">
+            </Border>
+            <!--small line 1-->
+            <Border
+                Grid.Row="1"
+                Grid.Column="2"
+                VerticalAlignment="Stretch"
+                Height="Auto"
+                Style="{StaticResource brdLineBase}"
+                Margin="0,5,0,5">
+            </Border>
+            <!--small line 2-->
+            <Border
+                Grid.Row="2"
+                Grid.Column="2"
+                VerticalAlignment="Stretch"
+                Height="Auto"
+                Style="{StaticResource brdLineActiveAlternative}"
+                Margin="0,5,0,5">
+            </Border>
+            <!--text block under small line 2-->
+            <Viewbox
+                Margin="0,10,0,10"
+                Grid.Row="2"
+                Grid.Column="1">
+                <TextBlock
+                    Text="PV:DINAG"
+                    Style="{StaticResource txtblWhiteTextBase}">
+                    <TextBlock.LayoutTransform>
+                        <RotateTransform Angle="90"/>
+                    </TextBlock.LayoutTransform>
+                </TextBlock>
+            </Viewbox>
+            
+            <!--small line 3-->
+            <Border
+                Grid.Row="3"
+                Grid.Column="2"
+                VerticalAlignment="Stretch"
+                Height="Auto"
+                Style="{StaticResource brdLineBase}"
+                Margin="0,5,0,5">
+            </Border>
+
+            <!--main line 3-->
+            <Border
+                Grid.Column="3"
+                Grid.RowSpan="5"
+                VerticalAlignment="Stretch"
+                Height="Auto"
+                Style="{StaticResource brdLineBase}">
+            </Border>
+        </Grid>
+        
+        <!--<StackPanel
+            x:Name="spRightSideLines"
+            HorizontalAlignment="Right"
+            Grid.Row="1"
+            Grid.RowSpan="3"
+            Grid.Column="3"
+            Grid.ColumnSpan="2"
+            Orientation="Horizontal">
+            <StackPanel.MinWidth>
+                <MultiBinding Converter="{StaticResource SizeFromSizePercentageConventer}">
+                    <Binding
+                        ElementName="MainGridColumn5"
+                        Path="ActualWidth"
+                        UpdateSourceTrigger="PropertyChanged"/>
+                    <Binding Source="200"/>
+                </MultiBinding>
+            </StackPanel.MinWidth>
+
+            <Border
+                VerticalAlignment="Top"
+                Style="{StaticResource brdLineBase}"
+                Margin="10,30,10,20">
+                <Border.Height>
+                    <MultiBinding Converter="{StaticResource SizeFromSizePercentageConventer}">
+                        <Binding
+                            ElementName="brdMainDecorativeLine3"
+                            Path="ActualHeight"
+                            UpdateSourceTrigger="PropertyChanged"/>
+                    <Binding Source="65"/>
+                </MultiBinding>
+                </Border.Height>
+            </Border>
+
+            <TextBlock Text="PV:DINAG">
+                <TextBlock.LayoutTransform>
+                    <RotateTransform Angle="90"/>
+                </TextBlock.LayoutTransform>
+            </TextBlock>
+
+            <StackPanel
+                VerticalAlignment="Top"
+                Margin="10,15,10,20">
+                <Border Style="{StaticResource brdLineBase}">
+                    <Border.Height>
+                        <MultiBinding Converter="{StaticResource SizeFromSizePercentageConventer}">
+                            <Binding
+                                ElementName="brdMainDecorativeLine3"
+                                Path="ActualHeight"
+                                UpdateSourceTrigger="PropertyChanged"/>
+                            <Binding Source="35"/>
+                        </MultiBinding>
+                    </Border.Height>
+                </Border>
+                <Border
+                    x:Name="SmallLineBorder1"
+                    Style="{StaticResource brdLineBase}"
+                    Margin="0,10,0,0">
+                    <Border.Height>
+                        <MultiBinding Converter="{StaticResource SizeFromSizePercentageConventer}">
+                            <Binding
+                                ElementName="brdMainDecorativeLine3"
+                                Path="ActualHeight"
+                                UpdateSourceTrigger="PropertyChanged"/>
+                            <Binding Source="10"/>
+                        </MultiBinding>
+                    </Border.Height>
+                </Border>
+                <Border
+                    x:Name="ActiveSmallLineBorder3"
+                    MinHeight="{Binding ActualHeight, ElementName=SmallLineBorder1}"
+                    Style="{StaticResource brdLineActiveAlternative}"
+                    Margin="0,10,0,0"/>
+                <Border
+                    MinHeight="{Binding ActualHeight, ElementName=SmallLineBorder1}"
+                    Style="{StaticResource brdLineBase}"
+                    Margin="0,10,0,0"/>
+            </StackPanel>
+            
+            <Border
+                x:Name="brdMainDecorativeLine3"
+                Style="{StaticResource brdLineBase}"
+                Margin="0,10,5,20"
+                MinHeight="{Binding ActualHeight, ElementName=spRightSideLines}"/>
+        </StackPanel>-->
         <!--#endregion-->
 
         <!--#region Header-->
@@ -112,13 +302,10 @@
             Grid.Row="1"
             Grid.Column="3">
             <TextBlock
+                Style="{StaticResource txtblAccentTextBase}"
                 Text="no time data"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center">
-                <TextBlock.Foreground>
-                    <SolidColorBrush Color="{StaticResource AccentColor}"/>
-                </TextBlock.Foreground>
-            </TextBlock>
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center"/>
         </Viewbox>
         
         <!--#endregion-->
