@@ -53,6 +53,32 @@
         <Setter Property="Width" Value="3"/>
         <Setter Property="Height" Value="3"/>
         <Setter Property="Background" Value="{StaticResource LightersForLineGradient}"/>
+        <Style.Triggers>
+            <EventTrigger RoutedEvent="Loaded">
+                <BeginStoryboard Name="LightsEffectAnimation">
+                    <Storyboard
+                        RepeatBehavior="Forever"
+                        Duration="0:0:1"
+                        AutoReverse="True"
+                        AccelerationRatio="0.5"
+                        DecelerationRatio="0.5">
+
+                        <DoubleAnimation
+                            Storyboard.TargetProperty="(Border.Background).(LinearGradientBrush.GradientStops)[0].Offset"
+                            To="0.55"/>
+                        <DoubleAnimation
+                            Storyboard.TargetProperty="(Border.Background).(LinearGradientBrush.GradientStops)[1].Offset"
+                            To="0.56"/>
+                        <DoubleAnimation
+                            Storyboard.TargetProperty="(Border.Background).(LinearGradientBrush.GradientStops)[2].Offset"
+                            To="0.58"/>
+                        <DoubleAnimation
+                            Storyboard.TargetProperty="(Border.Background).(LinearGradientBrush.GradientStops)[3].Offset"
+                            To="0.59"/>
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger>
+        </Style.Triggers>
     </Style>
     <!--endregion-->
 
