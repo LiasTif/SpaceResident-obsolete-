@@ -78,6 +78,12 @@
                     </Storyboard>
                 </BeginStoryboard>
             </EventTrigger>
+
+            <EventTrigger RoutedEvent="Page.Unloaded">
+                <EventTrigger.Actions>
+                    <RemoveStoryboard BeginStoryboardName="LightsEffectAnimation" />
+                </EventTrigger.Actions>
+            </EventTrigger>
         </Style.Triggers>
     </Style>
     <!--endregion-->

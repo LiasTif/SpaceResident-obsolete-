@@ -37,6 +37,7 @@
         </Grid.ColumnDefinitions>
         
         <!--#region bg decorations-->
+        <!--bg pluses-->
         <Image
             Style="{StaticResource imgBgPluses}"
             Grid.ColumnSpan="5"
@@ -203,6 +204,7 @@
                 Style="{StaticResource brdLineBase}">
             </Border>
         </Grid>
+        <!--#endregion-->
 
         <!--#region Header-->
         <!--Header label-->
@@ -226,10 +228,26 @@
             Grid.Row="1"
             Grid.Column="3">
             <TextBlock
-                Style="{StaticResource txtblAccentTextBase}"
                 Text="no time data"
+                Style="{StaticResource txtblAccentTextBase}"
                 HorizontalAlignment="Left"
-                VerticalAlignment="Center"/>
+                VerticalAlignment="Center">
+                <TextBlock.Triggers>
+                    <EventTrigger RoutedEvent="Loaded">
+                        <BeginStoryboard>
+                            <Storyboard
+                                AutoReverse="True"
+                                RepeatBehavior="5x"
+                                AccelerationRatio="1.0">
+                                <DoubleAnimation
+                                    Duration="0:0:0.05"
+                                    To="0"
+                                    Storyboard.TargetProperty="Opacity"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                </TextBlock.Triggers>
+            </TextBlock>
         </Viewbox>
         
         <!--#endregion-->

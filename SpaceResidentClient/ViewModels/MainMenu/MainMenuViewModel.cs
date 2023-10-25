@@ -30,16 +30,17 @@ namespace SpaceResidentClient.ViewModels.MainMenu
         {
             ShutdownCommand = new RelayCommand(Shutdown);
 
-            MyTimerAsync();
+            ConsoleTimerAsync();
         }
 
         #region Animations
         // Console download animation timer
-        private async Task MyTimerAsync()
+        private async Task ConsoleTimerAsync()
         {
             // run async metod ConsoleTypewriteAsync in another thread
             await Task.Run(ConsoleTypewriteAsync);
 
+            // Decorative download animation in console
             Timer timer = new(100)
             {
                 AutoReset = true,
@@ -51,12 +52,14 @@ namespace SpaceResidentClient.ViewModels.MainMenu
         // Console typewrite animation thread
         private async Task ConsoleTypewriteAsync()
         {
-            string message = $"command: install AllOrganicDB -force\nisntalling: AllOrganicDB package1 |";
+            string consoleMessage = $"command: install AllOrganicDB -force\nisntalling: AllOrganicDB package1 |";
+            
 
             // typewrite the text in console
-            for (int i = 0; i < message.Length; i++)
+            for (int i = 0; i < consoleMessage.Length; i++)
             {
-                ConsoleText += message[i];
+                ConsoleText += consoleMessage[i];
+                
                 await Task.Delay(30);
             }
         }
