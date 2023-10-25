@@ -62,7 +62,131 @@
                 </EventTrigger>
             </Image.Triggers>
         </Image>
+        
+        <!--Decorative Circle-->
+        <Grid
+            Grid.Column="1"
+            Grid.Row="1"
+            Grid.RowSpan="2">
 
+            <Grid.Triggers>
+                <EventTrigger RoutedEvent="Loaded">
+                    <BeginStoryboard>
+                        <Storyboard
+                            AutoReverse="True"
+                            RepeatBehavior="5x"
+                            AccelerationRatio="1.0">
+                            <DoubleAnimation
+                                Duration="0:0:0.1"
+                                To="0"
+                                Storyboard.TargetProperty="Opacity"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Grid.Triggers>
+
+            <!--Big Circle-->
+            <Ellipse
+                x:Name="BigDecorativeCircle"
+                StrokeThickness="3"
+                Width="{Binding ActualHeight, ElementName=BigDecorativeCircle}">
+                <Ellipse.Stroke>
+                    <SolidColorBrush Opacity=".2" Color="{StaticResource PassiveColor}"/>
+                </Ellipse.Stroke>
+                <Ellipse.Fill>
+                    <SolidColorBrush Color="{StaticResource SecondBorderColor}"/>
+                </Ellipse.Fill>
+                <Ellipse.Height>
+                    <MultiBinding Converter="{StaticResource SizeFromSizePercentageConventer}">
+                        <Binding
+                            ElementName="MenuBorder"
+                            Path="ActualWidth"
+                            UpdateSourceTrigger="PropertyChanged"/>
+                        <Binding Source="60"/>
+                    </MultiBinding>
+                </Ellipse.Height>
+            </Ellipse>
+
+            <!--rotated ellipse slise-->
+            <Ellipse
+                RenderTransformOrigin="0.5,0.5"
+                x:Name="BigCircleWhiteSlise"
+                StrokeThickness="3"
+                Width="{Binding ActualHeight, ElementName=BigDecorativeCircle}"
+                Height="{Binding ActualHeight, ElementName=BigDecorativeCircle}">
+                <Ellipse.Stroke>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                        <GradientStop Offset="0.8"  Color="Transparent"/>
+                        <GradientStop Offset="0.8"  Color="{StaticResource ActiveWhiterColor}"/>
+                    </LinearGradientBrush>
+                </Ellipse.Stroke>
+
+                <Ellipse.RenderTransform>
+                    <RotateTransform x:Name="SliseRotateTransform" Angle="0"/>
+                </Ellipse.RenderTransform>
+                <Ellipse.Triggers>
+                    <EventTrigger RoutedEvent="Loaded">
+                        <BeginStoryboard>
+                            <Storyboard RepeatBehavior="Forever">
+                                <DoubleAnimation
+                                    Storyboard.TargetName="SliseRotateTransform"
+                                    Storyboard.TargetProperty="(RotateTransform.Angle)"
+                                    From="0.0"
+                                    To="360"
+                                    Duration="0:0:2"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                </Ellipse.Triggers>
+            </Ellipse>
+
+            <!--Small Circle-->
+            <Ellipse
+                x:Name="SmallDecorativeCircle"
+                StrokeThickness="5"
+                Width="{Binding ActualHeight, ElementName=SmallDecorativeCircle}">
+                <Ellipse.Stroke>
+                    <SolidColorBrush Opacity=".8" Color="{StaticResource PassiveColor}"/>
+                </Ellipse.Stroke>
+                <Ellipse.Fill>
+                    <SolidColorBrush Opacity=".02" Color="{StaticResource ActiveWhiterColor}"/>
+                </Ellipse.Fill>
+                <Ellipse.Height>
+                    <MultiBinding Converter="{StaticResource SizeFromSizePercentageConventer}">
+                        <Binding
+                            ElementName="BigDecorativeCircle"
+                            Path="ActualHeight"
+                            UpdateSourceTrigger="PropertyChanged"/>
+                        <Binding Source="50"/>
+                    </MultiBinding>
+                </Ellipse.Height>
+            </Ellipse>
+
+            <Rectangle
+                x:Name="RectangleInCircle"
+                Width="{Binding ActualHeight, ElementName=RectangleInCircle}">
+                <Rectangle.Height>
+                    <MultiBinding Converter="{StaticResource SizeFromSizePercentageConventer}">
+                        <Binding
+                            ElementName="SmallDecorativeCircle"
+                            Path="ActualHeight"
+                            UpdateSourceTrigger="PropertyChanged"/>
+                        <Binding Source="40"/>
+                    </MultiBinding>
+                </Rectangle.Height>
+                <Rectangle.Fill>
+                    <SolidColorBrush Color="{StaticResource AccentColor}"/>
+                </Rectangle.Fill>
+            </Rectangle>
+
+            <Viewbox
+                MaxWidth="{Binding ActualWidth, ElementName=RectangleInCircle}"
+                MaxHeight="{Binding ActualHeight, ElementName=RectangleInCircle}">
+                <Image
+                    Margin="60"
+                    Source="/Data/UI/plus.png"/>
+            </Viewbox>
+        </Grid>
         <!--Decorative Console-->
         <Border
             x:Name="brdConsole"
