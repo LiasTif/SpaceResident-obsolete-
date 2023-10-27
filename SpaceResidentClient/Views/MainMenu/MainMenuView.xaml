@@ -65,6 +65,7 @@
         
         <!--Decorative Circle-->
         <Grid
+            Margin="0,0,0,50"
             Grid.Column="1"
             Grid.Row="1"
             Grid.RowSpan="2">
@@ -102,7 +103,7 @@
                             ElementName="MenuBorder"
                             Path="ActualWidth"
                             UpdateSourceTrigger="PropertyChanged"/>
-                        <Binding Source="60"/>
+                        <Binding Source="50"/>
                     </MultiBinding>
                 </Ellipse.Height>
             </Ellipse>
@@ -116,8 +117,8 @@
                 Height="{Binding ActualHeight, ElementName=BigDecorativeCircle}">
                 <Ellipse.Stroke>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
-                        <GradientStop Offset="0.8"  Color="Transparent"/>
-                        <GradientStop Offset="0.8"  Color="{StaticResource ActiveWhiterColor}"/>
+                        <GradientStop Offset="0.8" Color="Transparent"/>
+                        <GradientStop Offset="0.8" Color="{StaticResource ActiveWhiterColor}"/>
                     </LinearGradientBrush>
                 </Ellipse.Stroke>
 
@@ -143,7 +144,7 @@
             <!--Small Circle-->
             <Ellipse
                 x:Name="SmallDecorativeCircle"
-                StrokeThickness="5"
+                StrokeThickness="2"
                 Width="{Binding ActualHeight, ElementName=SmallDecorativeCircle}">
                 <Ellipse.Stroke>
                     <SolidColorBrush Opacity=".8" Color="{StaticResource PassiveColor}"/>
@@ -161,7 +162,16 @@
                     </MultiBinding>
                 </Ellipse.Height>
             </Ellipse>
+            
+            <!--Lines from the middle of rectangle to textblocks-->
+            <Canvas HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Border Style="{StaticResource brdRotatedLine1AtEllipse}"/>
+                <Border Style="{StaticResource brdRotatedLine2AtEllipse}"/>
+                <Border Style="{StaticResource brdRotatedAccentLine3AtEllipse}"/>
+            </Canvas>
+            
 
+            <!--Rectangle at the middle of the circles-->
             <Rectangle
                 x:Name="RectangleInCircle"
                 Width="{Binding ActualHeight, ElementName=RectangleInCircle}">
@@ -183,7 +193,7 @@
                 MaxWidth="{Binding ActualWidth, ElementName=RectangleInCircle}"
                 MaxHeight="{Binding ActualHeight, ElementName=RectangleInCircle}">
                 <Image
-                    Margin="60"
+                    Margin="100"
                     Source="/Data/UI/plus.png"/>
             </Viewbox>
         </Grid>
