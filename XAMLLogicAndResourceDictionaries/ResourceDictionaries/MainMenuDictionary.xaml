@@ -6,7 +6,7 @@
         <ResourceDictionary Source="/ResourceDictionaries/Colors.xaml"/>
         <ResourceDictionary Source="/ResourceDictionaries/BaseElementsDictionary.xaml"/>
     </ResourceDictionary.MergedDictionaries>
-    <c:SizeFromSizePercentageConventer x:Key="SizeFromSizePercentageConventer"/>
+    <c:SizeFromSizePercentageConverter x:Key="SizeFromSizePercentageConverter"/>
     
     <!--pluses on bg-->
     <Style TargetType="{x:Type Image}" x:Key="imgBgPluses">
@@ -34,18 +34,18 @@
         <Setter Property="Height" Value="1"/>
         <Setter Property="RenderTransform">
             <Setter.Value>
-                <RotateTransform x:Name="brdLineRotateTransform" Angle="180"/>
+                <RotateTransform Angle="180"/>
             </Setter.Value>
         </Setter>
 
         <Setter Property="Width">
             <Setter.Value>
-                <MultiBinding Converter="{StaticResource SizeFromSizePercentageConventer}">
+                <MultiBinding Converter="{StaticResource SizeFromSizePercentageConverter}">
                     <Binding
                         ElementName="BigDecorativeCircle"
                         Path="ActualHeight"
                         UpdateSourceTrigger="PropertyChanged"/>
-                    <Binding Source="65"/>
+                    <Binding Source="75"/>
                 </MultiBinding>
             </Setter.Value>
         </Setter>
@@ -73,46 +73,7 @@
 
         <Setter Property="Width">
             <Setter.Value>
-                <MultiBinding Converter="{StaticResource SizeFromSizePercentageConventer}">
-                    <Binding
-                        ElementName="BigDecorativeCircle"
-                        Path="ActualHeight"
-                        UpdateSourceTrigger="PropertyChanged"/>
-                    <Binding Source="80"/>
-                </MultiBinding>
-            </Setter.Value>
-        </Setter>
-
-
-        <Style.Triggers>
-            <EventTrigger RoutedEvent="Loaded">
-                <BeginStoryboard>
-                    <Storyboard>
-                        <DoubleAnimation
-                            Storyboard.TargetProperty="(Border.RenderTransform).(RotateTransform.Angle)"
-                            To="145"
-                            Duration="0:0:2"
-                            DecelerationRatio="0.5"
-                            AccelerationRatio="0.5"/>
-                    </Storyboard>
-                </BeginStoryboard>
-            </EventTrigger>
-        </Style.Triggers>
-    </Style>
-
-    <Style
-    TargetType="{x:Type Border}"
-    BasedOn="{StaticResource brdRotatedLine1AtEllipse}"
-    x:Key="brdRotatedAccentLine3AtEllipse">
-        <Setter Property="Background">
-            <Setter.Value>
-                <SolidColorBrush Color="{StaticResource AccentColor}"/>
-            </Setter.Value>
-        </Setter>
-
-        <Setter Property="Width">
-            <Setter.Value>
-                <MultiBinding Converter="{StaticResource SizeFromSizePercentageConventer}">
+                <MultiBinding Converter="{StaticResource SizeFromSizePercentageConverter}">
                     <Binding
                         ElementName="BigDecorativeCircle"
                         Path="ActualHeight"
@@ -122,14 +83,13 @@
             </Setter.Value>
         </Setter>
 
-
         <Style.Triggers>
             <EventTrigger RoutedEvent="Loaded">
                 <BeginStoryboard>
                     <Storyboard>
                         <DoubleAnimation
                             Storyboard.TargetProperty="(Border.RenderTransform).(RotateTransform.Angle)"
-                            To="60"
+                            To="160"
                             Duration="0:0:2"
                             DecelerationRatio="0.5"
                             AccelerationRatio="0.5"/>
@@ -138,65 +98,31 @@
             </EventTrigger>
         </Style.Triggers>
     </Style>
-    <!--#endregion-->
-    
-    <!--#region TextBlocks-->
-    <Style TargetType="{x:Type TextBlock}" x:Key="txtblDecorativeCircleWhite">
+
+    <Style
+        TargetType="{x:Type Border}"
+        BasedOn="{StaticResource brdRotatedLine1AtEllipse}"
+        x:Key="brdRotatedAccentLine3AtEllipse">
         <Setter Property="Background">
             <Setter.Value>
-                <LinearGradientBrush>
-                    <GradientStop Color="{StaticResource ActiveWhiterColor}" Offset="0"/>
-                    <GradientStop Color="Transparent" Offset="0"/>
-                </LinearGradientBrush>
-            </Setter.Value>
-        </Setter>
-        <Setter Property="Foreground">
-            <Setter.Value>
-                <LinearGradientBrush>
-                    <GradientStop Color="{StaticResource PassiveDarkerColor}" Offset="0"/>
-                    <GradientStop Color="Transparent" Offset="0"/>
-                </LinearGradientBrush>
+                <SolidColorBrush Color="{StaticResource AccentColor}"/>
             </Setter.Value>
         </Setter>
 
         <Style.Triggers>
             <EventTrigger RoutedEvent="Loaded">
                 <BeginStoryboard>
-                    <Storyboard BeginTime="0:0:2" Duration="0:0:1">
+                    <Storyboard>
                         <DoubleAnimation
-                            Storyboard.TargetProperty="(TextBlock.Background).(LinearGradientBrush.GradientStops)[0].Offset"
-                            To="1"/>
-                        <DoubleAnimation
-                            Storyboard.TargetProperty="(TextBlock.Background).(LinearGradientBrush.GradientStops)[1].Offset"
-                            To="1"/>
-                        <DoubleAnimation
-                            Storyboard.TargetProperty="(TextBlock.Foreground).(LinearGradientBrush.GradientStops)[0].Offset"
-                            To="1"/>
-                        <DoubleAnimation
-                            Storyboard.TargetProperty="(TextBlock.Foreground).(LinearGradientBrush.GradientStops)[1].Offset"
-                            To="1"/>
+                            Storyboard.TargetProperty="(Border.RenderTransform).(RotateTransform.Angle)"
+                            To="65"
+                            Duration="0:0:2"
+                            DecelerationRatio="0.5"
+                            AccelerationRatio="0.5"/>
                     </Storyboard>
                 </BeginStoryboard>
             </EventTrigger>
         </Style.Triggers>
-    </Style>
-
-    <Style
-        TargetType="{x:Type TextBlock}"
-        BasedOn="{StaticResource txtblDecorativeCircleWhite}"
-        x:Key="txtblDecorativeCircleAccent">
-        <Setter Property="Background">
-            <Setter.Value>
-                <LinearGradientBrush>
-                    <GradientStop
-                        Color="{StaticResource AccentColor}"
-                        Offset="0"/>
-                    <GradientStop
-                        Color="Transparent"
-                        Offset="0"/>
-                </LinearGradientBrush>
-            </Setter.Value>
-        </Setter>
     </Style>
     <!--#endregion-->
 </ResourceDictionary>

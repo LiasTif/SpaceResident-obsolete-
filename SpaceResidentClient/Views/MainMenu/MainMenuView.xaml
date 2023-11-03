@@ -17,6 +17,7 @@
                     Source="/ResourceDictionaries/MainMenuDictionary.xaml"/>
             </ResourceDictionary.MergedDictionaries>
             <c:SizeFromSizePercentageConventer x:Key="SizeFromSizePercentageConventer"/>
+            <c:TextBlocksNearTheEllipsePositionConverter x:Key="TextBlocksNearTheEllipsePositionConverter"/>
         </ResourceDictionary>
     </UserControl.Resources>
 
@@ -71,6 +72,7 @@
             Grid.RowSpan="2">
 
             <Grid.Triggers>
+                <!--Loading glitch animation-->
                 <EventTrigger RoutedEvent="Loaded">
                     <BeginStoryboard>
                         <Storyboard
@@ -101,8 +103,7 @@
                     <MultiBinding Converter="{StaticResource SizeFromSizePercentageConventer}">
                         <Binding
                             ElementName="MenuBorder"
-                            Path="ActualWidth"
-                            UpdateSourceTrigger="PropertyChanged"/>
+                            Path="ActualWidth"/>
                         <Binding Source="50"/>
                     </MultiBinding>
                 </Ellipse.Height>
@@ -111,7 +112,6 @@
             <!--rotated ellipse slise-->
             <Ellipse
                 RenderTransformOrigin="0.5,0.5"
-                x:Name="BigCircleWhiteSlise"
                 StrokeThickness="3"
                 Width="{Binding ActualHeight, ElementName=BigDecorativeCircle}"
                 Height="{Binding ActualHeight, ElementName=BigDecorativeCircle}">
@@ -156,8 +156,7 @@
                     <MultiBinding Converter="{StaticResource SizeFromSizePercentageConventer}">
                         <Binding
                             ElementName="BigDecorativeCircle"
-                            Path="ActualHeight"
-                            UpdateSourceTrigger="PropertyChanged"/>
+                            Path="ActualHeight"/>
                         <Binding Source="50"/>
                     </MultiBinding>
                 </Ellipse.Height>
@@ -165,9 +164,97 @@
             
             <!--Lines from the middle of rectangle to textblocks-->
             <Canvas HorizontalAlignment="Center" VerticalAlignment="Center">
-                <Border Style="{StaticResource brdRotatedLine1AtEllipse}"/>
-                <Border Style="{StaticResource brdRotatedLine2AtEllipse}"/>
-                <Border Style="{StaticResource brdRotatedAccentLine3AtEllipse}"/>
+                <Border
+                    x:Name="CircleAnmatedLine1"
+                    Style="{StaticResource brdRotatedLine1AtEllipse}"/>
+
+                <Viewbox>
+                    <Viewbox.Height>
+                        <MultiBinding Converter="{StaticResource SizeFromSizePercentageConventer}">
+                            <Binding 
+                                ElementName="SmallDecorativeCircle"
+                                Path="ActualHeight"/>
+                            <Binding Source="30"/>
+                        </MultiBinding>
+                    </Viewbox.Height>
+
+                    <Viewbox.RenderTransform>
+                        <TranslateTransform
+                            X="{Binding ActualWidth,
+                                        ElementName=CircleAnmatedLine1,
+                                        Converter={StaticResource TextBlocksNearTheEllipsePositionConverter},
+                                        ConverterParameter=1X}"
+                            Y="{Binding ActualWidth,
+                                        ElementName=CircleAnmatedLine1,
+                                        Converter={StaticResource TextBlocksNearTheEllipsePositionConverter},
+                                        ConverterParameter=1Y}"/>
+                    </Viewbox.RenderTransform>
+
+                    <TextBlock
+                        Style="{StaticResource txtblDecorativeCircleWhite}"
+                        Text="Location"/>
+                </Viewbox>
+
+                <Border
+                    x:Name="CircleAnmatedLine2"
+                    Style="{StaticResource brdRotatedLine2AtEllipse}"/>
+
+                <Viewbox>
+                    <Viewbox.Height>
+                        <MultiBinding Converter="{StaticResource SizeFromSizePercentageConventer}">
+                            <Binding 
+                                ElementName="SmallDecorativeCircle"
+                                Path="ActualHeight"/>
+                            <Binding Source="30"/>
+                        </MultiBinding>
+                    </Viewbox.Height>
+
+                    <Viewbox.RenderTransform>
+                        <TranslateTransform
+                            X="{Binding ActualWidth,
+                                        ElementName=CircleAnmatedLine2,
+                                        Converter={StaticResource TextBlocksNearTheEllipsePositionConverter},
+                                        ConverterParameter=2X}"
+                            Y="{Binding ActualWidth,
+                                        ElementName=CircleAnmatedLine2,
+                                        Converter={StaticResource TextBlocksNearTheEllipsePositionConverter},
+                                        ConverterParameter=2Y}"/>
+                    </Viewbox.RenderTransform>
+
+                    <TextBlock
+                        Style="{StaticResource txtblDecorativeCircleWhite}"
+                        Text="Bio"/>
+                </Viewbox>
+
+                <Border
+                    x:Name="CircleAnmatedLine3"
+                    Style="{StaticResource brdRotatedAccentLine3AtEllipse}"/>
+
+                <Viewbox>
+                    <Viewbox.Height>
+                        <MultiBinding Converter="{StaticResource SizeFromSizePercentageConventer}">
+                            <Binding 
+                                ElementName="SmallDecorativeCircle"
+                                Path="ActualHeight"/>
+                            <Binding Source="30"/>
+                        </MultiBinding>
+                    </Viewbox.Height>
+
+                    <Viewbox.RenderTransform>
+                        <TranslateTransform
+                            X="{Binding ActualWidth,
+                                        ElementName=CircleAnmatedLine3,
+                                        Converter={StaticResource TextBlocksNearTheEllipsePositionConverter},
+                                        ConverterParameter=3X}"
+                            Y="{Binding ActualWidth,
+                                        ElementName=CircleAnmatedLine3,
+                                        Converter={StaticResource TextBlocksNearTheEllipsePositionConverter},
+                                        ConverterParameter=3Y}"/>
+                    </Viewbox.RenderTransform>
+                    <TextBlock
+                        Style="{StaticResource txtblDecorativeCircleAccent}"
+                        Text="Entering"/>
+                </Viewbox>
             </Canvas>
             
 
@@ -179,8 +266,7 @@
                     <MultiBinding Converter="{StaticResource SizeFromSizePercentageConventer}">
                         <Binding
                             ElementName="SmallDecorativeCircle"
-                            Path="ActualHeight"
-                            UpdateSourceTrigger="PropertyChanged"/>
+                            Path="ActualHeight"/>
                         <Binding Source="40"/>
                     </MultiBinding>
                 </Rectangle.Height>
@@ -208,8 +294,7 @@
                 <MultiBinding Converter="{StaticResource SizeFromSizePercentageConventer}">
                     <Binding
                         ElementName="MenuBorder"
-                        Path="ActualHeight"
-                        UpdateSourceTrigger="PropertyChanged"/>
+                        Path="ActualHeight"/>
                     <Binding Source="60"/>
                 </MultiBinding>
             </Border.Height>
@@ -219,8 +304,7 @@
                 HorizontalAlignment="Left"
                 TextWrapping="Wrap"
                 Text="{Binding ConsoleText,
-                               Mode=TwoWay,
-                               UpdateSourceTrigger=PropertyChanged}"
+                               Mode=TwoWay}"
                 Style="{StaticResource txtblWhiteTextBase}">
             </TextBlock>
         </Border>
@@ -254,8 +338,7 @@
                 <MultiBinding Converter="{StaticResource SizeFromSizePercentageConventer}">
                     <Binding
                         ElementName="brdConsole"
-                        Path="ActualWidth"
-                        UpdateSourceTrigger="PropertyChanged"/>
+                        Path="ActualWidth"/>
                     <Binding Source="10"/>
                 </MultiBinding>
             </Grid.MinWidth>
@@ -446,8 +529,7 @@
                     <MultiBinding Converter="{StaticResource SizeFromSizePercentageConventer}">
                         <Binding
                             ElementName="MenuBorder"
-                            Path="ActualWidth"
-                            UpdateSourceTrigger="PropertyChanged"/>
+                            Path="ActualWidth"/>
                         <Binding Source="75"/>
                     </MultiBinding>
                 </Border.Width>

@@ -1,0 +1,210 @@
+﻿<UserControl x:Class="SpaceResidentDecorativeElements.CircleWithAnimatedLines"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d" d:DesignHeight="500" d:DesignWidth="500">
+    <Grid Background="#fff"/>
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary
+                    Source="/XAMLLogicAndResourceDictionaries;component/ResourceDictionaries/Brushes.xaml"/>
+                <ResourceDictionary
+                    Source="/XAMLLogicAndResourceDictionaries;component/ResourceDictionaries/Colors.xaml"/>
+                <ResourceDictionary
+                    Source="/XAMLLogicAndResourceDictionaries;component/ResourceDictionaries/MainMenuDictionary.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    
+    <!--<Grid
+        Margin="0,0,0,50"
+        Grid.Column="1"
+        Grid.Row="1"
+        Grid.RowSpan="2">
+
+        <Grid.Triggers>
+            <EventTrigger RoutedEvent="Loaded">
+                <BeginStoryboard>
+                    <Storyboard
+                        AutoReverse="True"
+                        RepeatBehavior="5x"
+                        AccelerationRatio="1.0">
+                        <DoubleAnimation
+                            Duration="0:0:0.1"
+                            To="0"
+                            Storyboard.TargetProperty="Opacity"/>
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger>
+        </Grid.Triggers>
+
+        Big Circle
+        <Ellipse
+                x:Name="BigDecorativeCircle"
+                StrokeThickness="3"
+                Height="200"
+                Width="{Binding ActualHeight, ElementName=BigDecorativeCircle}">
+            <Ellipse.Stroke>
+                <SolidColorBrush Opacity=".2" Color="{StaticResource PassiveColor}"/>
+            </Ellipse.Stroke>
+            <Ellipse.Fill>
+                <SolidColorBrush Color="{StaticResource SecondBorderColor}"/>
+            </Ellipse.Fill>
+            <Ellipse.Height>
+                <MultiBinding Converter="{StaticResource SizeFromSizePercentageConverter}">
+                    <Binding
+                        ElementName="MenuBorder"
+                        Path="ActualWidth"
+                        UpdateSourceTrigger="PropertyChanged"/>
+                    <Binding Source="50"/>
+                </MultiBinding>
+            </Ellipse.Height>
+        </Ellipse>
+
+        rotated ellipse slise
+        <Ellipse
+            RenderTransformOrigin="0.5,0.5"
+            x:Name="BigCircleWhiteSlise"
+            StrokeThickness="3"
+            Width="{Binding ActualHeight, ElementName=BigDecorativeCircle}"
+            Height="{Binding ActualHeight, ElementName=BigDecorativeCircle}">
+            <Ellipse.Stroke>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                    <GradientStop Offset="0.8" Color="Transparent"/>
+                    <GradientStop Offset="0.8" Color="{StaticResource ActiveWhiterColor}"/>
+                </LinearGradientBrush>
+            </Ellipse.Stroke>
+
+            <Ellipse.RenderTransform>
+                <RotateTransform x:Name="SliseRotateTransform" Angle="0"/>
+            </Ellipse.RenderTransform>
+            <Ellipse.Triggers>
+                <EventTrigger RoutedEvent="Loaded">
+                    <BeginStoryboard>
+                        <Storyboard RepeatBehavior="Forever">
+                            <DoubleAnimation
+                                Storyboard.TargetName="SliseRotateTransform"
+                                Storyboard.TargetProperty="(RotateTransform.Angle)"
+                                From="0.0"
+                                To="360"
+                                Duration="0:0:2"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Ellipse.Triggers>
+        </Ellipse>
+
+        Small Circle
+        <Ellipse
+            x:Name="SmallDecorativeCircle"
+            StrokeThickness="2"
+            Width="{Binding ActualHeight, ElementName=SmallDecorativeCircle}">
+            <Ellipse.Stroke>
+                <SolidColorBrush Opacity=".8" Color="{StaticResource PassiveColor}"/>
+            </Ellipse.Stroke>
+            <Ellipse.Fill>
+                <SolidColorBrush Opacity=".02" Color="{StaticResource ActiveWhiterColor}"/>
+            </Ellipse.Fill>
+            <Ellipse.Height>
+                <MultiBinding Converter="{StaticResource SizeFromSizePercentageConverter}">
+                    <Binding
+                        ElementName="BigDecorativeCircle"
+                        Path="ActualHeight"
+                        UpdateSourceTrigger="PropertyChanged"/>
+                    <Binding Source="50"/>
+                </MultiBinding>
+            </Ellipse.Height>
+        </Ellipse>
+
+        Lines from the middle of rectangle to textblocks
+        <Canvas HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Border
+                x:Name="brdRotatedLine1"
+                Style="{StaticResource brdRotatedLine1AtEllipse}"/>
+            <TextBlock Text="Loaction">
+                <TextBlock.Background>
+                    <SolidColorBrush Color="{StaticResource ActiveWhiterColor}"/>
+                </TextBlock.Background>
+                <TextBlock.RenderTransform>
+                    <TranslateTransform
+                        Y="{Binding ActualWidth,
+                                    Converter={StaticResource TextBlocksNearTheEllipsePositionConverter},
+                                    ConverterParameter=1Y,
+                                    ElementName=brdRotatedLine1}"
+                        X="{Binding ActualWidth,
+                                    Converter={StaticResource TextBlocksNearTheEllipsePositionConverter},
+                                    ConverterParameter=1X,
+                                    ElementName=brdRotatedLine1}"/>
+                </TextBlock.RenderTransform>
+            </TextBlock>
+
+            <Border
+                x:Name="brdRotatedLine2"
+                Style="{StaticResource brdRotatedLine2AtEllipse}"/>
+            <TextBlock Text="Bio">
+                <TextBlock.Background>
+                    <SolidColorBrush Color="{StaticResource ActiveWhiterColor}"/>
+                </TextBlock.Background>
+                <TextBlock.RenderTransform>
+                    <TranslateTransform
+                        Y="{Binding ActualWidth,
+                                    Converter={StaticResource TextBlocksNearTheEllipsePositionConverter},
+                                    ConverterParameter=2Y,
+                                    ElementName=brdRotatedLine2}"
+                        X="{Binding ActualWidth,
+                                    Converter={StaticResource TextBlocksNearTheEllipsePositionConverter},
+                                    ConverterParameter=2X,
+                                    ElementName=brdRotatedLine2}"/>
+                </TextBlock.RenderTransform>
+            </TextBlock>
+
+            <Border
+                x:Name="brdRotatedLine3"
+                Style="{StaticResource brdRotatedAccentLine3AtEllipse}"/>
+            <TextBlock Text="Entering">
+                <TextBlock.Background>
+                    <SolidColorBrush Color="{StaticResource AccentColor}"/>
+                </TextBlock.Background>
+                <TextBlock.RenderTransform>
+                    <TranslateTransform
+                        Y="{Binding ActualWidth,
+                                    Converter={StaticResource TextBlocksNearTheEllipsePositionConverter},
+                                    ConverterParameter=3Y,
+                                    ElementName=brdRotatedLine3}"
+                        X="{Binding ActualWidth,
+                                    Converter={StaticResource TextBlocksNearTheEllipsePositionConverter},
+                                    ConverterParameter=3X,
+                                    ElementName=brdRotatedLine3}"/>
+                </TextBlock.RenderTransform>
+            </TextBlock>
+        </Canvas>
+
+        Rectangle at the middle of the circles
+        <Rectangle
+            x:Name="RectangleInCircle"
+            Width="{Binding ActualHeight, ElementName=RectangleInCircle}">
+            <Rectangle.Height>
+                <MultiBinding Converter="{StaticResource SizeFromSizePercentageConverter}">
+                    <Binding
+                        ElementName="SmallDecorativeCircle"
+                        Path="ActualHeight"
+                        UpdateSourceTrigger="PropertyChanged"/>
+                    <Binding Source="40"/>
+                </MultiBinding>
+            </Rectangle.Height>
+            <Rectangle.Fill>
+                <SolidColorBrush Color="{StaticResource AccentColor}"/>
+            </Rectangle.Fill>
+        </Rectangle>
+
+        <Viewbox
+            MaxWidth="{Binding ActualWidth, ElementName=RectangleInCircle}"
+            MaxHeight="{Binding ActualHeight, ElementName=RectangleInCircle}">
+            <Image
+                Margin="100"
+                Source="/SpaceResidentClient;component/Data/UI/plus.png"/>
+        </Viewbox>
+    </Grid>-->
+</UserControl>

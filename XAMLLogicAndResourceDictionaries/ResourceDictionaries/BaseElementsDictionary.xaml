@@ -1,0 +1,329 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="Colors.xaml"/>
+        <ResourceDictionary Source="Brushes.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+
+    <!--region Windows-->
+    <Style TargetType="{x:Type Window}" x:Key="winBase">
+        <Setter Property="FontFamily" Value="Source Code Pro"/>
+    </Style>
+    <!--endregion-->
+    
+    <!--region Borders-->
+    <Style TargetType="{x:Type Border}" x:Key="brdMainElementBase">
+        <Setter Property="Background">
+            <Setter.Value>
+                <SolidColorBrush Opacity="25" Color="{StaticResource MainBorderColor}"/>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="{x:Type Border}" x:Key="brdSecondElementBase">
+        <Setter Property="Background">
+            <Setter.Value>
+                <SolidColorBrush Opacity="10" Color="{StaticResource SecondBorderColor}"/>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="{x:Type Border}" x:Key="brdLineBase">
+        <Setter Property="Width" Value="3"/>
+        <Setter Property="Height" Value="3"/>
+        <Setter Property="Background">
+            <Setter.Value>
+                <SolidColorBrush Color="{StaticResource PassiveColor}"/>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="{x:Type Border}" x:Key="brdLineActiveAlternative">
+        <Setter Property="Width" Value="3"/>
+        <Setter Property="Height" Value="3"/>
+        <Setter Property="Background">
+            <Setter.Value>
+                <SolidColorBrush Color="{StaticResource ActiveColor}"/>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="{x:Type Border}" x:Key="brdLineLightsEffectBase">
+        <Setter Property="Width" Value="3"/>
+        <Setter Property="Height" Value="3"/>
+        <Setter Property="Background" Value="{StaticResource LightersForLineGradient}"/>
+        <Style.Triggers>
+            <EventTrigger RoutedEvent="Loaded">
+                <BeginStoryboard Name="LightsEffectAnimation">
+                    <Storyboard
+                        RepeatBehavior="Forever"
+                        Duration="0:0:1"
+                        AutoReverse="True"
+                        AccelerationRatio="0.5"
+                        DecelerationRatio="0.5">
+
+                        <DoubleAnimation
+                            Storyboard.TargetProperty="(Border.Background).(LinearGradientBrush.GradientStops)[0].Offset"
+                            To="0.55"/>
+                        <DoubleAnimation
+                            Storyboard.TargetProperty="(Border.Background).(LinearGradientBrush.GradientStops)[1].Offset"
+                            To="0.56"/>
+                        <DoubleAnimation
+                            Storyboard.TargetProperty="(Border.Background).(LinearGradientBrush.GradientStops)[2].Offset"
+                            To="0.58"/>
+                        <DoubleAnimation
+                            Storyboard.TargetProperty="(Border.Background).(LinearGradientBrush.GradientStops)[3].Offset"
+                            To="0.59"/>
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger>
+
+            <EventTrigger RoutedEvent="Page.Unloaded">
+                <EventTrigger.Actions>
+                    <RemoveStoryboard BeginStoryboardName="LightsEffectAnimation" />
+                </EventTrigger.Actions>
+            </EventTrigger>
+        </Style.Triggers>
+    </Style>
+    <!--endregion-->
+
+    <!--region Buttons-->
+    <Style TargetType="{x:Type Button}" x:Key="btnBase">
+        <Setter Property="Margin" Value="5"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border
+                        x:Name="btnBorder"
+                        BorderThickness="4"
+                        Background="Transparent">
+                        <Border.BorderBrush>
+                            <SolidColorBrush Color="{StaticResource PassiveColor}"/>
+                        </Border.BorderBrush>
+
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="3*"/>
+                                <ColumnDefinition Width="2*"/>
+                                <ColumnDefinition Width="0.4*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Viewbox
+                                x:Name="txtblContentViewBox"
+                                HorizontalAlignment="Left"
+                                Margin="10,0,0,0">
+                                <TextBlock
+                                    x:Name="txtblContent"
+                                    Text="{TemplateBinding Content}">
+                                    <TextBlock.Foreground>
+                                        <SolidColorBrush Color="{StaticResource PassiveColor}"/>
+                                    </TextBlock.Foreground>
+                                </TextBlock>
+                            </Viewbox>
+
+                            <Viewbox
+                                x:Name="txtblSideContentViewBox"
+                                Grid.Column="2"
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Bottom">
+                                <TextBlock
+                                    x:Name="txtblSideContent"
+                                    Text="TRIASSIC">
+                                    <TextBlock.Foreground>
+                                        <SolidColorBrush Color="{StaticResource PassiveColor}"/>
+                                    </TextBlock.Foreground>
+                                </TextBlock>
+                            </Viewbox>
+                        </Grid>
+                    </Border>
+
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="btnBorder" Property="Background">
+                                <Setter.Value>
+                                    <SolidColorBrush Color="{StaticResource ActiveColor}"/>
+                                </Setter.Value>
+                            </Setter>
+                            <Setter TargetName="txtblContent" Property="Foreground">
+                                <Setter.Value>
+                                    <SolidColorBrush Color="{StaticResource ActiveWhiterColor}"/>
+                                </Setter.Value>
+                            </Setter>
+                            <Setter TargetName="txtblSideContent" Property="Foreground">
+                                <Setter.Value>
+                                    <SolidColorBrush Color="{StaticResource ActiveWhiterColor}"/>
+                                </Setter.Value>
+                            </Setter>
+
+                            <Setter
+                                TargetName="txtblSideContentViewBox"
+                                Property="Margin"
+                                Value="0,0,4,4"/>
+                            <Setter
+                                TargetName="btnBorder"
+                                Property="BorderThickness"
+                                Value="0"/>
+                            <Setter
+                                TargetName="txtblContentViewBox"
+                                Property="Margin"
+                                Value="14,4,4,4"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style
+        TargetType="{x:Type Button}"
+        x:Key="btnCancelBase"
+        BasedOn="{StaticResource btnBase}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border
+                        x:Name="btnBorder"
+                        BorderThickness="4"
+                        Background="{DynamicResource CancelGradient}">
+
+                        <Border.BorderBrush>
+                            <SolidColorBrush Color="{StaticResource AccentColor}"/>
+                        </Border.BorderBrush>
+
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="3*"/>
+                                <ColumnDefinition Width="2*"/>
+                                <ColumnDefinition Width="0.4*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Viewbox
+                                x:Name="txtblContentViewBox"
+                                HorizontalAlignment="Left"
+                                Margin="10,0,0,0">
+                                <TextBlock
+                                    x:Name="txtblContent"
+                                    Text="{TemplateBinding Content}">
+                                    <TextBlock.Foreground>
+                                        <SolidColorBrush Color="{StaticResource AccentColor}"/>
+                                    </TextBlock.Foreground>
+                                </TextBlock>
+                            </Viewbox>
+
+                            <Viewbox
+                                x:Name="txtblSideContentViewBox"
+                                Grid.Column="2"
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Bottom">
+                                <TextBlock
+                                    x:Name="txtblSideContent"
+                                    Text="INTHEEND">
+                                    <TextBlock.Foreground>
+                                        <SolidColorBrush Color="{StaticResource AccentColor}"/>
+                                    </TextBlock.Foreground>
+                                </TextBlock>
+                            </Viewbox>
+                        </Grid>
+
+                    </Border>
+
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="btnBorder" Property="Background">
+                                <Setter.Value>
+                                    <SolidColorBrush Color="{StaticResource AccentColor}"/>
+                                </Setter.Value>
+                            </Setter>
+                            <Setter TargetName="txtblContent" Property="Foreground">
+                                <Setter.Value>
+                                    <SolidColorBrush Color="{StaticResource ActiveWhiterColor}"/>
+                                </Setter.Value>
+                            </Setter>
+                            <Setter TargetName="txtblSideContent" Property="Foreground">
+                                <Setter.Value>
+                                    <SolidColorBrush Color="{StaticResource ActiveWhiterColor}"/>
+                                </Setter.Value>
+                            </Setter>
+
+                            <Setter
+                                TargetName="txtblSideContentViewBox"
+                                Property="Margin"
+                                Value="0,0,4,4"/>
+                            <Setter
+                                TargetName="btnBorder"
+                                Property="BorderThickness"
+                                Value="0"/>
+                            <Setter
+                                TargetName="txtblContentViewBox"
+                                Property="Margin"
+                                Value="14,4,4,4"/>
+                        </Trigger>
+
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsEnabled" Value="True"/>
+                                <Condition Property="IsMouseOver" Value="False"/>
+                            </MultiTrigger.Conditions>
+                            <MultiTrigger.EnterActions>
+                                <BeginStoryboard Name="CanselButBeginStoryboard">
+                                    <Storyboard
+                                        RepeatBehavior="Forever"
+                                        Duration="0:0:1"
+                                        TargetName="btnBorder">
+                                        <DoubleAnimation
+                                            Storyboard.TargetProperty="(Border.Background).(LinearGradientBrush.GradientStops)[0].Offset"
+                                            To="0.65"/>
+                                        <DoubleAnimation
+                                            Storyboard.TargetProperty="(Border.Background).(LinearGradientBrush.GradientStops)[1].Offset"
+                                            To="0.66"/>
+                                        <DoubleAnimation
+                                            Storyboard.TargetProperty="(Border.Background).(LinearGradientBrush.GradientStops)[2].Offset"
+                                            To="0.99"/>
+                                        <DoubleAnimation
+                                            Storyboard.TargetProperty="(Border.Background).(LinearGradientBrush.GradientStops)[3].Offset"
+                                            To="1.0"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </MultiTrigger.EnterActions>
+                            
+                        </MultiTrigger>
+
+                        <EventTrigger RoutedEvent="Page.Unloaded">
+                            <EventTrigger.Actions>
+                                <RemoveStoryboard BeginStoryboardName="CanselButBeginStoryboard" />
+                            </EventTrigger.Actions>
+                        </EventTrigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <!--endregion-->
+    
+    <!--#region TextBlocks-->
+    <Style TargetType="{x:Type TextBlock}" x:Key="txtblDecorativeBase">
+        <Setter Property="Foreground">
+            <Setter.Value>
+                <SolidColorBrush Color="{StaticResource PassiveColor}"/>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="{x:Type TextBlock}" x:Key="txtblWhiteTextBase">
+        <Setter Property="Foreground">
+            <Setter.Value>
+                <SolidColorBrush Color="{StaticResource ActiveWhiterColor}"/>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="{x:Type TextBlock}" x:Key="txtblAccentTextBase">
+        <Setter Property="Foreground">
+            <Setter.Value>
+                <SolidColorBrush Color="{StaticResource AccentColor}"/>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <!--#endregion-->
+</ResourceDictionary>

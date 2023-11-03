@@ -1,0 +1,37 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="Colors.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+
+    <LinearGradientBrush x:Key="BGGradient" StartPoint="0,0" EndPoint="1,0">
+        <GradientStop Offset="0.0" Color="{StaticResource BGDarkerColor}"/>
+        <GradientStop Offset="2.0" Color="{StaticResource BGLighterColor}"/>
+        <LinearGradientBrush.RelativeTransform>
+            <RotateTransform Angle="270" CenterX="0.5" CenterY="0.5"/>
+        </LinearGradientBrush.RelativeTransform>
+    </LinearGradientBrush>
+
+    <LinearGradientBrush StartPoint="0.2,1.0" EndPoint="0.3,0.5" SpreadMethod="Repeat" Opacity=".2" x:Key="CancelGradient">
+        <GradientStop Offset="0" Color="Transparent"/>
+        <GradientStop Offset="0.01" Color="{StaticResource AccentColor}"/>
+        <GradientStop Offset="0.34" Color="{StaticResource AccentColor}"/>
+        <GradientStop Offset="0.35" Color="Transparent"/>
+    </LinearGradientBrush>
+
+    <LinearGradientBrush StartPoint="0.5,0.0" EndPoint="0.5,1.0" Opacity=".8" x:Key="LightersForLineGradient">
+        <GradientStop Offset="0.1" Color="{StaticResource PassiveColor}"/>
+        <GradientStop Offset="0.11" Color="{StaticResource ActiveWhiterColor}"/>
+        <GradientStop Offset="0.13" Color="{StaticResource ActiveWhiterColor}"/>
+        <GradientStop Offset="0.14" Color="{StaticResource PassiveColor}"/>
+        <GradientStop Offset="0.7" Color="{StaticResource PassiveColor}"/>
+        <GradientStop Offset="0.71" Color="{StaticResource ActiveWhiterColor}"/>
+        <GradientStop Offset="0.73" Color="{StaticResource ActiveWhiterColor}"/>
+        <GradientStop Offset="0.74" Color="{StaticResource PassiveColor}"/>
+        <GradientStop Offset="0.8" Color="{StaticResource PassiveColor}"/>
+        <GradientStop Offset="0.81" Color="{StaticResource ActiveWhiterColor}"/>
+        <GradientStop Offset="0.83" Color="{StaticResource ActiveWhiterColor}"/>
+        <GradientStop Offset="0.84" Color="{StaticResource PassiveColor}"/>
+    </LinearGradientBrush>
+</ResourceDictionary>

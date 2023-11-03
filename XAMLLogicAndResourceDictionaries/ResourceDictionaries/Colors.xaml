@@ -9,7 +9,6 @@
     <Color x:Key="ActiveWhiterColor">#ffffff</Color>
     <Color x:Key="ActiveColor">#667482</Color>
     <Color x:Key="PassiveColor">#4B5156</Color>
-    <Color x:Key="PassiveDarkerColor">#000000</Color>
 
     <Color x:Key="BGLighterColor">#B233465B</Color>
     <Color x:Key="BGDarkerColor">#0C273849</Color>
