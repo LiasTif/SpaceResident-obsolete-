@@ -1,5 +1,5 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
-using SpaceResidentClient.API;
+using SpaceResidentClient.Services;
 using SpaceResidentClient.ViewModels.MainMenu;
 using System;
 

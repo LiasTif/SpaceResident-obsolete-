@@ -1,6 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using SpaceResidentClient.API;
+using SpaceResidentClient.Services;
 using System;
 using System.Threading.Tasks;
 using System.Timers;
