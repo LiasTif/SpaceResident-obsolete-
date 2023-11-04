@@ -10,9 +10,11 @@
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary
-                    Source="/ResourceDictionaries/Brushes.xaml"/>
+                    Source="/ResourceDictionaries;component/Base/BaseElementsDictionary.xaml"/>
                 <ResourceDictionary
-                    Source="/ResourceDictionaries/Colors.xaml"/>
+                    Source="/ResourceDictionaries;component/Colors/Brushes.xaml"/>
+                <ResourceDictionary
+                    Source="/ResourceDictionaries;component/Colors/Colors.xaml"/>
                 <ResourceDictionary
                     Source="/ResourceDictionaries/MainMenuDictionary.xaml"/>
             </ResourceDictionary.MergedDictionaries>

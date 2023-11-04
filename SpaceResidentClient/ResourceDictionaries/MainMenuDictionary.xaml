@@ -3,8 +3,8 @@
                     xmlns:c="clr-namespace:SpaceResidentClient.Converters">
 
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="/ResourceDictionaries/Colors.xaml"/>
-        <ResourceDictionary Source="/ResourceDictionaries/BaseElementsDictionary.xaml"/>
+        <ResourceDictionary Source="/ResourceDictionaries;component/Colors/Colors.xaml"/>
+        <ResourceDictionary Source="/ResourceDictionaries;component/Base/BaseElementsDictionary.xaml"/>
     </ResourceDictionary.MergedDictionaries>
     <c:SizeFromSizePercentageConventer x:Key="SizeFromSizePercentageConventer"/>
     
