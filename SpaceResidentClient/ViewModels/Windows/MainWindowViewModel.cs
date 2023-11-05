@@ -2,6 +2,8 @@
 using SpaceResidentClient.Services;
 using SpaceResidentClient.ViewModels.MainMenu;
 using System;
+using System.Numerics;
+using System.Windows;
 
 namespace SpaceResidentClient.ViewModels.Windows
 {
@@ -22,7 +24,11 @@ namespace SpaceResidentClient.ViewModels.Windows
             };
 
             // load Music Player and set bg music for main menu
-            Music.Player.Open(new Uri("Data/music/Menu Music.mp3", UriKind.Relative));
+            Music.Player.MediaFailed += (o, args) =>
+            {
+                MessageBox.Show("Media Failed!!");
+            };
+            Music.Player.Open(new Uri("Data/music/MenuMusic.mp3", UriKind.Relative));
             Music.Player.Play();
         }
     }

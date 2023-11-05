@@ -8,11 +8,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Data\UI\icon.ico" />
-    <None Remove="Data\UI\pluses.png" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.1" />
   </ItemGroup>
 
@@ -24,25 +19,7 @@
     <ProjectReference Include="..\Converters\Converters.csproj" />
     <ProjectReference Include="..\DecorativeElements\DecorativeElements.csproj" />
     <ProjectReference Include="..\ResourceDictionaries\ResourceDictionaries.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Resource Include="Data\UI\icon.ico">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Data\UI\pluses.png" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Update="Data\music\Menu Music.mp3">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="Data\sounds\UI\Button Hover.mp3">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="Data\sounds\UI\Button Hover.wav">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
+    <ProjectReference Include="..\Resources\Resources.csproj" />
   </ItemGroup>
 
 </Project>

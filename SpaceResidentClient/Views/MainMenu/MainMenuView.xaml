@@ -17,7 +17,7 @@
                 <ResourceDictionary
                     Source="/ResourceDictionaries;component/Colors/Colors.xaml"/>
                 <ResourceDictionary
-                    Source="/ResourceDictionaries/MainMenuDictionary.xaml"/>
+                    Source="/ResourceDictionaries;component/MainMenu/MainMenuDictionary.xaml"/>
             </ResourceDictionary.MergedDictionaries>
             <c:SizeFromSizePercentageConventer x:Key="SizeFromSizePercentageConventer"/>
         </ResourceDictionary>
@@ -123,6 +123,7 @@
                 <RowDefinition Height="3*"/>
             </Grid.RowDefinitions>
 
+            <!--Console Width settings-->
             <Grid.MinWidth>
                 <MultiBinding Converter="{StaticResource SizeFromSizePercentageConventer}">
                     <Binding
@@ -136,7 +137,6 @@
             <Border
                 Grid.Column="0"
                 Grid.RowSpan="4"
-                VerticalAlignment="Stretch"
                 Height="Auto"
                 Style="{StaticResource brdLineLightsEffectBase}"
                 Margin="0,20,0,20">
@@ -145,7 +145,6 @@
             <!--main line 2-->
             <Border
                 Grid.Column="2"
-                VerticalAlignment="Stretch"
                 Height="Auto"
                 Style="{StaticResource brdLineBase}"
                 Margin="0,10,0,5">
@@ -154,7 +153,6 @@
             <Border
                 Grid.Row="1"
                 Grid.Column="2"
-                VerticalAlignment="Stretch"
                 Height="Auto"
                 Style="{StaticResource brdLineBase}"
                 Margin="0,5,0,5">
@@ -163,7 +161,6 @@
             <Border
                 Grid.Row="2"
                 Grid.Column="2"
-                VerticalAlignment="Stretch"
                 Height="Auto"
                 Style="{StaticResource brdLineActiveAlternative}"
                 Margin="0,5,0,5">

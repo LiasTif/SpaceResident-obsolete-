@@ -7,18 +7,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Data\UI\plus.png" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\Converters\Converters.csproj" />
     <ProjectReference Include="..\ResourceDictionaries\ResourceDictionaries.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Resource Include="Data\UI\plus.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
+    <ProjectReference Include="..\Resources\Resources.csproj" />
   </ItemGroup>
 
 </Project>

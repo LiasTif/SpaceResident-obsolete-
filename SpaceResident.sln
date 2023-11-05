@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ResourceDictionaries", "Res
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DecorativeElements", "DecorativeElements\DecorativeElements.csproj", "{D9FCD0FA-223A-4780-BE77-399F3E154AFC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Converters", "Converters\Converters.csproj", "{BCF6CBC1-09C4-4B36-BAA8-CB2FE3695A6B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Converters", "Converters\Converters.csproj", "{BCF6CBC1-09C4-4B36-BAA8-CB2FE3695A6B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Resources", "Resources\Resources.csproj", "{42AB60D2-D721-4DB9-A9C3-F4609071B291}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{BCF6CBC1-09C4-4B36-BAA8-CB2FE3695A6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BCF6CBC1-09C4-4B36-BAA8-CB2FE3695A6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BCF6CBC1-09C4-4B36-BAA8-CB2FE3695A6B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{42AB60D2-D721-4DB9-A9C3-F4609071B291}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42AB60D2-D721-4DB9-A9C3-F4609071B291}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42AB60D2-D721-4DB9-A9C3-F4609071B291}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42AB60D2-D721-4DB9-A9C3-F4609071B291}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
