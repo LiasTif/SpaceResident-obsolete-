@@ -9,7 +9,6 @@
 
   <ItemGroup>
     <None Remove="Data\UI\icon.ico" />
-    <None Remove="Data\UI\plus.png" />
     <None Remove="Data\UI\pluses.png" />
   </ItemGroup>
 
@@ -22,14 +21,13 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Converters\Converters.csproj" />
+    <ProjectReference Include="..\DecorativeElements\DecorativeElements.csproj" />
     <ProjectReference Include="..\ResourceDictionaries\ResourceDictionaries.csproj" />
   </ItemGroup>
 
   <ItemGroup>
     <Resource Include="Data\UI\icon.ico">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Data\UI\plus.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Data\UI\pluses.png" />

@@ -2,9 +2,9 @@
 using System.Globalization;
 using System.Windows.Data;
 
-namespace SpaceResidentClient.Converters
+namespace Converters
 {
-    internal class SizeFromSizePercentageConventer : IMultiValueConverter
+    public class SizeFromSizePercentageConventer : IMultiValueConverter
     {
         public object Convert(object[] values, Type targetType, object parameter, CultureInfo culture)
         {

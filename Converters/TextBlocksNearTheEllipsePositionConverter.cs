@@ -2,9 +2,9 @@
 using System.Globalization;
 using System.Windows.Data;
 
-namespace SpaceResidentClient.Converters
+namespace Converters
 {
-    internal class TextBlocksNearTheEllipsePositionConverter : IValueConverter
+    public class TextBlocksNearTheEllipsePositionConverter : IValueConverter
     {
 
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
