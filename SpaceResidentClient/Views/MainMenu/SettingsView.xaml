@@ -1,0 +1,76 @@
+﻿<UserControl x:Class="SpaceResidentClient.Views.MainMenu.SettingsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:c="clr-namespace:Converters;assembly=Converters"
+             mc:Ignorable="d" d:Height="720" d:Width="1280">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary
+                    Source="/ResourceDictionaries;component/Base/BaseElementsDictionary.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+            <c:SizeFromSizePercentageConventer x:Key="SizeFromSizePercentageConventer"/>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.1*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="0.4*"/>
+            <ColumnDefinition Width="1.8*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="0.1*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="4*"/>
+        </Grid.RowDefinitions>
+
+        <Grid.Background>
+            <SolidColorBrush Color="{StaticResource SecondBorderColor}"/>
+        </Grid.Background>
+
+        <!--#region Header-->
+        <Border
+            x:Name="brdSettingsLable"
+            Margin="15"
+            Grid.Column="1"
+            Grid.ColumnSpan="2">
+            <Border.Background>
+                <SolidColorBrush Color="{StaticResource MainBorderColor}"/>
+            </Border.Background>
+        </Border>
+
+        <Viewbox
+            HorizontalAlignment="Left"
+            Grid.Column="1"
+            Grid.ColumnSpan="2">
+            <TextBlock
+                Margin="10,10,5,10"
+                Text="Settings"
+                Style="{StaticResource txtblWhiteTextBase}"/>
+        </Viewbox>
+
+        <Button
+            x:Name="ExitBut"
+            Grid.Column="4"
+            Grid.ColumnSpan="2"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Top"
+            Height="{Binding ActualWidth, ElementName=ExitBut}"
+            Style="{StaticResource btnCancelBase}"
+            Command="{Binding CloseCommand}">
+            <Button.Width>
+                <MultiBinding Converter="{StaticResource SizeFromSizePercentageConventer}">
+                    <Binding
+                        Path="ActualHeight"
+                        ElementName="brdSettingsLable"/>
+                    <Binding Source="60"/>
+                </MultiBinding>
+            </Button.Width>
+        </Button>
+        <!--#endregion-->
+    </Grid>
+</UserControl>

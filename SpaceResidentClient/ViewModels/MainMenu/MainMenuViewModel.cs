@@ -8,32 +8,24 @@ using System.Windows.Input;
 
 namespace SpaceResidentClient.ViewModels.MainMenu
 {
-    internal class MainMenuViewModel : ObservableObject
+    internal partial class MainMenuViewModel : ObservableObject
     {
-        private string _consoleText;
-        public string ConsoleText
-        {
-            get => _consoleText;
-            set
-            {
-                if (value != _consoleText)
-                    SetProperty(ref _consoleText, value);
-            }
-        }
+        #region props
+        [ObservableProperty]
+        public ObservableObject? currentUCViewModel;
+
+        [ObservableProperty]
+        public string consoleText;
+        #endregion
 
         #region commands
         private void Shutdown() => App.Current.Shutdown();
+        private void OpenSettings() => CurrentUCViewModel = new SettingsViewModel(this);
         public ICommand ShutdownCommand { get; }
+        public ICommand OpenSettingsCommand { get; }
         #endregion
 
-        public MainMenuViewModel(NavigationStore navigationStore)
-        {
-            ShutdownCommand = new RelayCommand(Shutdown);
-
-            ConsoleTimerAsync();
-        }
-
-        #region Animations
+        #region animations
         // Console download animation timer
         private async Task ConsoleTimerAsync()
         {
@@ -76,5 +68,13 @@ namespace SpaceResidentClient.ViewModels.MainMenu
                 ConsoleText = ConsoleText.Remove(lastLetterIndex, 1) + "|";
         }
         #endregion
+
+        public MainMenuViewModel(NavigationStore navigationStore)
+        {
+            ShutdownCommand = new RelayCommand(Shutdown);
+            OpenSettingsCommand = new RelayCommand(OpenSettings);
+
+            ConsoleTimerAsync();
+        }
     }
 }
