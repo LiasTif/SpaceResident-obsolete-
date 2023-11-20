@@ -1,12 +1,18 @@
-﻿<Window x:Class="SpaceResidentClient.Views.Windows.MainWindow"
+﻿<Window
+        x:Class="SpaceResidentClient.Views.Windows.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:vm="clr-namespace:SpaceResidentClient.ViewModels.MainMenu"
         xmlns:v="clr-namespace:SpaceResidentClient.Views.MainMenu"
+        xmlns:controls="clr-namespace:BlurryControls.Controls;assembly=BlurryControls"
         mc:Ignorable="d" Title="Space Resident"
-        MinHeight="720" MinWidth="1280" WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        WindowStyle="None"
+        MinHeight="720" MinWidth="1280"
+        WindowState="Maximized"
+        WindowStartupLocation="CenterScreen"
         Style="{StaticResource winBase}" Icon="/Resources;component/Data/UI/icon.ico">
     <Grid>
         <ContentControl

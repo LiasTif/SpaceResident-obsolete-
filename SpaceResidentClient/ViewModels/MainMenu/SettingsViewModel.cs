@@ -6,16 +6,16 @@ namespace SpaceResidentClient.ViewModels.MainMenu
 {
     internal class SettingsViewModel : ObservableObject
     {
-        public MainMenuViewModel _dataContext;
+        public MainMenuViewModel _mainMenuViewModelInstance;
 
         #region commands
-        private void Close() => _dataContext.CurrentUCViewModel = null;
+        private void Close() => _mainMenuViewModelInstance.SettingsViewSwitch();
         public ICommand CloseCommand { get; }
         #endregion
 
-        public SettingsViewModel(MainMenuViewModel dataContext)
+        public SettingsViewModel(MainMenuViewModel mainMenuViewModel)
         {
-            _dataContext = dataContext;
+            _mainMenuViewModelInstance = mainMenuViewModel;
             CloseCommand = new RelayCommand(Close);
         }
     }

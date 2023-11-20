@@ -88,6 +88,32 @@
     </Style>
     <!--endregion-->
 
+    <!--#region TextBlocks-->
+    <Style TargetType="{x:Type TextBlock}" x:Key="txtblDecorativeBase">
+        <Setter Property="Foreground">
+            <Setter.Value>
+                <SolidColorBrush Color="{StaticResource PassiveColor}"/>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="{x:Type TextBlock}" x:Key="txtblWhiteTextBase">
+        <Setter Property="Foreground">
+            <Setter.Value>
+                <SolidColorBrush Color="{StaticResource ActiveWhiterColor}"/>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="{x:Type TextBlock}" x:Key="txtblAccentTextBase">
+        <Setter Property="Foreground">
+            <Setter.Value>
+                <SolidColorBrush Color="{StaticResource AccentColor}"/>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <!--#endregion-->
+
     <!--region Buttons-->
     <Style TargetType="{x:Type Button}" x:Key="btnBase">
         <Setter Property="Margin" Value="5"/>
@@ -299,31 +325,39 @@
             </Setter.Value>
         </Setter>
     </Style>
+
+    <Style
+        x:Key="btnCancelAtCornerBase"
+        TargetType="{x:Type Button}"
+        BasedOn="{StaticResource btnCancelBase}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border
+                        x:Name="btnBorder">
+
+                        <Border.Background>
+                            <SolidColorBrush Color="{StaticResource AccentColor}"/>
+                        </Border.Background>
+
+                        <Viewbox
+                            x:Name="vbExitTextBlock"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center">
+                            <TextBlock
+                                Text="X"
+                                Style="{StaticResource txtblWhiteTextBase}"/>
+                        </Viewbox>
+                    </Border>
+
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Cursor" Value="Hand"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
     <!--endregion-->
-    
-    <!--#region TextBlocks-->
-    <Style TargetType="{x:Type TextBlock}" x:Key="txtblDecorativeBase">
-        <Setter Property="Foreground">
-            <Setter.Value>
-                <SolidColorBrush Color="{StaticResource PassiveColor}"/>
-            </Setter.Value>
-        </Setter>
-    </Style>
-
-    <Style TargetType="{x:Type TextBlock}" x:Key="txtblWhiteTextBase">
-        <Setter Property="Foreground">
-            <Setter.Value>
-                <SolidColorBrush Color="{StaticResource ActiveWhiterColor}"/>
-            </Setter.Value>
-        </Setter>
-    </Style>
-
-    <Style TargetType="{x:Type TextBlock}" x:Key="txtblAccentTextBase">
-        <Setter Property="Foreground">
-            <Setter.Value>
-                <SolidColorBrush Color="{StaticResource AccentColor}"/>
-            </Setter.Value>
-        </Setter>
-    </Style>
-    <!--#endregion-->
 </ResourceDictionary>

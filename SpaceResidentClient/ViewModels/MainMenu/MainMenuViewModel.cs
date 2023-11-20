@@ -4,6 +4,8 @@ using SpaceResidentClient.Services;
 using System;
 using System.Threading.Tasks;
 using System.Timers;
+using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 
 namespace SpaceResidentClient.ViewModels.MainMenu
@@ -16,13 +18,30 @@ namespace SpaceResidentClient.ViewModels.MainMenu
 
         [ObservableProperty]
         public string consoleText;
+
+        [ObservableProperty]
+        public Visibility isContentControlBackgoundVisible = Visibility.Collapsed;
         #endregion
 
         #region commands
-        private void Shutdown() => App.Current.Shutdown();
-        private void OpenSettings() => CurrentUCViewModel = new SettingsViewModel(this);
         public ICommand ShutdownCommand { get; }
-        public ICommand OpenSettingsCommand { get; }
+        public ICommand SettingsViewSwitchCommand { get; }
+
+        private void Shutdown() => App.Current.Shutdown();
+        public void SettingsViewSwitch()
+        {
+            // open settings view if it`s already opened, close if opened
+            if (CurrentUCViewModel is SettingsViewModel)
+            {
+                CurrentUCViewModel = null;
+                IsContentControlBackgoundVisible = Visibility.Collapsed;
+            }
+            else
+            {
+                CurrentUCViewModel = new SettingsViewModel(this);
+                IsContentControlBackgoundVisible = Visibility.Visible;
+            }
+        }
         #endregion
 
         #region animations
@@ -72,7 +91,7 @@ namespace SpaceResidentClient.ViewModels.MainMenu
         public MainMenuViewModel(NavigationStore navigationStore)
         {
             ShutdownCommand = new RelayCommand(Shutdown);
-            OpenSettingsCommand = new RelayCommand(OpenSettings);
+            SettingsViewSwitchCommand = new RelayCommand(SettingsViewSwitch);
 
             ConsoleTimerAsync();
         }
