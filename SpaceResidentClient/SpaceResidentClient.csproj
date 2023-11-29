@@ -8,12 +8,39 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="ViewModels\MainMenu\Settings\**" />
+    <Compile Remove="Views\MainMenu\Settings\**" />
+    <EmbeddedResource Remove="ViewModels\MainMenu\Settings\**" />
+    <EmbeddedResource Remove="Views\MainMenu\Settings\**" />
+    <None Remove="ViewModels\MainMenu\Settings\**" />
+    <None Remove="Views\MainMenu\Settings\**" />
+    <Page Remove="ViewModels\MainMenu\Settings\**" />
+    <Page Remove="Views\MainMenu\Settings\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="ViewModels\MainMenu\Settings\GameSettingsViewModel.cs" />
+    <Compile Include="ViewModels\MainMenu\Settings\VideoSettingsViewModel.cs" />
+    <Compile Include="Views\MainMenu\Settings\GameView.xaml.cs" />
+    <Compile Include="Views\MainMenu\Settings\VideoView.xaml.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="BlurryControls" Version="1.0.24" />
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Models\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Include="Views\MainMenu\Settings\GameView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MainMenu\Settings\VideoView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
 
   <ItemGroup>

@@ -5,7 +5,6 @@ using System;
 using System.Threading.Tasks;
 using System.Timers;
 using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Input;
 
 namespace SpaceResidentClient.ViewModels.MainMenu
@@ -17,7 +16,7 @@ namespace SpaceResidentClient.ViewModels.MainMenu
         public ObservableObject? currentUCViewModel;
 
         [ObservableProperty]
-        public string consoleText;
+        public string consoleText = String.Empty;
 
         [ObservableProperty]
         public Visibility isContentControlBackgoundVisible = Visibility.Collapsed;

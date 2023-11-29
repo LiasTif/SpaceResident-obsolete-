@@ -141,6 +141,7 @@
                                 Margin="10,0,0,0">
                                 <TextBlock
                                     x:Name="txtblContent"
+                                    FontSize="{TemplateBinding FontSize}"
                                     Text="{TemplateBinding Content}">
                                     <TextBlock.Foreground>
                                         <SolidColorBrush Color="{StaticResource PassiveColor}"/>
@@ -359,5 +360,129 @@
             </Setter.Value>
         </Setter>
     </Style>
+
+    <Style
+        TargetType="{x:Type Button}"
+        x:Key="btnArrowUp">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border
+                        x:Name="btnBorder">
+
+                        <Border.Background>
+                            <SolidColorBrush Color="{StaticResource PassiveColor}"/>
+                        </Border.Background>
+
+                        <Viewbox
+                            Margin="20"
+                            x:Name="vbExitTextBlock"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center">
+                            <Image Source="/Resources;component/Data/UI/arrow base.png"/>
+                        </Viewbox>
+                    </Border>
+
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Cursor" Value="Hand"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
     <!--endregion-->
+    
+    <!--#region RadioButtons-->
+    <Style TargetType="{x:Type RadioButton}" x:Key="rbtnBase">
+        <Setter Property="Margin" Value="5"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type RadioButton}">
+                    <Border
+                        x:Name="btnBorder"
+                        BorderThickness="4"
+                        Background="Transparent">
+                        <Border.BorderBrush>
+                            <SolidColorBrush Color="{StaticResource PassiveColor}"/>
+                        </Border.BorderBrush>
+
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="3*"/>
+                                <ColumnDefinition Width="2*"/>
+                                <ColumnDefinition Width="0.4*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Viewbox
+                                x:Name="txtblContentViewBox"
+                                HorizontalAlignment="Left"
+                                Margin="10,0,0,0">
+                                <TextBlock
+                                    x:Name="txtblContent"
+                                    FontSize="{TemplateBinding FontSize}"
+                                    Text="{TemplateBinding Content}">
+                                    <TextBlock.Foreground>
+                                        <SolidColorBrush Color="{StaticResource PassiveColor}"/>
+                                    </TextBlock.Foreground>
+                                </TextBlock>
+                            </Viewbox>
+
+                            <Viewbox
+                                x:Name="txtblSideContentViewBox"
+                                Grid.Column="2"
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Bottom">
+                                <TextBlock
+                                    x:Name="txtblSideContent"
+                                    Text="TRIASSIC">
+                                    <TextBlock.Foreground>
+                                        <SolidColorBrush Color="{StaticResource PassiveColor}"/>
+                                    </TextBlock.Foreground>
+                                </TextBlock>
+                            </Viewbox>
+                        </Grid>
+                    </Border>
+
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Cursor" Value="Hand"/>
+                        </Trigger>
+                        <Trigger Property="IsChecked" Value="True">
+                            <Setter TargetName="btnBorder" Property="Background">
+                                <Setter.Value>
+                                    <SolidColorBrush Color="{StaticResource ActiveColor}"/>
+                                </Setter.Value>
+                            </Setter>
+                            <Setter TargetName="txtblContent" Property="Foreground">
+                                <Setter.Value>
+                                    <SolidColorBrush Color="{StaticResource ActiveWhiterColor}"/>
+                                </Setter.Value>
+                            </Setter>
+                            <Setter TargetName="txtblSideContent" Property="Foreground">
+                                <Setter.Value>
+                                    <SolidColorBrush Color="{StaticResource ActiveWhiterColor}"/>
+                                </Setter.Value>
+                            </Setter>
+
+                            <Setter
+                                TargetName="txtblSideContentViewBox"
+                                Property="Margin"
+                                Value="0,0,4,4"/>
+                            <Setter
+                                TargetName="btnBorder"
+                                Property="BorderThickness"
+                                Value="0"/>
+                            <Setter
+                                TargetName="txtblContentViewBox"
+                                Property="Margin"
+                                Value="14,4,4,4"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <!--#endregion-->
 </ResourceDictionary>
