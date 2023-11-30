@@ -367,21 +367,22 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Button}">
-                    <Border
-                        x:Name="btnBorder">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="0.7*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
 
-                        <Border.Background>
+                        <Grid.Background>
                             <SolidColorBrush Color="{StaticResource PassiveColor}"/>
-                        </Border.Background>
+                        </Grid.Background>
 
-                        <Viewbox
-                            Margin="20"
-                            x:Name="vbExitTextBlock"
-                            HorizontalAlignment="Center"
-                            VerticalAlignment="Center">
-                            <Image Source="/Resources;component/Data/UI/arrow base.png"/>
-                        </Viewbox>
-                    </Border>
+                        
+                        <Image
+                            Grid.Column="1"
+                            Source="/Resources;component/Data/UI/arrow base.png"/>
+                    </Grid>
 
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">

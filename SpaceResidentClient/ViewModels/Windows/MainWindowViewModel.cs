@@ -2,19 +2,25 @@
 using SpaceResidentClient.Services;
 using SpaceResidentClient.ViewModels.MainMenu;
 using System;
-using System.Numerics;
 using System.Windows;
 
 namespace SpaceResidentClient.ViewModels.Windows
 {
-    internal class MainWindowViewModel : ObservableObject
+    partial class MainWindowViewModel : ObservableObject
     {
         private readonly NavigationStore _navigationStore;
         public ObservableObject CurrentViewModel => _navigationStore.CurrentViewModel;
 
+        #region props
+        [ObservableProperty]
+        public WindowState winState = WindowState.Maximized;
+        [ObservableProperty]
+        public WindowStyle winStyle = WindowStyle.None;
+        #endregion
+
         public MainWindowViewModel(NavigationStore navigationStore)
         {
-            navigationStore.CurrentViewModel = new MainMenuViewModel(navigationStore);
+            navigationStore.CurrentViewModel = new MainMenuViewModel(this);
             _navigationStore = navigationStore;
 
             _navigationStore.PropertyChanged += (sender, args) =>

@@ -1,6 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using SpaceResidentClient.Services;
+using SpaceResidentClient.ViewModels.Windows;
 using System;
 using System.Threading.Tasks;
 using System.Timers;
@@ -11,6 +12,8 @@ namespace SpaceResidentClient.ViewModels.MainMenu
 {
     internal partial class MainMenuViewModel : ObservableObject
     {
+        private MainWindowViewModel _mainWindowViewModel;
+
         #region props
         [ObservableProperty]
         public ObservableObject? currentUCViewModel;
@@ -37,7 +40,7 @@ namespace SpaceResidentClient.ViewModels.MainMenu
             }
             else
             {
-                CurrentUCViewModel = new SettingsViewModel(this);
+                CurrentUCViewModel = new SettingsViewModel(this, _mainWindowViewModel);
                 IsContentControlBackgoundVisible = Visibility.Visible;
             }
         }
@@ -87,8 +90,10 @@ namespace SpaceResidentClient.ViewModels.MainMenu
         }
         #endregion
 
-        public MainMenuViewModel(NavigationStore navigationStore)
+        public MainMenuViewModel(MainWindowViewModel mainWindowViewModel)
         {
+            _mainWindowViewModel = mainWindowViewModel;
+
             ShutdownCommand = new RelayCommand(Shutdown);
             SettingsViewSwitchCommand = new RelayCommand(SettingsViewSwitch);
 

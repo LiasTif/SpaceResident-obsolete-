@@ -3,8 +3,104 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
              mc:Ignorable="d" d:Height="450" d:Width="800">
-    <Grid Background="Red">
-            
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary
+                    Source="/ResourceDictionaries;component/Base/BaseElementsDictionary.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.1*"/>
+            <RowDefinition Height="0.1*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="0.5*"/>
+        </Grid.ColumnDefinitions>
+
+        <!--#region Resoultion-->
+        <Border
+            Margin="5"
+            Style="{StaticResource brdMainElementBase}">
+            <Viewbox HorizontalAlignment="Left">
+                <TextBlock
+                    Text="Resolution"
+                    Style="{StaticResource txtblWhiteTextBase}"/>
+            </Viewbox>
+        </Border>
+
+        <Border
+            Grid.Column="1"
+            Margin="5"
+            Style="{StaticResource brdMainElementBase}">
+            <UniformGrid Columns="3">
+                <Button
+                    RenderTransformOrigin="0.5, 0.5"
+                    x:Name="btnResoMinus"
+                    HorizontalAlignment="Left"
+                    Width="{Binding ActualHeight, ElementName=btnResoMinus}"
+                    Style="{StaticResource btnArrowUp}">
+                    <Button.RenderTransform>
+                        <RotateTransform
+                            Angle="270"/>
+                    </Button.RenderTransform>
+                </Button>
+
+                <Viewbox HorizontalAlignment="Center">
+                    <TextBlock Style="{StaticResource txtblWhiteTextBase}" Text="1966x1080"/>
+                </Viewbox>
+
+                <Button
+                    RenderTransformOrigin="0.5, 0.5"
+                    x:Name="btnResoPlus"
+                    HorizontalAlignment="Right"
+                    Width="{Binding ActualHeight, ElementName=btnResoMinus}"
+                    Style="{StaticResource btnArrowUp}">
+                    <Button.RenderTransform>
+                        <RotateTransform
+                            Angle="90"/>
+                    </Button.RenderTransform>
+                </Button>
+            </UniformGrid>
+        </Border>
+        <!--#endregion-->
+
+        <!--#region ScreenMode-->
+        <Border
+            Grid.Row="1"
+            Margin="5"
+            Style="{StaticResource brdMainElementBase}">
+            <Viewbox HorizontalAlignment="Left">
+                <TextBlock
+                    Text="ScreenMode"
+                    Style="{StaticResource txtblWhiteTextBase}"/>
+            </Viewbox>
+        </Border>
+
+        <Border
+            Grid.Column="1"
+            Grid.Row="1"
+            Margin="5"
+            Style="{StaticResource brdMainElementBase}">
+            <ComboBox
+                SelectedItem="{Binding SelectedScreenModeTextBlock}"
+                ItemsSource="{Binding ScreenModeTextBlocks}"
+                x:Name="cbScreenMode">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="SelectionChanged">
+                        <i:InvokeCommandAction
+                            Command="{Binding CbScreenModeSelectionChangedCommand}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </ComboBox>
+        </Border>
+        <!--#endregion-->
     </Grid>
 </UserControl>

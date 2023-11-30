@@ -7,8 +7,10 @@
     xmlns:vm="clr-namespace:SpaceResidentClient.ViewModels.MainMenu"
     xmlns:v="clr-namespace:SpaceResidentClient.Views.MainMenu"
     mc:Ignorable="d" Title="Space Resident" ResizeMode="NoResize"
-    WindowStyle="None" MinHeight="720" MinWidth="1280"
-    WindowState="Maximized" WindowStartupLocation="CenterScreen"
+    MinHeight="720" MinWidth="1280"
+    WindowStartupLocation="CenterScreen"
+    WindowStyle="{Binding WinStyle, Mode=TwoWay}"
+    WindowState="{Binding WinState, Mode=TwoWay}"
     Style="{StaticResource winBase}" Icon="/Resources;component/Data/UI/icon.ico">
     <Grid>
         <ContentControl
