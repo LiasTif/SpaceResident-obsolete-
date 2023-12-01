@@ -9,9 +9,11 @@ namespace SpaceResidentClient.ViewModels.Windows
     partial class MainWindowViewModel : ObservableObject
     {
         private readonly NavigationStore _navigationStore;
-        public ObservableObject CurrentViewModel => _navigationStore.CurrentViewModel;
+        public ObservableObject СurrentViewModel => _navigationStore.CurrentViewModel;
 
         #region props
+        [ObservableProperty]
+        public ResizeMode resizeMode = ResizeMode.NoResize;
         [ObservableProperty]
         public WindowState winState = WindowState.Maximized;
         [ObservableProperty]

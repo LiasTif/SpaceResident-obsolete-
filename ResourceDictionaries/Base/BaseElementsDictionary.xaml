@@ -486,4 +486,45 @@
         </Setter>
     </Style>
     <!--#endregion-->
+    
+    <!--#region ComboBoxes-->
+    <!--<Style TargetType="{x:Type ComboBox}" x:Key="cbBase">
+        <Setter Property="Background">
+            <Setter.Value>
+                <SolidColorBrush Color="{StaticResource SecondBorderColor}"/>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="{x:Type ComboBoxItem}" x:Key="cbItemBase" >
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ComboBoxItem}">
+                    <Border
+                        BorderThickness="0"
+                        FlowDirection="LeftToRight">
+                        <Border.Background>
+                            <SolidColorBrush Color="{StaticResource SecondBorderColor}"/>
+                        </Border.Background>
+                        
+                        <ComboBoxItem
+                            FlowDirection="LeftToRight"
+                            HorizontalContentAlignment="Center"
+                            VerticalAlignment="Center">
+                            <ContentPresenter
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"/>
+                        </ComboBoxItem>
+                        
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter Property="Cursor" Value="Hand"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>-->
+    <!--#endregion-->
 </ResourceDictionary>

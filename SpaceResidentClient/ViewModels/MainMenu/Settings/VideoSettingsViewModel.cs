@@ -28,16 +28,19 @@ namespace SpaceResidentClient.ViewModels.MainMenu.Settings
                 case "Fullscreen":
                     _mainWindowViewModel.WinStyle = WindowStyle.None;
                     _mainWindowViewModel.WinState = WindowState.Maximized;
+                    _mainWindowViewModel.ResizeMode = ResizeMode.NoResize;
                     break;
                 // windowed
                 case "Windowed":
                     _mainWindowViewModel.WinStyle = WindowStyle.ThreeDBorderWindow;
                     _mainWindowViewModel.WinState = WindowState.Normal;
+                    _mainWindowViewModel.ResizeMode = ResizeMode.CanResize;
                     break;
                 // borderless window
                 default:
                     _mainWindowViewModel.WinStyle = WindowStyle.None;
                     _mainWindowViewModel.WinState = WindowState.Normal;
+                    _mainWindowViewModel.ResizeMode = ResizeMode.NoResize;
                     break;
             }
             

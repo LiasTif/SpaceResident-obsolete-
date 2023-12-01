@@ -6,15 +6,16 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:vm="clr-namespace:SpaceResidentClient.ViewModels.MainMenu"
     xmlns:v="clr-namespace:SpaceResidentClient.Views.MainMenu"
-    mc:Ignorable="d" Title="Space Resident" ResizeMode="NoResize"
+    mc:Ignorable="d" Title="Space Resident"
     MinHeight="720" MinWidth="1280"
     WindowStartupLocation="CenterScreen"
+    ResizeMode="{Binding ResizeMode, Mode=TwoWay}"
     WindowStyle="{Binding WinStyle, Mode=TwoWay}"
     WindowState="{Binding WinState, Mode=TwoWay}"
     Style="{StaticResource winBase}" Icon="/Resources;component/Data/UI/icon.ico">
     <Grid>
         <ContentControl
-            Content="{Binding Path=DataContext.CurrentViewModel,
+            Content="{Binding Path=DataContext.СurrentViewModel,
                               RelativeSource={RelativeSource AncestorType={x:Type Window}}}">
             <ContentControl.Resources>
                 <DataTemplate DataType="{x:Type vm:MainMenuViewModel}">
