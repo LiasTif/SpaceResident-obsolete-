@@ -527,4 +527,25 @@
         </Setter>
     </Style>-->
     <!--#endregion-->
+    
+    <!--#region TextBoxes-->
+    <Style TargetType="{x:Type TextBox}" x:Key="txtbxBase">
+        <Setter Property="Background">
+            <Setter.Value>
+                <SolidColorBrush Color="{StaticResource SecondBorderColor}"/>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Foreground">
+            <Setter.Value>
+                <SolidColorBrush Color="{StaticResource ActiveWhiterColor}"/>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="BorderBrush">
+            <Setter.Value>
+                <SolidColorBrush Color="{StaticResource PassiveColor}"/>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="BorderThickness" Value="3"/>
+    </Style>
+    <!--#endregion-->
 </ResourceDictionary>

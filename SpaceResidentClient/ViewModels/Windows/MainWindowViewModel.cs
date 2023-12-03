@@ -8,8 +8,9 @@ namespace SpaceResidentClient.ViewModels.Windows
 {
     partial class MainWindowViewModel : ObservableObject
     {
-        private readonly NavigationStore _navigationStore;
-        public ObservableObject СurrentViewModel => _navigationStore.CurrentViewModel;
+        [ObservableProperty]
+        private NavigationStore navigationStore;
+        public ObservableObject CurrentViewModel => NavigationStore.CurrentViewModel;
 
         #region props
         [ObservableProperty]
@@ -22,10 +23,10 @@ namespace SpaceResidentClient.ViewModels.Windows
 
         public MainWindowViewModel(NavigationStore navigationStore)
         {
-            navigationStore.CurrentViewModel = new MainMenuViewModel(this);
-            _navigationStore = navigationStore;
+            navigationStore.CurrentViewModel = new MainMenuViewModel(this, navigationStore);
+            this.navigationStore = navigationStore;
 
-            _navigationStore.PropertyChanged += (sender, args) =>
+            this.navigationStore.PropertyChanged += (sender, args) =>
             {
                 if (args.PropertyName == "CurrentViewModel")
                     OnPropertyChanged("CurrentViewModel");

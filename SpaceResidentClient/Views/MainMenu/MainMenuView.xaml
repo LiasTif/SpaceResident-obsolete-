@@ -293,7 +293,8 @@
                 Content="New Game"
                 Grid.Row="1"
                 Style="{StaticResource btnBase}"
-                MouseEnter="Button_MouseEnter"/>
+                MouseEnter="Button_MouseEnter"
+                Command="{Binding OpenCharacterCreationCommand}"/>
             <Button
                 Content="Continue"
                 Grid.Row="2"

@@ -6,6 +6,8 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:vm="clr-namespace:SpaceResidentClient.ViewModels.MainMenu"
     xmlns:v="clr-namespace:SpaceResidentClient.Views.MainMenu"
+    xmlns:vmCC="clr-namespace:SpaceResidentClient.ViewModels.CharacterCreation"
+    xmlns:vCC="clr-namespace:SpaceResidentClient.Views.CharacterCreation"
     mc:Ignorable="d" Title="Space Resident"
     MinHeight="720" MinWidth="1280"
     WindowStartupLocation="CenterScreen"
@@ -15,11 +17,14 @@
     Style="{StaticResource winBase}" Icon="/Resources;component/Data/UI/icon.ico">
     <Grid>
         <ContentControl
-            Content="{Binding Path=DataContext.СurrentViewModel,
+            Content="{Binding Path=DataContext.CurrentViewModel,
                               RelativeSource={RelativeSource AncestorType={x:Type Window}}}">
             <ContentControl.Resources>
                 <DataTemplate DataType="{x:Type vm:MainMenuViewModel}">
                     <v:MainMenuView/>
+                </DataTemplate>
+                <DataTemplate DataType="{x:Type vmCC:CharacterCreationViewModel}">
+                    <vCC:CharacterCreationView/>
                 </DataTemplate>
             </ContentControl.Resources>
         </ContentControl>

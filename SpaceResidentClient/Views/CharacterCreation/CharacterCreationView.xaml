@@ -1,0 +1,294 @@
+﻿<UserControl x:Class="SpaceResidentClient.Views.CharacterCreation.CharacterCreationView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" d:Height="1080" d:Width="1966"
+             Background="#1E1E1E">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary
+                    Source="/ResourceDictionaries;component/Base/BaseElementsDictionary.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <Grid Background="{StaticResource BGGradient}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.05*"/>
+            <ColumnDefinition Width="1.4*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="0.05*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.05*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="0.15*"/>
+            <RowDefinition Height="0.05*"/>
+        </Grid.RowDefinitions>
+
+        <Grid
+            Grid.Column="1"
+            Grid.Row="1"
+            Grid.RowSpan="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="8*"/>
+            </Grid.RowDefinitions>
+
+            <Border
+                Style="{StaticResource brdMainElementBase}" Grid.RowSpan="2"/>
+
+            <!--#region header-->
+            <StackPanel Orientation="Horizontal">
+                
+            </StackPanel>
+            <!--#endregion-->
+            
+            <Grid
+                Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="4*"/>
+                </Grid.RowDefinitions>
+
+                <!--#region 1 column-->
+                <!--Name-->
+                <Border
+                    Margin="5"
+                    Style="{StaticResource brdSecondElementBase}">
+                    <Viewbox
+                        HorizontalAlignment="Left">
+                        <TextBlock
+                            x:Name="txtblName"
+                            Text="Name"
+                            Style="{StaticResource txtblWhiteTextBase}"/>
+                    </Viewbox>
+                </Border>
+
+                <!--Surname-->
+                <Border
+                    Margin="5"
+                    Grid.Row="1"
+                    Style="{StaticResource brdSecondElementBase}">
+                    <Viewbox
+                        HorizontalAlignment="Left">
+                        <TextBlock
+                            Text="Surname"
+                            Style="{StaticResource txtblWhiteTextBase}"/>
+                    </Viewbox>
+                </Border>
+
+                <!--Age-->
+                <Border
+                    Margin="5"
+                    Grid.Row="2"
+                    Style="{StaticResource brdSecondElementBase}">
+                    <Viewbox
+                      HorizontalAlignment="Left">
+                        <TextBlock
+                            Text="Age"
+                            Style="{StaticResource txtblWhiteTextBase}"/>
+                    </Viewbox>
+                </Border>
+
+                <!--Race-->
+                <Border
+                    Margin="5"
+                    Grid.Row="3"
+                    Style="{StaticResource brdSecondElementBase}">
+                    <Viewbox
+                        HorizontalAlignment="Left">
+                        <TextBlock
+                            Text="Race"
+                            Style="{StaticResource txtblWhiteTextBase}"/>
+                    </Viewbox>
+                </Border>
+
+                <!--Sex-->
+                <Border
+                    Margin="5"
+                    Grid.Row="4"
+                    Style="{StaticResource brdSecondElementBase}">
+                    <Viewbox
+                        HorizontalAlignment="Left">
+                        <TextBlock
+                            Text="Sex"
+                            Style="{StaticResource txtblWhiteTextBase}"/>
+                    </Viewbox>
+                </Border>
+                <!--#endregion-->
+
+                <!--#region 2 column-->
+                <!--Name-->
+                <TextBox
+                    FontSize="40"
+                    Margin="5"
+                    Grid.Column="1"
+                    VerticalContentAlignment="Center"
+                    Text="Name"
+                    Style="{StaticResource txtbxBase}"/>
+
+                <!--Surname-->
+                <TextBox
+                    FontSize="40"
+                    Margin="5"
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    VerticalContentAlignment="Center"
+                    Text="Surname"
+                    Style="{StaticResource txtbxBase}"/>
+
+                <!--Age-->
+                <Border
+                    Panel.ZIndex="1"
+                    Margin="5"
+                    Grid.Column="1"
+                    Grid.Row="2"
+                    BorderThickness="3">
+                    <Border.BorderBrush>
+                        <SolidColorBrush Color="{StaticResource PassiveColor}"/>
+                    </Border.BorderBrush>
+                    <Viewbox HorizontalAlignment="Center">
+                        <TextBox
+                            Background="Transparent"
+                            BorderThickness="0"
+                            Style="{StaticResource txtbxBase}"
+                            Text="20"/>
+                    </Viewbox>
+                </Border>
+                <Border
+                    Grid.Row="2"
+                    Grid.Column="1"
+                    Margin="5"
+                    Style="{StaticResource brdMainElementBase}">
+                    <UniformGrid Columns="2">
+                        <Button
+                            RenderTransformOrigin="0.5, 0.5"
+                            x:Name="btnAgeMinus"
+                            HorizontalAlignment="Left"
+                            Width="{Binding ActualHeight, ElementName=btnAgeMinus}"
+                            Style="{StaticResource btnArrowUp}">
+                            <Button.RenderTransform>
+                                <RotateTransform Angle="270"/>
+                            </Button.RenderTransform>
+                        </Button>
+
+                        <Button
+                            RenderTransformOrigin="0.5, 0.5"
+                            x:Name="btnAgePlus"
+                            HorizontalAlignment="Right"
+                            Width="{Binding ActualHeight, ElementName=btnAgeMinus}"
+                            Style="{StaticResource btnArrowUp}">
+                            <Button.RenderTransform>
+                                <RotateTransform Angle="90"/>
+                            </Button.RenderTransform>
+                        </Button>
+                    </UniformGrid>
+                </Border>
+
+                <!--Race-->
+                <Border
+                    Panel.ZIndex="1"
+                    Margin="5"
+                    Grid.Column="1"
+                    Grid.Row="3"
+                    BorderThickness="3">
+                    <Border.BorderBrush>
+                        <SolidColorBrush Color="{StaticResource PassiveColor}"/>
+                    </Border.BorderBrush>
+                    <Viewbox HorizontalAlignment="Center">
+                        <TextBlock
+                            Style="{StaticResource txtblWhiteTextBase}"
+                            Text="Human"/>
+                    </Viewbox>
+                </Border>
+                <Border
+                    Grid.Row="3"
+                    Grid.Column="1"
+                    Margin="5"
+                    Style="{StaticResource brdMainElementBase}">
+                    <UniformGrid Columns="2">
+                        <Button
+                            RenderTransformOrigin="0.5, 0.5"
+                            x:Name="btnRaceMinus"
+                            HorizontalAlignment="Left"
+                            Width="{Binding ActualHeight, ElementName=btnRaceMinus}"
+                            Style="{StaticResource btnArrowUp}">
+                            <Button.RenderTransform>
+                                <RotateTransform Angle="270"/>
+                            </Button.RenderTransform>
+                        </Button>
+
+                        <Button
+                            RenderTransformOrigin="0.5, 0.5"
+                            x:Name="btnRacePlus"
+                            HorizontalAlignment="Right"
+                            Width="{Binding ActualHeight, ElementName=btnRaceMinus}"
+                            Style="{StaticResource btnArrowUp}">
+                            <Button.RenderTransform>
+                                <RotateTransform Angle="90"/>
+                            </Button.RenderTransform>
+                        </Button>
+                    </UniformGrid>
+                </Border>
+                
+                <!--Sex-->
+                <Border
+                    Panel.ZIndex="1"
+                    Margin="5"
+                    Grid.Column="1"
+                    Grid.Row="4"
+                    BorderThickness="3">
+                    <Border.BorderBrush>
+                        <SolidColorBrush Color="{StaticResource PassiveColor}"/>
+                    </Border.BorderBrush>
+                    <Viewbox HorizontalAlignment="Center">
+                        <TextBlock
+                            Style="{StaticResource txtblWhiteTextBase}"
+                            Text="Female"/>
+                    </Viewbox>
+                </Border>
+                <Border
+                    Grid.Row="4"
+                    Grid.Column="1"
+                    Margin="5"
+                    Style="{StaticResource brdMainElementBase}">
+                    <UniformGrid Columns="2">
+                        <Button
+                            RenderTransformOrigin="0.5, 0.5"
+                            x:Name="btnSexMinus"
+                            HorizontalAlignment="Left"
+                            Width="{Binding ActualHeight, ElementName=btnSexMinus}"
+                            Style="{StaticResource btnArrowUp}">
+                            <Button.RenderTransform>
+                                <RotateTransform Angle="270"/>
+                            </Button.RenderTransform>
+                        </Button>
+
+                        <Button
+                            RenderTransformOrigin="0.5, 0.5"
+                            x:Name="btnSexPlus"
+                            HorizontalAlignment="Right"
+                            Width="{Binding ActualHeight, ElementName=btnSexMinus}"
+                            Style="{StaticResource btnArrowUp}">
+                            <Button.RenderTransform>
+                                <RotateTransform Angle="90"/>
+                            </Button.RenderTransform>
+                        </Button>
+                    </UniformGrid>
+                </Border>
+                <!--#endregion-->
+            </Grid>
+        </Grid>
+    </Grid>
+</UserControl>

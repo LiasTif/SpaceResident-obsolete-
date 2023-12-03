@@ -1,5 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using SpaceResidentClient.Services;
+using SpaceResidentClient.ViewModels.CharacterCreation;
 using SpaceResidentClient.ViewModels.Windows;
 using System;
 using System.Threading.Tasks;
@@ -9,9 +11,10 @@ using System.Windows.Input;
 
 namespace SpaceResidentClient.ViewModels.MainMenu
 {
-    internal partial class MainMenuViewModel : ObservableObject
+    partial class MainMenuViewModel : ObservableObject
     {
         private MainWindowViewModel _mainWindowViewModel;
+        private NavigationStore _navigationStore;
 
         #region props
         [ObservableProperty]
@@ -27,7 +30,9 @@ namespace SpaceResidentClient.ViewModels.MainMenu
         #region commands
         public ICommand ShutdownCommand { get; }
         public ICommand SettingsViewSwitchCommand { get; }
+        public ICommand OpenCharacterCreationCommand { get; }
 
+        private void OpenCharacterCreation() => _mainWindowViewModel.NavigationStore.CurrentViewModel = new CharacterCreationViewModel();
         private void Shutdown() => App.Current.Shutdown();
         public void SettingsViewSwitch()
         {
@@ -89,10 +94,12 @@ namespace SpaceResidentClient.ViewModels.MainMenu
         }
         #endregion
 
-        public MainMenuViewModel(MainWindowViewModel mainWindowViewModel)
+        public MainMenuViewModel(MainWindowViewModel mainWindowViewModel, NavigationStore navigationStore)
         {
+            _navigationStore = navigationStore;
             _mainWindowViewModel = mainWindowViewModel;
 
+            OpenCharacterCreationCommand = new RelayCommand(OpenCharacterCreation);
             ShutdownCommand = new RelayCommand(Shutdown);
             SettingsViewSwitchCommand = new RelayCommand(SettingsViewSwitch);
 
