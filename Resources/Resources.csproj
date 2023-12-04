@@ -8,23 +8,29 @@
 
   <ItemGroup>
     <None Remove="Data\UI\arrow base.png" />
+    <None Remove="Data\UI\characterIcon.png" />
     <None Remove="Data\UI\cross.png" />
     <None Remove="Data\UI\icon.ico" />
+    <None Remove="Data\UI\jobIcon.png" />
     <None Remove="Data\UI\plus.png" />
     <None Remove="Data\UI\pluses.jpg" />
     <None Remove="Data\UI\pluses.png" />
+    <None Remove="Data\UI\skillsIcon.png" />
   </ItemGroup>
 
   <ItemGroup>
     <Resource Include="Data\UI\arrow base.png" />
+    <Resource Include="Data\UI\characterIcon.png" />
     <Resource Include="Data\UI\cross.png" />
     <Resource Include="Data\UI\icon.ico">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Data\UI\jobIcon.png" />
     <Resource Include="Data\UI\plus.png">
       <CopyToOutputDirectory></CopyToOutputDirectory>
     </Resource>
     <Resource Include="Data\UI\pluses.png" />
+    <Resource Include="Data\UI\skillsIcon.png" />
   </ItemGroup>
 
   <ItemGroup>

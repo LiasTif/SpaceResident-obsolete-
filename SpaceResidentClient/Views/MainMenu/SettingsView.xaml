@@ -119,8 +119,8 @@
             </Button>
         </StackPanel>
         <!--#endregion-->
-        
-        <!--#region Frame-->
+
+        <!--#region ContentControl-->
         <ContentControl
             Margin="5,0"
             Content="{Binding Path=CurrentPage, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
