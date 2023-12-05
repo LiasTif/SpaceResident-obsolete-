@@ -32,7 +32,8 @@ namespace SpaceResidentClient.ViewModels.MainMenu
         public ICommand SettingsViewSwitchCommand { get; }
         public ICommand OpenCharacterCreationCommand { get; }
 
-        private void OpenCharacterCreation() => _mainWindowViewModel.NavigationStore.CurrentViewModel = new CharacterCreationViewModel();
+        private void OpenCharacterCreation() => _mainWindowViewModel.NavigationStore.CurrentViewModel =
+            new CharacterCreationViewModel(_mainWindowViewModel, _mainWindowViewModel.NavigationStore);
         private void Shutdown() => App.Current.Shutdown();
         public void SettingsViewSwitch()
         {

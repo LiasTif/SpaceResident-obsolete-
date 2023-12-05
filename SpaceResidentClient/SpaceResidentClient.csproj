@@ -31,10 +31,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Models\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Page Include="Views\MainMenu\Settings\GameView.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
