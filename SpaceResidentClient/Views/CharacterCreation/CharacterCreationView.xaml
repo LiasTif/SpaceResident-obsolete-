@@ -163,7 +163,7 @@
                             Color="{StaticResource ActiveWhiterColor}"/>
                     </Border.Background>
                     <Image
-                        Source="{Binding CharacterImageSource, Mode=TwoWay}"/>
+                        Source="{Binding ImageSource, Mode=TwoWay}"/>
                 </Border>
             </Border>
 

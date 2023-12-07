@@ -1,4 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
+using System.Windows.Input;
 
 namespace SpaceResidentClient.ViewModels.CharacterCreation
 {
@@ -45,6 +47,17 @@ namespace SpaceResidentClient.ViewModels.CharacterCreation
         }
         #endregion
 
+        #region commands
+        private void ChangeGender()
+        {
+            if (Gender == "Male")
+                Gender = "Female";
+            else
+                Gender = "Male";
+        }
+        public ICommand ChangeGenderCommand { get; }
+        #endregion
+
         private void RaceOrGenderChanged()
         {
             char race = '0';
@@ -64,6 +77,7 @@ namespace SpaceResidentClient.ViewModels.CharacterCreation
 
         public CreationCharacterViewModel(CharacterCreationViewModel characterCreationViewModel)
         {
+            ChangeGenderCommand = new RelayCommand(ChangeGender);
             _characterCreationViewModel = characterCreationViewModel;
             RaceOrGenderChanged();
         }

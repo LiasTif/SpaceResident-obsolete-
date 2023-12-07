@@ -4,7 +4,6 @@ using SpaceResidentClient.Models.ImagesProcessors;
 using SpaceResidentClient.Services;
 using SpaceResidentClient.ViewModels.MainMenu;
 using SpaceResidentClient.ViewModels.Windows;
-using System.Collections.ObjectModel;
 using System.Windows.Input;
 
 namespace SpaceResidentClient.ViewModels.CharacterCreation
@@ -14,22 +13,28 @@ namespace SpaceResidentClient.ViewModels.CharacterCreation
         public readonly CharacterImageProcessor _imageProcessor;
         private readonly MainWindowViewModel _mainWindowViewModel;
         private readonly NavigationStore _navigationStore;
-        private int _imageIndex = 0;
 
         #region props
-        private ObservableCollection<string> _characterImagesSource;
+        public int ImageIndex { private get; set; } = 0;
+        public int ImageCount { private get; set; }
 
-        public ObservableCollection<string> ImageSources
+        private string _imagesDirectory;
+
+        public string ImagesDirectory
         {
-            get => _characterImagesSource;
+            get => _imagesDirectory;
             set
             {
-                _characterImagesSource = value;
-                CharacterImageSource = ImageSources[_imageIndex];
+                if (_imagesDirectory != value)
+                {
+                    _imagesDirectory = value;
+                    ImageSource = "/Resources;component" + _imagesDirectory + ImageIndex + ".png";
+                }
             }
         }
+
         [ObservableProperty]
-        public string? characterImageSource;
+        public string imageSource;
         [ObservableProperty]
         public ObservableObject? currentUserControl;
         #endregion
@@ -41,17 +46,23 @@ namespace SpaceResidentClient.ViewModels.CharacterCreation
         private void OpenSkillsMenu() => CurrentUserControl = new CreationSkillsViewModel();
         private void NextImage()
         {
-            if (_imageIndex != ImageSources.Count - 1)
-                CharacterImageSource = ImageSources[_imageIndex++];
+            if (ImageIndex >= ImageCount - 1)
+            {
+                ImageIndex = 1;
+                ImageSource = "/Resources;component" + _imagesDirectory + ImageIndex + ".png";
+            }
             else
-                CharacterImageSource = ImageSources[0];
+                ImageSource = "/Resources;component" + _imagesDirectory + ++ImageIndex + ".png";
         }
         private void PreviousImage()
         {
-            if (_imageIndex != 0)
-                CharacterImageSource = ImageSources[_imageIndex--];
+            if (ImageIndex <= 1)
+            {
+                ImageIndex = ImageCount - 1;
+                ImageSource = "/Resources;component" + _imagesDirectory + ImageIndex + ".png";
+            }
             else
-                CharacterImageSource = ImageSources[^1];
+                ImageSource = "/Resources;component" + _imagesDirectory + --ImageIndex + ".png";
         }
         public ICommand CloseCommand { get; }
         public ICommand OpenJobMenuCommand { get; }
@@ -73,6 +84,7 @@ namespace SpaceResidentClient.ViewModels.CharacterCreation
             OpenSkillsMenuCommand = new RelayCommand(OpenSkillsMenu);
             NextImageCommand = new RelayCommand(NextImage);
             PreviousImageCommand = new RelayCommand(PreviousImage);
+
             // open character menu by default
             OpenCharacterMenu();
         }

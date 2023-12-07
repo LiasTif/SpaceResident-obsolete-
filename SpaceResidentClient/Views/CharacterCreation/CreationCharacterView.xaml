@@ -5,8 +5,12 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" d:Height="1080" d:Width="1960">
     <UserControl.Resources>
-        <ResourceDictionary
-            Source="/ResourceDictionaries;component/Base/BaseElementsDictionary.xaml"/>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary
+                    Source="/ResourceDictionaries;component/Base/BaseElementsDictionary.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </UserControl.Resources>
     
     <Grid
@@ -228,6 +232,7 @@
             Style="{StaticResource brdMainElementBase}">
             <UniformGrid Columns="2">
                 <Button
+                    Command="{Binding ChangeGenderCommand}"
                     RenderTransformOrigin="0.5, 0.5"
                     x:Name="btnGenderMinus"
                     HorizontalAlignment="Left"
@@ -239,6 +244,7 @@
                 </Button>
 
                 <Button
+                    Command="{Binding ChangeGenderCommand}"
                     RenderTransformOrigin="0.5, 0.5"
                     x:Name="btnGenderPlus"
                     HorizontalAlignment="Right"
