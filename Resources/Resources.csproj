@@ -1,14 +1,31 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net6.0-windows</TargetFramework>
+    <TargetFramework>net8.0-windows10.0.19041.0</TargetFramework>
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
+    <SupportedOSPlatformVersion>7.0</SupportedOSPlatformVersion>
   </PropertyGroup>
 
   <ItemGroup>
     <None Remove="Data\UI\arrow base.png" />
     <None Remove="Data\UI\characterIcon.png" />
+    <None Remove="Data\UI\Characters\Human\Female\fHuman1.png" />
+    <None Remove="Data\UI\Characters\Human\Female\fHuman10.png" />
+    <None Remove="Data\UI\Characters\Human\Female\fHuman2.png" />
+    <None Remove="Data\UI\Characters\Human\Female\fHuman3.png" />
+    <None Remove="Data\UI\Characters\Human\Female\fHuman4.png" />
+    <None Remove="Data\UI\Characters\Human\Female\fHuman5.png" />
+    <None Remove="Data\UI\Characters\Human\Female\fHuman6.png" />
+    <None Remove="Data\UI\Characters\Human\Female\fHuman7.png" />
+    <None Remove="Data\UI\Characters\Human\Female\fHuman8.png" />
+    <None Remove="Data\UI\Characters\Human\Female\fHuman9.png" />
+    <None Remove="Data\UI\Characters\Human\Male\mHuman1.png" />
+    <None Remove="Data\UI\Characters\Human\Male\mHuman2.png" />
+    <None Remove="Data\UI\Characters\Human\Male\mHuman3.png" />
+    <None Remove="Data\UI\Characters\Human\Male\mHuman4.png" />
+    <None Remove="Data\UI\Characters\Human\Male\mHuman5.png" />
+    <None Remove="Data\UI\Characters\Human\Male\mHuman6.png" />
     <None Remove="Data\UI\cross.png" />
     <None Remove="Data\UI\icon.ico" />
     <None Remove="Data\UI\jobIcon.png" />
@@ -21,6 +38,54 @@
   <ItemGroup>
     <Resource Include="Data\UI\arrow base.png" />
     <Resource Include="Data\UI\characterIcon.png" />
+    <Resource Include="Data\UI\Characters\Human\Female\fHuman1.png">
+      <CopyToOutputDirectory></CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Data\UI\Characters\Human\Female\fHuman10.png">
+      <CopyToOutputDirectory></CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Data\UI\Characters\Human\Female\fHuman2.png">
+      <CopyToOutputDirectory></CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Data\UI\Characters\Human\Female\fHuman3.png">
+      <CopyToOutputDirectory></CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Data\UI\Characters\Human\Female\fHuman4.png">
+      <CopyToOutputDirectory></CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Data\UI\Characters\Human\Female\fHuman5.png">
+      <CopyToOutputDirectory></CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Data\UI\Characters\Human\Female\fHuman6.png">
+      <CopyToOutputDirectory></CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Data\UI\Characters\Human\Female\fHuman7.png">
+      <CopyToOutputDirectory></CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Data\UI\Characters\Human\Female\fHuman8.png">
+      <CopyToOutputDirectory></CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Data\UI\Characters\Human\Female\fHuman9.png">
+      <CopyToOutputDirectory></CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Data\UI\Characters\Human\Male\mHuman1.png">
+      <CopyToOutputDirectory></CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Data\UI\Characters\Human\Male\mHuman2.png">
+      <CopyToOutputDirectory></CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Data\UI\Characters\Human\Male\mHuman3.png">
+      <CopyToOutputDirectory></CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Data\UI\Characters\Human\Male\mHuman4.png">
+      <CopyToOutputDirectory></CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Data\UI\Characters\Human\Male\mHuman5.png">
+      <CopyToOutputDirectory></CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Data\UI\Characters\Human\Male\mHuman6.png">
+      <CopyToOutputDirectory></CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Data\UI\cross.png" />
     <Resource Include="Data\UI\icon.ico">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

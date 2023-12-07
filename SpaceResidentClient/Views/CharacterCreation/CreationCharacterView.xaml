@@ -77,7 +77,7 @@
             </Viewbox>
         </Border>
 
-        <!--Sex-->
+        <!--Gender-->
         <Border
             Margin="5"
             Grid.Row="4"
@@ -85,7 +85,7 @@
             <Viewbox
                 HorizontalAlignment="Left">
                 <TextBlock
-                    Text="Sex"
+                    Text="Gender"
                     Style="{StaticResource txtblWhiteTextBase}"/>
             </Viewbox>
         </Border>
@@ -98,7 +98,7 @@
             Margin="5"
             Grid.Column="1"
             VerticalContentAlignment="Center"
-            Text="Name"
+            Text="{Binding Name, Mode=OneWayToSource}"
             Style="{StaticResource txtbxBase}"/>
 
         <!--Surname-->
@@ -108,7 +108,7 @@
             Grid.Row="1"
             Grid.Column="1"
             VerticalContentAlignment="Center"
-            Text="Surname"
+            Text="{Binding Surname, Mode=OneWayToSource}"
             Style="{StaticResource txtbxBase}"/>
 
         <!--Age-->
@@ -126,7 +126,7 @@
                     Background="Transparent"
                     BorderThickness="0"
                     Style="{StaticResource txtbxBase}"
-                    Text="20"/>
+                    Text="{Binding Age, Mode=TwoWay}"/>
             </Viewbox>
         </Border>
         <Border
@@ -172,7 +172,7 @@
             <Viewbox HorizontalAlignment="Center">
                 <TextBlock
                     Style="{StaticResource txtblWhiteTextBase}"
-                    Text="Human"/>
+                    Text="{Binding Race, Mode=TwoWay}"/>
             </Viewbox>
         </Border>
         <Border
@@ -205,7 +205,7 @@
             </UniformGrid>
         </Border>
 
-        <!--Sex-->
+        <!--Gender-->
         <Border
             Panel.ZIndex="1"
             Margin="5"
@@ -218,7 +218,7 @@
             <Viewbox HorizontalAlignment="Center">
                 <TextBlock
                     Style="{StaticResource txtblWhiteTextBase}"
-                    Text="Female"/>
+                    Text="{Binding Gender, Mode=TwoWay}"/>
             </Viewbox>
         </Border>
         <Border
@@ -229,9 +229,9 @@
             <UniformGrid Columns="2">
                 <Button
                     RenderTransformOrigin="0.5, 0.5"
-                    x:Name="btnSexMinus"
+                    x:Name="btnGenderMinus"
                     HorizontalAlignment="Left"
-                    Width="{Binding ActualHeight, ElementName=btnSexMinus}"
+                    Width="{Binding ActualHeight, ElementName=btnGenderMinus}"
                     Style="{StaticResource btnArrowUp}">
                     <Button.RenderTransform>
                         <RotateTransform Angle="270"/>
@@ -240,9 +240,9 @@
 
                 <Button
                     RenderTransformOrigin="0.5, 0.5"
-                    x:Name="btnSexPlus"
+                    x:Name="btnGenderPlus"
                     HorizontalAlignment="Right"
-                    Width="{Binding ActualHeight, ElementName=btnSexMinus}"
+                    Width="{Binding ActualHeight, ElementName=btnGenderMinus}"
                     Style="{StaticResource btnArrowUp}">
                     <Button.RenderTransform>
                         <RotateTransform Angle="90"/>
