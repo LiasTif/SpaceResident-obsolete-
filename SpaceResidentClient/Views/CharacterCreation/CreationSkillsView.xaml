@@ -4,7 +4,481 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" d:Height="450" d:Width="800">
+
+    <UserControl.Resources>
+        <Style
+            TargetType="{x:Type Border}"
+            BasedOn="{StaticResource brdSecondElementBase}"
+            x:Key="brdCharacterCreation">
+            <Setter Property="Margin" Value="5"/>
+        </Style>
+    </UserControl.Resources>
+
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--#region 1 column-->
+        <Border
+            Style="{StaticResource brdCharacterCreation}">
+            <Viewbox HorizontalAlignment="Left">
+                <TextBlock
+                    ToolTip="Easily learns languages and memorizes text"
+                    Text="Linguistics"
+                    Style="{StaticResource txtblWhiteTextBase}"/>
+            </Viewbox>
+        </Border>
+
+        <Border
+            Style="{StaticResource brdCharacterCreation}"
+            Grid.Row="1">
+            <Viewbox HorizontalAlignment="Left">
+                <TextBlock
+                    ToolTip="Knowledge of flora and fauna"
+                    Text="Naturalistics"
+                    Style="{StaticResource txtblWhiteTextBase}"/>
+            </Viewbox>
+        </Border>
+
+        <Border
+            Style="{StaticResource brdCharacterCreation}"
+            Grid.Row="2">
+            <Viewbox HorizontalAlignment="Left">
+                <TextBlock
+                    ToolTip="Self-knowledge, control of the body and emotions"
+                    Text="Existentialism"
+                    Style="{StaticResource txtblWhiteTextBase}"/>
+            </Viewbox>
+        </Border>
+
+        <Border
+            Style="{StaticResource brdCharacterCreation}"
+            Grid.Row="3">
+            <Viewbox HorizontalAlignment="Left">
+                <TextBlock
+                    ToolTip="Talent for communication, empathy for people, language skills"
+                    Text="Relationships"
+                    Style="{StaticResource txtblWhiteTextBase}"/>
+            </Viewbox>
+        </Border>
+
+        <Border
+            Style="{StaticResource brdCharacterCreation}"
+            Grid.Row="4">
+            <Viewbox HorizontalAlignment="Left">
+                <TextBlock
+                    ToolTip="Figures and calculations. Knowledge of formulas in the exact sciences"
+                    Text="Logic"
+                    Style="{StaticResource txtblWhiteTextBase}"/>
+            </Viewbox>
+        </Border>
+
+        <Border
+            Style="{StaticResource brdCharacterCreation}"
+            Grid.Row="5">
+            <Viewbox HorizontalAlignment="Left">
+                <TextBlock
+                    ToolTip="Imagination and creativity"
+                    Text="Space"
+                    Style="{StaticResource txtblWhiteTextBase}"/>
+            </Viewbox>
+        </Border>
+
+        <Border
+            Style="{StaticResource brdCharacterCreation}"
+            Grid.Row="6">
+            <Viewbox HorizontalAlignment="Left">
+                <TextBlock
+                    ToolTip="Body composition, agility and endurance"
+                    Text="Kinetics"
+                    Style="{StaticResource txtblWhiteTextBase}"/>
+            </Viewbox>
+        </Border>
+        <!--#endregion-->
         
+        <!--#region 2 column-->
+        <!--#region Linguistics-->
+        <Border
+            Panel.ZIndex="1"
+            Margin="5"
+            Grid.Column="1"
+            BorderThickness="3">
+            <Border.BorderBrush>
+                <SolidColorBrush Color="{StaticResource PassiveColor}"/>
+            </Border.BorderBrush>
+            <Viewbox HorizontalAlignment="Center">
+                <TextBlock
+                    Style="{StaticResource txtblWhiteTextBase}"
+                    Text="{Binding Linguistics, Mode=TwoWay}"/>
+            </Viewbox>
+        </Border>
+        <Border
+            Grid.Column="1"
+            Margin="5"
+            Style="{StaticResource brdMainElementBase}">
+            <UniformGrid Columns="2">
+                <Button
+                    Command="{Binding DecreaseCharacteristicCommand}"
+                    CommandParameter="Linguistics"
+                    RenderTransformOrigin="0.5, 0.5"
+                    x:Name="btnLinguisticsMinus"
+                    HorizontalAlignment="Left"
+                    Width="{Binding ActualHeight, ElementName=btnLinguisticsMinus}"
+                    Style="{StaticResource btnArrowUp}">
+                    <Button.RenderTransform>
+                        <RotateTransform Angle="270"/>
+                    </Button.RenderTransform>
+                </Button>
+
+                <Button
+                    Command="{Binding IncreaseCharacteristicCommand}"
+                    CommandParameter="Linguistics"
+                    RenderTransformOrigin="0.5, 0.5"
+                    x:Name="btnLinguisticsPlus"
+                    HorizontalAlignment="Right"
+                    Width="{Binding ActualHeight, ElementName=btnLinguisticsMinus}"
+                    Style="{StaticResource btnArrowUp}">
+                    <Button.RenderTransform>
+                        <RotateTransform Angle="90"/>
+                    </Button.RenderTransform>
+                </Button>
+            </UniformGrid>
+        </Border>
+        <!--#endregion-->
+        <!--#region Naturalistics-->
+        <Border
+            Panel.ZIndex="1"
+            Margin="5"
+            Grid.Row="1"
+            Grid.Column="1"
+            BorderThickness="3">
+            <Border.BorderBrush>
+                <SolidColorBrush Color="{StaticResource PassiveColor}"/>
+            </Border.BorderBrush>
+            <Viewbox HorizontalAlignment="Center">
+                <TextBlock
+                    Style="{StaticResource txtblWhiteTextBase}"
+                    Text="{Binding Naturalistics, Mode=TwoWay}"/>
+            </Viewbox>
+        </Border>
+        <Border
+            Grid.Row="1"
+            Grid.Column="1"
+            Margin="5"
+            Style="{StaticResource brdMainElementBase}">
+            <UniformGrid Columns="2">
+                <Button
+                    Command="{Binding DecreaseCharacteristicCommand}"
+                    CommandParameter="Naturalistics"
+                    RenderTransformOrigin="0.5, 0.5"
+                    x:Name="btnNaturalisticsMinus"
+                    HorizontalAlignment="Left"
+                    Width="{Binding ActualHeight, ElementName=btnNaturalisticsMinus}"
+                    Style="{StaticResource btnArrowUp}">
+                    <Button.RenderTransform>
+                        <RotateTransform Angle="270"/>
+                    </Button.RenderTransform>
+                </Button>
+
+                <Button
+                    Command="{Binding IncreaseCharacteristicCommand}"
+                    CommandParameter="Naturalistics"
+                    RenderTransformOrigin="0.5, 0.5"
+                    x:Name="btnNaturalisticsPlus"
+                    HorizontalAlignment="Right"
+                    Width="{Binding ActualHeight, ElementName=btnNaturalisticsMinus}"
+                    Style="{StaticResource btnArrowUp}">
+                    <Button.RenderTransform>
+                        <RotateTransform Angle="90"/>
+                    </Button.RenderTransform>
+                </Button>
+            </UniformGrid>
+        </Border>
+        <!--#endregion-->
+        <!--#region Existentialism-->
+        <Border
+            Panel.ZIndex="1"
+            Margin="5"
+            Grid.Row="2"
+            Grid.Column="1"
+            BorderThickness="3">
+            <Border.BorderBrush>
+                <SolidColorBrush Color="{StaticResource PassiveColor}"/>
+            </Border.BorderBrush>
+            <Viewbox HorizontalAlignment="Center">
+                <TextBlock
+                    Style="{StaticResource txtblWhiteTextBase}"
+                    Text="{Binding Existentialism, Mode=TwoWay}"/>
+            </Viewbox>
+        </Border>
+        <Border
+            Grid.Row="2"
+            Grid.Column="1"
+            Margin="5"
+            Style="{StaticResource brdMainElementBase}">
+            <UniformGrid Columns="2">
+                <Button
+                    Command="{Binding DecreaseCharacteristicCommand}"
+                    CommandParameter="Existentialism"
+                    RenderTransformOrigin="0.5, 0.5"
+                    x:Name="btnExistentialismMinus"
+                    HorizontalAlignment="Left"
+                    Width="{Binding ActualHeight, ElementName=btnExistentialismMinus}"
+                    Style="{StaticResource btnArrowUp}">
+                    <Button.RenderTransform>
+                        <RotateTransform Angle="270"/>
+                    </Button.RenderTransform>
+                </Button>
+
+                <Button
+                    Command="{Binding IncreaseCharacteristicCommand}"
+                    CommandParameter="Existentialism"
+                    RenderTransformOrigin="0.5, 0.5"
+                    x:Name="btnExistentialismPlus"
+                    HorizontalAlignment="Right"
+                    Width="{Binding ActualHeight, ElementName=btnExistentialismMinus}"
+                    Style="{StaticResource btnArrowUp}">
+                    <Button.RenderTransform>
+                        <RotateTransform Angle="90"/>
+                    </Button.RenderTransform>
+                </Button>
+            </UniformGrid>
+        </Border>
+        <!--#endregion-->
+        <!--#region Relationships-->
+        <Border
+            Grid.Row="3"
+            Panel.ZIndex="1"
+            Margin="5"
+            Grid.Column="1"
+            BorderThickness="3">
+            <Border.BorderBrush>
+                <SolidColorBrush Color="{StaticResource PassiveColor}"/>
+            </Border.BorderBrush>
+            <Viewbox HorizontalAlignment="Center">
+                <TextBlock
+                    Style="{StaticResource txtblWhiteTextBase}"
+                    Text="{Binding Relationships, Mode=TwoWay}"/>
+            </Viewbox>
+        </Border>
+        <Border
+            Grid.Row="3"
+            Grid.Column="1"
+            Margin="5"
+            Style="{StaticResource brdMainElementBase}">
+            <UniformGrid Columns="2">
+                <Button
+                    Command="{Binding DecreaseCharacteristicCommand}"
+                    CommandParameter="Relationships"
+                    RenderTransformOrigin="0.5, 0.5"
+                    x:Name="btnRelationshipsMinus"
+                    HorizontalAlignment="Left"
+                    Width="{Binding ActualHeight, ElementName=btnRelationshipsMinus}"
+                    Style="{StaticResource btnArrowUp}">
+                    <Button.RenderTransform>
+                        <RotateTransform Angle="270"/>
+                    </Button.RenderTransform>
+                </Button>
+
+                <Button
+                    Command="{Binding IncreaseCharacteristicCommand}"
+                    CommandParameter="Relationships"
+                    RenderTransformOrigin="0.5, 0.5"
+                    x:Name="btnRelationshipsPlus"
+                    HorizontalAlignment="Right"
+                    Width="{Binding ActualHeight, ElementName=btnRelationshipsMinus}"
+                    Style="{StaticResource btnArrowUp}">
+                    <Button.RenderTransform>
+                        <RotateTransform Angle="90"/>
+                    </Button.RenderTransform>
+                </Button>
+            </UniformGrid>
+        </Border>
+        <!--#endregion-->
+        <!--#region Logic-->
+        <Border
+            Grid.Row="4"
+            Panel.ZIndex="1"
+            Margin="5"
+            Grid.Column="1"
+            BorderThickness="3">
+            <Border.BorderBrush>
+                <SolidColorBrush Color="{StaticResource PassiveColor}"/>
+            </Border.BorderBrush>
+            <Viewbox HorizontalAlignment="Center">
+                <TextBlock
+                    Style="{StaticResource txtblWhiteTextBase}"
+                    Text="{Binding Logic, Mode=TwoWay}"/>
+            </Viewbox>
+        </Border>
+        <Border
+            Grid.Row="4"
+            Grid.Column="1"
+            Margin="5"
+            Style="{StaticResource brdMainElementBase}">
+            <UniformGrid Columns="2">
+                <Button
+                    Command="{Binding DecreaseCharacteristicCommand}"
+                    CommandParameter="Logic"
+                    RenderTransformOrigin="0.5, 0.5"
+                    x:Name="btnLogicMinus"
+                    HorizontalAlignment="Left"
+                    Width="{Binding ActualHeight, ElementName=btnLogicMinus}"
+                    Style="{StaticResource btnArrowUp}">
+                    <Button.RenderTransform>
+                        <RotateTransform Angle="270"/>
+                    </Button.RenderTransform>
+                </Button>
+
+                <Button
+                    Command="{Binding IncreaseCharacteristicCommand}"
+                    CommandParameter="Logic"
+                    RenderTransformOrigin="0.5, 0.5"
+                    x:Name="btnLogicPlus"
+                    HorizontalAlignment="Right"
+                    Width="{Binding ActualHeight, ElementName=btnLogicMinus}"
+                    Style="{StaticResource btnArrowUp}">
+                    <Button.RenderTransform>
+                        <RotateTransform Angle="90"/>
+                    </Button.RenderTransform>
+                </Button>
+            </UniformGrid>
+        </Border>
+        <!--#endregion-->
+        <!--#region Space-->
+        <Border
+            Grid.Row="5"
+            Panel.ZIndex="1"
+            Margin="5"
+            Grid.Column="1"
+            BorderThickness="3">
+            <Border.BorderBrush>
+                <SolidColorBrush Color="{StaticResource PassiveColor}"/>
+            </Border.BorderBrush>
+            <Viewbox HorizontalAlignment="Center">
+                <TextBlock
+                    Style="{StaticResource txtblWhiteTextBase}"
+                    Text="{Binding Space, Mode=TwoWay}"/>
+            </Viewbox>
+        </Border>
+        <Border
+            Grid.Row="5"
+            Grid.Column="1"
+            Margin="5"
+            Style="{StaticResource brdMainElementBase}">
+            <UniformGrid Columns="2">
+                <Button
+                    Command="{Binding DecreaseCharacteristicCommand}"
+                    CommandParameter="Space"
+                    RenderTransformOrigin="0.5, 0.5"
+                    x:Name="btnSpaceMinus"
+                    HorizontalAlignment="Left"
+                    Width="{Binding ActualHeight, ElementName=btnSpaceMinus}"
+                    Style="{StaticResource btnArrowUp}">
+                    <Button.RenderTransform>
+                        <RotateTransform Angle="270"/>
+                    </Button.RenderTransform>
+                </Button>
+
+                <Button
+                    Command="{Binding IncreaseCharacteristicCommand}"
+                    CommandParameter="Space"
+                    RenderTransformOrigin="0.5, 0.5"
+                    x:Name="btnSpacePlus"
+                    HorizontalAlignment="Right"
+                    Width="{Binding ActualHeight, ElementName=btnSpaceMinus}"
+                    Style="{StaticResource btnArrowUp}">
+                    <Button.RenderTransform>
+                        <RotateTransform Angle="90"/>
+                    </Button.RenderTransform>
+                </Button>
+            </UniformGrid>
+        </Border>
+        <!--#endregion-->
+        <!--#region Kinetics-->
+        <Border
+            Grid.Row="6"
+            Panel.ZIndex="1"
+            Margin="5"
+            Grid.Column="1"
+            BorderThickness="3">
+            <Border.BorderBrush>
+                <SolidColorBrush Color="{StaticResource PassiveColor}"/>
+            </Border.BorderBrush>
+            <Viewbox HorizontalAlignment="Center">
+                <TextBlock
+                    Style="{StaticResource txtblWhiteTextBase}"
+                    Text="{Binding Kinetics, Mode=TwoWay}"/>
+            </Viewbox>
+        </Border>
+        <Border
+            Grid.Row="6"
+            Grid.Column="1"
+            Margin="5"
+            Style="{StaticResource brdMainElementBase}">
+            <UniformGrid Columns="2">
+                <Button
+                    Command="{Binding DecreaseCharacteristicCommand}"
+                    CommandParameter="Kinetics"
+                    RenderTransformOrigin="0.5, 0.5"
+                    x:Name="btnKineticsMinus"
+                    HorizontalAlignment="Left"
+                    Width="{Binding ActualHeight, ElementName=btnKineticsMinus}"
+                    Style="{StaticResource btnArrowUp}">
+                    <Button.RenderTransform>
+                        <RotateTransform Angle="270"/>
+                    </Button.RenderTransform>
+                </Button>
+
+                <Button
+                    Command="{Binding IncreaseCharacteristicCommand}"
+                    CommandParameter="Kinetics"
+                    RenderTransformOrigin="0.5, 0.5"
+                    x:Name="btnKineticsPlus"
+                    HorizontalAlignment="Right"
+                    Width="{Binding ActualHeight, ElementName=btnKineticsMinus}"
+                    Style="{StaticResource btnArrowUp}">
+                    <Button.RenderTransform>
+                        <RotateTransform Angle="90"/>
+                    </Button.RenderTransform>
+                </Button>
+            </UniformGrid>
+        </Border>
+        <!--#endregion-->
+        
+        <!--#region Poins-->
+        <StackPanel
+            Grid.Column="1"
+            Grid.Row="8"
+            Orientation="Horizontal"
+            HorizontalAlignment="Right">
+            <Viewbox Margin="5">
+                <TextBlock
+                    Text="Points:"
+                    Style="{StaticResource txtblWhiteTextBase}"/>
+            </Viewbox>
+            <Viewbox Margin="5">
+                <Border Style="{StaticResource brdSecondElementBase}">
+                    <TextBlock
+                        Text="{Binding Points, Mode=TwoWay}"
+                        Style="{StaticResource txtblWhiteTextBase}"/>
+                </Border>
+            </Viewbox>
+        </StackPanel>
+        <!--#endregion-->
+        <!--#endregion-->
     </Grid>
 </UserControl>

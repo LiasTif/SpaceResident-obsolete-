@@ -194,7 +194,7 @@
             </Button>
         </UniformGrid>
         <!--#endregion-->
-            
+
         <!--#region bottom buttons-->
         <UniformGrid
             Grid.Row="3"
@@ -202,6 +202,7 @@
             Columns="2"
             Margin="5">
             <Button
+                MouseEnter="Button_MouseEnter"
                 Command="{Binding CloseCommand}"
                 Content="Cancel"
                 Style="{StaticResource btnCancelBase}">
@@ -223,6 +224,7 @@
                 </Button.Width>
             </Button>
             <Button
+                MouseEnter="Button_MouseEnter"
                 Content="Continue"
                 Style="{StaticResource btnBase}">
                 <Button.Height>

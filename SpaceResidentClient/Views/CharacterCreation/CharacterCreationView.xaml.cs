@@ -20,9 +20,17 @@ namespace SpaceResidentClient.Views.CharacterCreation
     /// </summary>
     public partial class CharacterCreationView : UserControl
     {
+        private MediaPlayer _player = new() { Volume = 0.2 };
+
         public CharacterCreationView()
         {
             InitializeComponent();
+        }
+
+        private void Button_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e)
+        {
+            _player.Open(new Uri("Data/sounds/UI/Button Hover.wav", UriKind.Relative));
+            _player.Play();
         }
     }
 }

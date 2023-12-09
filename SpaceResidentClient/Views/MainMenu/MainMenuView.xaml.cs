@@ -9,7 +9,7 @@ namespace SpaceResidentClient.Views.MainMenu
     /// </summary>
     public partial class MainMenuView : UserControl
     {
-        private MediaPlayer _player = new();
+        private MediaPlayer _player = new() { Volume = 0.2 };
 
         public MainMenuView()
         {
@@ -19,7 +19,6 @@ namespace SpaceResidentClient.Views.MainMenu
         private void Button_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e)
         {
             _player.Open(new Uri("Data/sounds/UI/Button Hover.wav", UriKind.Relative));
-            _player.Volume = 0.2;
             _player.Play();
         }
     }

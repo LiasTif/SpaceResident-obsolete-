@@ -98,6 +98,7 @@
         <!--#region 2 column-->
         <!--Name-->
         <TextBox
+            MaxLength="20"
             FontSize="40"
             Margin="5"
             Grid.Column="1"
@@ -107,6 +108,7 @@
 
         <!--Surname-->
         <TextBox
+            MaxLength="20"
             FontSize="40"
             Margin="5"
             Grid.Row="1"
