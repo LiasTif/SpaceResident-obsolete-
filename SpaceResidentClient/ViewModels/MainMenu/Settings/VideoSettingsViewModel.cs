@@ -10,7 +10,7 @@ namespace SpaceResidentClient.ViewModels.MainMenu.Settings
 {
     partial class VideoSettingsViewModel : ObservableObject
     {
-        private MainWindowViewModel _mainWindowViewModel;
+        private readonly MainWindowViewModel _mainWindowViewModel;
 
         #region props
         [ObservableProperty]
@@ -54,12 +54,12 @@ namespace SpaceResidentClient.ViewModels.MainMenu.Settings
 
             CbScreenModeSelectionChangedCommand = new RelayCommand(CbScreenModeSelectionChanged);
 
-            screenModeTextBlocks = new ObservableCollection<TextBlock>()
-            {
-                new TextBlock() { Text = "Fullscreen"},
-                new TextBlock() { Text = "Windowed"},
-                new TextBlock() { Text = "Borderless Window"}
-            };
+            screenModeTextBlocks =
+            [
+                new() { Text = Properties.Lang.fullscreen},
+                new() { Text = Properties.Lang.windowed},
+                new() { Text = Properties.Lang.borderlessWindow}
+            ];
         }
     }
 }

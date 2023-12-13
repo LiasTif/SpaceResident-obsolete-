@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+             xmlns:language="clr-namespace:SpaceResidentClient.Properties"
              mc:Ignorable="d" d:Height="450" d:Width="800">
     <UserControl.Resources>
         <ResourceDictionary>
@@ -31,7 +32,7 @@
             Style="{StaticResource brdMainElementBase}">
             <Viewbox HorizontalAlignment="Left">
                 <TextBlock
-                    Text="Resolution"
+                    Text="{x:Static language:Lang.resolution}"
                     Style="{StaticResource txtblWhiteTextBase}"/>
             </Viewbox>
         </Border>
@@ -79,7 +80,7 @@
             Style="{StaticResource brdMainElementBase}">
             <Viewbox HorizontalAlignment="Left">
                 <TextBlock
-                    Text="ScreenMode"
+                    Text="{x:Static language:Lang.screenMode}"
                     Style="{StaticResource txtblWhiteTextBase}"/>
             </Viewbox>
         </Border>

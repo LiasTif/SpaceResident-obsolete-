@@ -6,6 +6,7 @@
              xmlns:c="clr-namespace:Converters;assembly=Converters"
              xmlns:viewSettings="clr-namespace:SpaceResidentClient.Views.MainMenu.Settings"
              xmlns:vmSettings="clr-namespace:SpaceResidentClient.ViewModels.MainMenu.Settings"
+             xmlns:language="clr-namespace:SpaceResidentClient.Properties"
              mc:Ignorable="d" d:Height="720" d:Width="1280">
     <UserControl.Resources>
         <ResourceDictionary>
@@ -53,7 +54,7 @@
             Grid.ColumnSpan="2">
             <TextBlock
                 Margin="10,10,5,10"
-                Text="Settings"
+                Text="{x:Static language:Lang.settings}"
                 Style="{StaticResource txtblWhiteTextBase}"/>
         </Viewbox>
 

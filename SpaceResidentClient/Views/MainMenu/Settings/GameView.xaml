@@ -3,8 +3,46 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+             xmlns:language="clr-namespace:SpaceResidentClient.Properties"
              mc:Ignorable="d" d:Height="450" d:Width="800">
     <Grid>
-            
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.1*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="0.5*"/>
+        </Grid.ColumnDefinitions>
+        
+        <!--#region Language-->
+        <Border
+            Margin="5"
+            Style="{StaticResource brdMainElementBase}">
+            <Viewbox HorizontalAlignment="Left">
+                <TextBlock
+                    Text="{x:Static language:Lang.language}"
+                    Style="{StaticResource txtblWhiteTextBase}"/>
+            </Viewbox>
+        </Border>
+
+        <Border
+            Grid.Column="1"
+            Margin="5"
+            Style="{StaticResource brdMainElementBase}">
+            <ComboBox
+                SelectedItem="{Binding SelectedLanguageTextBlock}"
+                ItemsSource="{Binding LanguageTextBlocks}"
+                x:Name="cbLanguage">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="SelectionChanged">
+                        <i:InvokeCommandAction
+                            Command="{Binding LanguageSelectionChangedCommand}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </ComboBox>
+        </Border>
+        <!--#endregion-->
     </Grid>
 </UserControl>

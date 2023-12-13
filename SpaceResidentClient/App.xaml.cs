@@ -1,6 +1,7 @@
 ﻿using SpaceResidentClient.Services;
 using SpaceResidentClient.ViewModels.Windows;
 using SpaceResidentClient.Views.Windows;
+using System.Threading;
 using System.Windows;
 
 namespace SpaceResidentClient
@@ -12,6 +13,9 @@ namespace SpaceResidentClient
     {
         protected override void OnStartup(StartupEventArgs e)
         {
+            var langCode = SpaceResidentClient.Properties.Settings.Default.languageCode;
+            Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo(langCode);
+
             MainWindow mainWindow = new();
             MainWindowViewModel mainWindowVM = new(new NavigationStore());
 

@@ -11,7 +11,7 @@ namespace SpaceResidentClient.ViewModels.MainMenu
     internal partial class SettingsViewModel : ObservableObject
     {
         public MainMenuViewModel _mainMenuViewModelInstance;
-        private MainWindowViewModel _mainWindowViewModel;
+        private readonly MainWindowViewModel _mainWindowViewModel;
 
         #region props
         [ObservableProperty]
@@ -38,15 +38,15 @@ namespace SpaceResidentClient.ViewModels.MainMenu
             OpenGamePageCommand = new RelayCommand(OpenGamePage);
             OpenVideoPageCommand = new RelayCommand(OpenVideoPage);
 
-            menuButtons = new ObservableCollection<RadioButton>()
-            {
-                new RadioButton() {
-                    Content = "Game",
+            menuButtons =
+            [
+                new() {
+                    Content = Properties.Lang.game,
                     Command = OpenGamePageCommand,
                     GroupName = "rbtns",
                     IsChecked = true},
-                new RadioButton() {Content = "Video", Command = OpenVideoPageCommand, GroupName = "rbtns"}
-            };
+                new() {Content = Properties.Lang.video, Command = OpenVideoPageCommand, GroupName = "rbtns"}
+            ];
         }
     }
 }
