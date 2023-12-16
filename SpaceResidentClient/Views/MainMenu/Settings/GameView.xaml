@@ -15,7 +15,7 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="0.5*"/>
         </Grid.ColumnDefinitions>
-        
+
         <!--#region Language-->
         <Border
             Margin="5"

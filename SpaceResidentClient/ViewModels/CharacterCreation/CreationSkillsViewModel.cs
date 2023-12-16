@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using SpaceResidentClient.Models;
 using System;
 using System.Windows.Input;
 
@@ -7,6 +8,8 @@ namespace SpaceResidentClient.ViewModels.CharacterCreation
 {
     public partial class CreationSkillsViewModel : ObservableObject
     {
+        private readonly CharacterCreationSkillPointsProcessor _characterCreationSkillPointsProcessor = new();
+
         #region props
         [ObservableProperty]
         public byte points = 60;
@@ -30,114 +33,38 @@ namespace SpaceResidentClient.ViewModels.CharacterCreation
         #region commands
         private void IncreaseCharacteristic(string? characteristic)
         {
-            byte value = Convert.ToByte(GetType().GetProperty(characteristic)
-                                                 .GetValue(this));
-
-            if (Points > 0)
-            {
-                if (value < 5)
-                {
-                    Points--;
-                }
-                else if (value < 8 && Points > 1)
-                {
-                    Points -= 2;
-                }
-                else if (value < 10 && Points > 2)
-                {
-                    Points -= 3;
-                }
-                else if (value < 12 && Points > 3)
-                {
-                    Points -= 4;
-                }
-                else if (value < 14 && Points > 4)
-                {
-                    Points -= 5;
-                }
-                else if (value == 14 && Points > 5)
-                {
-                    Points -= 6;
-                }
-                else if (value == 15 && Points > 6)
-                {
-                    Points -= 7;
-                }
-                else if (value == 16 && Points > 7)
-                {
-                    Points -= 8;
-                }
-                else if (value == 17 && Points > 8)
-                {
-                    Points -= 9;
-                }
-                else if (value == 18 && Points > 9)
-                {
-                    Points -= 10;
-                }
-                else
-                {
-                    return;
-                }
-                GetType().GetProperty(characteristic)
-                         .SetValue(this, ++value);
-            }
+            ChangeCharacteristic(characteristic, true);
         }
+
         private void DecreaseCharacteristic(string? characteristic)
         {
-            byte value = Convert.ToByte(GetType().GetProperty(characteristic)
-                                                 .GetValue(this));
+            ChangeCharacteristic(characteristic, false);
+        }
 
-            if (value > 1)
+        private void ChangeCharacteristic(string? characteristic, bool isIncrease)
+        {
+            if (characteristic == null)
+                return;
+
+            byte value = Convert.ToByte(GetType().GetProperty(characteristic)?.GetValue(this));
+
+            byte oldPoints = Points;
+            if (isIncrease)
             {
-                if (value <= 5)
-                {
-                    Points++;
-                }
-                else if (value <= 8)
-                {
-                    Points += 2;
-                }
-                else if (value <= 10)
-                {
-                    Points += 3;
-                }
-                else if (value <= 12)
-                {
-                    Points += 4;
-                }
-                else if (value <= 14)
-                {
-                    Points += 5;
-                }
-                else if (value == 15)
-                {
-                    Points += 6;
-                }
-                else if (value == 16)
-                {
-                    Points += 7;
-                }
-                else if (value == 17)
-                {
-                    Points += 8;
-                }
-                else if (value == 18)
-                {
-                    Points += 9;
-                }
-                else if (value == 19)
-                {
-                    Points += 10;
-                }
-                else
-                {
-                    return;
-                }
-                GetType().GetProperty(characteristic)
-                         .SetValue(this, --value);
+                Points = _characterCreationSkillPointsProcessor.IncreaseSkill(Points, value);
+
+                if (oldPoints != Points)
+                    GetType().GetProperty(characteristic)?.SetValue(this, ++value);
+            }
+            else
+            {
+                Points = _characterCreationSkillPointsProcessor.DecreaseSkill(Points, value);
+
+                if (oldPoints != Points)
+                    GetType().GetProperty(characteristic)?.SetValue(this, --value);
             }
         }
+
         public ICommand IncreaseCharacteristicCommand { get; }
         public ICommand DecreaseCharacteristicCommand { get; }
         #endregion

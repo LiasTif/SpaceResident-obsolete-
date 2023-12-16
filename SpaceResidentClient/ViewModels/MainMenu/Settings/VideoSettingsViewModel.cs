@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using SpaceResidentClient.Models.Settings;
 using SpaceResidentClient.ViewModels.Windows;
 using System.Collections.ObjectModel;
 using System.Windows;
@@ -14,7 +15,7 @@ namespace SpaceResidentClient.ViewModels.MainMenu.Settings
 
         #region props
         [ObservableProperty]
-        public TextBlock selectedScreenModeTextBlock;
+        public TextBlock? selectedScreenModeTextBlock;
         [ObservableProperty]
         public ObservableCollection<TextBlock> screenModeTextBlocks;
         #endregion
@@ -22,31 +23,36 @@ namespace SpaceResidentClient.ViewModels.MainMenu.Settings
         #region commands
         private void CbScreenModeSelectionChanged()
         {
-            switch (SelectedScreenModeTextBlock.Text)
+            if (SelectedScreenModeTextBlock != null)
             {
                 // fullscreen
-                case "Fullscreen":
-                    _mainWindowViewModel.WinStyle = WindowStyle.None;
-                    _mainWindowViewModel.WinState = WindowState.Maximized;
-                    _mainWindowViewModel.ResizeMode = ResizeMode.NoResize;
-                    break;
+                if (SelectedScreenModeTextBlock.Text == Properties.Lang.fullscreen)
+                    ChangeWindowMode(windowModes[0]);
                 // windowed
-                case "Windowed":
-                    _mainWindowViewModel.WinStyle = WindowStyle.ThreeDBorderWindow;
-                    _mainWindowViewModel.WinState = WindowState.Normal;
-                    _mainWindowViewModel.ResizeMode = ResizeMode.CanResize;
-                    break;
+                else if (SelectedScreenModeTextBlock.Text == Properties.Lang.windowed)
+                    ChangeWindowMode(windowModes[1]);
                 // borderless window
-                default:
-                    _mainWindowViewModel.WinStyle = WindowStyle.None;
-                    _mainWindowViewModel.WinState = WindowState.Normal;
-                    _mainWindowViewModel.ResizeMode = ResizeMode.NoResize;
-                    break;
+                else
+                    ChangeWindowMode(windowModes[2]);
             }
-            
         }
+
         public ICommand CbScreenModeSelectionChangedCommand { get; }
         #endregion
+
+        private static readonly WindowMode[] windowModes =
+        {
+            new(WindowStyle.None, WindowState.Maximized, ResizeMode.NoResize),
+            new(WindowStyle.ThreeDBorderWindow, WindowState.Normal, ResizeMode.CanResize),
+            new(WindowStyle.None, WindowState.Normal, ResizeMode.NoResize)
+        };
+
+        private void ChangeWindowMode(WindowMode windowMode)
+        {
+            _mainWindowViewModel.WinStyle = windowMode.Style;
+            _mainWindowViewModel.WinState = windowMode.State;
+            _mainWindowViewModel.ResizeMode = windowMode.ResizeMode;
+        }
 
         public VideoSettingsViewModel(MainWindowViewModel mainWindowViewModel)
         {

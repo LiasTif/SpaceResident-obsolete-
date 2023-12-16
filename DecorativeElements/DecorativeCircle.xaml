@@ -35,13 +35,13 @@
             <EventTrigger RoutedEvent="Loaded">
                 <BeginStoryboard>
                     <Storyboard
-                            AutoReverse="True"
-                            RepeatBehavior="5x"
-                            AccelerationRatio="1.0">
+                        AutoReverse="True"
+                        RepeatBehavior="5x"
+                        AccelerationRatio="1.0">
                         <DoubleAnimation
-                                Duration="0:0:0.1"
-                                To="0"
-                                Storyboard.TargetProperty="Opacity"/>
+                            Duration="0:0:0.1"
+                            To="0"
+                            Storyboard.TargetProperty="Opacity"/>
                     </Storyboard>
                 </BeginStoryboard>
             </EventTrigger>
@@ -49,9 +49,9 @@
 
         <!--Big Circle-->
         <Ellipse
-                x:Name="BigDecorativeCircle"
-                StrokeThickness="3"
-                Width="{Binding ActualHeight, ElementName=BigDecorativeCircle}">
+            x:Name="BigDecorativeCircle"
+            StrokeThickness="3"
+            Width="{Binding ActualHeight, ElementName=BigDecorativeCircle}">
             <Ellipse.Stroke>
                 <SolidColorBrush Opacity=".2" Color="{StaticResource PassiveColor}"/>
             </Ellipse.Stroke>
@@ -61,8 +61,8 @@
             <Ellipse.Height>
                 <MultiBinding Converter="{StaticResource SizeFromSizePercentageConventer}">
                     <Binding
-                            ElementName="MainGrid"
-                            Path="ActualWidth"/>
+                        ElementName="MainGrid"
+                        Path="ActualWidth"/>
                     <Binding Source="50"/>
                 </MultiBinding>
             </Ellipse.Height>
@@ -70,10 +70,10 @@
 
         <!--rotated ellipse slise-->
         <Ellipse
-                RenderTransformOrigin="0.5,0.5"
-                StrokeThickness="3"
-                Width="{Binding ActualHeight, ElementName=BigDecorativeCircle}"
-                Height="{Binding ActualHeight, ElementName=BigDecorativeCircle}">
+            RenderTransformOrigin="0.5,0.5"
+            StrokeThickness="3"
+            Width="{Binding ActualHeight, ElementName=BigDecorativeCircle}"
+            Height="{Binding ActualHeight, ElementName=BigDecorativeCircle}">
             <Ellipse.Stroke>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
                     <GradientStop Offset="0.8" Color="Transparent"/>
@@ -89,11 +89,11 @@
                     <BeginStoryboard>
                         <Storyboard RepeatBehavior="Forever">
                             <DoubleAnimation
-                                    Storyboard.TargetName="SliseRotateTransform"
-                                    Storyboard.TargetProperty="(RotateTransform.Angle)"
-                                    From="0.0"
-                                    To="360"
-                                    Duration="0:0:2"/>
+                                Storyboard.TargetName="SliseRotateTransform"
+                                Storyboard.TargetProperty="(RotateTransform.Angle)"
+                                From="0.0"
+                                To="360"
+                                Duration="0:0:2"/>
                         </Storyboard>
                     </BeginStoryboard>
                 </EventTrigger>
@@ -102,9 +102,9 @@
 
         <!--Small Circle-->
         <Ellipse
-                x:Name="SmallDecorativeCircle"
-                StrokeThickness="2"
-                Width="{Binding ActualHeight, ElementName=SmallDecorativeCircle}">
+            x:Name="SmallDecorativeCircle"
+            StrokeThickness="2"
+            Width="{Binding ActualHeight, ElementName=SmallDecorativeCircle}">
             <Ellipse.Stroke>
                 <SolidColorBrush Opacity=".8" Color="{StaticResource PassiveColor}"/>
             </Ellipse.Stroke>
@@ -114,8 +114,8 @@
             <Ellipse.Height>
                 <MultiBinding Converter="{StaticResource SizeFromSizePercentageConventer}">
                     <Binding
-                            ElementName="BigDecorativeCircle"
-                            Path="ActualHeight"/>
+                        ElementName="BigDecorativeCircle"
+                        Path="ActualHeight"/>
                     <Binding Source="50"/>
                 </MultiBinding>
             </Ellipse.Height>
@@ -124,108 +124,108 @@
         <!--Lines from the middle of rectangle to textblocks-->
         <Canvas HorizontalAlignment="Center" VerticalAlignment="Center">
             <Border
-                    x:Name="CircleAnmatedLine1"
-                    Style="{StaticResource brdRotatedLine1AtEllipse}"/>
+                x:Name="CircleAnmatedLine1"
+                Style="{StaticResource brdRotatedLine1AtEllipse}"/>
 
             <Viewbox>
                 <Viewbox.Height>
                     <MultiBinding Converter="{StaticResource SizeFromSizePercentageConventer}">
                         <Binding 
-                                ElementName="SmallDecorativeCircle"
-                                Path="ActualHeight"/>
+                            ElementName="SmallDecorativeCircle"
+                            Path="ActualHeight"/>
                         <Binding Source="30"/>
                     </MultiBinding>
                 </Viewbox.Height>
 
                 <Viewbox.RenderTransform>
                     <TranslateTransform
-                            X="{Binding ActualWidth,
-                                        ElementName=CircleAnmatedLine1,
-                                        Converter={StaticResource TextBlocksNearTheEllipsePositionConverter},
-                                        ConverterParameter=1X}"
-                            Y="{Binding ActualWidth,
-                                        ElementName=CircleAnmatedLine1,
-                                        Converter={StaticResource TextBlocksNearTheEllipsePositionConverter},
-                                        ConverterParameter=1Y}"/>
+                        X="{Binding ActualWidth,
+                                    ElementName=CircleAnmatedLine1,
+                                    Converter={StaticResource TextBlocksNearTheEllipsePositionConverter},
+                                    ConverterParameter=1X}"
+                        Y="{Binding ActualWidth,
+                                    ElementName=CircleAnmatedLine1,
+                                    Converter={StaticResource TextBlocksNearTheEllipsePositionConverter},
+                                    ConverterParameter=1Y}"/>
                 </Viewbox.RenderTransform>
 
                 <TextBlock
-                        Style="{StaticResource txtblDecorativeCircleWhite}"
-                        Text="Location"/>
+                    Style="{StaticResource txtblDecorativeCircleWhite}"
+                    Text="Location"/>
             </Viewbox>
 
             <Border
-                    x:Name="CircleAnmatedLine2"
-                    Style="{StaticResource brdRotatedLine2AtEllipse}"/>
+                x:Name="CircleAnmatedLine2"
+                Style="{StaticResource brdRotatedLine2AtEllipse}"/>
 
             <Viewbox>
                 <Viewbox.Height>
                     <MultiBinding Converter="{StaticResource SizeFromSizePercentageConventer}">
                         <Binding 
-                                ElementName="SmallDecorativeCircle"
-                                Path="ActualHeight"/>
+                            ElementName="SmallDecorativeCircle"
+                            Path="ActualHeight"/>
                         <Binding Source="30"/>
                     </MultiBinding>
                 </Viewbox.Height>
 
                 <Viewbox.RenderTransform>
                     <TranslateTransform
-                            X="{Binding ActualWidth,
-                                        ElementName=CircleAnmatedLine2,
-                                        Converter={StaticResource TextBlocksNearTheEllipsePositionConverter},
-                                        ConverterParameter=2X}"
-                            Y="{Binding ActualWidth,
-                                        ElementName=CircleAnmatedLine2,
-                                        Converter={StaticResource TextBlocksNearTheEllipsePositionConverter},
-                                        ConverterParameter=2Y}"/>
+                        X="{Binding ActualWidth,
+                                    ElementName=CircleAnmatedLine2,
+                                    Converter={StaticResource TextBlocksNearTheEllipsePositionConverter},
+                                    ConverterParameter=2X}"
+                        Y="{Binding ActualWidth,
+                                    ElementName=CircleAnmatedLine2,
+                                    Converter={StaticResource TextBlocksNearTheEllipsePositionConverter},
+                                    ConverterParameter=2Y}"/>
                 </Viewbox.RenderTransform>
 
                 <TextBlock
-                        Style="{StaticResource txtblDecorativeCircleWhite}"
-                        Text="Bio"/>
+                    Style="{StaticResource txtblDecorativeCircleWhite}"
+                    Text="Bio"/>
             </Viewbox>
 
             <Border
-                    x:Name="CircleAnmatedLine3"
-                    Style="{StaticResource brdRotatedAccentLine3AtEllipse}"/>
+                x:Name="CircleAnmatedLine3"
+                Style="{StaticResource brdRotatedAccentLine3AtEllipse}"/>
 
             <Viewbox>
                 <Viewbox.Height>
                     <MultiBinding Converter="{StaticResource SizeFromSizePercentageConventer}">
                         <Binding 
-                                ElementName="SmallDecorativeCircle"
-                                Path="ActualHeight"/>
+                            ElementName="SmallDecorativeCircle"
+                            Path="ActualHeight"/>
                         <Binding Source="30"/>
                     </MultiBinding>
                 </Viewbox.Height>
 
                 <Viewbox.RenderTransform>
                     <TranslateTransform
-                            X="{Binding ActualWidth,
-                                        ElementName=CircleAnmatedLine3,
-                                        Converter={StaticResource TextBlocksNearTheEllipsePositionConverter},
-                                        ConverterParameter=3X}"
-                            Y="{Binding ActualWidth,
-                                        ElementName=CircleAnmatedLine3,
-                                        Converter={StaticResource TextBlocksNearTheEllipsePositionConverter},
-                                        ConverterParameter=3Y}"/>
+                        X="{Binding ActualWidth,
+                                    ElementName=CircleAnmatedLine3,
+                                    Converter={StaticResource TextBlocksNearTheEllipsePositionConverter},
+                                    ConverterParameter=3X}"
+                        Y="{Binding ActualWidth,
+                                    ElementName=CircleAnmatedLine3,
+                                    Converter={StaticResource TextBlocksNearTheEllipsePositionConverter},
+                                    ConverterParameter=3Y}"/>
                 </Viewbox.RenderTransform>
                 <TextBlock
-                        Style="{StaticResource txtblDecorativeCircleAccent}"
-                        Text="Entering"/>
+                    Style="{StaticResource txtblDecorativeCircleAccent}"
+                    Text="Entering"/>
             </Viewbox>
         </Canvas>
 
 
         <!--Rectangle at the middle of the circles-->
         <Rectangle
-                x:Name="RectangleInCircle"
-                Width="{Binding ActualHeight, ElementName=RectangleInCircle}">
+            x:Name="RectangleInCircle"
+            Width="{Binding ActualHeight, ElementName=RectangleInCircle}">
             <Rectangle.Height>
                 <MultiBinding Converter="{StaticResource SizeFromSizePercentageConventer}">
                     <Binding
-                            ElementName="SmallDecorativeCircle"
-                            Path="ActualHeight"/>
+                        ElementName="SmallDecorativeCircle"
+                        Path="ActualHeight"/>
                     <Binding Source="40"/>
                 </MultiBinding>
             </Rectangle.Height>

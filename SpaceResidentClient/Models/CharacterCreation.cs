@@ -5,7 +5,7 @@ namespace SpaceResidentClient.Models
     class CharacterCreation : IMainCharacter
     {
         #region props
-        public string Job { get; set; }
+        public required string Job { get; set; }
         public byte Linguistics { get; set; }
         public byte Naturalistics { get; set; }
         public byte Existentialism { get; set; }
@@ -64,10 +64,10 @@ namespace SpaceResidentClient.Models
         public byte CyberneticSystems { get; set; }
         public byte Engineering { get; set; }
         public byte Hardware { get; set; }
-        public string Name { get; set; }
-        public string Surname { get; set; }
-        public bool IsFemale { get; set; }
-        public char Race { get; set; }
+        public required string Name { get; set; }
+        public required string Surname { get; set; }
+        public required bool IsFemale { get; set; }
+        public required char Race { get; set; }
         #endregion
     }
 }

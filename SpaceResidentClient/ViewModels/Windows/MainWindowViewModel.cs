@@ -23,22 +23,17 @@ namespace SpaceResidentClient.ViewModels.Windows
 
         public MainWindowViewModel(NavigationStore navigationStore)
         {
-            navigationStore.CurrentViewModel = new MainMenuViewModel(this, navigationStore);
+            navigationStore.CurrentViewModel = new MainMenuViewModel(this);
             this.navigationStore = navigationStore;
 
             this.navigationStore.PropertyChanged += (sender, args) =>
             {
                 if (args.PropertyName == "CurrentViewModel")
-                    OnPropertyChanged("CurrentViewModel");
+                    OnPropertyChanged(nameof(CurrentViewModel));
             };
 
             // load Music Player and set bg music for main menu
-            Music.Player.MediaFailed += (o, args) =>
-            {
-                MessageBox.Show("Media Failed!!");
-            };
-            Music.Player.Open(new Uri("Data/music/MenuMusic.mp3", UriKind.Relative));
-            Music.Player.Play();
+            BackgroundMusicPlayer.LoadMusic("Data/music/MenuMusic.mp3");
         }
     }
 }

@@ -13,7 +13,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Converters", "Converters\Co
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Resources", "Resources\Resources.csproj", "{42AB60D2-D721-4DB9-A9C3-F4609071B291}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpaceResidentClientTest", "SpaceResidentClientTest\SpaceResidentClientTest.csproj", "{0853977B-D580-4DA7-B947-2D7D1317541E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpaceResidentClientTest", "SpaceResidentClientTest\SpaceResidentClientTest.csproj", "{0853977B-D580-4DA7-B947-2D7D1317541E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -117,6 +117,12 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="age" xml:space="preserve">
+    <value>Age</value>
+  </data>
+  <data name="bio" xml:space="preserve">
+    <value>Bio</value>
+  </data>
   <data name="borderlessWindow" xml:space="preserve">
     <value>Borderless Window</value>
   </data>
@@ -126,8 +132,14 @@
   <data name="en" xml:space="preserve">
     <value>English</value>
   </data>
+  <data name="entering" xml:space="preserve">
+    <value>Entering</value>
+  </data>
   <data name="exit" xml:space="preserve">
     <value>Exit</value>
+  </data>
+  <data name="female" xml:space="preserve">
+    <value>Female</value>
   </data>
   <data name="fullscreen" xml:space="preserve">
     <value>Fullscreen</value>
@@ -135,17 +147,35 @@
   <data name="game" xml:space="preserve">
     <value>Game</value>
   </data>
+  <data name="gender" xml:space="preserve">
+    <value>Gender</value>
+  </data>
+  <data name="human" xml:space="preserve">
+    <value>Human</value>
+  </data>
   <data name="language" xml:space="preserve">
     <value>Language</value>
   </data>
   <data name="load" xml:space="preserve">
     <value>Load</value>
   </data>
+  <data name="location" xml:space="preserve">
+    <value>Location</value>
+  </data>
+  <data name="male" xml:space="preserve">
+    <value>Male</value>
+  </data>
+  <data name="name" xml:space="preserve">
+    <value>Name</value>
+  </data>
   <data name="newGame" xml:space="preserve">
     <value>New Game</value>
   </data>
   <data name="noTimeData" xml:space="preserve">
     <value>no time data</value>
+  </data>
+  <data name="race" xml:space="preserve">
+    <value>Race</value>
   </data>
   <data name="resolution" xml:space="preserve">
     <value>Resolution</value>
@@ -156,11 +186,23 @@
   <data name="settings" xml:space="preserve">
     <value>Settings</value>
   </data>
+  <data name="surname" xml:space="preserve">
+    <value>Surname</value>
+  </data>
   <data name="ua" xml:space="preserve">
     <value>Ukrainian</value>
   </data>
   <data name="video" xml:space="preserve">
     <value>Video</value>
+  </data>
+  <data name="vun-flant" xml:space="preserve">
+    <value>Vun-flant</value>
+  </data>
+  <data name="vun-mis'ak" xml:space="preserve">
+    <value>Vun-mis'ak</value>
+  </data>
+  <data name="vun-ti" xml:space="preserve">
+    <value>Vun-ti</value>
   </data>
   <data name="windowed" xml:space="preserve">
     <value>Windowed</value>

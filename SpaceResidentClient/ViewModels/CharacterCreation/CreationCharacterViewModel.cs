@@ -16,7 +16,7 @@ namespace SpaceResidentClient.ViewModels.CharacterCreation
         [ObservableProperty]
         public string age = "20";
 
-        private string _gender = "Female";
+        private string _gender = Properties.Lang.female;
         public string Gender
         {
             get => _gender;
@@ -26,12 +26,12 @@ namespace SpaceResidentClient.ViewModels.CharacterCreation
                 {
                     _gender = value;
                     OnPropertyChanged(nameof(Gender));
-                    RaceOrGenderChanged();
+                    RaceOrGenderHasChanged();
                 }
             }
         }
 
-        private string _race = "Human";
+        private string _race = Properties.Lang.human;
         public string Race
         {
             get => _race;
@@ -41,7 +41,7 @@ namespace SpaceResidentClient.ViewModels.CharacterCreation
                 {
                     _race = value;
                     OnPropertyChanged(nameof(Race));
-                    RaceOrGenderChanged();
+                    RaceOrGenderHasChanged();
                 }
             }
         }
@@ -50,36 +50,35 @@ namespace SpaceResidentClient.ViewModels.CharacterCreation
         #region commands
         private void ChangeGender()
         {
-            if (Gender == "Male")
-                Gender = "Female";
-            else
-                Gender = "Male";
+            var male = Properties.Lang.male;
+            var female = Properties.Lang.female;
+            Gender = Gender == male ? female : male;
         }
         public ICommand ChangeGenderCommand { get; }
         #endregion
 
-        private void RaceOrGenderChanged()
+        private void RaceOrGenderHasChanged()
         {
             char race = '0';
-            if (Race == "vun-ti")
+            // vun-ti and vun_flant don`t have a gender and go to GetAvalibleCharacterImages metod immedeatly
+            if (Race == Properties.Lang.vun_ti)
                 _characterCreationViewModel._imageProcessor.GetAvalibleCharacterImages('t');
-            else if (Race == "vun-flant")
+            else if (Race == Properties.Lang.vun_flant)
                 _characterCreationViewModel._imageProcessor.GetAvalibleCharacterImages('f');
-            else if (Race == "Human")
+            else if (Race == Properties.Lang.human)
                 race = 'l';
-            else if (Race == "vun-mis'ak")
+            else if (Race == Properties.Lang.vun_mis_ak)
                 race = 'm';
 
-            bool isFemale = Gender == "Female";
-
-            _characterCreationViewModel._imageProcessor.GetAvalibleCharacterImages(race, isFemale);
+            _characterCreationViewModel._imageProcessor.GetAvalibleCharacterImages(race,
+                Gender == Properties.Lang.female);
         }
 
         public CreationCharacterViewModel(CharacterCreationViewModel characterCreationViewModel)
         {
             ChangeGenderCommand = new RelayCommand(ChangeGender);
             _characterCreationViewModel = characterCreationViewModel;
-            RaceOrGenderChanged();
+            RaceOrGenderHasChanged();
         }
     }
 }

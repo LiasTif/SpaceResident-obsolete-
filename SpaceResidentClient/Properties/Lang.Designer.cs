@@ -70,6 +70,24 @@ namespace SpaceResidentClient.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Age.
+        /// </summary>
+        public static string age {
+            get {
+                return ResourceManager.GetString("age", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Bio.
+        /// </summary>
+        public static string bio {
+            get {
+                return ResourceManager.GetString("bio", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Borderless Window.
         /// </summary>
         public static string borderlessWindow {
@@ -88,11 +106,29 @@ namespace SpaceResidentClient.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Entering.
+        /// </summary>
+        public static string entering {
+            get {
+                return ResourceManager.GetString("entering", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Exit.
         /// </summary>
         public static string exit {
             get {
                 return ResourceManager.GetString("exit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Female.
+        /// </summary>
+        public static string female {
+            get {
+                return ResourceManager.GetString("female", resourceCulture);
             }
         }
         
@@ -115,6 +151,24 @@ namespace SpaceResidentClient.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Gender.
+        /// </summary>
+        public static string gender {
+            get {
+                return ResourceManager.GetString("gender", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Human.
+        /// </summary>
+        public static string human {
+            get {
+                return ResourceManager.GetString("human", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Language.
         /// </summary>
         public static string language {
@@ -133,6 +187,33 @@ namespace SpaceResidentClient.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Location.
+        /// </summary>
+        public static string location {
+            get {
+                return ResourceManager.GetString("location", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Male.
+        /// </summary>
+        public static string male {
+            get {
+                return ResourceManager.GetString("male", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Name.
+        /// </summary>
+        public static string name {
+            get {
+                return ResourceManager.GetString("name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to New Game.
         /// </summary>
         public static string newGame {
@@ -147,6 +228,15 @@ namespace SpaceResidentClient.Properties {
         public static string noTimeData {
             get {
                 return ResourceManager.GetString("noTimeData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Race.
+        /// </summary>
+        public static string race {
+            get {
+                return ResourceManager.GetString("race", resourceCulture);
             }
         }
         
@@ -178,6 +268,15 @@ namespace SpaceResidentClient.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Surname.
+        /// </summary>
+        public static string surname {
+            get {
+                return ResourceManager.GetString("surname", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Ukrainian.
         /// </summary>
         public static string ua {
@@ -192,6 +291,33 @@ namespace SpaceResidentClient.Properties {
         public static string video {
             get {
                 return ResourceManager.GetString("video", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Vun-flant.
+        /// </summary>
+        public static string vun_flant {
+            get {
+                return ResourceManager.GetString("vun-flant", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Vun-mis&apos;ak.
+        /// </summary>
+        public static string vun_mis_ak {
+            get {
+                return ResourceManager.GetString("vun-mis\'ak", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Vun-ti.
+        /// </summary>
+        public static string vun_ti {
+            get {
+                return ResourceManager.GetString("vun-ti", resourceCulture);
             }
         }
         

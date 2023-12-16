@@ -117,6 +117,12 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="age" xml:space="preserve">
+    <value>Вік</value>
+  </data>
+  <data name="bio" xml:space="preserve">
+    <value>Біографія</value>
+  </data>
   <data name="borderlessWindow" xml:space="preserve">
     <value>Вікно без рамок</value>
   </data>
@@ -126,8 +132,14 @@
   <data name="en" xml:space="preserve">
     <value>Англійська</value>
   </data>
+  <data name="entering" xml:space="preserve">
+    <value>Вхід</value>
+  </data>
   <data name="exit" xml:space="preserve">
     <value>Вихід</value>
+  </data>
+  <data name="female" xml:space="preserve">
+    <value>Жіноча</value>
   </data>
   <data name="fullscreen" xml:space="preserve">
     <value>Повний екран</value>
@@ -135,17 +147,35 @@
   <data name="game" xml:space="preserve">
     <value>Гра</value>
   </data>
+  <data name="gender" xml:space="preserve">
+    <value>Стать</value>
+  </data>
+  <data name="human" xml:space="preserve">
+    <value>Людина</value>
+  </data>
   <data name="language" xml:space="preserve">
     <value>Мова</value>
   </data>
   <data name="load" xml:space="preserve">
     <value>Загрузка</value>
   </data>
+  <data name="location" xml:space="preserve">
+    <value>Локація</value>
+  </data>
+  <data name="male" xml:space="preserve">
+    <value>Чоловіча</value>
+  </data>
+  <data name="name" xml:space="preserve">
+    <value>Ім'я</value>
+  </data>
   <data name="newGame" xml:space="preserve">
     <value>Нова гра</value>
   </data>
   <data name="noTimeData" xml:space="preserve">
     <value>дані про дату відсутні</value>
+  </data>
+  <data name="race" xml:space="preserve">
+    <value>Раса</value>
   </data>
   <data name="resolution" xml:space="preserve">
     <value>Роздільна здатність</value>
@@ -156,11 +186,23 @@
   <data name="settings" xml:space="preserve">
     <value>Налаштування</value>
   </data>
+  <data name="surname" xml:space="preserve">
+    <value>Фамілія</value>
+  </data>
   <data name="ua" xml:space="preserve">
     <value>Українська</value>
   </data>
   <data name="video" xml:space="preserve">
     <value>Відео</value>
+  </data>
+  <data name="vun-flant" xml:space="preserve">
+    <value>Вун-Флант</value>
+  </data>
+  <data name="vun-mis'ak" xml:space="preserve">
+    <value>Вун-Місаак</value>
+  </data>
+  <data name="vun-ti" xml:space="preserve">
+    <value>Вун-Ті</value>
   </data>
   <data name="windowed" xml:space="preserve">
     <value>Вікно</value>

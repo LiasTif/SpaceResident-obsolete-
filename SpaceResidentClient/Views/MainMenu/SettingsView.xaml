@@ -31,6 +31,10 @@
             <RowDefinition Height="4*"/>
         </Grid.RowDefinitions>
 
+        <Grid.Background>
+            <SolidColorBrush Color="{StaticResource SecondBorderColor}"/>
+        </Grid.Background>
+
         <Border
             CornerRadius="0,25,0,25"
             Grid.RowSpan="2"

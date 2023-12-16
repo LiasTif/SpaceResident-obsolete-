@@ -18,9 +18,9 @@ namespace SpaceResidentClient.ViewModels.CharacterCreation
         public int ImageIndex { private get; set; } = 0;
         public int ImageCount { private get; set; }
 
-        private string _imagesDirectory;
+        private string? _imagesDirectory;
 
-        public string ImagesDirectory
+        public string? ImagesDirectory
         {
             get => _imagesDirectory;
             set
@@ -34,35 +34,27 @@ namespace SpaceResidentClient.ViewModels.CharacterCreation
         }
 
         [ObservableProperty]
-        public string imageSource;
+        public string? imageSource;
         [ObservableProperty]
         public ObservableObject? currentUserControl;
         #endregion
 
         #region commands
-        private void Close() => _navigationStore.CurrentViewModel = new MainMenuViewModel(_mainWindowViewModel, _navigationStore);
+        private void Close() => _navigationStore.CurrentViewModel = new MainMenuViewModel(_mainWindowViewModel);
         private void OpenJobMenu() => CurrentUserControl = new CreationJobViewModel();
         private void OpenCharacterMenu() => CurrentUserControl = new CreationCharacterViewModel(this);
         private void OpenSkillsMenu() => CurrentUserControl = new CreationSkillsViewModel();
         private void NextImage()
         {
-            if (ImageIndex >= ImageCount - 1)
-            {
-                ImageIndex = 1;
-                ImageSource = "/Resources;component" + _imagesDirectory + ImageIndex + ".png";
-            }
-            else
-                ImageSource = "/Resources;component" + _imagesDirectory + ++ImageIndex + ".png";
+            // set next image or set first image if it`s end of images collection
+            ImageIndex = ImageIndex >= ImageCount - 1 ? 1 : ImageIndex + 1;
+            ImageSource = "/Resources;component" + _imagesDirectory + ImageIndex + ".png";
         }
         private void PreviousImage()
         {
-            if (ImageIndex <= 1)
-            {
-                ImageIndex = ImageCount - 1;
-                ImageSource = "/Resources;component" + _imagesDirectory + ImageIndex + ".png";
-            }
-            else
-                ImageSource = "/Resources;component" + _imagesDirectory + --ImageIndex + ".png";
+            // set previous image or set last image if it`s start of images collection
+            ImageIndex = ImageIndex <= 1 ? ImageCount - 1 : ImageIndex - 1;
+            ImageSource = "/Resources;component" + _imagesDirectory + ImageIndex + ".png";
         }
         public ICommand CloseCommand { get; }
         public ICommand OpenJobMenuCommand { get; }
