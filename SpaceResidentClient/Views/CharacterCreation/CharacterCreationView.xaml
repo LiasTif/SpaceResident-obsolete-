@@ -12,8 +12,6 @@
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary
-                    Source="/ResourceDictionaries;component/CharacterCreation/CharacterCreationDictionary.xaml"/>
-                <ResourceDictionary
                     Source="/ResourceDictionaries;component/Base/BaseElementsDictionary.xaml"/>
             </ResourceDictionary.MergedDictionaries>
             <c:SizeFromSizePercentageConventer x:Key="SizeFromSizePercentageConventer"/>
@@ -52,36 +50,35 @@
             <StackPanel
                 Margin="15"
                 Orientation="Horizontal">
+
                 <Button
                     RenderTransformOrigin="0.5, 0.5"
                     x:Name="btnMenuMinus"
                     HorizontalAlignment="Left"
                     Width="{Binding ActualHeight, ElementName=btnMenuMinus}"
-                    Style="{StaticResource btnArrowUp}">
+                    Style="{StaticResource btnArrowUp}"
+                    Command="{Binding PreviousPageCommand}">
                     <Button.RenderTransform>
                         <RotateTransform Angle="270"/>
                     </Button.RenderTransform>
                 </Button>
 
-                <RadioButton
-                    IsChecked="True"
-                    Command="{Binding OpenCharacterMenuCommand}"
-                    Margin="20,0"
-                    Style="{StaticResource rbtnCharacterMenu}"/>
-                <RadioButton
-                    Command="{Binding OpenSkillsMenuCommand}"
-                    Style="{StaticResource rbtnSkillsMenu}"/>
-                <RadioButton
-                    Command="{Binding OpenJobMenuCommand}"
-                    Margin="20,0"
-                    Style="{StaticResource rbtnJobMenu}"/>
+                <ItemsControl
+                    ItemsSource="{Binding NavigateButtons}">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Orientation="Horizontal"/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                </ItemsControl>
 
                 <Button
                     RenderTransformOrigin="0.5, 0.5"
                     x:Name="btnMenuPlus"
                     HorizontalAlignment="Right"
                     Width="{Binding ActualHeight, ElementName=btnMenuMinus}"
-                    Style="{StaticResource btnArrowUp}">
+                    Style="{StaticResource btnArrowUp}"
+                    Command="{Binding NextPageCommand}">
                     <Button.RenderTransform>
                         <RotateTransform Angle="90"/>
                     </Button.RenderTransform>
