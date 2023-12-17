@@ -135,6 +135,12 @@
   <data name="entering" xml:space="preserve">
     <value>Entering</value>
   </data>
+  <data name="existentialism" xml:space="preserve">
+    <value>Existentialism</value>
+  </data>
+  <data name="existentialismTT" xml:space="preserve">
+    <value>Self-knowledge, control of the body and emotions</value>
+  </data>
   <data name="exit" xml:space="preserve">
     <value>Exit</value>
   </data>
@@ -153,8 +159,20 @@
   <data name="human" xml:space="preserve">
     <value>Human</value>
   </data>
+  <data name="kinetics" xml:space="preserve">
+    <value>Kinetics</value>
+  </data>
+  <data name="kineticsTT" xml:space="preserve">
+    <value>Body composition, agility and endurance</value>
+  </data>
   <data name="language" xml:space="preserve">
     <value>Language</value>
+  </data>
+  <data name="linguistics" xml:space="preserve">
+    <value>Linguistics</value>
+  </data>
+  <data name="linguisticsTT" xml:space="preserve">
+    <value>Easily learns languages and memorizes text</value>
   </data>
   <data name="load" xml:space="preserve">
     <value>Load</value>
@@ -162,11 +180,23 @@
   <data name="location" xml:space="preserve">
     <value>Location</value>
   </data>
+  <data name="logic" xml:space="preserve">
+    <value>Logic</value>
+  </data>
+  <data name="logicTT" xml:space="preserve">
+    <value>Figures and calculations. Knowledge of formulas in the exact sciences</value>
+  </data>
   <data name="male" xml:space="preserve">
     <value>Male</value>
   </data>
   <data name="name" xml:space="preserve">
     <value>Name</value>
+  </data>
+  <data name="naturalistics" xml:space="preserve">
+    <value>Naturalistics</value>
+  </data>
+  <data name="naturalisticsTT" xml:space="preserve">
+    <value>Knowledge of flora and fauna</value>
   </data>
   <data name="newGame" xml:space="preserve">
     <value>New Game</value>
@@ -177,6 +207,12 @@
   <data name="race" xml:space="preserve">
     <value>Race</value>
   </data>
+  <data name="relationships" xml:space="preserve">
+    <value>Relationships</value>
+  </data>
+  <data name="relationshipsTT" xml:space="preserve">
+    <value>Talent for communication, empathy for people, language skills</value>
+  </data>
   <data name="resolution" xml:space="preserve">
     <value>Resolution</value>
   </data>
@@ -185,6 +221,12 @@
   </data>
   <data name="settings" xml:space="preserve">
     <value>Settings</value>
+  </data>
+  <data name="space" xml:space="preserve">
+    <value>Space</value>
+  </data>
+  <data name="spaceTT" xml:space="preserve">
+    <value>Imagination and creativity</value>
   </data>
   <data name="surname" xml:space="preserve">
     <value>Surname</value>

@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:language="clr-namespace:SpaceResidentClient.Properties"
              mc:Ignorable="d" d:Height="1080" d:Width="1960">
     <UserControl.Resources>
         <ResourceDictionary>
@@ -31,65 +32,65 @@
         <!--#region 1 column-->
         <!--Name-->
         <Border
-            Margin="5"
+            Margin="10"
             Style="{StaticResource brdSecondElementBase}">
             <Viewbox
                 HorizontalAlignment="Left">
                 <TextBlock
                     x:Name="txtblName"
-                    Text="Name"
+                    Text="{x:Static language:Lang.name}"
                     Style="{StaticResource txtblWhiteTextBase}"/>
             </Viewbox>
         </Border>
 
         <!--Surname-->
         <Border
-            Margin="5"
+            Margin="10"
             Grid.Row="1"
             Style="{StaticResource brdSecondElementBase}">
             <Viewbox
                 HorizontalAlignment="Left">
                 <TextBlock
-                    Text="Surname"
+                    Text="{x:Static language:Lang.surname}"
                     Style="{StaticResource txtblWhiteTextBase}"/>
             </Viewbox>
         </Border>
 
         <!--Age-->
         <Border
-            Margin="5"
+            Margin="10"
             Grid.Row="2"
             Style="{StaticResource brdSecondElementBase}">
             <Viewbox
                 HorizontalAlignment="Left">
                 <TextBlock
-                    Text="Age"
+                    Text="{x:Static language:Lang.age}"
                     Style="{StaticResource txtblWhiteTextBase}"/>
             </Viewbox>
         </Border>
 
         <!--Race-->
         <Border
-            Margin="5"
+            Margin="10"
             Grid.Row="3"
             Style="{StaticResource brdSecondElementBase}">
             <Viewbox
                 HorizontalAlignment="Left">
                 <TextBlock
-                    Text="Race"
+                    Text="{x:Static language:Lang.race}"
                     Style="{StaticResource txtblWhiteTextBase}"/>
             </Viewbox>
         </Border>
 
         <!--Gender-->
         <Border
-            Margin="5"
+            Margin="10"
             Grid.Row="4"
             Style="{StaticResource brdSecondElementBase}">
             <Viewbox
                 HorizontalAlignment="Left">
                 <TextBlock
-                    Text="Gender"
+                    Text="{x:Static language:Lang.gender}"
                     Style="{StaticResource txtblWhiteTextBase}"/>
             </Viewbox>
         </Border>
@@ -100,7 +101,7 @@
         <TextBox
             MaxLength="20"
             FontSize="40"
-            Margin="5"
+            Margin="10"
             Grid.Column="1"
             VerticalContentAlignment="Center"
             Text="{Binding Name, Mode=OneWayToSource}"
@@ -110,7 +111,7 @@
         <TextBox
             MaxLength="20"
             FontSize="40"
-            Margin="5"
+            Margin="10"
             Grid.Row="1"
             Grid.Column="1"
             VerticalContentAlignment="Center"
@@ -120,7 +121,7 @@
         <!--Age-->
         <Border
             Panel.ZIndex="1"
-            Margin="5"
+            Margin="10"
             Grid.Column="1"
             Grid.Row="2"
             BorderThickness="3">
@@ -138,7 +139,7 @@
         <Border
             Grid.Row="2"
             Grid.Column="1"
-            Margin="5"
+            Margin="10"
             Style="{StaticResource brdMainElementBase}">
             <UniformGrid Columns="2">
                 <Button
@@ -168,7 +169,7 @@
         <!--Race-->
         <Border
             Panel.ZIndex="1"
-            Margin="5"
+            Margin="10"
             Grid.Column="1"
             Grid.Row="3"
             BorderThickness="3">
@@ -184,7 +185,7 @@
         <Border
             Grid.Row="3"
             Grid.Column="1"
-            Margin="5"
+            Margin="10"
             Style="{StaticResource brdMainElementBase}">
             <UniformGrid Columns="2">
                 <Button
@@ -214,7 +215,7 @@
         <!--Gender-->
         <Border
             Panel.ZIndex="1"
-            Margin="5"
+            Margin="10"
             Grid.Column="1"
             Grid.Row="4"
             BorderThickness="3">
@@ -230,7 +231,7 @@
         <Border
             Grid.Row="4"
             Grid.Column="1"
-            Margin="5"
+            Margin="10"
             Style="{StaticResource brdMainElementBase}">
             <UniformGrid Columns="2">
                 <Button

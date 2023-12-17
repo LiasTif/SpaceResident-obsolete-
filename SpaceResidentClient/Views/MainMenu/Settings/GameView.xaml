@@ -32,6 +32,7 @@
             Margin="5"
             Style="{StaticResource brdMainElementBase}">
             <ComboBox
+                Style="{StaticResource cbBase}"
                 SelectedItem="{Binding SelectedLanguageTextBlock}"
                 ItemsSource="{Binding LanguageTextBlocks}"
                 x:Name="cbLanguage">

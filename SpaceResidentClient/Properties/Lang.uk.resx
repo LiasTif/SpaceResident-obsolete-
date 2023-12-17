@@ -135,6 +135,12 @@
   <data name="entering" xml:space="preserve">
     <value>Вхід</value>
   </data>
+  <data name="existentialism" xml:space="preserve">
+    <value>Екзистенціалізм</value>
+  </data>
+  <data name="existentialismTT" xml:space="preserve">
+    <value>Самопізнання, контроль тіла та ємоцій</value>
+  </data>
   <data name="exit" xml:space="preserve">
     <value>Вихід</value>
   </data>
@@ -153,8 +159,20 @@
   <data name="human" xml:space="preserve">
     <value>Людина</value>
   </data>
+  <data name="kinetics" xml:space="preserve">
+    <value>Кінетика</value>
+  </data>
+  <data name="kineticsTT" xml:space="preserve">
+    <value>Статура тіла, спритність та витривалість</value>
+  </data>
   <data name="language" xml:space="preserve">
     <value>Мова</value>
+  </data>
+  <data name="linguistics" xml:space="preserve">
+    <value>Лінгвістика</value>
+  </data>
+  <data name="linguisticsTT" xml:space="preserve">
+    <value>Легче вивчає мови та запам'ятовує текст</value>
   </data>
   <data name="load" xml:space="preserve">
     <value>Загрузка</value>
@@ -162,11 +180,23 @@
   <data name="location" xml:space="preserve">
     <value>Локація</value>
   </data>
+  <data name="logic" xml:space="preserve">
+    <value>Логіка</value>
+  </data>
+  <data name="logicTT" xml:space="preserve">
+    <value>Розрахунки та числа. Знання формул в точних науках</value>
+  </data>
   <data name="male" xml:space="preserve">
     <value>Чоловіча</value>
   </data>
   <data name="name" xml:space="preserve">
     <value>Ім'я</value>
+  </data>
+  <data name="naturalistics" xml:space="preserve">
+    <value>Натуралістика</value>
+  </data>
+  <data name="naturalisticsTT" xml:space="preserve">
+    <value>Знання про флору та фауну</value>
   </data>
   <data name="newGame" xml:space="preserve">
     <value>Нова гра</value>
@@ -177,6 +207,12 @@
   <data name="race" xml:space="preserve">
     <value>Раса</value>
   </data>
+  <data name="relationships" xml:space="preserve">
+    <value>Відносини</value>
+  </data>
+  <data name="relationshipsTT" xml:space="preserve">
+    <value>Талант коммунікації, емпатія до людей, красномовність</value>
+  </data>
   <data name="resolution" xml:space="preserve">
     <value>Роздільна здатність</value>
   </data>
@@ -185,6 +221,12 @@
   </data>
   <data name="settings" xml:space="preserve">
     <value>Налаштування</value>
+  </data>
+  <data name="space" xml:space="preserve">
+    <value>Простір</value>
+  </data>
+  <data name="spaceTT" xml:space="preserve">
+    <value>Креативність та уява</value>
   </data>
   <data name="surname" xml:space="preserve">
     <value>Фамілія</value>

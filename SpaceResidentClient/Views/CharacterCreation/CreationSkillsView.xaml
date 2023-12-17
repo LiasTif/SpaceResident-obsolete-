@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:language="clr-namespace:SpaceResidentClient.Properties"
              mc:Ignorable="d" d:Height="450" d:Width="800">
 
     <UserControl.Resources>
@@ -10,7 +11,7 @@
             TargetType="{x:Type Border}"
             BasedOn="{StaticResource brdSecondElementBase}"
             x:Key="brdCharacterCreation">
-            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Margin" Value="10"/>
         </Style>
     </UserControl.Resources>
 
@@ -36,8 +37,8 @@
             Style="{StaticResource brdCharacterCreation}">
             <Viewbox HorizontalAlignment="Left">
                 <TextBlock
-                    ToolTip="Easily learns languages and memorizes text"
-                    Text="Linguistics"
+                    ToolTip="{x:Static language:Lang.linguisticsTT}"
+                    Text="{x:Static language:Lang.linguistics}"
                     Style="{StaticResource txtblWhiteTextBase}"/>
             </Viewbox>
         </Border>
@@ -47,8 +48,8 @@
             Grid.Row="1">
             <Viewbox HorizontalAlignment="Left">
                 <TextBlock
-                    ToolTip="Knowledge of flora and fauna"
-                    Text="Naturalistics"
+                    ToolTip="{x:Static language:Lang.naturalisticsTT}"
+                    Text="{x:Static language:Lang.naturalistics}"
                     Style="{StaticResource txtblWhiteTextBase}"/>
             </Viewbox>
         </Border>
@@ -58,8 +59,8 @@
             Grid.Row="2">
             <Viewbox HorizontalAlignment="Left">
                 <TextBlock
-                    ToolTip="Self-knowledge, control of the body and emotions"
-                    Text="Existentialism"
+                    ToolTip="{x:Static language:Lang.existentialismTT}"
+                    Text="{x:Static language:Lang.existentialism}"
                     Style="{StaticResource txtblWhiteTextBase}"/>
             </Viewbox>
         </Border>
@@ -69,8 +70,8 @@
             Grid.Row="3">
             <Viewbox HorizontalAlignment="Left">
                 <TextBlock
-                    ToolTip="Talent for communication, empathy for people, language skills"
-                    Text="Relationships"
+                    ToolTip="{x:Static language:Lang.relationshipsTT}"
+                    Text="{x:Static language:Lang.relationships}"
                     Style="{StaticResource txtblWhiteTextBase}"/>
             </Viewbox>
         </Border>
@@ -80,8 +81,8 @@
             Grid.Row="4">
             <Viewbox HorizontalAlignment="Left">
                 <TextBlock
-                    ToolTip="Figures and calculations. Knowledge of formulas in the exact sciences"
-                    Text="Logic"
+                    ToolTip="{x:Static language:Lang.logicTT}"
+                    Text="{x:Static language:Lang.logic}"
                     Style="{StaticResource txtblWhiteTextBase}"/>
             </Viewbox>
         </Border>
@@ -91,8 +92,8 @@
             Grid.Row="5">
             <Viewbox HorizontalAlignment="Left">
                 <TextBlock
-                    ToolTip="Imagination and creativity"
-                    Text="Space"
+                    ToolTip="{x:Static language:Lang.spaceTT}"
+                    Text="{x:Static language:Lang.space}"
                     Style="{StaticResource txtblWhiteTextBase}"/>
             </Viewbox>
         </Border>
@@ -102,8 +103,8 @@
             Grid.Row="6">
             <Viewbox HorizontalAlignment="Left">
                 <TextBlock
-                    ToolTip="Body composition, agility and endurance"
-                    Text="Kinetics"
+                    ToolTip="{x:Static language:Lang.kineticsTT}"
+                    Text="{x:Static language:Lang.kinetics}"
                     Style="{StaticResource txtblWhiteTextBase}"/>
             </Viewbox>
         </Border>
@@ -113,7 +114,7 @@
         <!--#region Linguistics-->
         <Border
             Panel.ZIndex="1"
-            Margin="5"
+            Margin="10"
             Grid.Column="1"
             BorderThickness="3">
             <Border.BorderBrush>
@@ -127,7 +128,7 @@
         </Border>
         <Border
             Grid.Column="1"
-            Margin="5"
+            Margin="10"
             Style="{StaticResource brdMainElementBase}">
             <UniformGrid Columns="2">
                 <Button
@@ -161,7 +162,7 @@
         <!--#region Naturalistics-->
         <Border
             Panel.ZIndex="1"
-            Margin="5"
+            Margin="10"
             Grid.Row="1"
             Grid.Column="1"
             BorderThickness="3">
@@ -177,7 +178,7 @@
         <Border
             Grid.Row="1"
             Grid.Column="1"
-            Margin="5"
+            Margin="10"
             Style="{StaticResource brdMainElementBase}">
             <UniformGrid Columns="2">
                 <Button
@@ -211,7 +212,7 @@
         <!--#region Existentialism-->
         <Border
             Panel.ZIndex="1"
-            Margin="5"
+            Margin="10"
             Grid.Row="2"
             Grid.Column="1"
             BorderThickness="3">
@@ -227,7 +228,7 @@
         <Border
             Grid.Row="2"
             Grid.Column="1"
-            Margin="5"
+            Margin="10"
             Style="{StaticResource brdMainElementBase}">
             <UniformGrid Columns="2">
                 <Button
@@ -262,7 +263,7 @@
         <Border
             Grid.Row="3"
             Panel.ZIndex="1"
-            Margin="5"
+            Margin="10"
             Grid.Column="1"
             BorderThickness="3">
             <Border.BorderBrush>
@@ -277,7 +278,7 @@
         <Border
             Grid.Row="3"
             Grid.Column="1"
-            Margin="5"
+            Margin="10"
             Style="{StaticResource brdMainElementBase}">
             <UniformGrid Columns="2">
                 <Button
@@ -312,7 +313,7 @@
         <Border
             Grid.Row="4"
             Panel.ZIndex="1"
-            Margin="5"
+            Margin="10"
             Grid.Column="1"
             BorderThickness="3">
             <Border.BorderBrush>
@@ -327,7 +328,7 @@
         <Border
             Grid.Row="4"
             Grid.Column="1"
-            Margin="5"
+            Margin="10"
             Style="{StaticResource brdMainElementBase}">
             <UniformGrid Columns="2">
                 <Button
@@ -362,7 +363,7 @@
         <Border
             Grid.Row="5"
             Panel.ZIndex="1"
-            Margin="5"
+            Margin="10"
             Grid.Column="1"
             BorderThickness="3">
             <Border.BorderBrush>
@@ -377,7 +378,7 @@
         <Border
             Grid.Row="5"
             Grid.Column="1"
-            Margin="5"
+            Margin="10"
             Style="{StaticResource brdMainElementBase}">
             <UniformGrid Columns="2">
                 <Button
@@ -412,7 +413,7 @@
         <Border
             Grid.Row="6"
             Panel.ZIndex="1"
-            Margin="5"
+            Margin="10"
             Grid.Column="1"
             BorderThickness="3">
             <Border.BorderBrush>
@@ -427,7 +428,7 @@
         <Border
             Grid.Row="6"
             Grid.Column="1"
-            Margin="5"
+            Margin="10"
             Style="{StaticResource brdMainElementBase}">
             <UniformGrid Columns="2">
                 <Button

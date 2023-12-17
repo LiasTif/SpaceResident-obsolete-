@@ -91,6 +91,7 @@
             Margin="5"
             Style="{StaticResource brdMainElementBase}">
             <ComboBox
+                Style="{StaticResource cbBase}"
                 SelectedItem="{Binding SelectedScreenModeTextBlock}"
                 ItemsSource="{Binding ScreenModeTextBlocks}"
                 x:Name="cbScreenMode">

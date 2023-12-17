@@ -115,6 +115,24 @@ namespace SpaceResidentClient.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Existentialism.
+        /// </summary>
+        public static string existentialism {
+            get {
+                return ResourceManager.GetString("existentialism", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Self-knowledge, control of the body and emotions.
+        /// </summary>
+        public static string existentialismTT {
+            get {
+                return ResourceManager.GetString("existentialismTT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Exit.
         /// </summary>
         public static string exit {
@@ -169,11 +187,47 @@ namespace SpaceResidentClient.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Kinetics.
+        /// </summary>
+        public static string kinetics {
+            get {
+                return ResourceManager.GetString("kinetics", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Body composition, agility and endurance.
+        /// </summary>
+        public static string kineticsTT {
+            get {
+                return ResourceManager.GetString("kineticsTT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Language.
         /// </summary>
         public static string language {
             get {
                 return ResourceManager.GetString("language", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Linguistics.
+        /// </summary>
+        public static string linguistics {
+            get {
+                return ResourceManager.GetString("linguistics", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Easily learns languages and memorizes text.
+        /// </summary>
+        public static string linguisticsTT {
+            get {
+                return ResourceManager.GetString("linguisticsTT", resourceCulture);
             }
         }
         
@@ -196,6 +250,24 @@ namespace SpaceResidentClient.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Logic.
+        /// </summary>
+        public static string logic {
+            get {
+                return ResourceManager.GetString("logic", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Figures and calculations. Knowledge of formulas in the exact sciences.
+        /// </summary>
+        public static string logicTT {
+            get {
+                return ResourceManager.GetString("logicTT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Male.
         /// </summary>
         public static string male {
@@ -210,6 +282,24 @@ namespace SpaceResidentClient.Properties {
         public static string name {
             get {
                 return ResourceManager.GetString("name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Naturalistics.
+        /// </summary>
+        public static string naturalistics {
+            get {
+                return ResourceManager.GetString("naturalistics", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Knowledge of flora and fauna.
+        /// </summary>
+        public static string naturalisticsTT {
+            get {
+                return ResourceManager.GetString("naturalisticsTT", resourceCulture);
             }
         }
         
@@ -241,6 +331,24 @@ namespace SpaceResidentClient.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Relationships.
+        /// </summary>
+        public static string relationships {
+            get {
+                return ResourceManager.GetString("relationships", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Talent for communication, empathy for people, language skills.
+        /// </summary>
+        public static string relationshipsTT {
+            get {
+                return ResourceManager.GetString("relationshipsTT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Resolution.
         /// </summary>
         public static string resolution {
@@ -264,6 +372,24 @@ namespace SpaceResidentClient.Properties {
         public static string settings {
             get {
                 return ResourceManager.GetString("settings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Space.
+        /// </summary>
+        public static string space {
+            get {
+                return ResourceManager.GetString("space", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Imagination and creativity.
+        /// </summary>
+        public static string spaceTT {
+            get {
+                return ResourceManager.GetString("spaceTT", resourceCulture);
             }
         }
         
