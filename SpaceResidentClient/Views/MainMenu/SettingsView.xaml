@@ -90,7 +90,8 @@
             Grid.ColumnSpan="2">
             <Button
                 x:Name="btnMenuArrowUp"
-                Style="{StaticResource btnArrowUp}">
+                Style="{StaticResource btnArrowUp}"
+                Command="{Binding PreviousPageCommand}">
                 <Button.Height>
                     <MultiBinding Converter="{StaticResource SizeFromSizePercentageConventer}">
                         <Binding
@@ -117,7 +118,8 @@
             <Button
                 Style="{StaticResource btnArrowUp}"
                 Height="{Binding ActualHeight,
-                                 ElementName=btnMenuArrowUp}">
+                                 ElementName=btnMenuArrowUp}"
+                Command="{Binding NextPageCommand}">
                 <Button.LayoutTransform>
                     <RotateTransform Angle="180"/>
                 </Button.LayoutTransform>
@@ -141,5 +143,6 @@
                 </DataTemplate>
             </ContentControl.Resources>
         </ContentControl>
+        <!--#endregion-->
     </Grid>
 </UserControl>
