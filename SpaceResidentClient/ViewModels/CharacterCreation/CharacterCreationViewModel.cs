@@ -1,6 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using SpaceResidentClient.Models;
+using SpaceResidentClient.Models.CharacterCreation;
 using SpaceResidentClient.Models.ImagesProcessors;
 using SpaceResidentClient.Services;
 using SpaceResidentClient.ViewModels.MainMenu;
@@ -15,7 +16,7 @@ namespace SpaceResidentClient.ViewModels.CharacterCreation
 {
     partial class CharacterCreationViewModel : ObservableObject
     {
-        public readonly CharacterImageProcessor _imageProcessor;
+        public CharacterImageProcessor ImageProcessor;
         private readonly MainWindowViewModel _mainWindowViewModel;
         private readonly NavigationStore _navigationStore;
 
@@ -23,17 +24,17 @@ namespace SpaceResidentClient.ViewModels.CharacterCreation
         public int ImageIndex { private get; set; } = 0;
         public int ImageCount { private get; set; }
 
-        private string? _imagesDirectory;
+        private string? _characterImagesDirectory;
 
-        public string? ImagesDirectory
+        public string? CharacterImagesDirectory
         {
-            get => _imagesDirectory;
+            get => _characterImagesDirectory;
             set
             {
-                if (_imagesDirectory != value)
+                if (_characterImagesDirectory != value)
                 {
-                    _imagesDirectory = value;
-                    ImageSource = "/Resources;component" + _imagesDirectory + ImageIndex + ".png";
+                    _characterImagesDirectory = value;
+                    ImageSource = "/Resources;component" + _characterImagesDirectory + ImageIndex + ".png";
                 }
             }
         }
@@ -41,27 +42,46 @@ namespace SpaceResidentClient.ViewModels.CharacterCreation
         [ObservableProperty]
         public ObservableCollection<RadioButton> navigateButtons;
         [ObservableProperty]
-        public string? imageSource;
+        public string imageSource = String.Empty;
+        [ObservableProperty]
+        public string bgImageSource = String.Empty;
         [ObservableProperty]
         public ObservableObject? currentUserControl;
         #endregion
 
         #region commands
-        private void Close() => _navigationStore.CurrentViewModel = new MainMenuViewModel(_mainWindowViewModel);
-        private void OpenJobMenu() => CurrentUserControl = new CreationJobViewModel();
-        private void OpenCharacterMenu() => CurrentUserControl = new CreationCharacterViewModel(this);
-        private void OpenSkillsMenu() => CurrentUserControl = new CreationSkillsViewModel();
+        private void Close()
+        {
+            _navigationStore.CurrentViewModel = new MainMenuViewModel(_mainWindowViewModel);
+            PagesBuffer.CharacterViewModel = null;
+            PagesBuffer.SkillsViewModel = null;
+            PagesBuffer.JobViewModel = null;
+        }
+        private void OpenCharacterMenu() => OpenSomeMenu("character");
+        private void OpenSkillsMenu() => OpenSomeMenu("skills");
+        private void OpenJobMenu() => OpenSomeMenu("job");
+
+        private void OpenSomeMenu(string name)
+        {
+            if (name == "character")
+                CurrentUserControl = PagesBuffer.CharacterViewModel ??= new CreationCharacterViewModel(this);
+            else if (name == "skills")
+                CurrentUserControl = PagesBuffer.SkillsViewModel ??= new CreationSkillsViewModel();
+            else
+                CurrentUserControl = PagesBuffer.JobViewModel ??= new CreationJobViewModel(this);
+        }
+
         private void NextImage()
         {
             // set next image or set first image if it`s end of images collection
             ImageIndex = ImageIndex >= ImageCount - 1 ? 1 : ImageIndex + 1;
-            ImageSource = "/Resources;component" + _imagesDirectory + ImageIndex + ".png";
+            ImageSource = "/Resources;component" + CharacterImagesDirectory + ImageIndex + ".png";
         }
         private void PreviousImage()
         {
             // set previous image or set last image if it`s start of images collection
             ImageIndex = ImageIndex <= 1 ? ImageCount - 1 : ImageIndex - 1;
-            ImageSource = "/Resources;component" + _imagesDirectory + ImageIndex + ".png";
+            ImageSource = "/Resources;component" + CharacterImagesDirectory + ImageIndex + ".png";
         }
 
         private void PreviousPage()
@@ -121,11 +141,11 @@ namespace SpaceResidentClient.ViewModels.CharacterCreation
         }
         #endregion
 
-        public CharacterCreationViewModel(MainWindowViewModel mainWindowViewModel, NavigationStore navigationStore)
+        public CharacterCreationViewModel(MainWindowViewModel mainWindowViewModel)
         {
-            _imageProcessor = new(this);
+            ImageProcessor = new(this);
             _mainWindowViewModel = mainWindowViewModel;
-            _navigationStore = navigationStore;
+            _navigationStore = mainWindowViewModel.NavigationStore;
 
             CloseCommand = new RelayCommand(Close);
             OpenCharacterMenuCommand = new RelayCommand(OpenCharacterMenu);
@@ -140,6 +160,7 @@ namespace SpaceResidentClient.ViewModels.CharacterCreation
             OpenCharacterMenu();
 
             NavigateButtons = CreateNavigateButtons();
+            PagesBuffer.CharacterCreationViewModel = this;
         }
     }
 }

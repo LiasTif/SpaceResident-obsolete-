@@ -196,6 +196,10 @@
                                 Property="Margin"
                                 Value="14,4,4,4"/>
                         </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Opacity" Value=".5">
+                            </Setter>
+                        </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
@@ -579,10 +583,6 @@
     <!--#region ComboBox-->
     <ControlTemplate x:Key="ComboBoxToggleButton" TargetType="{x:Type ToggleButton}">
         <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition />
-                <ColumnDefinition Width="0.2*"/>
-            </Grid.ColumnDefinitions>
             <Viewbox HorizontalAlignment="Center" Grid.Column="1">
                 <TextBlock Text="+">
                     <TextBlock.Foreground>
@@ -592,10 +592,6 @@
             </Viewbox>
         </Grid>
     </ControlTemplate>
-    
-    <ControlTemplate x:Key="ComboBoxTextBox" TargetType="{x:Type TextBox}">
-        <Border x:Name="PART_ContentHost" Background="Transparent"/>
-    </ControlTemplate>
 
     <Style
         x:Key="cbBase"
@@ -604,20 +600,27 @@
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ComboBox}">
                     <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="0.2*"/>
+                        </Grid.ColumnDefinitions>
+                        
                         <ToggleButton
                             Template="{StaticResource ComboBoxToggleButton}" 
                             Grid.Column="2" 
                             Focusable="False"
+                            ClickMode="Press"
                             IsChecked="{Binding Path=IsDropDownOpen,
                                                 Mode=TwoWay,
-                                                RelativeSource={RelativeSource TemplatedParent}}"
-                            ClickMode="Press">
-                        </ToggleButton>
-                        <ContentPresenter
-                            IsHitTestVisible="False" 
-                            Content="{TemplateBinding SelectionBoxItem}"
-                            ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}"
-                            ContentTemplateSelector="{TemplateBinding ItemTemplateSelector}"/>
+                                                RelativeSource={RelativeSource TemplatedParent}}"/>
+                        <Viewbox
+                            Margin="5"
+                            HorizontalAlignment="Left">
+                            <TextBlock
+                                Text="{TemplateBinding Text}"
+                                Foreground="White"/>
+                        </Viewbox>
+
                         <Popup
                             Placement="Bottom"
                             IsOpen="{TemplateBinding IsDropDownOpen}"
@@ -639,8 +642,6 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
-        <Style.Triggers>
-        </Style.Triggers>
     </Style>
 
     <Style x:Key="{x:Type ComboBoxItem}" TargetType="{x:Type ComboBoxItem}">
@@ -653,9 +654,9 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ComboBoxItem}">
-                    <Border Name="brdMain"
-                            SnapsToDevicePixels="true">
-                        <ContentPresenter />
+                    <Border
+                        Name="brdMain">
+                        <ContentPresenter/>
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsHighlighted" Value="true">

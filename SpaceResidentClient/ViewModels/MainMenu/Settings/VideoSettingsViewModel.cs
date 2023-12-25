@@ -15,7 +15,7 @@ namespace SpaceResidentClient.ViewModels.MainMenu.Settings
 
         #region props
         [ObservableProperty]
-        public TextBlock? selectedScreenModeTextBlock;
+        public static TextBlock? selectedScreenModeTextBlock;
         [ObservableProperty]
         public ObservableCollection<TextBlock> screenModeTextBlocks;
         #endregion
@@ -62,9 +62,9 @@ namespace SpaceResidentClient.ViewModels.MainMenu.Settings
 
             screenModeTextBlocks =
             [
-                new() { Text = Properties.Lang.fullscreen},
-                new() { Text = Properties.Lang.windowed},
-                new() { Text = Properties.Lang.borderlessWindow}
+                new() { Text = Properties.Lang.fullscreen },
+                new() { Text = Properties.Lang.windowed },
+                new() { Text = Properties.Lang.borderlessWindow }
             ];
         }
     }

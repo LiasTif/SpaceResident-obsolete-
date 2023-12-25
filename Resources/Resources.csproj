@@ -10,6 +10,10 @@
   <ItemGroup>
     <None Remove="Data\UI\arrow base.png" />
     <None Remove="Data\UI\characterIcon.png" />
+    <None Remove="Data\UI\CharacterJobBGs\Fabric.png" />
+    <None Remove="Data\UI\CharacterJobBGs\Fabric2.png" />
+    <None Remove="Data\UI\CharacterJobBGs\FleaMarket.png" />
+    <None Remove="Data\UI\CharacterJobBGs\Office.png" />
     <None Remove="Data\UI\Characters\Human\Female\fHuman1.png" />
     <None Remove="Data\UI\Characters\Human\Female\fHuman10.png" />
     <None Remove="Data\UI\Characters\Human\Female\fHuman2.png" />
@@ -29,6 +33,7 @@
     <None Remove="Data\UI\cross.png" />
     <None Remove="Data\UI\icon.ico" />
     <None Remove="Data\UI\jobIcon.png" />
+    <None Remove="Data\UI\Locations\Houses\SpaceStationHome1.png" />
     <None Remove="Data\UI\plus.png" />
     <None Remove="Data\UI\pluses.jpg" />
     <None Remove="Data\UI\pluses.png" />
@@ -38,6 +43,10 @@
   <ItemGroup>
     <Resource Include="Data\UI\arrow base.png" />
     <Resource Include="Data\UI\characterIcon.png" />
+    <Resource Include="Data\UI\CharacterJobBGs\Fabric.png" />
+    <Resource Include="Data\UI\CharacterJobBGs\Fabric2.png" />
+    <Resource Include="Data\UI\CharacterJobBGs\FleaMarket.png" />
+    <Resource Include="Data\UI\CharacterJobBGs\Office.png" />
     <Resource Include="Data\UI\Characters\Human\Female\fHuman1.png">
       <CopyToOutputDirectory></CopyToOutputDirectory>
     </Resource>
@@ -91,6 +100,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Data\UI\jobIcon.png" />
+    <Resource Include="Data\UI\Locations\Houses\SpaceStationHome1.png" />
     <Resource Include="Data\UI\plus.png">
       <CopyToOutputDirectory></CopyToOutputDirectory>
     </Resource>

@@ -154,14 +154,21 @@
                         ScaleX="1.5"
                         ScaleY="1.5"/>
                 </Border.RenderTransform>
-                <Border>
-                    <Border.Background>
-                        <SolidColorBrush
-                            Color="{StaticResource ActiveWhiterColor}"/>
-                    </Border.Background>
+
+                <Grid>
                     <Image
-                        Source="{Binding ImageSource, Mode=TwoWay}"/>
-                </Border>
+                        Source="{Binding BgImageSource, Mode=TwoWay}"/>
+                    <Border>
+                        <Border.Background>
+                            <SolidColorBrush
+                                Opacity=".2"
+                                Color="{StaticResource ActiveWhiterColor}"/>
+                        </Border.Background>
+                        <Image
+                            Source="{Binding ImageSource, Mode=TwoWay}"/>
+                    </Border>
+                </Grid>
+                
             </Border>
 
             <Button
@@ -221,6 +228,7 @@
                 </Button.Width>
             </Button>
             <Button
+                IsEnabled="False"
                 MouseEnter="Button_MouseEnter"
                 Content="Continue"
                 Style="{StaticResource btnBase}">

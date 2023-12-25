@@ -9,6 +9,20 @@ namespace SpaceResidentClient.Models.ImagesProcessors
         readonly ObservableObject _parentViewModel = parentViewModel;
 
         #region metods
+        public string SetBgImageSource(string job)
+        {
+            if (job == Properties.Lang.fleaMarketVendor)
+                return "/Resources;component" + "\\Data\\UI\\CharacterJobBGs\\FleaMarket" + ".png";
+            else if (job == Properties.Lang.unemployed)
+                return "/Resources;component" + "\\Data\\UI\\Locations\\Houses\\SpaceStationHome1" + ".png";
+            else if (job == Properties.Lang.productionWorker)
+                return "/Resources;component" + "\\Data\\UI\\CharacterJobBGs\\Fabric" + ".png";
+            else if (job == Properties.Lang.clerk)
+                return "/Resources;component" + "\\Data\\UI\\CharacterJobBGs\\Office" + ".png";
+            else
+                return String.Empty;
+        }
+
         public void GetAvalibleCharacterImages(char race, bool isFemale)
         {
             if (_parentViewModel is CharacterCreationViewModel characterCreationViewModel)
@@ -17,13 +31,13 @@ namespace SpaceResidentClient.Models.ImagesProcessors
                 {
                     characterCreationViewModel.ImageIndex = 1;
                     characterCreationViewModel.ImageCount = 10;
-                    characterCreationViewModel.ImagesDirectory = "\\Data\\UI\\Characters\\Human\\Female\\fHuman";
+                    characterCreationViewModel.CharacterImagesDirectory = "\\Data\\UI\\Characters\\Human\\Female\\fHuman";
                 }
                 else if (!isFemale && race == 'l')
                 {
                     characterCreationViewModel.ImageIndex = 1;
                     characterCreationViewModel.ImageCount = 6;
-                    characterCreationViewModel.ImagesDirectory = "\\Data\\UI\\Characters\\Human\\Male\\mHuman";
+                    characterCreationViewModel.CharacterImagesDirectory = "\\Data\\UI\\Characters\\Human\\Male\\mHuman";
                 }
             }
         }

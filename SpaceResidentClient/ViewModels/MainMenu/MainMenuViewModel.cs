@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using SpaceResidentClient.Models.CharacterCreation;
 using SpaceResidentClient.ViewModels.CharacterCreation;
 using SpaceResidentClient.ViewModels.Windows;
 using System;
@@ -26,8 +27,11 @@ namespace SpaceResidentClient.ViewModels.MainMenu
         public ICommand SettingsViewSwitchCommand { get; }
         public ICommand OpenCharacterCreationCommand { get; }
 
-        private void OpenCharacterCreation() => _mainWindowViewModel.NavigationStore.CurrentViewModel =
-            new CharacterCreationViewModel(_mainWindowViewModel, _mainWindowViewModel.NavigationStore);
+        private void OpenCharacterCreation()
+        {
+            _mainWindowViewModel.NavigationStore.CurrentViewModel = PagesBuffer.CharacterCreationViewModel ??=
+                new CharacterCreationViewModel(_mainWindowViewModel);
+        }
 
         private void Shutdown() => App.Current.Shutdown();
         public void SettingsViewSwitch()

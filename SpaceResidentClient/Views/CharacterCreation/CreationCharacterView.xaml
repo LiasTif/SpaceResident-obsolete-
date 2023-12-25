@@ -129,10 +129,9 @@
                 <SolidColorBrush Color="{StaticResource PassiveColor}"/>
             </Border.BorderBrush>
             <Viewbox HorizontalAlignment="Center">
-                <TextBox
+                <TextBlock
                     Background="Transparent"
-                    BorderThickness="0"
-                    Style="{StaticResource txtbxBase}"
+                    Style="{StaticResource txtblWhiteTextBase}"
                     Text="{Binding Age, Mode=TwoWay}"/>
             </Viewbox>
         </Border>
@@ -147,7 +146,8 @@
                     x:Name="btnAgeMinus"
                     HorizontalAlignment="Left"
                     Width="{Binding ActualHeight, ElementName=btnAgeMinus}"
-                    Style="{StaticResource btnArrowUp}">
+                    Style="{StaticResource btnArrowUp}"
+                    Command="{Binding MinusAgeCommand}">
                     <Button.RenderTransform>
                         <RotateTransform Angle="270"/>
                     </Button.RenderTransform>
@@ -158,7 +158,8 @@
                     x:Name="btnAgePlus"
                     HorizontalAlignment="Right"
                     Width="{Binding ActualHeight, ElementName=btnAgeMinus}"
-                    Style="{StaticResource btnArrowUp}">
+                    Style="{StaticResource btnArrowUp}"
+                    Command="{Binding PlusAgeCommand}">
                     <Button.RenderTransform>
                         <RotateTransform Angle="90"/>
                     </Button.RenderTransform>

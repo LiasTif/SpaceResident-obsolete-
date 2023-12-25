@@ -3,7 +3,47 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:language="clr-namespace:SpaceResidentClient.Properties"
              mc:Ignorable="d" d:Height="450" d:Width="800">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--#region job-->
+        <Border
+            Margin="5"
+            Style="{StaticResource brdMainElementBase}">
+            <Viewbox HorizontalAlignment="Left">
+                <TextBlock
+                    Text="{x:Static language:Lang.job}"
+                    Style="{StaticResource txtblWhiteTextBase}"/>
+            </Viewbox>
+        </Border>
+
+        <Border
+            Grid.Column="1"
+            Margin="5"
+            Style="{StaticResource brdMainElementBase}">
+            <ComboBox
+                Style="{StaticResource cbBase}"
+                SelectedItem="{Binding SelectedJobTextBlock}"
+                ItemsSource="{Binding JobTextBlocks}"
+                x:Name="cbLanguage">
+            </ComboBox>
+        </Border>
+        <!--#endregion-->
     </Grid>
 </UserControl>

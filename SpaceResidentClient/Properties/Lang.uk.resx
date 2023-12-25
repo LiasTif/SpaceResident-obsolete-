@@ -126,6 +126,9 @@
   <data name="borderlessWindow" xml:space="preserve">
     <value>Вікно без рамок</value>
   </data>
+  <data name="clerk" xml:space="preserve">
+    <value>Клерк</value>
+  </data>
   <data name="continue" xml:space="preserve">
     <value>Продовжити</value>
   </data>
@@ -147,6 +150,9 @@
   <data name="female" xml:space="preserve">
     <value>Жіноча</value>
   </data>
+  <data name="fleaMarketVendor" xml:space="preserve">
+    <value>Продавець на блошиному ринку</value>
+  </data>
   <data name="fullscreen" xml:space="preserve">
     <value>Повний екран</value>
   </data>
@@ -158,6 +164,9 @@
   </data>
   <data name="human" xml:space="preserve">
     <value>Людина</value>
+  </data>
+  <data name="job" xml:space="preserve">
+    <value>Праця</value>
   </data>
   <data name="kinetics" xml:space="preserve">
     <value>Кінетика</value>
@@ -204,6 +213,9 @@
   <data name="noTimeData" xml:space="preserve">
     <value>дані про дату відсутні</value>
   </data>
+  <data name="productionWorker" xml:space="preserve">
+    <value>Робітник на виробництві</value>
+  </data>
   <data name="race" xml:space="preserve">
     <value>Раса</value>
   </data>
@@ -233,6 +245,9 @@
   </data>
   <data name="ua" xml:space="preserve">
     <value>Українська</value>
+  </data>
+  <data name="unemployed" xml:space="preserve">
+    <value>Безробітний</value>
   </data>
   <data name="video" xml:space="preserve">
     <value>Відео</value>

@@ -1,6 +1,6 @@
 ﻿using SpaceResidentClient.Models.Interfaces;
 
-namespace SpaceResidentClient.Models
+namespace SpaceResidentClient.Models.CharacterCreation
 {
     class CharacterCreation : IMainCharacter
     {

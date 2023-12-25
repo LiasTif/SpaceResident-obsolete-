@@ -126,6 +126,9 @@
   <data name="borderlessWindow" xml:space="preserve">
     <value>Borderless Window</value>
   </data>
+  <data name="clerk" xml:space="preserve">
+    <value>Clerk</value>
+  </data>
   <data name="continue" xml:space="preserve">
     <value>Continue</value>
   </data>
@@ -147,6 +150,9 @@
   <data name="female" xml:space="preserve">
     <value>Female</value>
   </data>
+  <data name="fleaMarketVendor" xml:space="preserve">
+    <value>Flea market vendor</value>
+  </data>
   <data name="fullscreen" xml:space="preserve">
     <value>Fullscreen</value>
   </data>
@@ -158,6 +164,9 @@
   </data>
   <data name="human" xml:space="preserve">
     <value>Human</value>
+  </data>
+  <data name="job" xml:space="preserve">
+    <value>Job</value>
   </data>
   <data name="kinetics" xml:space="preserve">
     <value>Kinetics</value>
@@ -204,6 +213,9 @@
   <data name="noTimeData" xml:space="preserve">
     <value>no time data</value>
   </data>
+  <data name="productionWorker" xml:space="preserve">
+    <value>Production worker</value>
+  </data>
   <data name="race" xml:space="preserve">
     <value>Race</value>
   </data>
@@ -233,6 +245,9 @@
   </data>
   <data name="ua" xml:space="preserve">
     <value>Ukrainian</value>
+  </data>
+  <data name="unemployed" xml:space="preserve">
+    <value>Unemployed</value>
   </data>
   <data name="video" xml:space="preserve">
     <value>Video</value>

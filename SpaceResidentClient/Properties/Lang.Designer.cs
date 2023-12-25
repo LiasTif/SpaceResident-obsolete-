@@ -97,6 +97,15 @@ namespace SpaceResidentClient.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Clerk.
+        /// </summary>
+        public static string clerk {
+            get {
+                return ResourceManager.GetString("clerk", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to English.
         /// </summary>
         public static string en {
@@ -151,6 +160,15 @@ namespace SpaceResidentClient.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Flea market vendor.
+        /// </summary>
+        public static string fleaMarketVendor {
+            get {
+                return ResourceManager.GetString("fleaMarketVendor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Fullscreen.
         /// </summary>
         public static string fullscreen {
@@ -183,6 +201,15 @@ namespace SpaceResidentClient.Properties {
         public static string human {
             get {
                 return ResourceManager.GetString("human", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Job.
+        /// </summary>
+        public static string job {
+            get {
+                return ResourceManager.GetString("job", resourceCulture);
             }
         }
         
@@ -322,6 +349,15 @@ namespace SpaceResidentClient.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Production worker.
+        /// </summary>
+        public static string productionWorker {
+            get {
+                return ResourceManager.GetString("productionWorker", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Race.
         /// </summary>
         public static string race {
@@ -408,6 +444,15 @@ namespace SpaceResidentClient.Properties {
         public static string ua {
             get {
                 return ResourceManager.GetString("ua", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unemployed.
+        /// </summary>
+        public static string unemployed {
+            get {
+                return ResourceManager.GetString("unemployed", resourceCulture);
             }
         }
         

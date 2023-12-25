@@ -92,7 +92,7 @@
             Style="{StaticResource brdMainElementBase}">
             <ComboBox
                 Style="{StaticResource cbBase}"
-                SelectedItem="{Binding SelectedScreenModeTextBlock}"
+                SelectedItem="{Binding SelectedScreenModeTextBlock, Mode=TwoWay}"
                 ItemsSource="{Binding ScreenModeTextBlocks}"
                 x:Name="cbScreenMode">
                 <i:Interaction.Triggers>
