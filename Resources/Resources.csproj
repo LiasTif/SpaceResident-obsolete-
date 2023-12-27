@@ -112,7 +112,10 @@
     <None Update="Data\music\MenuMusic.mp3">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="Data\sounds\UI\Button Hover.wav">
+    <None Update="Data\sounds\UI\ButtonHover.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Data\sounds\UI\ButtonHoverMinPlus.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>

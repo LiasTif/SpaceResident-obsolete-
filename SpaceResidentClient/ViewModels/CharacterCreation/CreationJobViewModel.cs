@@ -11,8 +11,6 @@ namespace SpaceResidentClient.ViewModels.CharacterCreation
         #region props
         [ObservableProperty]
         public ObservableCollection<TextBlock> jobTextBlocks;
-        //[ObservableProperty]
-        //public TextBlock selectedJobTextBlock = new();
 
         private TextBlock _selectedJobTextBlock = new();
 

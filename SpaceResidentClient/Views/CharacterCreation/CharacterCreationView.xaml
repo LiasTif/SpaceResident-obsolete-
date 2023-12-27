@@ -155,17 +155,18 @@
                         ScaleY="1.5"/>
                 </Border.RenderTransform>
 
+                <!--Character Image-->
                 <Grid>
                     <Image
-                        Source="{Binding BgImageSource, Mode=TwoWay}"/>
+                        Source="{Binding BgImageSource, Mode=OneWay}"/>
                     <Border>
                         <Border.Background>
                             <SolidColorBrush
-                                Opacity=".2"
+                                Opacity=".12"
                                 Color="{StaticResource ActiveWhiterColor}"/>
                         </Border.Background>
                         <Image
-                            Source="{Binding ImageSource, Mode=TwoWay}"/>
+                            Source="{Binding ImageSource, Mode=OneWay}"/>
                     </Border>
                 </Grid>
                 
