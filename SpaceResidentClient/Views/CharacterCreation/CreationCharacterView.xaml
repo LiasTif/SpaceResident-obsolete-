@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:c="clr-namespace:Converters.CharacterCreation;assembly=Converters"
              xmlns:language="clr-namespace:SpaceResidentClient.Properties"
              mc:Ignorable="d" d:Height="1080" d:Width="1960">
     <UserControl.Resources>
@@ -11,6 +12,7 @@
                 <ResourceDictionary
                     Source="/ResourceDictionaries;component/Base/BaseElementsDictionary.xaml"/>
             </ResourceDictionary.MergedDictionaries>
+            <c:IsFemaleToStringConverter x:Key="IsFemaleToStringConverter"/>
         </ResourceDictionary>
     </UserControl.Resources>
     
@@ -104,7 +106,7 @@
             Margin="10"
             Grid.Column="1"
             VerticalContentAlignment="Center"
-            Text="{Binding Name, Mode=OneWayToSource}"
+            Text="{Binding Name, Mode=TwoWay}"
             Style="{StaticResource txtbxBase}"/>
 
         <!--Surname-->
@@ -115,7 +117,7 @@
             Grid.Row="1"
             Grid.Column="1"
             VerticalContentAlignment="Center"
-            Text="{Binding Surname, Mode=OneWayToSource}"
+            Text="{Binding Surname, Mode=TwoWay}"
             Style="{StaticResource txtbxBase}"/>
 
         <!--Age-->
@@ -226,7 +228,9 @@
             <Viewbox HorizontalAlignment="Center">
                 <TextBlock
                     Style="{StaticResource txtblWhiteTextBase}"
-                    Text="{Binding Gender, Mode=TwoWay}"/>
+                    Text="{Binding IsFemale,
+                                   Converter={StaticResource IsFemaleToStringConverter},
+                                   Mode=TwoWay}"/>
             </Viewbox>
         </Border>
         <Border

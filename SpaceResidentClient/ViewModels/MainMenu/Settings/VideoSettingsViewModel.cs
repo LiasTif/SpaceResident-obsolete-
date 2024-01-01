@@ -6,6 +6,7 @@ using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using SpaceResidentClient.Properties;
 
 namespace SpaceResidentClient.ViewModels.MainMenu.Settings
 {
@@ -26,10 +27,10 @@ namespace SpaceResidentClient.ViewModels.MainMenu.Settings
             if (SelectedScreenModeTextBlock != null)
             {
                 // fullscreen
-                if (SelectedScreenModeTextBlock.Text == Properties.Lang.fullscreen)
+                if (SelectedScreenModeTextBlock.Text == Lang.fullscreen)
                     ChangeWindowMode(windowModes[0]);
                 // windowed
-                else if (SelectedScreenModeTextBlock.Text == Properties.Lang.windowed)
+                else if (SelectedScreenModeTextBlock.Text == Lang.windowed)
                     ChangeWindowMode(windowModes[1]);
                 // borderless window
                 else
@@ -62,9 +63,9 @@ namespace SpaceResidentClient.ViewModels.MainMenu.Settings
 
             screenModeTextBlocks =
             [
-                new() { Text = Properties.Lang.fullscreen },
-                new() { Text = Properties.Lang.windowed },
-                new() { Text = Properties.Lang.borderlessWindow }
+                new() { Text = Lang.fullscreen },
+                new() { Text = Lang.windowed },
+                new() { Text = Lang.borderlessWindow }
             ];
         }
     }

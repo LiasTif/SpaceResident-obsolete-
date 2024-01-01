@@ -6,6 +6,7 @@
              xmlns:c="clr-namespace:Converters;assembly=Converters"
              xmlns:ccV="clr-namespace:SpaceResidentClient.Views.CharacterCreation"
              xmlns:ccVM="clr-namespace:SpaceResidentClient.ViewModels.CharacterCreation"
+             xmlns:language="clr-namespace:SpaceResidentClient.Properties"
              mc:Ignorable="d" d:Height="1080" d:Width="1966"
              Background="#1E1E1E">
     <UserControl.Resources>
@@ -209,7 +210,7 @@
             <Button
                 MouseEnter="Button_MouseEnter"
                 Command="{Binding CloseCommand}"
-                Content="Cancel"
+                Content="{x:Static language:Lang.cancel}"
                 Style="{StaticResource btnCancelBase}">
                 <Button.Height>
                     <MultiBinding Converter="{StaticResource SizeFromSizePercentageConventer}">
@@ -231,7 +232,7 @@
             <Button
                 IsEnabled="False"
                 MouseEnter="Button_MouseEnter"
-                Content="Continue"
+                Content="{x:Static language:Lang._continue}"
                 Style="{StaticResource btnBase}">
                 <Button.Height>
                     <MultiBinding Converter="{StaticResource SizeFromSizePercentageConventer}">

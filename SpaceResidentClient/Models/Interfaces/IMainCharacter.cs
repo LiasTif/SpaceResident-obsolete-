@@ -2,7 +2,7 @@
 {
     interface IMainCharacter : ICharacter
     {
-        string Job { get; set; }
+        string? Job { get; set; }
 
         #region characteristics
         byte Linguistics { get; set; }

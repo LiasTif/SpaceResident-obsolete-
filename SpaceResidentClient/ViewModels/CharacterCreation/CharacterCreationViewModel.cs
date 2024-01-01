@@ -11,12 +11,23 @@ using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using SpaceResidentClient.Properties;
 
 namespace SpaceResidentClient.ViewModels.CharacterCreation
 {
     partial class CharacterCreationViewModel : ObservableObject
     {
         public CharacterImageProcessor ImageProcessor;
+        public static MainCharacter MainCharacter = new
+        (
+            job: "Unemployed",
+            name: String.Empty,
+            surname: String.Empty,
+            isFemale: true,
+            race: 'l',
+            age: 20
+        );
+
         private readonly MainWindowViewModel _mainWindowViewModel;
         private readonly NavigationStore _navigationStore;
 
@@ -143,9 +154,9 @@ namespace SpaceResidentClient.ViewModels.CharacterCreation
 
         public CharacterCreationViewModel(MainWindowViewModel mainWindowViewModel)
         {
-            ImageProcessor = new(this);
             // set bg as unemployed by default
-            BgImageSource = ImageProcessor.SetBgImageSource(Properties.Lang.unemployed);
+            ImageProcessor = new(this);
+            BgImageSource = ImageProcessor.SetBgImageSource(Lang.unemployed);
 
             _mainWindowViewModel = mainWindowViewModel;
             _navigationStore = mainWindowViewModel.NavigationStore;

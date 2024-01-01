@@ -3,6 +3,7 @@ using CommunityToolkit.Mvvm.Input;
 using System.Collections.ObjectModel;
 using System.Windows.Controls;
 using System.Windows.Input;
+using SpaceResidentClient.Properties;
 
 namespace SpaceResidentClient.ViewModels.MainMenu.Settings
 {
@@ -18,7 +19,7 @@ namespace SpaceResidentClient.ViewModels.MainMenu.Settings
         #region commands
         private void LanguageSelectionChanged()
         {
-            if (Properties.Lang.ua == SelectedLanguageTextBlock.Text)
+            if (Lang.ua == SelectedLanguageTextBlock.Text)
                 Properties.Settings.Default.languageCode = "uk-UA";
             else
                 Properties.Settings.Default.languageCode = "en-US";
@@ -34,14 +35,14 @@ namespace SpaceResidentClient.ViewModels.MainMenu.Settings
 
             languageTextBlocks =
             [
-                new() { Text = Properties.Lang.ua},
-                new() { Text = Properties.Lang.en}
+                new() { Text = Lang.ua},
+                new() { Text = Lang.en}
             ];
 
             if (Properties.Settings.Default.languageCode == "uk-UA")
-                SelectedLanguageTextBlock.Text = Properties.Lang.ua;
+                SelectedLanguageTextBlock.Text = Lang.ua;
             else if (Properties.Settings.Default.languageCode == "en-US")
-                SelectedLanguageTextBlock.Text = Properties.Lang.en;
+                SelectedLanguageTextBlock.Text = Lang.en;
         }
     }
 }

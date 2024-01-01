@@ -6,24 +6,60 @@
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
     <SupportedOSPlatformVersion>7.0</SupportedOSPlatformVersion>
+    <ApplicationIcon>icon.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Properties\**" />
     <Compile Remove="ViewModels\MainMenu\Settings\**" />
     <Compile Remove="Views\MainMenu\Settings\**" />
+    <EmbeddedResource Remove="Properties\**" />
     <EmbeddedResource Remove="ViewModels\MainMenu\Settings\**" />
     <EmbeddedResource Remove="Views\MainMenu\Settings\**" />
+    <None Remove="Properties\**" />
     <None Remove="ViewModels\MainMenu\Settings\**" />
     <None Remove="Views\MainMenu\Settings\**" />
+    <Page Remove="Properties\**" />
     <Page Remove="ViewModels\MainMenu\Settings\**" />
     <Page Remove="Views\MainMenu\Settings\**" />
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Include="Properties\Lang.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Lang.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
     <Compile Include="ViewModels\MainMenu\Settings\GameSettingsViewModel.cs" />
     <Compile Include="ViewModels\MainMenu\Settings\VideoSettingsViewModel.cs" />
     <Compile Include="Views\MainMenu\Settings\GameView.xaml.cs" />
     <Compile Include="Views\MainMenu\Settings\VideoView.xaml.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="icon.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Lang.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Lang.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Lang.uk.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
   </ItemGroup>
 
   <ItemGroup>
@@ -45,36 +81,6 @@
     <ProjectReference Include="..\DecorativeElements\DecorativeElements.csproj" />
     <ProjectReference Include="..\ResourceDictionaries\ResourceDictionaries.csproj" />
     <ProjectReference Include="..\Resources\Resources.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Compile Update="Properties\Lang.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Lang.resx</DependentUpon>
-    </Compile>
-    <Compile Update="Properties\Settings.Designer.cs">
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Settings.settings</DependentUpon>
-    </Compile>
-  </ItemGroup>
-
-  <ItemGroup>
-    <EmbeddedResource Update="Properties\Lang.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>Lang.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Properties\Lang.uk.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-    </EmbeddedResource>
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Update="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
   </ItemGroup>
 
 </Project>

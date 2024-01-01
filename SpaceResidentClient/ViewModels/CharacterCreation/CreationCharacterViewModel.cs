@@ -1,38 +1,48 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using System;
+using SpaceResidentClient.Properties;
 using System.Windows.Input;
 
 namespace SpaceResidentClient.ViewModels.CharacterCreation
 {
     partial class CreationCharacterViewModel : ObservableObject
     {
-        readonly CharacterCreationViewModel _characterCreationViewModel;
+        private readonly CharacterCreationViewModel _characterCreationViewModel;
 
         #region props
-        [ObservableProperty]
-        public string name = string.Empty;
-        [ObservableProperty]
-        public string surname = string.Empty;
-        [ObservableProperty]
-        public string age = "21";
-
-        private string _gender = Properties.Lang.female;
-        public string Gender
+        #pragma warning disable CS8603 // Possible null reference return.
+        public static string Name
         {
-            get => _gender;
+            get => CharacterCreationViewModel.MainCharacter.Name;
+            set => CharacterCreationViewModel.MainCharacter.Name = value;
+        }
+        public static string Surname
+        {
+            get => CharacterCreationViewModel.MainCharacter.Surname;
+            set => CharacterCreationViewModel.MainCharacter.Surname = value;
+        }
+        public int Age
+        {
+            get => CharacterCreationViewModel.MainCharacter.Age;
             set
             {
-                if (_gender != value)
-                {
-                    _gender = value;
-                    OnPropertyChanged(nameof(Gender));
-                    RaceOrGenderHasChanged();
-                }
+                CharacterCreationViewModel.MainCharacter.Age = value;
+                OnPropertyChanged(nameof(Age));
             }
         }
 
-        private string _race = Properties.Lang.human;
+        public bool IsFemale
+        {
+            get => CharacterCreationViewModel.MainCharacter.IsFemale;
+            set
+            {
+                CharacterCreationViewModel.MainCharacter.IsFemale = value;
+                OnPropertyChanged(nameof(Age));
+            }
+        }
+        #pragma warning restore CS8603 // Possible null reference return.
+
+        private string _race = Lang.human;
         public string Race
         {
             get => _race;
@@ -49,21 +59,16 @@ namespace SpaceResidentClient.ViewModels.CharacterCreation
         #endregion
 
         #region commands
-        private void ChangeGender()
-        {
-            var male = Properties.Lang.male;
-            var female = Properties.Lang.female;
-            Gender = Gender == male ? female : male;
-        }
+        private void ChangeGender() => IsFemale = !IsFemale;
         private void MinusAge()
         {
-            if (Int32.Parse(Age) > 20)
-                Age = (Int32.Parse(Age) - 1).ToString();
+            if (Age > 20)
+                Age -= 1;
         }
         private void PlusAge()
         {
-            if (Int32.Parse(Age) < 30)
-                Age = (Int32.Parse(Age) + 1).ToString();
+            if (Age < 30)
+                Age += 1;
         }
         public ICommand ChangeGenderCommand { get; }
         public ICommand MinusAgeCommand { get; }
@@ -75,17 +80,17 @@ namespace SpaceResidentClient.ViewModels.CharacterCreation
         {
             char race = '0';
             // vun-ti and vun_flant don`t have a gender and go to GetAvalibleCharacterImages metod immedeatly
-            if (Race == Properties.Lang.vun_ti)
+            if (Race == Lang.vun_ti)
                 _characterCreationViewModel.ImageProcessor.GetAvalibleCharacterImages('t');
-            else if (Race == Properties.Lang.vun_flant)
+            else if (Race == Lang.vun_flant)
                 _characterCreationViewModel.ImageProcessor.GetAvalibleCharacterImages('f');
-            else if (Race == Properties.Lang.human)
+            else if (Race == Lang.human)
                 race = 'l';
-            else if (Race == Properties.Lang.vun_mis_ak)
+            else if (Race == Lang.vun_mis_ak)
                 race = 'm';
 
             _characterCreationViewModel.ImageProcessor.GetAvalibleCharacterImages(race,
-                Gender == Properties.Lang.female);
+                IsFemale);
         }
         #endregion
 

@@ -1,6 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using SpaceResidentClient.ViewModels.CharacterCreation;
 using System;
+using SpaceResidentClient.Properties;
 
 namespace SpaceResidentClient.Models.ImagesProcessors
 {
@@ -11,13 +12,13 @@ namespace SpaceResidentClient.Models.ImagesProcessors
         #region metods
         public string SetBgImageSource(string job)
         {
-            if (job == Properties.Lang.fleaMarketVendor)
+            if (job == Lang.fleaMarketVendor)
                 return "/Resources;component" + "\\Data\\UI\\CharacterJobBGs\\FleaMarket" + ".png";
-            else if (job == Properties.Lang.unemployed)
+            else if (job == Lang.unemployed)
                 return "/Resources;component" + "\\Data\\UI\\Locations\\Houses\\SpaceStationHome1" + ".png";
-            else if (job == Properties.Lang.productionWorker)
+            else if (job == Lang.productionWorker)
                 return "/Resources;component" + "\\Data\\UI\\CharacterJobBGs\\Fabric" + ".png";
-            else if (job == Properties.Lang.clerk)
+            else if (job == Lang.clerk)
                 return "/Resources;component" + "\\Data\\UI\\CharacterJobBGs\\Office" + ".png";
             else
                 return String.Empty;

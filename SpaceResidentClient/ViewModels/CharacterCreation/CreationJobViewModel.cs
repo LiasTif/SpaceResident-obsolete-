@@ -1,6 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using System.Collections.ObjectModel;
 using System.Windows.Controls;
+using SpaceResidentClient.Properties;
 
 namespace SpaceResidentClient.ViewModels.CharacterCreation
 {
@@ -39,10 +40,10 @@ namespace SpaceResidentClient.ViewModels.CharacterCreation
         {
             return
             [
-                new() { Text = Properties.Lang.clerk },
-                new() { Text = Properties.Lang.fleaMarketVendor },
-                new() { Text = Properties.Lang.productionWorker },
-                new() { Text = Properties.Lang.unemployed }
+                new() { Text = Lang.clerk },
+                new() { Text = Lang.fleaMarketVendor },
+                new() { Text = Lang.productionWorker },
+                new() { Text = Lang.unemployed }
             ];
         }
     }

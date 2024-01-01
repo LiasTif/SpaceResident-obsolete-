@@ -7,8 +7,4 @@
     <SupportedOSPlatformVersion>7.0</SupportedOSPlatformVersion>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Folder Include="CharacterCreation\" />
-  </ItemGroup>
-
 </Project>

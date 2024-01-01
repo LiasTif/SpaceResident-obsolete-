@@ -6,6 +6,7 @@ using SpaceResidentClient.ViewModels.Windows;
 using System.Collections.ObjectModel;
 using System.Windows.Controls;
 using System.Windows.Input;
+using SpaceResidentClient.Properties;
 
 namespace SpaceResidentClient.ViewModels.MainMenu
 {
@@ -52,14 +53,14 @@ namespace SpaceResidentClient.ViewModels.MainMenu
             [
                 new()
                 {
-                    Content = Properties.Lang.game,
+                    Content = Lang.game,
                     Command = OpenGamePageCommand,
                     GroupName = "rbtns",
                     IsChecked = true
                 },
                 new()
                 {
-                    Content = Properties.Lang.video,
+                    Content = Lang.video,
                     Command = OpenVideoPageCommand,
                     GroupName = "rbtns"
                 }

@@ -1,6 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using SpaceResidentClient.Models;
+using SpaceResidentClient.Services.UISounds;
 using System;
 using System.Windows.Input;
 
@@ -54,14 +55,20 @@ namespace SpaceResidentClient.ViewModels.CharacterCreation
                 Points = _characterCreationSkillPointsProcessor.IncreaseSkill(Points, value);
 
                 if (oldPoints != Points)
+                {
                     GetType().GetProperty(characteristic)?.SetValue(this, ++value);
+                    ArrowButtonClickPlayer.LoadClickPlayer();
+                }
             }
             else
             {
                 Points = _characterCreationSkillPointsProcessor.DecreaseSkill(Points, value);
 
                 if (oldPoints != Points)
+                {
                     GetType().GetProperty(characteristic)?.SetValue(this, --value);
+                    ArrowButtonClickPlayer.LoadClickPlayer();
+                }
             }
         }
 
