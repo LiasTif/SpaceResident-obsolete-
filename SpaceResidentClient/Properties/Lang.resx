@@ -129,6 +129,9 @@
   <data name="cancel" xml:space="preserve">
     <value>Cancel</value>
   </data>
+  <data name="characteristicTip1" xml:space="preserve">
+    <value>Each characteristic exponentially requires more points when it reaches a certain level</value>
+  </data>
   <data name="clerk" xml:space="preserve">
     <value>Clerk</value>
   </data>
@@ -215,6 +218,9 @@
   </data>
   <data name="noTimeData" xml:space="preserve">
     <value>no time data</value>
+  </data>
+  <data name="points" xml:space="preserve">
+    <value>Points:</value>
   </data>
   <data name="productionWorker" xml:space="preserve">
     <value>Production worker</value>

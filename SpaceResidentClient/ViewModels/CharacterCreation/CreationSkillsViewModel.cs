@@ -1,6 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using SpaceResidentClient.Models;
+using SpaceResidentClient.Models.CharacterCreation;
 using SpaceResidentClient.Services.UISounds;
 using System;
 using System.Windows.Input;

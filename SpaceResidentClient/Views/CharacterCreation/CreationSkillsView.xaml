@@ -2,17 +2,22 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:c="clr-namespace:Converters;assembly=Converters"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:language="clr-namespace:SpaceResidentClient.Properties"
              mc:Ignorable="d" d:Height="450" d:Width="800">
 
     <UserControl.Resources>
+        <ResourceDictionary>
+            <c:SizeFromSizePercentageConventer x:Key="SizeFromSizePercentageConventer"/>
+        
         <Style
             TargetType="{x:Type Border}"
             BasedOn="{StaticResource brdSecondElementBase}"
             x:Key="brdCharacterCreation">
             <Setter Property="Margin" Value="10"/>
         </Style>
+        </ResourceDictionary>
     </UserControl.Resources>
 
     <Grid>
@@ -109,10 +114,11 @@
             </Viewbox>
         </Border>
         <!--#endregion-->
-        
+
         <!--#region 2 column-->
         <!--#region Linguistics-->
         <Border
+            x:Name="LinguisticsBorder2clmn"
             Panel.ZIndex="1"
             Margin="10"
             Grid.Column="1"
@@ -459,26 +465,70 @@
             </UniformGrid>
         </Border>
         <!--#endregion-->
-        
-        <!--#region Poins-->
-        <StackPanel
-            Grid.Column="1"
+
+        <!--#region Poins & tip-->
+        <Grid
+            Grid.ColumnSpan="2"
             Grid.Row="8"
-            Orientation="Horizontal"
             HorizontalAlignment="Right">
-            <Viewbox Margin="5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1.5*"/>
+                <ColumnDefinition Width=".5*"/>
+                <ColumnDefinition Width=".4*"/>
+                <ColumnDefinition Width=".2*"/>
+            </Grid.ColumnDefinitions>
+
+            <!--Tip-->
+            <Viewbox x:Name="vbTipText">
                 <TextBlock
-                    Text="Points:"
+                    Text="{x:Static language:Lang.characteristicTip1}"
+                    Style="{StaticResource txtblWhiteTextBase}"/>
+                <Viewbox.Height>
+                    <MultiBinding
+                        Converter="{StaticResource SizeFromSizePercentageConventer}">
+                        <Binding
+                            ElementName="LinguisticsBorder2clmn"
+                            Path="ActualHeight"/>
+                        <Binding Source="60"/>
+                    </MultiBinding>
+                </Viewbox.Height>
+            </Viewbox>
+            
+            <Viewbox
+                Height="{Binding ActualHeight, ElementName=vbTipText}"
+                Grid.Column="1"
+                Margin="15,0">
+                <Image Source="/Resources;component/Data/UI/Icons/info.png"/>
+            </Viewbox>
+
+            <!--Points-->
+            <Viewbox
+                x:Name="vbPointsText"
+                Grid.Column="2">
+                <Viewbox.Height>
+                    <MultiBinding
+                        Converter="{StaticResource SizeFromSizePercentageConventer}">
+                        <Binding
+                            ElementName="LinguisticsBorder2clmn"
+                            Path="ActualHeight"/>
+                        <Binding Source="75"/>
+                    </MultiBinding>
+                </Viewbox.Height>
+                <TextBlock
+                    Text="{x:Static language:Lang.points}"
                     Style="{StaticResource txtblWhiteTextBase}"/>
             </Viewbox>
-            <Viewbox Margin="5">
+            
+            <Viewbox
+                Height="{Binding ActualHeight, ElementName=vbPointsText}"
+                Grid.Column="3">
                 <Border Style="{StaticResource brdSecondElementBase}">
                     <TextBlock
                         Text="{Binding Points, Mode=TwoWay}"
                         Style="{StaticResource txtblWhiteTextBase}"/>
                 </Border>
             </Viewbox>
-        </StackPanel>
+        </Grid>
         <!--#endregion-->
         <!--#endregion-->
     </Grid>

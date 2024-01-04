@@ -32,6 +32,7 @@
     <None Remove="Data\UI\Characters\Human\Male\mHuman6.png" />
     <None Remove="Data\UI\cross.png" />
     <None Remove="Data\UI\icon.ico" />
+    <None Remove="Data\UI\Icons\info.png" />
     <None Remove="Data\UI\jobIcon.png" />
     <None Remove="Data\UI\Locations\Houses\SpaceStationHome1.png" />
     <None Remove="Data\UI\plus.png" />
@@ -99,6 +100,7 @@
     <Resource Include="Data\UI\icon.ico">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Data\UI\Icons\info.png" />
     <Resource Include="Data\UI\jobIcon.png" />
     <Resource Include="Data\UI\Locations\Houses\SpaceStationHome1.png" />
     <Resource Include="Data\UI\plus.png">

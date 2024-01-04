@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace SpaceResidentClient.Models
+namespace SpaceResidentClient.Models.CharacterCreation
 {
     public class CharacterCreationSkillPointsProcessor
     {
@@ -27,7 +27,7 @@ namespace SpaceResidentClient.Models
 
                 for (int i = 0; i < PointsThreshold.Length - 1; i++)
                 {
-                    if (value > PointsThreshold[i] - 1 && value < PointsThreshold[i + 1] && points > i + 2)
+                    if (value > PointsThreshold[i] - 1 && value < PointsThreshold[i + 1] && points >= i + 2)
                     {
                         if (points < i + 2)
                             return points;

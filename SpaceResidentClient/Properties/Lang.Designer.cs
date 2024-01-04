@@ -106,6 +106,15 @@ namespace SpaceResidentClient.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Each characteristic exponentially requires more points when it reaches a certain level.
+        /// </summary>
+        public static string characteristicTip1 {
+            get {
+                return ResourceManager.GetString("characteristicTip1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Clerk.
         /// </summary>
         public static string clerk {
@@ -354,6 +363,15 @@ namespace SpaceResidentClient.Properties {
         public static string noTimeData {
             get {
                 return ResourceManager.GetString("noTimeData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Points:.
+        /// </summary>
+        public static string points {
+            get {
+                return ResourceManager.GetString("points", resourceCulture);
             }
         }
         
