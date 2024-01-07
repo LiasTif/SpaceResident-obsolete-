@@ -123,4 +123,16 @@
   <data name="male" xml:space="preserve">
     <value>Male</value>
   </data>
+  <data name="vun-flant" xml:space="preserve">
+    <value>Vun-flant</value>
+  </data>
+  <data name="vun-lain" xml:space="preserve">
+    <value>Vun-Lain</value>
+  </data>
+  <data name="vun-mis'ak" xml:space="preserve">
+    <value>Vun-mis'ak</value>
+  </data>
+  <data name="vun-ti" xml:space="preserve">
+    <value>Vun-ti</value>
+  </data>
 </root>

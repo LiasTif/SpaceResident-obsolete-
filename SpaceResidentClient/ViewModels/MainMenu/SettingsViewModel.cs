@@ -7,6 +7,7 @@ using System.Collections.ObjectModel;
 using System.Windows.Controls;
 using System.Windows.Input;
 using SpaceResidentClient.Properties;
+using SpaceResidentClient.Services.UISounds;
 
 namespace SpaceResidentClient.ViewModels.MainMenu
 {
@@ -31,12 +32,14 @@ namespace SpaceResidentClient.ViewModels.MainMenu
         {
             NavigatePagesByButtonsProcessor navigatePagesByButtonsProcessor = new(MenuButtons);
             navigatePagesByButtonsProcessor.NavigatePages(false);
+            ArrowButtonClickPlayer.LoadClickPlayer();
         }
 
         private void NextPage()
         {
             NavigatePagesByButtonsProcessor navigatePagesByButtonsProcessor = new(MenuButtons);
             navigatePagesByButtonsProcessor.NavigatePages(true);
+            ArrowButtonClickPlayer.LoadClickPlayer();
         }
 
         public ICommand CloseCommand { get; }

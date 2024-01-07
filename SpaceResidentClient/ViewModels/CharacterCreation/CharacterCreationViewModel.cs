@@ -12,6 +12,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using SpaceResidentClient.Properties;
+using SpaceResidentClient.Services.UISounds;
 
 namespace SpaceResidentClient.ViewModels.CharacterCreation
 {
@@ -87,24 +88,28 @@ namespace SpaceResidentClient.ViewModels.CharacterCreation
             // set next image or set first image if it`s end of images collection
             ImageIndex = ImageIndex >= ImageCount - 1 ? 1 : ImageIndex + 1;
             ImageSource = "/Resources;component" + CharacterImagesDirectory + ImageIndex + ".png";
+            ArrowButtonClickPlayer.LoadClickPlayer();
         }
         private void PreviousImage()
         {
             // set previous image or set last image if it`s start of images collection
             ImageIndex = ImageIndex <= 1 ? ImageCount - 1 : ImageIndex - 1;
             ImageSource = "/Resources;component" + CharacterImagesDirectory + ImageIndex + ".png";
+            ArrowButtonClickPlayer.LoadClickPlayer();
         }
 
         private void PreviousPage()
         {
             NavigatePagesByButtonsProcessor navigatePagesByButtonsProcessor = new(NavigateButtons);
             navigatePagesByButtonsProcessor.NavigatePages(false);
+            ArrowButtonClickPlayer.LoadClickPlayer();
         }
 
         private void NextPage()
         {
             NavigatePagesByButtonsProcessor navigatePagesByButtonsProcessor = new(NavigateButtons);
             navigatePagesByButtonsProcessor.NavigatePages(true);
+            ArrowButtonClickPlayer.LoadClickPlayer();
         }
 
         public ICommand CloseCommand { get; }
@@ -124,7 +129,7 @@ namespace SpaceResidentClient.ViewModels.CharacterCreation
             var baseResourceDictionary = new ResourceDictionary
             {
                 Source = new Uri("/ResourceDictionaries;component/CharacterCreation/CharacterCreationDictionary.xaml",
-                                UriKind.RelativeOrAbsolute)
+                    UriKind.RelativeOrAbsolute)
             };
 
             return

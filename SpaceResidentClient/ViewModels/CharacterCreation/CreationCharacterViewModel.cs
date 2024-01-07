@@ -1,6 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using SpaceResidentClient.Properties;
+using SpaceResidentClient.Services.UISounds;
 using System.Windows.Input;
 
 namespace SpaceResidentClient.ViewModels.CharacterCreation
@@ -21,6 +21,7 @@ namespace SpaceResidentClient.ViewModels.CharacterCreation
             get => CharacterCreationViewModel.MainCharacter.Surname;
             set => CharacterCreationViewModel.MainCharacter.Surname = value;
         }
+        #pragma warning restore CS8603 // Possible null reference return.
         public int Age
         {
             get => CharacterCreationViewModel.MainCharacter.Age;
@@ -30,45 +31,49 @@ namespace SpaceResidentClient.ViewModels.CharacterCreation
                 OnPropertyChanged(nameof(Age));
             }
         }
-
         public bool IsFemale
         {
             get => CharacterCreationViewModel.MainCharacter.IsFemale;
             set
             {
                 CharacterCreationViewModel.MainCharacter.IsFemale = value;
-                OnPropertyChanged(nameof(Age));
+                OnPropertyChanged(nameof(IsFemale));
+                RaceOrGenderHasChanged();
             }
         }
-        #pragma warning restore CS8603 // Possible null reference return.
-
-        private string _race = Lang.human;
-        public string Race
+        public char Race
         {
-            get => _race;
+            get => CharacterCreationViewModel.MainCharacter.Race;
             set
             {
-                if (_race != value)
-                {
-                    _race = value;
-                    OnPropertyChanged(nameof(Race));
-                    RaceOrGenderHasChanged();
-                }
+                CharacterCreationViewModel.MainCharacter.Race = value;
+                OnPropertyChanged(nameof(Race));
+                RaceOrGenderHasChanged();
             }
         }
         #endregion
 
         #region commands
-        private void ChangeGender() => IsFemale = !IsFemale;
+        private void ChangeGender()
+        {
+            IsFemale = !IsFemale;
+            ArrowButtonClickPlayer.LoadClickPlayer();
+        }
         private void MinusAge()
         {
             if (Age > 20)
+            {
                 Age -= 1;
+                ArrowButtonClickPlayer.LoadClickPlayer();
+            }
         }
         private void PlusAge()
         {
             if (Age < 30)
+            {
                 Age += 1;
+                ArrowButtonClickPlayer.LoadClickPlayer();
+            }
         }
         public ICommand ChangeGenderCommand { get; }
         public ICommand MinusAgeCommand { get; }
@@ -78,19 +83,11 @@ namespace SpaceResidentClient.ViewModels.CharacterCreation
         #region methods
         private void RaceOrGenderHasChanged()
         {
-            char race = '0';
-            // vun-ti and vun_flant don`t have a gender and go to GetAvalibleCharacterImages metod immedeatly
-            if (Race == Lang.vun_ti)
-                _characterCreationViewModel.ImageProcessor.GetAvalibleCharacterImages('t');
-            else if (Race == Lang.vun_flant)
-                _characterCreationViewModel.ImageProcessor.GetAvalibleCharacterImages('f');
-            else if (Race == Lang.human)
-                race = 'l';
-            else if (Race == Lang.vun_mis_ak)
-                race = 'm';
-
-            _characterCreationViewModel.ImageProcessor.GetAvalibleCharacterImages(race,
-                IsFemale);
+            // vun-ti (t) and vun_flant (f) don`t have a gender and go to GetAvalibleCharacterImages metod immedeatly
+            if (Race == 't' || Race == 'f')
+                _characterCreationViewModel.ImageProcessor.GetAvalibleCharacterImages(Race);
+            else
+                _characterCreationViewModel.ImageProcessor.GetAvalibleCharacterImages(Race, IsFemale);
         }
         #endregion
 

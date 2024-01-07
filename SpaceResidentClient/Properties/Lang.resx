@@ -264,6 +264,9 @@
   <data name="vun-flant" xml:space="preserve">
     <value>Vun-flant</value>
   </data>
+  <data name="vun-lain" xml:space="preserve">
+    <value>Vun-Lain</value>
+  </data>
   <data name="vun-mis'ak" xml:space="preserve">
     <value>Vun-mis'ak</value>
   </data>

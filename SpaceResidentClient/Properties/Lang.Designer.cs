@@ -502,6 +502,15 @@ namespace SpaceResidentClient.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Vun-Lain.
+        /// </summary>
+        public static string vun_lain {
+            get {
+                return ResourceManager.GetString("vun-lain", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Vun-mis&apos;ak.
         /// </summary>
         public static string vun_mis_ak {
