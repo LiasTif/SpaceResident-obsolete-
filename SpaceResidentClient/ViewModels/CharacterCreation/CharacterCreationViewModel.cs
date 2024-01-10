@@ -68,10 +68,14 @@ namespace SpaceResidentClient.ViewModels.CharacterCreation
             PagesBuffer.CharacterViewModel = null;
             PagesBuffer.SkillsViewModel = null;
             PagesBuffer.JobViewModel = null;
+            PagesBuffer.LocationViewModel = null;
+            PagesBuffer.StatsViewModel = null;
         }
         private void OpenCharacterMenu() => OpenSomeMenu("character");
         private void OpenSkillsMenu() => OpenSomeMenu("skills");
         private void OpenJobMenu() => OpenSomeMenu("job");
+        private void OpenLocationMenu() => OpenSomeMenu("location");
+        private void OpenStatsMenu() => OpenSomeMenu("stats");
 
         private void OpenSomeMenu(string name)
         {
@@ -79,8 +83,12 @@ namespace SpaceResidentClient.ViewModels.CharacterCreation
                 CurrentUserControl = PagesBuffer.CharacterViewModel ??= new CreationCharacterViewModel(this);
             else if (name == "skills")
                 CurrentUserControl = PagesBuffer.SkillsViewModel ??= new CreationSkillsViewModel();
-            else
+            else if (name == "job")
                 CurrentUserControl = PagesBuffer.JobViewModel ??= new CreationJobViewModel(this);
+            else if (name == "location")
+                CurrentUserControl = PagesBuffer.LocationViewModel ??= new CreationLocationViewModel();
+            else if (name == "stats")
+                CurrentUserControl = PagesBuffer.StatsViewModel ??= new CreationStatsViewModel();
         }
 
         private void NextImage()
@@ -113,9 +121,13 @@ namespace SpaceResidentClient.ViewModels.CharacterCreation
         }
 
         public ICommand CloseCommand { get; }
+
         public ICommand OpenCharacterMenuCommand { get; }
         public ICommand OpenSkillsMenuCommand { get; }
         public ICommand OpenJobMenuCommand { get; }
+        public ICommand OpenLocationMenuCommand { get; }
+        public ICommand OpenStatsMenuCommand { get; }
+
         public ICommand NextImageCommand { get; }
         public ICommand PreviousImageCommand { get; }
         public ICommand NextPageCommand { get; }
@@ -152,6 +164,18 @@ namespace SpaceResidentClient.ViewModels.CharacterCreation
                     Command = OpenJobMenuCommand,
                     Style = (Style)baseResourceDictionary["rbtnJobMenu"],
                     GroupName = "rbtns"
+                },
+                new()
+                {
+                    Command = OpenLocationMenuCommand,
+                    Style = (Style)baseResourceDictionary["rbtnLocationMenu"],
+                    GroupName = "rbtns"
+                },
+                new()
+                {
+                    Command = OpenStatsMenuCommand,
+                    Style = (Style)baseResourceDictionary["rbtnStatsMenu"],
+                    GroupName = "rbtns"
                 }
             ];
         }
@@ -167,9 +191,13 @@ namespace SpaceResidentClient.ViewModels.CharacterCreation
             _navigationStore = mainWindowViewModel.NavigationStore;
 
             CloseCommand = new RelayCommand(Close);
+
             OpenCharacterMenuCommand = new RelayCommand(OpenCharacterMenu);
             OpenSkillsMenuCommand = new RelayCommand(OpenSkillsMenu);
             OpenJobMenuCommand = new RelayCommand(OpenJobMenu);
+            OpenLocationMenuCommand = new RelayCommand(OpenLocationMenu);
+            OpenStatsMenuCommand = new RelayCommand(OpenStatsMenu);
+
             NextImageCommand = new RelayCommand(NextImage);
             PreviousImageCommand = new RelayCommand(PreviousImage);
             NextPageCommand = new RelayCommand(NextPage);

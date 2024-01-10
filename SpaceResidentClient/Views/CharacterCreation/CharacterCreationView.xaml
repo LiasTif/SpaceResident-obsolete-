@@ -105,6 +105,12 @@
                     <DataTemplate DataType="{x:Type ccVM:CreationSkillsViewModel}">
                         <ccV:CreationSkillsView/>
                     </DataTemplate>
+                    <DataTemplate DataType="{x:Type ccVM:CreationLocationViewModel}">
+                        <ccV:CreationLocationView/>
+                    </DataTemplate>
+                    <DataTemplate DataType="{x:Type ccVM:CreationStatsViewModel}">
+                        <ccV:CreationStatsView/>
+                    </DataTemplate>
                 </ContentControl.Resources>
             </ContentControl>
             <!--#endregion-->

@@ -48,5 +48,27 @@ namespace SpaceResidentClient.Models.CharacterCreation
                     jobViewModel = value;
             }
         }
+
+        private static ObservableObject? locationViewModel;
+        public static ObservableObject? LocationViewModel
+        {
+            get => locationViewModel;
+            set
+            {
+                if (value is CreationLocationViewModel)
+                    locationViewModel = value;
+            }
+        }
+
+        private static ObservableObject? statsViewModel;
+        public static ObservableObject? StatsViewModel
+        {
+            get => statsViewModel;
+            set
+            {
+                if (value is CreationStatsViewModel)
+                    statsViewModel = value;
+            }
+        }
     }
 }

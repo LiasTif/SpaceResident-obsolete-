@@ -97,5 +97,69 @@
             </Setter.Value>
         </Setter>
     </Style>
+
+    <Style
+        TargetType="{x:Type RadioButton}"
+        BasedOn="{StaticResource rbtnCharacterMenu}"
+        x:Key="rbtnLocationMenu">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type RadioButton}">
+                    <Grid>
+                        <Image
+                            Visibility="Hidden"
+                            x:Name="enableEffect"
+                            Source="/Resources;component/Data/UI/Icons/location.png">
+                            <Image.Effect>
+                                <BlurEffect Radius="20"/>
+                            </Image.Effect>
+                        </Image>
+                        <Image Source="/Resources;component/Data/UI/Icons/location.png"/>
+                    </Grid>
+
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsChecked" Value="True">
+                            <Setter TargetName="enableEffect" Property="Visibility" Value="Visible"/>
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Cursor" Value="Hand"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style
+        TargetType="{x:Type RadioButton}"
+        BasedOn="{StaticResource rbtnCharacterMenu}"
+        x:Key="rbtnStatsMenu">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type RadioButton}">
+                    <Grid>
+                        <Image
+                            Visibility="Hidden"
+                            x:Name="enableEffect"
+                            Source="/Resources;component/Data/UI/Icons/stats.png">
+                            <Image.Effect>
+                                <BlurEffect Radius="20"/>
+                            </Image.Effect>
+                        </Image>
+                        <Image Source="/Resources;component/Data/UI/Icons/stats.png"/>
+                    </Grid>
+
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsChecked" Value="True">
+                            <Setter TargetName="enableEffect" Property="Visibility" Value="Visible"/>
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Cursor" Value="Hand"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
     <!--#endregion-->
 </ResourceDictionary>
