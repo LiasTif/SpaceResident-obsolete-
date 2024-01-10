@@ -29,7 +29,7 @@ namespace SpaceResidentClient.ViewModels.MainMenu
 
         private void OpenCharacterCreation()
         {
-            _mainWindowViewModel.NavigationStore.CurrentViewModel = PagesBuffer.CharacterCreationViewModel ??=
+            _mainWindowViewModel.NavigationStore.CurrentViewModel = CharacterCreationPagesBuffer.CharacterCreationViewModel ??=
                 new CharacterCreationViewModel(_mainWindowViewModel);
         }
 

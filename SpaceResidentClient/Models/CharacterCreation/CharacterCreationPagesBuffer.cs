@@ -1,10 +1,51 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using SpaceResidentClient.ViewModels.CharacterCreation;
+using System.Collections.ObjectModel;
+using System.Linq;
 
 namespace SpaceResidentClient.Models.CharacterCreation
 {
-    public static class PagesBuffer
+    public class CharacterCreationPagesBuffer
     {
+        private static ObservableCollection<ObservableObject>? pagesCollection;
+        public static ObservableCollection<ObservableObject>? PagesCollection
+        {
+            get => pagesCollection;
+            set
+            {
+                if (value != pagesCollection)
+                {
+                    pagesCollection = value;
+                }
+            }
+        }
+
+        public void AddPageToCollection(ObservableObject page)
+        {
+            if (PagesCollection == null)
+                return;
+
+            foreach (ObservableObject curPage in PagesCollection)
+            {
+                if (curPage.GetType() == page.GetType())
+                    return;
+            }
+
+            PagesCollection.Add(page);
+        }
+
+        private void RemovePageFromCollection(ObservableObject page)
+        {
+            if (PagesCollection == null)
+                return;
+
+            foreach (ObservableObject curPage in PagesCollection)
+            {
+                if (curPage.GetType() == page.GetType())
+                    PagesCollection.Remove(curPage);
+            }
+        }
+
         private static ObservableObject? characterCreationViewModel;
         public static ObservableObject? CharacterCreationViewModel
         {

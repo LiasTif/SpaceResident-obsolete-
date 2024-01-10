@@ -65,11 +65,11 @@ namespace SpaceResidentClient.ViewModels.CharacterCreation
         private void Close()
         {
             _navigationStore.CurrentViewModel = new MainMenuViewModel(_mainWindowViewModel);
-            PagesBuffer.CharacterViewModel = null;
-            PagesBuffer.SkillsViewModel = null;
-            PagesBuffer.JobViewModel = null;
-            PagesBuffer.LocationViewModel = null;
-            PagesBuffer.StatsViewModel = null;
+            CharacterCreationPagesBuffer.CharacterViewModel = null;
+            CharacterCreationPagesBuffer.SkillsViewModel = null;
+            CharacterCreationPagesBuffer.JobViewModel = null;
+            CharacterCreationPagesBuffer.LocationViewModel = null;
+            CharacterCreationPagesBuffer.StatsViewModel = null;
         }
         private void OpenCharacterMenu() => OpenSomeMenu("character");
         private void OpenSkillsMenu() => OpenSomeMenu("skills");
@@ -80,15 +80,15 @@ namespace SpaceResidentClient.ViewModels.CharacterCreation
         private void OpenSomeMenu(string name)
         {
             if (name == "character")
-                CurrentUserControl = PagesBuffer.CharacterViewModel ??= new CreationCharacterViewModel(this);
+                CurrentUserControl = CharacterCreationPagesBuffer.CharacterViewModel ??= new CreationCharacterViewModel(this);
             else if (name == "skills")
-                CurrentUserControl = PagesBuffer.SkillsViewModel ??= new CreationSkillsViewModel();
+                CurrentUserControl = CharacterCreationPagesBuffer.SkillsViewModel ??= new CreationSkillsViewModel();
             else if (name == "job")
-                CurrentUserControl = PagesBuffer.JobViewModel ??= new CreationJobViewModel(this);
+                CurrentUserControl = CharacterCreationPagesBuffer.JobViewModel ??= new CreationJobViewModel(this);
             else if (name == "location")
-                CurrentUserControl = PagesBuffer.LocationViewModel ??= new CreationLocationViewModel();
+                CurrentUserControl = CharacterCreationPagesBuffer.LocationViewModel ??= new CreationLocationViewModel();
             else if (name == "stats")
-                CurrentUserControl = PagesBuffer.StatsViewModel ??= new CreationStatsViewModel();
+                CurrentUserControl = CharacterCreationPagesBuffer.StatsViewModel ??= new CreationStatsViewModel();
         }
 
         private void NextImage()
@@ -207,7 +207,7 @@ namespace SpaceResidentClient.ViewModels.CharacterCreation
             OpenCharacterMenu();
 
             NavigateButtons = CreateNavigateButtons();
-            PagesBuffer.CharacterCreationViewModel = this;
+            CharacterCreationPagesBuffer.CharacterCreationViewModel = this;
         }
     }
 }
