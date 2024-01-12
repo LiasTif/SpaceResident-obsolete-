@@ -1,7 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using SpaceResidentClient.ViewModels.CharacterCreation;
+using System;
 using System.Collections.ObjectModel;
-using System.Linq;
 
 namespace SpaceResidentClient.Models.CharacterCreation
 {
@@ -20,31 +20,49 @@ namespace SpaceResidentClient.Models.CharacterCreation
             }
         }
 
-        public void AddPageToCollection(ObservableObject page)
+        public static ObservableObject? GetPageFromCollection(Type pageType)
         {
             if (PagesCollection == null)
-                return;
+                return null;
 
             foreach (ObservableObject curPage in PagesCollection)
             {
-                if (curPage.GetType() == page.GetType())
-                    return;
+                if (curPage.GetType() == pageType)
+                    return curPage;
+            }
+
+            return null;
+        }
+
+        public static void AddPageToCollection(ObservableObject page)
+        {
+            if (PagesCollection != null)
+            {
+                foreach (ObservableObject curPage in PagesCollection)
+                {
+                    if (curPage.GetType() == page.GetType())
+                        return;
+                }
+            }
+            else
+            {
+                PagesCollection = [];
             }
 
             PagesCollection.Add(page);
         }
 
-        private void RemovePageFromCollection(ObservableObject page)
-        {
-            if (PagesCollection == null)
-                return;
+        //private static void RemovePageFromCollection(ObservableObject page)
+        //{
+        //    if (PagesCollection == null)
+        //        return;
 
-            foreach (ObservableObject curPage in PagesCollection)
-            {
-                if (curPage.GetType() == page.GetType())
-                    PagesCollection.Remove(curPage);
-            }
-        }
+        //    foreach (ObservableObject curPage in PagesCollection)
+        //    {
+        //        if (curPage.GetType() == page.GetType())
+        //            PagesCollection.Remove(curPage);
+        //    }
+        //}
 
         private static ObservableObject? characterCreationViewModel;
         public static ObservableObject? CharacterCreationViewModel
@@ -54,61 +72,6 @@ namespace SpaceResidentClient.Models.CharacterCreation
             {
                 if (value is CharacterCreationViewModel)
                     characterCreationViewModel = value;
-            }
-        }
-
-        private static ObservableObject? characterViewModel;
-        public static ObservableObject? CharacterViewModel
-        {
-            get => characterViewModel;
-            set
-            {
-                if (value is CreationCharacterViewModel)
-                    characterViewModel = value;
-            }
-        }
-
-        private static ObservableObject? skillsViewModel;
-        public static ObservableObject? SkillsViewModel
-        {
-            get => skillsViewModel;
-            set
-            {
-                if (value is CreationSkillsViewModel)
-                    skillsViewModel = value;
-            }
-        }
-
-        private static ObservableObject? jobViewModel;
-        public static ObservableObject? JobViewModel
-        {
-            get => jobViewModel;
-            set
-            {
-                if (value is CreationJobViewModel)
-                    jobViewModel = value;
-            }
-        }
-
-        private static ObservableObject? locationViewModel;
-        public static ObservableObject? LocationViewModel
-        {
-            get => locationViewModel;
-            set
-            {
-                if (value is CreationLocationViewModel)
-                    locationViewModel = value;
-            }
-        }
-
-        private static ObservableObject? statsViewModel;
-        public static ObservableObject? StatsViewModel
-        {
-            get => statsViewModel;
-            set
-            {
-                if (value is CreationStatsViewModel)
-                    statsViewModel = value;
             }
         }
     }

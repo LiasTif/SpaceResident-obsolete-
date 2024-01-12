@@ -5,12 +5,5 @@ namespace SpaceResidentClientTest.CharacterCreaton
 {
     public class CharacterCreationPagesBufferTest
     {
-        //[Test]
-        //public void AddPageToCollectionTest()
-        //{
-        //    CharacterCreationPagesBuffer characterCreationPagesBuffer = new();
-
-        //    characterCreationPagesBuffer.AddPageToCollection(new CreationLocationViewModel());
-        //}
     }
 }

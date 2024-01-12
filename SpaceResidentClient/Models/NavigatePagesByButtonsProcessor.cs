@@ -18,14 +18,14 @@ namespace SpaceResidentClient.Models
                 {
                     Pages[i].IsChecked = false;
                     Pages[i + 1].IsChecked = true;
-                    Pages[i + 1].Command.Execute(null);
+                    Pages[i + 1].Command.Execute(Pages[i + 1].CommandParameter);
                     return;
                 }
                 else if (!isNext && i - 1 >= 0 && Pages[i].IsChecked == true)
                 {
                     Pages[i].IsChecked = false;
                     Pages[i - 1].IsChecked = true;
-                    Pages[i - 1].Command.Execute(null);
+                    Pages[i - 1].Command.Execute(Pages[i - 1].CommandParameter);
                 }
             }
         }
