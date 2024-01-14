@@ -195,6 +195,18 @@
   <data name="location" xml:space="preserve">
     <value>Location</value>
   </data>
+  <data name="locationHabitableStation" xml:space="preserve">
+    <value>Habitable station</value>
+  </data>
+  <data name="locationMiningStation" xml:space="preserve">
+    <value>Mining station</value>
+  </data>
+  <data name="locationPlanet" xml:space="preserve">
+    <value>Planet</value>
+  </data>
+  <data name="locationScienceStation" xml:space="preserve">
+    <value>Science station</value>
+  </data>
   <data name="logic" xml:space="preserve">
     <value>Logic</value>
   </data>

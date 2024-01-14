@@ -28,15 +28,14 @@ namespace SpaceResidentClient.Models.ImagesProcessors
         {
             if (_parentViewModel is CharacterCreationViewModel characterCreationViewModel)
             {
+                characterCreationViewModel.ImageIndex = 1;
                 if (isFemale && race == 'l')
                 {
-                    characterCreationViewModel.ImageIndex = 1;
                     characterCreationViewModel.ImageCount = 10;
                     characterCreationViewModel.CharacterImagesDirectory = "\\Data\\UI\\Characters\\Human\\Female\\fHuman";
                 }
                 else if (!isFemale && race == 'l')
                 {
-                    characterCreationViewModel.ImageIndex = 1;
                     characterCreationViewModel.ImageCount = 6;
                     characterCreationViewModel.CharacterImagesDirectory = "\\Data\\UI\\Characters\\Human\\Male\\mHuman";
                 }

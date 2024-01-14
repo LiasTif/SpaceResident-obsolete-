@@ -295,6 +295,42 @@ namespace SpaceResidentClient.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Habitable station.
+        /// </summary>
+        public static string locationHabitableStation {
+            get {
+                return ResourceManager.GetString("locationHabitableStation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mining station.
+        /// </summary>
+        public static string locationMiningStation {
+            get {
+                return ResourceManager.GetString("locationMiningStation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Planet.
+        /// </summary>
+        public static string locationPlanet {
+            get {
+                return ResourceManager.GetString("locationPlanet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Science station.
+        /// </summary>
+        public static string locationScienceStation {
+            get {
+                return ResourceManager.GetString("locationScienceStation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Logic.
         /// </summary>
         public static string logic {

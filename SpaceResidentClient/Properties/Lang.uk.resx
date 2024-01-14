@@ -195,6 +195,18 @@
   <data name="location" xml:space="preserve">
     <value>Локація</value>
   </data>
+  <data name="locationHabitableStation" xml:space="preserve">
+    <value>Житлова станція</value>
+  </data>
+  <data name="locationMiningStation" xml:space="preserve">
+    <value>Видобувна станція</value>
+  </data>
+  <data name="locationPlanet" xml:space="preserve">
+    <value>Планета</value>
+  </data>
+  <data name="locationScienceStation" xml:space="preserve">
+    <value>Наукова станція</value>
+  </data>
   <data name="logic" xml:space="preserve">
     <value>Логіка</value>
   </data>

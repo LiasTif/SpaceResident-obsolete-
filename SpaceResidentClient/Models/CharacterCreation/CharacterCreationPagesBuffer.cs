@@ -52,18 +52,6 @@ namespace SpaceResidentClient.Models.CharacterCreation
             PagesCollection.Add(page);
         }
 
-        //private static void RemovePageFromCollection(ObservableObject page)
-        //{
-        //    if (PagesCollection == null)
-        //        return;
-
-        //    foreach (ObservableObject curPage in PagesCollection)
-        //    {
-        //        if (curPage.GetType() == page.GetType())
-        //            PagesCollection.Remove(curPage);
-        //    }
-        //}
-
         private static ObservableObject? characterCreationViewModel;
         public static ObservableObject? CharacterCreationViewModel
         {

@@ -10,7 +10,6 @@ namespace SpaceResidentClient.ViewModels.CharacterCreation
         private readonly CharacterCreationViewModel _characterCreationViewModel;
 
         #region props
-        #pragma warning disable CS8603 // Possible null reference return.
         public static string Name
         {
             get => CharacterCreationViewModel.MainCharacter.Name;
@@ -21,7 +20,6 @@ namespace SpaceResidentClient.ViewModels.CharacterCreation
             get => CharacterCreationViewModel.MainCharacter.Surname;
             set => CharacterCreationViewModel.MainCharacter.Surname = value;
         }
-        #pragma warning restore CS8603 // Possible null reference return.
         public int Age
         {
             get => CharacterCreationViewModel.MainCharacter.Age;
@@ -75,9 +73,9 @@ namespace SpaceResidentClient.ViewModels.CharacterCreation
                 ArrowButtonClickPlayer.LoadClickPlayer();
             }
         }
-        public ICommand ChangeGenderCommand { get; }
-        public ICommand MinusAgeCommand { get; }
-        public ICommand PlusAgeCommand { get; }
+        public ICommand ChangeGenderCommand { get => new RelayCommand(ChangeGender); }
+        public ICommand MinusAgeCommand { get => new RelayCommand(MinusAge); }
+        public ICommand PlusAgeCommand { get => new RelayCommand(PlusAge); }
         #endregion
 
         #region methods
@@ -93,10 +91,6 @@ namespace SpaceResidentClient.ViewModels.CharacterCreation
 
         public CreationCharacterViewModel(CharacterCreationViewModel characterCreationViewModel)
         {
-            ChangeGenderCommand = new RelayCommand(ChangeGender);
-            MinusAgeCommand = new RelayCommand(MinusAge);
-            PlusAgeCommand = new RelayCommand(PlusAge);
-
             _characterCreationViewModel = characterCreationViewModel;
             RaceOrGenderHasChanged();
         }

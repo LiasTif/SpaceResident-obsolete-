@@ -3,11 +3,11 @@ using SpaceResidentClient.Models.Interfaces;
 
 namespace SpaceResidentClient.Models.CharacterCreation
 {
-    partial class MainCharacter(string? job, string? name, string? surname, bool isFemale, char race, int age) : ObservableObject, IMainCharacter
+    partial class MainCharacter(string job, string name, string surname, bool isFemale, char race, int age) : ObservableObject, IMainCharacter
     {
         #region props
         public int Age { get; set; } = age;
-        public string? Job { get; set; } = job;
+        public string Job { get; set; } = job;
         public byte Linguistics { get; set; }
         public byte Naturalistics { get; set; }
         public byte Existentialism { get; set; }
@@ -66,8 +66,8 @@ namespace SpaceResidentClient.Models.CharacterCreation
         public byte CyberneticSystems { get; set; }
         public byte Engineering { get; set; }
         public byte Hardware { get; set; }
-        public string? Name { get; set; } = name;
-        public string? Surname { get; set; } = surname;
+        public string Name { get; set; } = name;
+        public string Surname { get; set; } = surname;
         public bool IsFemale { get; set; } = isFemale;
         public char Race { get; set; } = race;
         #endregion

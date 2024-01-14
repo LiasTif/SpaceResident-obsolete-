@@ -41,19 +41,6 @@ namespace SpaceResidentClient.ViewModels.CharacterCreation
             _mainWindowViewModel = mainWindowViewModel;
             _navigationStore = mainWindowViewModel.NavigationStore;
 
-            CloseCommand = new RelayCommand(Close);
-
-            OpenCharacterMenuCommand = new RelayCommand<object>(OpenSomeMenu);
-            OpenSkillsMenuCommand = new RelayCommand<object>(OpenSomeMenu);
-            OpenJobMenuCommand = new RelayCommand<object>(OpenSomeMenu);
-            OpenLocationMenuCommand = new RelayCommand<object>(OpenSomeMenu);
-            OpenStatsMenuCommand = new RelayCommand<object>(OpenSomeMenu);
-
-            NextImageCommand = new RelayCommand(NextImage);
-            PreviousImageCommand = new RelayCommand(PreviousImage);
-            NextPageCommand = new RelayCommand(NextPage);
-            PreviousPageCommand = new RelayCommand(PreviousPage);
-
             // open character menu by default
             OpenSomeMenu("character");
 
@@ -65,7 +52,6 @@ namespace SpaceResidentClient.ViewModels.CharacterCreation
         public int ImageCount { private get; set; }
 
         private string? _characterImagesDirectory;
-
         public string? CharacterImagesDirectory
         {
             get => _characterImagesDirectory;
@@ -90,48 +76,41 @@ namespace SpaceResidentClient.ViewModels.CharacterCreation
         #endregion
 
         #region commands
-        public ICommand CloseCommand { get; }
+        public ICommand CloseCommand { get => new RelayCommand(Close); }
 
-        public ICommand OpenCharacterMenuCommand { get; }
-        public ICommand OpenSkillsMenuCommand { get; }
-        public ICommand OpenJobMenuCommand { get; }
-        public ICommand OpenLocationMenuCommand { get; }
-        public ICommand OpenStatsMenuCommand { get; }
+        public ICommand OpenSomeMenuCommand { get => new RelayCommand<object>(OpenSomeMenu); }
 
-        public ICommand NextImageCommand { get; }
-        public ICommand PreviousImageCommand { get; }
-        public ICommand NextPageCommand { get; }
-        public ICommand PreviousPageCommand { get; }
+        public ICommand NextImageCommand { get => new RelayCommand(NextImage); }
+        public ICommand PreviousImageCommand { get => new RelayCommand(PreviousImage); }
+        public ICommand NextPageCommand { get => new RelayCommand(NextPage); }
+        public ICommand PreviousPageCommand { get => new RelayCommand(PreviousPage); }
 
         private void Close()
         {
             _navigationStore.CurrentViewModel = new MainMenuViewModel(_mainWindowViewModel);
-            CharacterCreationPagesBuffer.PagesCollection = null;
         }
 
-        private void OpenSomeMenu(object name)
+        private void OpenSomeMenu(object? name)
         {
             var str = name as string;
 
-            if (str == "character")
+            switch (str)
             {
-                SetPageToCurrentUserControl(typeof(CreationCharacterViewModel), new CreationCharacterViewModel(this));
-            }
-            else if (str == "skills")
-            {
-                SetPageToCurrentUserControl(typeof(CreationSkillsViewModel), new CreationSkillsViewModel());
-            }
-            else if (str == "job")
-            {
-                SetPageToCurrentUserControl(typeof(CreationJobViewModel), new CreationJobViewModel(this));
-            }
-            else if (str == "location")
-            {
-                SetPageToCurrentUserControl(typeof(CreationLocationViewModel), new CreationLocationViewModel());
-            }
-            else if (str == "stats")
-            {
-                SetPageToCurrentUserControl(typeof(CreationStatsViewModel), new CreationStatsViewModel());
+                case "character":
+                    SetPageToCurrentUserControl(typeof(CreationCharacterViewModel), new CreationCharacterViewModel(this));
+                    break;
+                case "skills":
+                    SetPageToCurrentUserControl(typeof(CreationSkillsViewModel), new CreationSkillsViewModel());
+                    break;
+                case "job":
+                    SetPageToCurrentUserControl(typeof(CreationJobViewModel), new CreationJobViewModel(this));
+                    break;
+                case "location":
+                    SetPageToCurrentUserControl(typeof(CreationLocationViewModel), new CreationLocationViewModel());
+                    break;
+                case "stats":
+                    SetPageToCurrentUserControl(typeof(CreationStatsViewModel), new CreationStatsViewModel());
+                    break;
             }
         }
 
@@ -164,15 +143,9 @@ namespace SpaceResidentClient.ViewModels.CharacterCreation
             ArrowButtonClickPlayer.LoadClickPlayer();
         }
 
-        private void PreviousPage()
-        {
-            LoadNewPage(false);
-        }
+        private void PreviousPage() => LoadNewPage(false);
 
-        private void NextPage()
-        {
-            LoadNewPage(true);
-        }
+        private void NextPage() => LoadNewPage(true);
 
         private void LoadNewPage(bool isNext)
         {
@@ -192,45 +165,44 @@ namespace SpaceResidentClient.ViewModels.CharacterCreation
                     UriKind.RelativeOrAbsolute)
             };
 
-            return
+            ObservableCollection<RadioButton> buttonsCollection =
             [
                 new()
                 {
                     IsChecked = true,
-                    Command = OpenCharacterMenuCommand,
                     CommandParameter = "character",
-                    Style = (Style)baseResourceDictionary["rbtnCharacterMenu"],
-                    GroupName = "rbtns"
+                    Style = (Style)baseResourceDictionary["rbtnCharacterMenu"]
                 },
                 new()
                 {
-                    Command = OpenSkillsMenuCommand,
                     CommandParameter = "skills",
-                    Style = (Style)baseResourceDictionary["rbtnSkillsMenu"],
-                    GroupName = "rbtns"
+                    Style = (Style)baseResourceDictionary["rbtnSkillsMenu"]
                 },
                 new()
                 {
-                    Command = OpenJobMenuCommand,
                     CommandParameter = "job",
-                    Style = (Style)baseResourceDictionary["rbtnJobMenu"],
-                    GroupName = "rbtns"
+                    Style = (Style)baseResourceDictionary["rbtnJobMenu"]
                 },
                 new()
                 {
-                    Command = OpenLocationMenuCommand,
                     CommandParameter = "location",
                     Style = (Style)baseResourceDictionary["rbtnLocationMenu"],
-                    GroupName = "rbtns"
                 },
                 new()
                 {
-                    Command = OpenStatsMenuCommand,
                     CommandParameter = "stats",
-                    Style = (Style)baseResourceDictionary["rbtnStatsMenu"],
-                    GroupName = "rbtns"
+                    Style = (Style)baseResourceDictionary["rbtnStatsMenu"]
                 }
             ];
+
+            // set default values to items in collection
+            foreach (RadioButton rbtn in buttonsCollection)
+            {
+                rbtn.Command = OpenSomeMenuCommand;
+                rbtn.GroupName = "rbtns";
+            }
+
+            return buttonsCollection;
         }
         #endregion
     }
