@@ -36,7 +36,8 @@ namespace SpaceResidentClient.ViewModels.CharacterCreation
         public CharacterCreationViewModel(MainWindowViewModel mainWindowViewModel)
         {
             // set bg as unemployed by default
-            BgImageSource = (ImageProcessor = new(this)).SetBgImageSource(Lang.unemployed);
+            if (ImageProcessor == null)
+                BgImageSource = (ImageProcessor = new(this)).SetBgImageSource(Lang.unemployed);
 
             _mainWindowViewModel = mainWindowViewModel;
             _navigationStore = mainWindowViewModel.NavigationStore;
@@ -70,7 +71,7 @@ namespace SpaceResidentClient.ViewModels.CharacterCreation
         [ObservableProperty]
         public string imageSource = String.Empty;
         [ObservableProperty]
-        public string bgImageSource;
+        public string? bgImageSource;
         [ObservableProperty]
         public ObservableObject? currentUserControl;
         #endregion

@@ -7,22 +7,22 @@ namespace SpaceResidentClient.ViewModels.CharacterCreation
 {
     partial class CreationJobViewModel : ObservableObject
     {
-        private CharacterCreationViewModel _characterCreationViewModel;
+        private readonly CharacterCreationViewModel _characterCreationViewModel;
 
         #region props
         [ObservableProperty]
-        public ObservableCollection<TextBlock> jobTextBlocks;
+        public ObservableCollection<TextBlock> jobTextBlocks = [];
 
-        private TextBlock _selectedJobTextBlock = new();
-
-        public TextBlock SelectedJobTextBlock
+        private TextBlock? _selectedJobTextBlock;
+        public TextBlock? SelectedJobTextBlock
         {
             get => _selectedJobTextBlock;
             set
             {
-                if (value != _selectedJobTextBlock)
+                if (value != _selectedJobTextBlock && value != null)
                 {
                     _selectedJobTextBlock = value;
+
                     _characterCreationViewModel.BgImageSource =
                         _characterCreationViewModel.ImageProcessor.SetBgImageSource(value.Text);
                 }
@@ -33,18 +33,26 @@ namespace SpaceResidentClient.ViewModels.CharacterCreation
         public CreationJobViewModel(CharacterCreationViewModel characterCreationViewModel)
         {
             _characterCreationViewModel = characterCreationViewModel;
-            JobTextBlocks = CreateJobTextBlocks();
+            CreateJobTextBlocksCollection();
+
+            if (SelectedJobTextBlock == null)
+                SetSelectedTextBlockFromCollection();
         }
 
-        private ObservableCollection<TextBlock> CreateJobTextBlocks()
+        private void CreateJobTextBlocksCollection()
         {
-            return
+            JobTextBlocks =
             [
+                new() { Text = Lang.unemployed },
                 new() { Text = Lang.clerk },
                 new() { Text = Lang.fleaMarketVendor },
-                new() { Text = Lang.productionWorker },
-                new() { Text = Lang.unemployed }
+                new() { Text = Lang.productionWorker }
             ];
+        }
+
+        private void SetSelectedTextBlockFromCollection()
+        {
+            SelectedJobTextBlock = JobTextBlocks[0];
         }
     }
 }
