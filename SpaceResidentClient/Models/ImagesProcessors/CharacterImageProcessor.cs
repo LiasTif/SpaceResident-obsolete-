@@ -2,6 +2,7 @@
 using SpaceResidentClient.ViewModels.CharacterCreation;
 using System;
 using SpaceResidentClient.Properties;
+using System.Diagnostics;
 
 namespace SpaceResidentClient.Models.ImagesProcessors
 {
@@ -12,34 +13,40 @@ namespace SpaceResidentClient.Models.ImagesProcessors
         #region metods
         public string SetBgImageSource(string job)
         {
+            string uri = "/Resources;component";
+
             if (job == Lang.fleaMarketVendor)
-                return "/Resources;component" + "\\Data\\UI\\CharacterJobBGs\\FleaMarket" + ".png";
+                uri += "\\Data\\UI\\CharacterJobBGs\\FleaMarket";
             else if (job == Lang.unemployed)
-                return "/Resources;component" + "\\Data\\UI\\Locations\\Houses\\SpaceStationHome1" + ".png";
+                uri += "\\Data\\UI\\Locations\\Houses\\SpaceStationHome1";
             else if (job == Lang.productionWorker)
-                return "/Resources;component" + "\\Data\\UI\\CharacterJobBGs\\Fabric" + ".png";
+                uri += "\\Data\\UI\\CharacterJobBGs\\Fabric";
             else if (job == Lang.clerk)
-                return "/Resources;component" + "\\Data\\UI\\CharacterJobBGs\\Office" + ".png";
-            else
-                return String.Empty;
+                uri += "\\Data\\UI\\CharacterJobBGs\\Office";
+
+            return uri += ".png";
         }
 
         public void GetAvalibleCharacterImages(char race, bool isFemale)
         {
-            if (_parentViewModel is CharacterCreationViewModel characterCreationViewModel)
+            if (_parentViewModel is CharacterCreationViewModel characterCreationVM)
             {
-                characterCreationViewModel.ImageIndex = 1;
-                if (isFemale && race == 'l')
+                characterCreationVM.ImageIndex = 1;
+
+                if (race == 'l')
                 {
-                    characterCreationViewModel.ImageCount = 10;
-                    characterCreationViewModel.CharacterImagesDirectory = "\\Data\\UI\\Characters\\Human\\Female\\fHuman";
-                }
-                else if (!isFemale && race == 'l')
-                {
-                    characterCreationViewModel.ImageCount = 6;
-                    characterCreationViewModel.CharacterImagesDirectory = "\\Data\\UI\\Characters\\Human\\Male\\mHuman";
+                    if (isFemale)
+                        SetSourceToPortraits(characterCreationVM, 10, "\\Data\\UI\\Characters\\Human\\Female\\fHuman");
+                    else
+                        SetSourceToPortraits(characterCreationVM, 6, "\\Data\\UI\\Characters\\Human\\Male\\mHuman");
                 }
             }
+        }
+
+        private static void SetSourceToPortraits(CharacterCreationViewModel characterCreationVM, int count, string uri)
+        {
+            characterCreationVM.ImageCount = count;
+            characterCreationVM.CharacterImagesDirectory = uri;
         }
 
         public void GetAvalibleCharacterImages(char Race)
