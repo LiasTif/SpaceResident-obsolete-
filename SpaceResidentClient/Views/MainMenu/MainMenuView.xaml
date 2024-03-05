@@ -4,7 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:c="clr-namespace:Converters;assembly=Converters"
-             xmlns:cMainMenu="clr-namespace:Converters.MainMenu;assembly=Converters"
+             xmlns:cMainMenu="clr-namespace:Converters.Client.MainMenu;assembly=Converters"
              xmlns:de="clr-namespace:DecorativeElements;assembly=DecorativeElements"
              xmlns:vMM="clr-namespace:SpaceResidentClient.Views.MainMenu"
              xmlns:vmMM="clr-namespace:SpaceResidentClient.ViewModels.MainMenu"

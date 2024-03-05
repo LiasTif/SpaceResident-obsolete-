@@ -1,22 +1,20 @@
 ﻿using System;
 using System.Globalization;
+using System.Windows;
 using System.Windows.Data;
 
-namespace Converters.CharacterCreation
+namespace Converters.Client.MainMenu
 {
-    public class IsFemaleToStringConverter : IValueConverter
+    public class HideConsoleConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            if ((bool)value)
-                return Properties.Lang.female;
-            else
-                return Properties.Lang.male;
+            return value == null ? Visibility.Visible : Visibility.Hidden;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            throw new NotImplementedException();
+            throw new NotSupportedException();
         }
     }
 }

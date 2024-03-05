@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:c="clr-namespace:Converters.CharacterCreation;assembly=Converters"
+             xmlns:cCharCreation="clr-namespace:Converters.Client.CharacterCreation;assembly=Converters"
              xmlns:language="clr-namespace:SpaceResidentClient.Properties"
              mc:Ignorable="d" d:Height="1080" d:Width="1960">
     <UserControl.Resources>
@@ -12,8 +12,8 @@
                 <ResourceDictionary
                     Source="/ResourceDictionaries;component/Base/BaseElementsDictionary.xaml"/>
             </ResourceDictionary.MergedDictionaries>
-            <c:RaceToStringConverter x:Key="RaceToStringConverter"/>
-            <c:IsFemaleToStringConverter x:Key="IsFemaleToStringConverter"/>
+            <cCharCreation:RaceToStringConverter x:Key="RaceToStringConverter"/>
+            <cCharCreation:IsFemaleToStringConverter x:Key="IsFemaleToStringConverter"/>
         </ResourceDictionary>
     </UserControl.Resources>
     

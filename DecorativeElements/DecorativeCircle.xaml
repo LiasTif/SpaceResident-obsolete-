@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:c="clr-namespace:Converters;assembly=Converters"
+             xmlns:cdc="clr-namespace:Converters.DecorativeElements.DecorativeCircle;assembly=Converters"
              mc:Ignorable="d" d:Height="450" d:Width="800" MinWidth="10">
 
     <UserControl.Resources>
@@ -19,7 +20,7 @@
                     Source="/ResourceDictionaries;component/DecorativeElements/DecorativeCircleDictionary.xaml"/>
             </ResourceDictionary.MergedDictionaries>
             <c:SizeFromSizePercentageConventer x:Key="SizeFromSizePercentageConventer"/>
-            <c:TextBlocksNearTheEllipsePositionConverter x:Key="TextBlocksNearTheEllipsePositionConverter"/>
+            <cdc:TextBlocksNearTheEllipsePositionConverter x:Key="TextBlocksNearTheEllipsePositionConverter"/>
         </ResourceDictionary>
     </UserControl.Resources>
 
