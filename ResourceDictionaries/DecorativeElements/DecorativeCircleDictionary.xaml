@@ -5,8 +5,32 @@
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="/ResourceDictionaries;component/Colors/Colors.xaml"/>
         <ResourceDictionary Source="/ResourceDictionaries;component/Base/BaseElementsDictionary.xaml"/>
+        <ResourceDictionary
+            Source="/ResourceDictionaries;component/Colors/DecorativeElements/DecorativeCircle/DecorativeCircleBrushes.xaml"/>
     </ResourceDictionary.MergedDictionaries>
     <c:SizeFromSizePercentageConventer x:Key="SizeFromSizePercentageConventer"/>
+    
+    <!--#region Grids-->
+    <Style
+        TargetType="{x:Type Grid}"
+        x:Key="gridMainStyle">
+        <Style.Triggers>
+            <!--Loading glitch animation-->
+            <EventTrigger RoutedEvent="Loaded">
+                <BeginStoryboard>
+                    <Storyboard
+                        AutoReverse="True"
+                        RepeatBehavior="5x">
+                        <DoubleAnimation
+                            Duration="0:0:0.1"
+                            To="0"
+                            Storyboard.TargetProperty="Opacity"/>
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger>
+        </Style.Triggers>
+    </Style>
+    <!--#endregion-->
 
     <!--#region Borders-->
     <Style
@@ -16,7 +40,7 @@
         <Setter Property="Height" Value="1"/>
         <Setter Property="RenderTransform">
             <Setter.Value>
-                <RotateTransform x:Name="brdLineRotateTransform" Angle="180"/>
+                <RotateTransform Angle="180"/>
             </Setter.Value>
         </Setter>
 
@@ -25,8 +49,7 @@
                 <MultiBinding Converter="{StaticResource SizeFromSizePercentageConventer}">
                     <Binding
                         ElementName="BigDecorativeCircle"
-                        Path="ActualHeight"
-                        UpdateSourceTrigger="PropertyChanged"/>
+                        Path="ActualHeight"/>
                     <Binding Source="65"/>
                 </MultiBinding>
             </Setter.Value>
@@ -52,19 +75,16 @@
         TargetType="{x:Type Border}"
         BasedOn="{StaticResource brdRotatedLine1AtEllipse}"
         x:Key="brdRotatedLine2AtEllipse">
-
         <Setter Property="Width">
             <Setter.Value>
                 <MultiBinding Converter="{StaticResource SizeFromSizePercentageConventer}">
                     <Binding
                         ElementName="BigDecorativeCircle"
-                        Path="ActualHeight"
-                        UpdateSourceTrigger="PropertyChanged"/>
+                        Path="ActualHeight"/>
                     <Binding Source="80"/>
                 </MultiBinding>
             </Setter.Value>
         </Setter>
-
 
         <Style.Triggers>
             <EventTrigger RoutedEvent="Loaded">
@@ -83,28 +103,10 @@
     </Style>
 
     <Style
-    TargetType="{x:Type Border}"
-    BasedOn="{StaticResource brdRotatedLine1AtEllipse}"
-    x:Key="brdRotatedAccentLine3AtEllipse">
-        <Setter Property="Background">
-            <Setter.Value>
-                <SolidColorBrush Color="{StaticResource AccentColor}"/>
-            </Setter.Value>
-        </Setter>
-
-        <Setter Property="Width">
-            <Setter.Value>
-                <MultiBinding Converter="{StaticResource SizeFromSizePercentageConventer}">
-                    <Binding
-                        ElementName="BigDecorativeCircle"
-                        Path="ActualHeight"
-                        UpdateSourceTrigger="PropertyChanged"/>
-                    <Binding Source="65"/>
-                </MultiBinding>
-            </Setter.Value>
-        </Setter>
-
-
+        TargetType="{x:Type Border}"
+        BasedOn="{StaticResource brdRotatedLine1AtEllipse}"
+        x:Key="brdRotatedAccentLine3AtEllipse">
+        <Setter Property="Background" Value="{StaticResource AccentBrush}"/>
         <Style.Triggers>
             <EventTrigger RoutedEvent="Loaded">
                 <BeginStoryboard>
@@ -177,6 +179,28 @@
                         Color="Transparent"
                         Offset="0"/>
                 </LinearGradientBrush>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <!--#endregion-->
+        
+    <!--#region Ellipses-->
+    <Style
+        TargetType="{x:Type Ellipse}"
+        x:Key="bigDecorativeCircleStyle">
+        <Setter Property="StrokeThickness" Value="3"/>
+        <Setter Property="Opacity" Value=".2"/>
+        <Setter Property="Width" Value="{Binding ActualHeight, RelativeSource={RelativeSource Self}}"/>
+        <Setter Property="Stroke" Value="{StaticResource PassiveBrush}"/>
+        <Setter Property="Fill" Value="{StaticResource SecondBorderBrush}"/>
+        <Setter Property="Height">
+            <Setter.Value>
+                <MultiBinding Converter="{StaticResource SizeFromSizePercentageConventer}">
+                    <Binding
+                        ElementName="MainGrid"
+                        Path="ActualWidth"/>
+                    <Binding Source="50"/>
+                </MultiBinding>
             </Setter.Value>
         </Setter>
     </Style>

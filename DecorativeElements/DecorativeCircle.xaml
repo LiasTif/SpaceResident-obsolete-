@@ -28,43 +28,12 @@
 
     <Grid
         x:Name="MainGrid"
-        Grid.Column="1"
-        Grid.Row="1"
-        Grid.RowSpan="2">
-
-        <Grid.Triggers>
-            <!--Loading glitch animation-->
-            <EventTrigger RoutedEvent="Loaded">
-                <BeginStoryboard>
-                    <Storyboard
-                        AutoReverse="True"
-                        RepeatBehavior="5x">
-                        <DoubleAnimation
-                            Duration="0:0:0.1"
-                            To="0"
-                            Storyboard.TargetProperty="Opacity"/>
-                    </Storyboard>
-                </BeginStoryboard>
-            </EventTrigger>
-        </Grid.Triggers>
+        Style="{StaticResource gridMainStyle}">
 
         <!--Big Circle-->
         <Ellipse
             x:Name="BigDecorativeCircle"
-            StrokeThickness="3"
-            Width="{Binding ActualHeight, RelativeSource={RelativeSource Self}}"
-            Stroke="{StaticResource PassiveBrush}"
-            Fill="{StaticResource SecondBorderBrush}"
-            Opacity=".2">
-            <Ellipse.Height>
-                <MultiBinding Converter="{StaticResource SizeFromSizePercentageConventer}">
-                    <Binding
-                        ElementName="MainGrid"
-                        Path="ActualWidth"/>
-                    <Binding Source="50"/>
-                </MultiBinding>
-            </Ellipse.Height>
-        </Ellipse>
+            Style="{StaticResource bigDecorativeCircleStyle}"/>
 
         <!--rotated ellipse slise-->
         <Ellipse
@@ -119,7 +88,7 @@
                 x:Name="CircleAnmatedLine1"
                 Style="{StaticResource brdRotatedLine1AtEllipse}"/>
 
-            <Viewbox>
+            <Viewbox x:Name="vbLocationTextBlock">
                 <Viewbox.Height>
                     <MultiBinding Converter="{StaticResource SizeFromSizePercentageConventer}">
                         <Binding 
@@ -132,7 +101,7 @@
                 <Viewbox.RenderTransform>
                     <TranslateTransform
                         X="{Binding ActualWidth,
-                                    ElementName=SmallDecorativeCircle,
+                                    ElementName=CircleAnmatedLine1,
                                     Converter={StaticResource TextBlocksNearTheEllipsePositionConverter},
                                     ConverterParameter=1X}"
                         Y="{Binding ActualWidth,
@@ -150,16 +119,7 @@
                 x:Name="CircleAnmatedLine2"
                 Style="{StaticResource brdRotatedLine2AtEllipse}"/>
 
-            <Viewbox>
-                <Viewbox.Height>
-                    <MultiBinding Converter="{StaticResource SizeFromSizePercentageConventer}">
-                        <Binding 
-                            ElementName="SmallDecorativeCircle"
-                            Path="ActualHeight"/>
-                        <Binding Source="30"/>
-                    </MultiBinding>
-                </Viewbox.Height>
-
+            <Viewbox Height="{Binding ActualHeight, ElementName=vbLocationTextBlock}">
                 <Viewbox.RenderTransform>
                     <TranslateTransform
                         X="{Binding ActualWidth,
@@ -181,16 +141,7 @@
                 x:Name="CircleAnmatedLine3"
                 Style="{StaticResource brdRotatedAccentLine3AtEllipse}"/>
 
-            <Viewbox>
-                <Viewbox.Height>
-                    <MultiBinding Converter="{StaticResource SizeFromSizePercentageConventer}">
-                        <Binding 
-                            ElementName="SmallDecorativeCircle"
-                            Path="ActualHeight"/>
-                        <Binding Source="30"/>
-                    </MultiBinding>
-                </Viewbox.Height>
-
+            <Viewbox Height="{Binding ActualHeight, ElementName=vbLocationTextBlock}">
                 <Viewbox.RenderTransform>
                     <TranslateTransform
                         X="{Binding ActualWidth,
@@ -212,7 +163,8 @@
         <!--Rectangle at the middle of the circles-->
         <Rectangle
             x:Name="RectangleInCircle"
-            Width="{Binding ActualHeight, ElementName=RectangleInCircle}">
+            Width="{Binding ActualHeight, RelativeSource={RelativeSource Self}}"
+            Fill="{StaticResource AccentBrush}">
             <Rectangle.Height>
                 <MultiBinding Converter="{StaticResource SizeFromSizePercentageConventer}">
                     <Binding
@@ -221,14 +173,11 @@
                     <Binding Source="40"/>
                 </MultiBinding>
             </Rectangle.Height>
-            <Rectangle.Fill>
-                <SolidColorBrush Color="{StaticResource AccentColor}"/>
-            </Rectangle.Fill>
         </Rectangle>
 
         <Viewbox
-                MaxWidth="{Binding ActualWidth, ElementName=RectangleInCircle}"
-                MaxHeight="{Binding ActualHeight, ElementName=RectangleInCircle}">
+            MaxHeight="{Binding ActualHeight, ElementName=RectangleInCircle}"
+            MaxWidth="{Binding ActualWidth, ElementName=RectangleInCircle}">
             <Image
                 Margin="100"
                 Source="/Resources;component/Data/UI/plus.png"/>
