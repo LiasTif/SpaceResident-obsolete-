@@ -5,6 +5,19 @@
         <ResourceDictionary Source="Colors.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
+    <SolidColorBrush x:Key="AccentBrush" Color="#F14D21"/>
+
+    <SolidColorBrush x:Key="MainBorderBrush" Color="#3F000000"/>
+    <SolidColorBrush x:Key="SecondBorderBrush" Color="#19000000"/>
+
+    <SolidColorBrush x:Key="ActiveWhiterBrush" Color="#ffffff"/>
+    <SolidColorBrush x:Key="ActiveBrush" Color="#667482"/>
+    <SolidColorBrush x:Key="PassiveBrush" Color="#4B5156"/>
+    <SolidColorBrush x:Key="PassiveDarkerBrush" Color="#000000"/>
+
+    <SolidColorBrush x:Key="BGLighterBrush" Color="#B233465B"/>
+    <SolidColorBrush x:Key="BGDarkerBrush" Color="#0C273849"/>
+
     <LinearGradientBrush x:Key="BGGradient" StartPoint="0,0" EndPoint="1,0">
         <GradientStop Offset="0.0" Color="{StaticResource BGDarkerColor}"/>
         <GradientStop Offset="2.0" Color="{StaticResource BGLighterColor}"/>

@@ -17,6 +17,8 @@
                 <ResourceDictionary
                     Source="/ResourceDictionaries;component/Colors/Colors.xaml"/>
                 <ResourceDictionary
+                    Source="/ResourceDictionaries;component/Colors/DecorativeElements/DecorativeCircle/DecorativeCircleBrushes.xaml"/>
+                <ResourceDictionary
                     Source="/ResourceDictionaries;component/DecorativeElements/DecorativeCircleDictionary.xaml"/>
             </ResourceDictionary.MergedDictionaries>
             <c:SizeFromSizePercentageConventer x:Key="SizeFromSizePercentageConventer"/>
@@ -26,7 +28,6 @@
 
     <Grid
         x:Name="MainGrid"
-        Margin="0,0,0,50"
         Grid.Column="1"
         Grid.Row="1"
         Grid.RowSpan="2">
@@ -37,8 +38,7 @@
                 <BeginStoryboard>
                     <Storyboard
                         AutoReverse="True"
-                        RepeatBehavior="5x"
-                        AccelerationRatio="1.0">
+                        RepeatBehavior="5x">
                         <DoubleAnimation
                             Duration="0:0:0.1"
                             To="0"
@@ -52,13 +52,10 @@
         <Ellipse
             x:Name="BigDecorativeCircle"
             StrokeThickness="3"
-            Width="{Binding ActualHeight, ElementName=BigDecorativeCircle}">
-            <Ellipse.Stroke>
-                <SolidColorBrush Opacity=".2" Color="{StaticResource PassiveColor}"/>
-            </Ellipse.Stroke>
-            <Ellipse.Fill>
-                <SolidColorBrush Color="{StaticResource SecondBorderColor}"/>
-            </Ellipse.Fill>
+            Width="{Binding ActualHeight, RelativeSource={RelativeSource Self}}"
+            Stroke="{StaticResource PassiveBrush}"
+            Fill="{StaticResource SecondBorderBrush}"
+            Opacity=".2">
             <Ellipse.Height>
                 <MultiBinding Converter="{StaticResource SizeFromSizePercentageConventer}">
                     <Binding
@@ -73,26 +70,20 @@
         <Ellipse
             RenderTransformOrigin="0.5,0.5"
             StrokeThickness="3"
-            Width="{Binding ActualHeight, ElementName=BigDecorativeCircle}"
-            Height="{Binding ActualHeight, ElementName=BigDecorativeCircle}">
-            <Ellipse.Stroke>
-                <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
-                    <GradientStop Offset="0.8" Color="Transparent"/>
-                    <GradientStop Offset="0.8" Color="{StaticResource ActiveWhiterColor}"/>
-                </LinearGradientBrush>
-            </Ellipse.Stroke>
+            Height="{Binding ActualHeight, ElementName=BigDecorativeCircle}"
+            Width="{Binding ActualHeight, RelativeSource={RelativeSource Self}}"
+            Stroke="{StaticResource rotatedSliceOfCircle}">
 
             <Ellipse.RenderTransform>
-                <RotateTransform x:Name="SliseRotateTransform" Angle="0"/>
+                <RotateTransform x:Name="sliceRotateTransform" Angle="0"/>
             </Ellipse.RenderTransform>
             <Ellipse.Triggers>
                 <EventTrigger RoutedEvent="Loaded">
                     <BeginStoryboard>
                         <Storyboard RepeatBehavior="Forever">
                             <DoubleAnimation
-                                Storyboard.TargetName="SliseRotateTransform"
+                                Storyboard.TargetName="sliceRotateTransform"
                                 Storyboard.TargetProperty="(RotateTransform.Angle)"
-                                From="0.0"
                                 To="360"
                                 Duration="0:0:2"/>
                         </Storyboard>
@@ -141,7 +132,7 @@
                 <Viewbox.RenderTransform>
                     <TranslateTransform
                         X="{Binding ActualWidth,
-                                    ElementName=CircleAnmatedLine1,
+                                    ElementName=SmallDecorativeCircle,
                                     Converter={StaticResource TextBlocksNearTheEllipsePositionConverter},
                                     ConverterParameter=1X}"
                         Y="{Binding ActualWidth,
