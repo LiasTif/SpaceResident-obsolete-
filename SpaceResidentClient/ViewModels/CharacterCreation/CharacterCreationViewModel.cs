@@ -162,7 +162,7 @@ namespace SpaceResidentClient.ViewModels.CharacterCreation
             // styles for navigate buttons
             var baseResourceDictionary = new ResourceDictionary
             {
-                Source = new Uri("/ResourceDictionaries;component/CharacterCreation/CharacterCreationDictionary.xaml",
+                Source = new Uri("/ResourceDictionaries;component/Client/CharacterCreation/CharacterCreationDictionary.xaml",
                     UriKind.RelativeOrAbsolute)
             };
 

@@ -21,7 +21,7 @@
                 <ResourceDictionary
                     Source="/ResourceDictionaries;component/Colors/Colors.xaml"/>
                 <ResourceDictionary
-                    Source="/ResourceDictionaries;component/MainMenu/MainMenuDictionary.xaml"/>
+                    Source="/ResourceDictionaries;component/Client/MainMenu/MainMenuDictionary.xaml"/>
             </ResourceDictionary.MergedDictionaries>
             <cMainMenu:HideConsoleConverter x:Key="HideConsoleConverter"/>
             <c:SizeFromSizePercentageConventer x:Key="SizeFromSizePercentageConventer"/>
