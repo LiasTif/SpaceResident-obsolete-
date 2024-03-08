@@ -204,5 +204,88 @@
             </Setter.Value>
         </Setter>
     </Style>
+
+    <Style
+        TargetType="{x:Type Ellipse}"
+        x:Key="rotatedEllipseSliceStyle">
+        <Setter Property="RenderTransformOrigin" Value="0.5,0.5"/>
+        <Setter Property="StrokeThickness" Value="3"/>
+        <Setter Property="Height" Value="{Binding ActualHeight, ElementName=BigDecorativeCircle}"/>
+        <Setter Property="Width" Value="{Binding ActualHeight, RelativeSource={RelativeSource Self}}"/>
+        <Setter Property="Stroke" Value="{StaticResource rotatedSliceOfCircle}"/>
+        <Setter Property="RenderTransform">
+            <Setter.Value>
+                <RotateTransform Angle="0"/>
+            </Setter.Value>
+        </Setter>
+
+        <Style.Triggers>
+            <EventTrigger RoutedEvent="Loaded">
+                <BeginStoryboard>
+                    <Storyboard RepeatBehavior="Forever">
+                        <DoubleAnimation
+                            Storyboard.TargetProperty="RenderTransform.(RotateTransform.Angle)"
+                            To="360"
+                            Duration="0:0:2"/>
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style
+        TargetType="{x:Type Ellipse}"
+        x:Key="smallDecorativeCircleStyle">
+        <Setter Property="StrokeThickness" Value="2"/>
+        <Setter Property="Width" Value="{Binding ActualHeight, ElementName=SmallDecorativeCircle}"/>
+        <Setter Property="Stroke">
+            <Setter.Value>
+                <SolidColorBrush Opacity=".8" Color="{StaticResource PassiveColor}"/>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Fill">
+            <Setter.Value>
+                <SolidColorBrush Opacity=".02" Color="{StaticResource ActiveWhiterColor}"/>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Height">
+            <Setter.Value>
+                <MultiBinding Converter="{StaticResource SizeFromSizePercentageConventer}">
+                    <Binding
+                        ElementName="BigDecorativeCircle"
+                        Path="ActualHeight"/>
+                    <Binding Source="50"/>
+                </MultiBinding>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <!--#endregion-->
+        
+    <!--#region Rectangles-->
+    <Style
+        x:Key="rectangleInCircleStyle"
+        TargetType="{x:Type Rectangle}">
+        <Setter Property="Width" Value="{Binding ActualHeight, RelativeSource={RelativeSource Self}}"/>
+        <Setter Property="Fill" Value="{StaticResource AccentBrush}"/>
+        <Setter Property="Height">
+            <Setter.Value>
+                <MultiBinding Converter="{StaticResource SizeFromSizePercentageConventer}">
+                    <Binding
+                        ElementName="SmallDecorativeCircle"
+                        Path="ActualHeight"/>
+                    <Binding Source="40"/>
+                </MultiBinding>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <!--#endregion-->
+        
+    <!--#region ViewBox-->
+    <Style
+        TargetType="{x:Type Viewbox}"
+        x:Key="vbPlusStyle">
+        <Setter Property="MaxHeight" Value="{Binding ActualHeight, ElementName=RectangleInCircle}"/>
+        <Setter Property="MaxWidth" Value="{Binding ActualWidth, ElementName=RectangleInCircle}"/>
+    </Style>
     <!--#endregion-->
 </ResourceDictionary>

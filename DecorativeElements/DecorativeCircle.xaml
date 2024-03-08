@@ -36,51 +36,12 @@
             Style="{StaticResource bigDecorativeCircleStyle}"/>
 
         <!--rotated ellipse slise-->
-        <Ellipse
-            RenderTransformOrigin="0.5,0.5"
-            StrokeThickness="3"
-            Height="{Binding ActualHeight, ElementName=BigDecorativeCircle}"
-            Width="{Binding ActualHeight, RelativeSource={RelativeSource Self}}"
-            Stroke="{StaticResource rotatedSliceOfCircle}">
-
-            <Ellipse.RenderTransform>
-                <RotateTransform x:Name="sliceRotateTransform" Angle="0"/>
-            </Ellipse.RenderTransform>
-            <Ellipse.Triggers>
-                <EventTrigger RoutedEvent="Loaded">
-                    <BeginStoryboard>
-                        <Storyboard RepeatBehavior="Forever">
-                            <DoubleAnimation
-                                Storyboard.TargetName="sliceRotateTransform"
-                                Storyboard.TargetProperty="(RotateTransform.Angle)"
-                                To="360"
-                                Duration="0:0:2"/>
-                        </Storyboard>
-                    </BeginStoryboard>
-                </EventTrigger>
-            </Ellipse.Triggers>
-        </Ellipse>
+        <Ellipse Style="{StaticResource rotatedEllipseSliceStyle}"/>
 
         <!--Small Circle-->
         <Ellipse
             x:Name="SmallDecorativeCircle"
-            StrokeThickness="2"
-            Width="{Binding ActualHeight, ElementName=SmallDecorativeCircle}">
-            <Ellipse.Stroke>
-                <SolidColorBrush Opacity=".8" Color="{StaticResource PassiveColor}"/>
-            </Ellipse.Stroke>
-            <Ellipse.Fill>
-                <SolidColorBrush Opacity=".02" Color="{StaticResource ActiveWhiterColor}"/>
-            </Ellipse.Fill>
-            <Ellipse.Height>
-                <MultiBinding Converter="{StaticResource SizeFromSizePercentageConventer}">
-                    <Binding
-                        ElementName="BigDecorativeCircle"
-                        Path="ActualHeight"/>
-                    <Binding Source="50"/>
-                </MultiBinding>
-            </Ellipse.Height>
-        </Ellipse>
+            Style="{StaticResource smallDecorativeCircleStyle}"/>
 
         <!--Lines from the middle of rectangle to textblocks-->
         <Canvas HorizontalAlignment="Center" VerticalAlignment="Center">
@@ -163,21 +124,9 @@
         <!--Rectangle at the middle of the circles-->
         <Rectangle
             x:Name="RectangleInCircle"
-            Width="{Binding ActualHeight, RelativeSource={RelativeSource Self}}"
-            Fill="{StaticResource AccentBrush}">
-            <Rectangle.Height>
-                <MultiBinding Converter="{StaticResource SizeFromSizePercentageConventer}">
-                    <Binding
-                        ElementName="SmallDecorativeCircle"
-                        Path="ActualHeight"/>
-                    <Binding Source="40"/>
-                </MultiBinding>
-            </Rectangle.Height>
-        </Rectangle>
+            Style="{StaticResource rectangleInCircleStyle}"/>
 
-        <Viewbox
-            MaxHeight="{Binding ActualHeight, ElementName=RectangleInCircle}"
-            MaxWidth="{Binding ActualWidth, ElementName=RectangleInCircle}">
+        <Viewbox Style="{StaticResource vbPlusStyle}">
             <Image
                 Margin="100"
                 Source="/Resources;component/Data/UI/plus.png"/>
