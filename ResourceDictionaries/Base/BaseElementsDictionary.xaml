@@ -385,7 +385,7 @@
                         
                         <Image
                             Grid.Column="1"
-                            Source="/Resources;component/Data/UI/arrow base.png"/>
+                            Source="/Resources;component/Data/UI/Icons/arrow base.png"/>
                     </Grid>
 
                     <ControlTemplate.Triggers>

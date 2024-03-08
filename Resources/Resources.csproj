@@ -14,22 +14,22 @@
     <None Remove="Data\UI\CharacterJobBGs\Fabric2.png" />
     <None Remove="Data\UI\CharacterJobBGs\FleaMarket.png" />
     <None Remove="Data\UI\CharacterJobBGs\Office.png" />
-    <None Remove="Data\UI\Characters\Human\Female\fHuman1.png" />
-    <None Remove="Data\UI\Characters\Human\Female\fHuman10.png" />
-    <None Remove="Data\UI\Characters\Human\Female\fHuman2.png" />
-    <None Remove="Data\UI\Characters\Human\Female\fHuman3.png" />
-    <None Remove="Data\UI\Characters\Human\Female\fHuman4.png" />
-    <None Remove="Data\UI\Characters\Human\Female\fHuman5.png" />
-    <None Remove="Data\UI\Characters\Human\Female\fHuman6.png" />
-    <None Remove="Data\UI\Characters\Human\Female\fHuman7.png" />
-    <None Remove="Data\UI\Characters\Human\Female\fHuman8.png" />
-    <None Remove="Data\UI\Characters\Human\Female\fHuman9.png" />
-    <None Remove="Data\UI\Characters\Human\Male\mHuman1.png" />
-    <None Remove="Data\UI\Characters\Human\Male\mHuman2.png" />
-    <None Remove="Data\UI\Characters\Human\Male\mHuman3.png" />
-    <None Remove="Data\UI\Characters\Human\Male\mHuman4.png" />
-    <None Remove="Data\UI\Characters\Human\Male\mHuman5.png" />
-    <None Remove="Data\UI\Characters\Human\Male\mHuman6.png" />
+    <None Remove="Data\UI\Characters\Vun-Lain\Female\fHuman1.png" />
+    <None Remove="Data\UI\Characters\Vun-Lain\Female\fHuman10.png" />
+    <None Remove="Data\UI\Characters\Vun-Lain\Female\fHuman2.png" />
+    <None Remove="Data\UI\Characters\Vun-Lain\Female\fHuman3.png" />
+    <None Remove="Data\UI\Characters\Vun-Lain\Female\fHuman4.png" />
+    <None Remove="Data\UI\Characters\Vun-Lain\Female\fHuman5.png" />
+    <None Remove="Data\UI\Characters\Vun-Lain\Female\fHuman6.png" />
+    <None Remove="Data\UI\Characters\Vun-Lain\Female\fHuman7.png" />
+    <None Remove="Data\UI\Characters\Vun-Lain\Female\fHuman8.png" />
+    <None Remove="Data\UI\Characters\Vun-Lain\Female\fHuman9.png" />
+    <None Remove="Data\UI\Characters\Vun-Lain\Male\mHuman1.png" />
+    <None Remove="Data\UI\Characters\Vun-Lain\Male\mHuman2.png" />
+    <None Remove="Data\UI\Characters\Vun-Lain\Male\mHuman3.png" />
+    <None Remove="Data\UI\Characters\Vun-Lain\Male\mHuman4.png" />
+    <None Remove="Data\UI\Characters\Vun-Lain\Male\mHuman5.png" />
+    <None Remove="Data\UI\Characters\Vun-Lain\Male\mHuman6.png" />
     <None Remove="Data\UI\cross.png" />
     <None Remove="Data\UI\icon.ico" />
     <None Remove="Data\UI\Icons\info.png" />
@@ -44,74 +44,73 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Data\UI\arrow base.png" />
-    <Resource Include="Data\UI\characterIcon.png" />
+    <Resource Include="Data\UI\Icons\arrow base.png" />
+    <Resource Include="Data\UI\Icons\characterIcon.png" />
     <Resource Include="Data\UI\CharacterJobBGs\Fabric.png" />
     <Resource Include="Data\UI\CharacterJobBGs\Fabric2.png" />
     <Resource Include="Data\UI\CharacterJobBGs\FleaMarket.png" />
     <Resource Include="Data\UI\CharacterJobBGs\Office.png" />
-    <Resource Include="Data\UI\Characters\Human\Female\fHuman1.png">
+    <Resource Include="Data\UI\Characters\Vun-Lain\Female\fHuman1.png">
       <CopyToOutputDirectory></CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Data\UI\Characters\Human\Female\fHuman10.png">
+    <Resource Include="Data\UI\Characters\Vun-Lain\Female\fHuman10.png">
       <CopyToOutputDirectory></CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Data\UI\Characters\Human\Female\fHuman2.png">
+    <Resource Include="Data\UI\Characters\Vun-Lain\Female\fHuman2.png">
       <CopyToOutputDirectory></CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Data\UI\Characters\Human\Female\fHuman3.png">
+    <Resource Include="Data\UI\Characters\Vun-Lain\Female\fHuman3.png">
       <CopyToOutputDirectory></CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Data\UI\Characters\Human\Female\fHuman4.png">
+    <Resource Include="Data\UI\Characters\Vun-Lain\Female\fHuman4.png">
       <CopyToOutputDirectory></CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Data\UI\Characters\Human\Female\fHuman5.png">
+    <Resource Include="Data\UI\Characters\Vun-Lain\Female\fHuman5.png">
       <CopyToOutputDirectory></CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Data\UI\Characters\Human\Female\fHuman6.png">
+    <Resource Include="Data\UI\Characters\Vun-Lain\Female\fHuman6.png">
       <CopyToOutputDirectory></CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Data\UI\Characters\Human\Female\fHuman7.png">
+    <Resource Include="Data\UI\Characters\Vun-Lain\Female\fHuman7.png">
       <CopyToOutputDirectory></CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Data\UI\Characters\Human\Female\fHuman8.png">
+    <Resource Include="Data\UI\Characters\Vun-Lain\Female\fHuman8.png">
       <CopyToOutputDirectory></CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Data\UI\Characters\Human\Female\fHuman9.png">
+    <Resource Include="Data\UI\Characters\Vun-Lain\Female\fHuman9.png">
       <CopyToOutputDirectory></CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Data\UI\Characters\Human\Male\mHuman1.png">
+    <Resource Include="Data\UI\Characters\Vun-Lain\Male\mHuman1.png">
       <CopyToOutputDirectory></CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Data\UI\Characters\Human\Male\mHuman2.png">
+    <Resource Include="Data\UI\Characters\Vun-Lain\Male\mHuman2.png">
       <CopyToOutputDirectory></CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Data\UI\Characters\Human\Male\mHuman3.png">
+    <Resource Include="Data\UI\Characters\Vun-Lain\Male\mHuman3.png">
       <CopyToOutputDirectory></CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Data\UI\Characters\Human\Male\mHuman4.png">
+    <Resource Include="Data\UI\Characters\Vun-Lain\Male\mHuman4.png">
       <CopyToOutputDirectory></CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Data\UI\Characters\Human\Male\mHuman5.png">
+    <Resource Include="Data\UI\Characters\Vun-Lain\Male\mHuman5.png">
       <CopyToOutputDirectory></CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Data\UI\Characters\Human\Male\mHuman6.png">
+    <Resource Include="Data\UI\Characters\Vun-Lain\Male\mHuman6.png">
       <CopyToOutputDirectory></CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Data\UI\cross.png" />
-    <Resource Include="Data\UI\icon.ico">
+    <Resource Include="Data\UI\Icons\icon.ico">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Data\UI\Icons\info.png" />
     <Resource Include="Data\UI\Icons\location.png" />
     <Resource Include="Data\UI\Icons\stats.png" />
-    <Resource Include="Data\UI\jobIcon.png" />
+    <Resource Include="Data\UI\Icons\jobIcon.png" />
     <Resource Include="Data\UI\Locations\Houses\SpaceStationHome1.png" />
-    <Resource Include="Data\UI\plus.png">
+    <Resource Include="Data\UI\Icons\plus.png">
       <CopyToOutputDirectory></CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Data\UI\pluses.png" />
-    <Resource Include="Data\UI\skillsIcon.png" />
+    <Resource Include="Data\UI\Backgrounds\pluses.png" />
+    <Resource Include="Data\UI\Icons\skillsIcon.png" />
   </ItemGroup>
 
   <ItemGroup>

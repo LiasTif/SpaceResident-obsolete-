@@ -129,7 +129,7 @@
         <Viewbox Style="{StaticResource vbPlusStyle}">
             <Image
                 Margin="100"
-                Source="/Resources;component/Data/UI/plus.png"/>
+                Source="/Resources;component/Data/UI/Icons/plus.png"/>
         </Viewbox>
     </Grid>
 </UserControl>

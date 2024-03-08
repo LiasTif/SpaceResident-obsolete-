@@ -13,12 +13,12 @@
                         <Image
                             Visibility="Hidden"
                             x:Name="enableEffect"
-                            Source="/Resources;component/Data/UI/characterIcon.png">
+                            Source="/Resources;component/Data/UI/Icons/characterIcon.png">
                             <Image.Effect>
                                 <BlurEffect Radius="20"/>
                             </Image.Effect>
                         </Image>
-                        <Image Source="/Resources;component/Data/UI/characterIcon.png"/>
+                        <Image Source="/Resources;component/Data/UI/Icons/characterIcon.png"/>
                     </Grid>
 
                     <ControlTemplate.Triggers>
@@ -45,12 +45,12 @@
                         <Image
                             Visibility="Hidden"
                             x:Name="enableEffect"
-                            Source="/Resources;component/Data/UI/skillsIcon.png">
+                            Source="/Resources;component/Data/UI/Icons/skillsIcon.png">
                             <Image.Effect>
                                 <BlurEffect Radius="20"/>
                             </Image.Effect>
                         </Image>
-                        <Image Source="/Resources;component/Data/UI/skillsIcon.png"/>
+                        <Image Source="/Resources;component/Data/UI/Icons/skillsIcon.png"/>
                     </Grid>
 
                     <ControlTemplate.Triggers>
@@ -77,12 +77,12 @@
                         <Image
                             Visibility="Hidden"
                             x:Name="enableEffect"
-                            Source="/Resources;component/Data/UI/jobIcon.png">
+                            Source="/Resources;component/Data/UI/Icons/jobIcon.png">
                             <Image.Effect>
                                 <BlurEffect Radius="20"/>
                             </Image.Effect>
                         </Image>
-                        <Image Source="/Resources;component/Data/UI/jobIcon.png"/>
+                        <Image Source="/Resources;component/Data/UI/Icons/jobIcon.png"/>
                     </Grid>
 
                     <ControlTemplate.Triggers>

@@ -11,10 +11,10 @@
     mc:Ignorable="d" Title="Space Resident"
     MinHeight="720" MinWidth="1280"
     WindowStartupLocation="CenterScreen"
-    ResizeMode="{Binding ResizeMode, Mode=TwoWay}"
-    WindowStyle="{Binding WinStyle, Mode=TwoWay}"
-    WindowState="{Binding WinState, Mode=TwoWay}"
-    Style="{StaticResource winBase}" Icon="/Resources;component/Data/UI/icon.ico">
+    ResizeMode="{Binding ResizeMode}"
+    WindowStyle="{Binding WinStyle}"
+    WindowState="{Binding WinState}"
+    Style="{StaticResource winBase}" Icon="/Resources;component/Data/UI/Icons/icon.ico">
     <Grid>
         <ContentControl
             Content="{Binding Path=DataContext.CurrentViewModel,

@@ -36,9 +36,9 @@ namespace SpaceResidentClient.Models.ImagesProcessors
                 if (race == 'l')
                 {
                     if (isFemale)
-                        SetSourceToPortraits(characterCreationVM, 10, "\\Data\\UI\\Characters\\Human\\Female\\fHuman");
+                        SetSourceToPortraits(characterCreationVM, 10, "\\Data\\UI\\Characters\\Vun-Lain\\Female\\fHuman");
                     else
-                        SetSourceToPortraits(characterCreationVM, 6, "\\Data\\UI\\Characters\\Human\\Male\\mHuman");
+                        SetSourceToPortraits(characterCreationVM, 6, "\\Data\\UI\\Characters\\Vun-Lain\\Male\\mHuman");
                 }
             }
         }
