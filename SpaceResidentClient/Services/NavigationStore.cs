@@ -2,7 +2,7 @@
 
 namespace SpaceResidentClient.Services
 {
-    public partial class NavigationStore : ObservableObject
+    internal partial class NavigationStore : ObservableObject
     {
         [ObservableProperty]
         public ObservableObject currentViewModel;

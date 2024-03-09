@@ -8,13 +8,14 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using SpaceResidentClient.Properties;
 using SpaceResidentClient.Services.UISounds;
+using SpaceResidentClient.Interfaces;
 
 namespace SpaceResidentClient.ViewModels.MainMenu
 {
     internal partial class SettingsViewModel : ObservableObject
     {
         public MainMenuViewModel _mainMenuViewModelInstance;
-        private readonly MainWindowViewModel _mainWindowViewModel;
+        private readonly IWindowNavigationStore _windowViewModel;
 
         #region props
         [ObservableProperty]
@@ -26,7 +27,7 @@ namespace SpaceResidentClient.ViewModels.MainMenu
         #region commands
         private void Close() => _mainMenuViewModelInstance.SettingsViewSwitch();
         private void OpenGamePage() => CurrentPage = new GameSettingsViewModel();
-        private void OpenVideoPage() => CurrentPage = new VideoSettingsViewModel(_mainWindowViewModel);
+        private void OpenVideoPage() => CurrentPage = new VideoSettingsViewModel(_windowViewModel);
 
         private void PreviousPage()
         {
@@ -71,9 +72,9 @@ namespace SpaceResidentClient.ViewModels.MainMenu
         }
         #endregion
 
-        public SettingsViewModel(MainMenuViewModel mainMenuViewModel, MainWindowViewModel mainWindowViewModel)
+        public SettingsViewModel(MainMenuViewModel mainMenuViewModel, IWindowNavigationStore windowViewModel)
         {
-            _mainWindowViewModel = mainWindowViewModel;
+            _windowViewModel = windowViewModel;
             _mainMenuViewModelInstance = mainMenuViewModel;
 
             CloseCommand = new RelayCommand(Close);

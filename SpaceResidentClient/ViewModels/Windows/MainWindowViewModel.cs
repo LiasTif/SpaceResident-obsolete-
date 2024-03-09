@@ -1,12 +1,13 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
+using SpaceResidentClient.Interfaces;
+using SpaceResidentClient.Models.Settings;
 using SpaceResidentClient.Services;
 using SpaceResidentClient.ViewModels.MainMenu;
-using System;
 using System.Windows;
 
 namespace SpaceResidentClient.ViewModels.Windows
 {
-    partial class MainWindowViewModel : ObservableObject
+    internal partial class MainWindowViewModel : ObservableObject, IWindowNavigationStore, IWindowScreenMode
     {
         [ObservableProperty]
         private NavigationStore navigationStore;
@@ -34,6 +35,13 @@ namespace SpaceResidentClient.ViewModels.Windows
 
             // load Music Player and set bg music for main menu
             BackgroundMusicPlayer.LoadMusic("Data/music/MenuMusic.mp3");
+        }
+
+        internal void UpdateScreenMode(WindowMode mode)
+        {
+            this.ResizeMode = mode.ResizeMode;
+            this.WinState = mode.State;
+            this.WinStyle = mode.Style;
         }
     }
 }

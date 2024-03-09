@@ -7,12 +7,13 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using SpaceResidentClient.Properties;
+using SpaceResidentClient.Interfaces;
 
 namespace SpaceResidentClient.ViewModels.MainMenu.Settings
 {
     partial class VideoSettingsViewModel : ObservableObject
     {
-        private readonly MainWindowViewModel _mainWindowViewModel;
+        private readonly IWindowNavigationStore _windowViewModel;
 
         #region props
         [ObservableProperty]
@@ -48,16 +49,16 @@ namespace SpaceResidentClient.ViewModels.MainMenu.Settings
             new(WindowStyle.None, WindowState.Normal, ResizeMode.NoResize)
         };
 
-        private void ChangeWindowMode(WindowMode windowMode)
+        private void ChangeWindowMode(IWindowScreenMode screenMode, WindowMode windowMode)
         {
-            _mainWindowViewModel.WinStyle = windowMode.Style;
-            _mainWindowViewModel.WinState = windowMode.State;
-            _mainWindowViewModel.ResizeMode = windowMode.ResizeMode;
+            screenMode.WinStyle = windowMode.Style;
+            screenMode.WinState = windowMode.State;
+            screenMode.ResizeMode = windowMode.ResizeMode;
         }
 
-        public VideoSettingsViewModel(MainWindowViewModel mainWindowViewModel)
+        public VideoSettingsViewModel(IWindowNavigationStore windowViewModel)
         {
-            _mainWindowViewModel = mainWindowViewModel;
+            _windowViewModel = windowViewModel;
 
             CbScreenModeSelectionChangedCommand = new RelayCommand(CbScreenModeSelectionChanged);
 

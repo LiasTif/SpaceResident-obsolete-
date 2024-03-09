@@ -13,14 +13,14 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using SpaceResidentClient.Properties;
 using SpaceResidentClient.Services.UISounds;
+using SpaceResidentClient.Interfaces;
 
 namespace SpaceResidentClient.ViewModels.CharacterCreation
 {
     partial class CharacterCreationViewModel : ObservableObject
     {
         #region fields
-        private readonly MainWindowViewModel _mainWindowViewModel;
-        private readonly NavigationStore _navigationStore;
+        private readonly IWindowNavigationStore _windowViewModel;
         public CharacterImageProcessor ImageProcessor;
         public static MainCharacter MainCharacter = new
         (
@@ -33,14 +33,13 @@ namespace SpaceResidentClient.ViewModels.CharacterCreation
         );
         #endregion
 
-        public CharacterCreationViewModel(MainWindowViewModel mainWindowViewModel)
+        public CharacterCreationViewModel(IWindowNavigationStore windowViewModel)
         {
             // set bg as unemployed by default
             if (ImageProcessor == null)
                 BgImageSource = (ImageProcessor = new(this)).SetBgImageSource(Lang.unemployed);
 
-            _mainWindowViewModel = mainWindowViewModel;
-            _navigationStore = mainWindowViewModel.NavigationStore;
+            _windowViewModel = windowViewModel;
 
             // open character menu by default
             OpenSomeMenu("character");
@@ -88,7 +87,7 @@ namespace SpaceResidentClient.ViewModels.CharacterCreation
 
         private void Close()
         {
-            _navigationStore.CurrentViewModel = new MainMenuViewModel(_mainWindowViewModel);
+            _windowViewModel.NavigationStore.CurrentViewModel = new MainMenuViewModel(_windowViewModel);
         }
 
         private void OpenSomeMenu(object? name)
@@ -117,11 +116,13 @@ namespace SpaceResidentClient.ViewModels.CharacterCreation
 
         private void SetPageToCurrentUserControl(Type type, ObservableObject instance)
         {
-            CurrentUserControl = CharacterCreationPagesBuffer.GetPageFromCollection(type);
+            CharacterCreationPagesBuffer b = new();
+
+            CurrentUserControl = b.GetPageFromCollection(type);
             if (CurrentUserControl == null)
             {
-                CharacterCreationPagesBuffer.AddPageToCollection(instance);
-                CurrentUserControl = CharacterCreationPagesBuffer.GetPageFromCollection(type);
+                b.AddPageToCollection(instance);
+                CurrentUserControl = b.GetPageFromCollection(type);
             }
         }
 

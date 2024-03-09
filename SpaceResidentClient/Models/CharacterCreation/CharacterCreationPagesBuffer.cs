@@ -1,26 +1,30 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
+using SpaceResidentClient.Interfaces;
 using SpaceResidentClient.ViewModels.CharacterCreation;
+using SpaceResidentClient.ViewModels.Windows;
 using System;
 using System.Collections.ObjectModel;
 
 namespace SpaceResidentClient.Models.CharacterCreation
 {
-    public class CharacterCreationPagesBuffer
+    internal partial class CharacterCreationPagesBuffer : ObservableObject
     {
+        [ObservableProperty]
+        private static ObservableObject? characterCreationViewModel;
+        [ObservableProperty]
         private static ObservableCollection<ObservableObject>? pagesCollection;
-        public static ObservableCollection<ObservableObject>? PagesCollection
+
+        /// <summary>
+        /// Set character creation view model in CharacterCreationPagesBuffer and return it
+        /// </summary>
+        /// <param name="vm">Window view model</param>
+        /// <returns></returns>
+        public ObservableObject InitializeCharacterCreationVM(IWindowNavigationStore vm)
         {
-            get => pagesCollection;
-            set
-            {
-                if (value != pagesCollection)
-                {
-                    pagesCollection = value;
-                }
-            }
+            return CharacterCreationViewModel ??= new CharacterCreationViewModel(vm);
         }
 
-        public static ObservableObject? GetPageFromCollection(Type pageType)
+        public ObservableObject? GetPageFromCollection(Type pageType)
         {
             if (PagesCollection == null)
                 return null;
@@ -34,7 +38,7 @@ namespace SpaceResidentClient.Models.CharacterCreation
             return null;
         }
 
-        public static void AddPageToCollection(ObservableObject page)
+        public void AddPageToCollection(ObservableObject page)
         {
             if (PagesCollection != null)
             {
@@ -50,17 +54,6 @@ namespace SpaceResidentClient.Models.CharacterCreation
             }
 
             PagesCollection.Add(page);
-        }
-
-        private static ObservableObject? characterCreationViewModel;
-        public static ObservableObject? CharacterCreationViewModel
-        {
-            get => characterCreationViewModel;
-            set
-            {
-                if (value is CharacterCreationViewModel)
-                    characterCreationViewModel = value;
-            }
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using SpaceResidentClient.Interfaces;
 using SpaceResidentClient.Models.CharacterCreation;
 using SpaceResidentClient.ViewModels.CharacterCreation;
 using SpaceResidentClient.ViewModels.Windows;
@@ -12,7 +13,7 @@ namespace SpaceResidentClient.ViewModels.MainMenu
 {
     partial class MainMenuViewModel : ObservableObject
     {
-        private readonly MainWindowViewModel _mainWindowViewModel;
+        private readonly IWindowNavigationStore _windowViewModel;
 
         #region props
         [ObservableProperty]
@@ -29,8 +30,8 @@ namespace SpaceResidentClient.ViewModels.MainMenu
 
         private void OpenCharacterCreation()
         {
-            _mainWindowViewModel.NavigationStore.CurrentViewModel = CharacterCreationPagesBuffer.CharacterCreationViewModel ??=
-                new CharacterCreationViewModel(_mainWindowViewModel);
+            CharacterCreationPagesBuffer b = new();
+            _windowViewModel.NavigationStore.CurrentViewModel = b.InitializeCharacterCreationVM(_windowViewModel);
         }
 
         private void Shutdown() => App.Current.Shutdown();
@@ -38,7 +39,7 @@ namespace SpaceResidentClient.ViewModels.MainMenu
         {
             // open settings view if it`s already opened, close if opened
             CurrentUCViewModel = CurrentUCViewModel is SettingsViewModel ? null :
-                new SettingsViewModel(this, _mainWindowViewModel);
+                new SettingsViewModel(this, _windowViewModel);
         }
         #endregion
 
@@ -94,9 +95,9 @@ namespace SpaceResidentClient.ViewModels.MainMenu
         }
         #endregion
 
-        public MainMenuViewModel(MainWindowViewModel mainWindowViewModel)
+        public MainMenuViewModel(IWindowNavigationStore windowViewModel)
         {
-            _mainWindowViewModel = mainWindowViewModel;
+            _windowViewModel = windowViewModel;
 
             ShutdownCommand = new RelayCommand(Shutdown);
             SettingsViewSwitchCommand = new RelayCommand(SettingsViewSwitch);
