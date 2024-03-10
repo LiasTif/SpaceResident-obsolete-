@@ -13,7 +13,7 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using SpaceResidentClient.Properties;
 using SpaceResidentClient.Services.UISounds;
-using SpaceResidentClient.Interfaces;
+using SpaceResidentClient.ViewModels.Windows.Interfaces;
 
 namespace SpaceResidentClient.ViewModels.CharacterCreation
 {
@@ -22,7 +22,6 @@ namespace SpaceResidentClient.ViewModels.CharacterCreation
         #region fields
         private readonly IWindowNavigationStore _windowViewModel;
         private readonly IWindowScreenMode _windowScreenMode;
-        public CharacterImageProcessor ImageProcessor;
         public static MainCharacter MainCharacter = new
         (
             job: "Unemployed",
@@ -37,8 +36,7 @@ namespace SpaceResidentClient.ViewModels.CharacterCreation
         public CharacterCreationViewModel(IWindowNavigationStore windowViewModel, IWindowScreenMode windowScreenMode)
         {
             // set bg as unemployed by default
-            if (ImageProcessor == null)
-                BgImageSource = (ImageProcessor = new(this)).SetBgImageSource(Lang.unemployed);
+            BgImageSource = CharacterImageProcessor.SetBgImageSource(Lang.unemployed);
 
             _windowViewModel = windowViewModel;
             _windowScreenMode = windowScreenMode;
@@ -99,33 +97,35 @@ namespace SpaceResidentClient.ViewModels.CharacterCreation
             switch (str)
             {
                 case "character":
-                    SetPageToCurrentUserControl(typeof(CreationCharacterViewModel), new CreationCharacterViewModel(this));
+                    SetTabToCurrentUserControl(typeof(CreationCharacterViewModel), new CreationCharacterViewModel(this));
                     break;
                 case "skills":
-                    SetPageToCurrentUserControl(typeof(CreationSkillsViewModel), new CreationSkillsViewModel());
+                    SetTabToCurrentUserControl(typeof(CreationSkillsViewModel), new CreationSkillsViewModel());
                     break;
                 case "job":
-                    SetPageToCurrentUserControl(typeof(CreationJobViewModel), new CreationJobViewModel(this));
+                    SetTabToCurrentUserControl(typeof(CreationJobViewModel), new CreationJobViewModel(this));
                     break;
                 case "location":
-                    SetPageToCurrentUserControl(typeof(CreationLocationViewModel), new CreationLocationViewModel());
+                    SetTabToCurrentUserControl(typeof(CreationLocationViewModel), new CreationLocationViewModel());
                     break;
                 case "stats":
-                    SetPageToCurrentUserControl(typeof(CreationStatsViewModel), new CreationStatsViewModel());
+                    SetTabToCurrentUserControl(typeof(CreationStatsViewModel), new CreationStatsViewModel());
                     break;
             }
         }
 
-        private void SetPageToCurrentUserControl(Type type, ObservableObject instance)
+        private void SetTabToCurrentUserControl(Type type, ObservableObject instance)
         {
             CharacterCreationPagesBuffer b = new();
 
-            CurrentUserControl = b.GetPageFromCollection(type);
+            CurrentUserControl = b.GetTabFromCollection(type);
             if (CurrentUserControl == null)
-            {
-                b.AddPageToCollection(instance);
-                CurrentUserControl = b.GetPageFromCollection(type);
-            }
+                b.AddTabToCollection(instance);
+            //if (CurrentUserControl == null)
+            //{
+            //    b.AddPageToCollection(instance);
+            //    CurrentUserControl = b.GetPageFromCollection(type);
+            //}
         }
 
         private void NextImage()

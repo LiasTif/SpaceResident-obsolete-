@@ -1,7 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using SpaceResidentClient.Interfaces;
 using SpaceResidentClient.Models.CharacterCreation;
+using SpaceResidentClient.ViewModels.Windows.Interfaces;
 using System;
 using System.Threading.Tasks;
 using System.Timers;

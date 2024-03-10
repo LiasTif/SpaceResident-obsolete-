@@ -2,32 +2,31 @@
 using SpaceResidentClient.ViewModels.CharacterCreation;
 using System;
 using SpaceResidentClient.Properties;
-using System.Diagnostics;
 
 namespace SpaceResidentClient.Models.ImagesProcessors
 {
-    public class CharacterImageProcessor(ObservableObject parentViewModel)
+    internal class CharacterImageProcessor(ObservableObject parentViewModel)
     {
-        readonly ObservableObject _parentViewModel = parentViewModel;
+        private readonly ObservableObject _parentViewModel = parentViewModel;
 
         #region metods
-        public string SetBgImageSource(string job)
+        internal static string SetBgImageSource(string job)
         {
-            string uri = "/Resources;component";
+            string uri = "/Resources;component\\Data\\UI\\";
 
             if (job == Lang.fleaMarketVendor)
-                uri += "\\Data\\UI\\CharacterJobBGs\\FleaMarket";
+                uri += "CharacterJobBGs\\FleaMarket";
             else if (job == Lang.unemployed)
-                uri += "\\Data\\UI\\Locations\\Houses\\SpaceStationHome1";
+                uri += "Locations\\Houses\\SpaceStationHome1";
             else if (job == Lang.productionWorker)
-                uri += "\\Data\\UI\\CharacterJobBGs\\Fabric";
+                uri += "CharacterJobBGs\\Fabric";
             else if (job == Lang.clerk)
-                uri += "\\Data\\UI\\CharacterJobBGs\\Office";
+                uri += "CharacterJobBGs\\Office";
 
             return uri += ".png";
         }
 
-        public void GetAvalibleCharacterImages(char race, bool isFemale)
+        internal void GetAvalibleCharacterImages(char race, bool isFemale)
         {
             if (_parentViewModel is CharacterCreationViewModel characterCreationVM)
             {
@@ -49,7 +48,7 @@ namespace SpaceResidentClient.Models.ImagesProcessors
             characterCreationVM.CharacterImagesDirectory = uri;
         }
 
-        public void GetAvalibleCharacterImages(char Race)
+        internal void GetAvalibleCharacterImages(char Race)
         {
             throw new NotImplementedException();
         }

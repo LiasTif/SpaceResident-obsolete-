@@ -1,7 +1,7 @@
 ﻿using SpaceResidentClient.Models.Settings;
 using System.Windows;
 
-namespace SpaceResidentClient.Interfaces
+namespace SpaceResidentClient.ViewModels.Windows.Interfaces
 {
     internal interface IWindowScreenMode
     {

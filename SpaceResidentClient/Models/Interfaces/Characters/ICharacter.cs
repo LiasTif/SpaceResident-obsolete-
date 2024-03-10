@@ -1,6 +1,6 @@
-﻿namespace SpaceResidentClient.Models.Interfaces
+﻿namespace SpaceResidentClient.Models.Interfaces.Characters
 {
-    interface ICharacter
+    internal interface ICharacter
     {
         string Name { get; set; }
         string Surname { get; set; }

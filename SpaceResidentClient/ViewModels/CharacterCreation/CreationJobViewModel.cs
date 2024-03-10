@@ -1,17 +1,18 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using System.Collections.ObjectModel;
 using System.Windows.Controls;
-using SpaceResidentClient.Properties;
+using SpaceResidentClient.Models.ImagesProcessors;
+using SpaceResidentClient.Models.CharacterCreation;
 
 namespace SpaceResidentClient.ViewModels.CharacterCreation
 {
     partial class CreationJobViewModel : ObservableObject
     {
-        private readonly CharacterCreationViewModel _characterCreationViewModel;
+        private readonly CharacterCreationViewModel _characterCreationVM;
 
         #region props
         [ObservableProperty]
-        public ObservableCollection<TextBlock> jobTextBlocks = [];
+        public ObservableCollection<TextBlock> jobTextBlocks = CreateJobTextBlocksCollection();
 
         private TextBlock? _selectedJobTextBlock;
         public TextBlock? SelectedJobTextBlock
@@ -23,31 +24,29 @@ namespace SpaceResidentClient.ViewModels.CharacterCreation
                 {
                     _selectedJobTextBlock = value;
 
-                    _characterCreationViewModel.BgImageSource =
-                        _characterCreationViewModel.ImageProcessor.SetBgImageSource(value.Text);
+                    _characterCreationVM.BgImageSource = CharacterImageProcessor.SetBgImageSource(value.Text);
                 }
             }
         }
         #endregion
 
-        public CreationJobViewModel(CharacterCreationViewModel characterCreationViewModel)
+        public CreationJobViewModel(CharacterCreationViewModel vm)
         {
-            _characterCreationViewModel = characterCreationViewModel;
+            _characterCreationVM = vm;
             CreateJobTextBlocksCollection();
 
             if (SelectedJobTextBlock == null)
                 SetSelectedTextBlockFromCollection();
         }
 
-        private void CreateJobTextBlocksCollection()
+        private static ObservableCollection<TextBlock> CreateJobTextBlocksCollection()
         {
-            JobTextBlocks =
-            [
-                new() { Text = Lang.unemployed },
-                new() { Text = Lang.clerk },
-                new() { Text = Lang.fleaMarketVendor },
-                new() { Text = Lang.productionWorker }
-            ];
+            ObservableCollection<TextBlock> result = [];
+            foreach (string str in JobsProcessor.GetJobList)
+            {
+                result.Add(new() { Text = str });
+            }
+            return result;
         }
 
         private void SetSelectedTextBlockFromCollection()

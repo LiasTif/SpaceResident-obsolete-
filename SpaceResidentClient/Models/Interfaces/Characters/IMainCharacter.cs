@@ -1,6 +1,6 @@
-﻿namespace SpaceResidentClient.Models.Interfaces
+﻿namespace SpaceResidentClient.Models.Interfaces.Characters
 {
-    interface IMainCharacter : ICharacter
+    internal interface IMainCharacter : ICharacter
     {
         string Job { get; set; }
 
@@ -67,7 +67,7 @@
         #region Communication
         byte HumanSpeech { get; set; }
         byte VibrationsOfVunTi { get; set; }
-        byte TickingOfVunMisak  { get; set; }
+        byte TickingOfVunMisak { get; set; }
         byte CommunicationByVunFlantSpores { get; set; }
         #endregion
         #region Informatics

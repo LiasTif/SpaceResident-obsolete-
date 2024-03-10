@@ -1,8 +1,8 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
-using SpaceResidentClient.Interfaces;
 using SpaceResidentClient.Models.Settings;
 using SpaceResidentClient.Services;
 using SpaceResidentClient.ViewModels.MainMenu;
+using SpaceResidentClient.ViewModels.Windows.Interfaces;
 using System.Windows;
 
 namespace SpaceResidentClient.ViewModels.Windows

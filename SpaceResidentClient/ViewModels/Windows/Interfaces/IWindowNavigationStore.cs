@@ -1,7 +1,7 @@
 ﻿using SpaceResidentClient.Services;
 using System.ComponentModel;
 
-namespace SpaceResidentClient.Interfaces
+namespace SpaceResidentClient.ViewModels.Windows.Interfaces
 {
     internal interface IWindowNavigationStore : INotifyPropertyChanged
     {

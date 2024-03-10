@@ -1,7 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
-using SpaceResidentClient.Interfaces;
 using SpaceResidentClient.ViewModels.CharacterCreation;
-using SpaceResidentClient.ViewModels.Windows;
+using SpaceResidentClient.ViewModels.Windows.Interfaces;
 using System;
 using System.Collections.ObjectModel;
 
@@ -12,48 +11,49 @@ namespace SpaceResidentClient.Models.CharacterCreation
         [ObservableProperty]
         private static ObservableObject? characterCreationViewModel;
         [ObservableProperty]
-        private static ObservableCollection<ObservableObject>? pagesCollection;
+        private static ObservableCollection<ObservableObject>? tabsCollection;
 
         /// <summary>
         /// Set character creation view model in CharacterCreationPagesBuffer and return it
         /// </summary>
-        /// <param name="vm">Window view model</param>
-        /// <returns></returns>
-        public ObservableObject InitializeCharacterCreationVM(IWindowNavigationStore winVM, IWindowScreenMode winScreenMode)
+        /// <param name="winVM">Window navigation store interface</param>
+        /// /// <param name="winScreenMode">Window screen mode interface</param>
+        /// <returns>Character creation view model</returns>
+        internal ObservableObject InitializeCharacterCreationVM(IWindowNavigationStore winVM, IWindowScreenMode winScreenMode)
         {
             return CharacterCreationViewModel ??= new CharacterCreationViewModel(winVM, winScreenMode);
         }
 
-        public ObservableObject? GetPageFromCollection(Type pageType)
+        internal ObservableObject? GetTabFromCollection(Type pageType)
         {
-            if (PagesCollection == null)
+            if (TabsCollection == null)
                 return null;
 
-            foreach (ObservableObject curPage in PagesCollection)
+            foreach (ObservableObject curTab in TabsCollection)
             {
-                if (curPage.GetType() == pageType)
-                    return curPage;
+                if (curTab.GetType() == pageType)
+                    return curTab;
             }
 
             return null;
         }
 
-        public void AddPageToCollection(ObservableObject page)
+        internal void AddTabToCollection(ObservableObject tab)
         {
-            if (PagesCollection != null)
+            if (TabsCollection != null)
             {
-                foreach (ObservableObject curPage in PagesCollection)
+                foreach (ObservableObject curTab in TabsCollection)
                 {
-                    if (curPage.GetType() == page.GetType())
+                    if (curTab.GetType() == tab.GetType())
                         return;
                 }
             }
             else
             {
-                PagesCollection = [];
+                TabsCollection = [];
             }
 
-            PagesCollection.Add(page);
+            TabsCollection.Add(tab);
         }
     }
 }

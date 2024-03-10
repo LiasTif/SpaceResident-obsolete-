@@ -7,7 +7,7 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using SpaceResidentClient.Properties;
 using SpaceResidentClient.Services.UISounds;
-using SpaceResidentClient.Interfaces;
+using SpaceResidentClient.ViewModels.Windows.Interfaces;
 
 namespace SpaceResidentClient.ViewModels.MainMenu
 {

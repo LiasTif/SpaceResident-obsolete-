@@ -6,7 +6,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using SpaceResidentClient.Properties;
-using SpaceResidentClient.Interfaces;
+using SpaceResidentClient.ViewModels.Windows.Interfaces;
 
 namespace SpaceResidentClient.ViewModels.MainMenu.Settings
 {
