@@ -9,6 +9,6 @@ namespace SpaceResidentClient.Interfaces
         WindowState WinState { get; set; }
         WindowStyle WinStyle { get; set; }
 
-        internal void UpdateScreenMode(WindowMode mode);
+        void UpdateScreenMode(WindowMode mode);
     }
 }

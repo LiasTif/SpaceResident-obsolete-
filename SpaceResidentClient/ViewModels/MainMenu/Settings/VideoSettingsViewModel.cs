@@ -1,7 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using SpaceResidentClient.Models.Settings;
-using SpaceResidentClient.ViewModels.Windows;
 using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Controls;
@@ -13,7 +12,7 @@ namespace SpaceResidentClient.ViewModels.MainMenu.Settings
 {
     partial class VideoSettingsViewModel : ObservableObject
     {
-        private readonly IWindowNavigationStore _windowViewModel;
+        private readonly IWindowScreenMode _windowScreenMode;
 
         #region props
         [ObservableProperty]
@@ -29,13 +28,13 @@ namespace SpaceResidentClient.ViewModels.MainMenu.Settings
             {
                 // fullscreen
                 if (SelectedScreenModeTextBlock.Text == Lang.fullscreen)
-                    ChangeWindowMode(windowModes[0]);
+                    _windowScreenMode.UpdateScreenMode(windowModes[0]);
                 // windowed
                 else if (SelectedScreenModeTextBlock.Text == Lang.windowed)
-                    ChangeWindowMode(windowModes[1]);
+                    _windowScreenMode.UpdateScreenMode(windowModes[1]);
                 // borderless window
                 else
-                    ChangeWindowMode(windowModes[2]);
+                    _windowScreenMode.UpdateScreenMode(windowModes[2]);
             }
         }
 
@@ -49,16 +48,16 @@ namespace SpaceResidentClient.ViewModels.MainMenu.Settings
             new(WindowStyle.None, WindowState.Normal, ResizeMode.NoResize)
         };
 
-        private void ChangeWindowMode(IWindowScreenMode screenMode, WindowMode windowMode)
-        {
-            screenMode.WinStyle = windowMode.Style;
-            screenMode.WinState = windowMode.State;
-            screenMode.ResizeMode = windowMode.ResizeMode;
-        }
+        //private void ChangeWindowMode(IWindowScreenMode screenMode, WindowMode windowMode)
+        //{
+        //    screenMode.WinStyle = windowMode.Style;
+        //    screenMode.WinState = windowMode.State;
+        //    screenMode.ResizeMode = windowMode.ResizeMode;
+        //}
 
-        public VideoSettingsViewModel(IWindowNavigationStore windowViewModel)
+        public VideoSettingsViewModel(IWindowScreenMode windowScreenMode)
         {
-            _windowViewModel = windowViewModel;
+            _windowScreenMode = windowScreenMode;
 
             CbScreenModeSelectionChangedCommand = new RelayCommand(CbScreenModeSelectionChanged);
 

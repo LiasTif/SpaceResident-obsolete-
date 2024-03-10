@@ -2,8 +2,6 @@
 using CommunityToolkit.Mvvm.Input;
 using SpaceResidentClient.Interfaces;
 using SpaceResidentClient.Models.CharacterCreation;
-using SpaceResidentClient.ViewModels.CharacterCreation;
-using SpaceResidentClient.ViewModels.Windows;
 using System;
 using System.Threading.Tasks;
 using System.Timers;
@@ -14,6 +12,7 @@ namespace SpaceResidentClient.ViewModels.MainMenu
     partial class MainMenuViewModel : ObservableObject
     {
         private readonly IWindowNavigationStore _windowViewModel;
+        private readonly IWindowScreenMode _windowScreenMode;
 
         #region props
         [ObservableProperty]
@@ -31,7 +30,7 @@ namespace SpaceResidentClient.ViewModels.MainMenu
         private void OpenCharacterCreation()
         {
             CharacterCreationPagesBuffer b = new();
-            _windowViewModel.NavigationStore.CurrentViewModel = b.InitializeCharacterCreationVM(_windowViewModel);
+            _windowViewModel.NavigationStore.CurrentViewModel = b.InitializeCharacterCreationVM(_windowViewModel, _windowScreenMode);
         }
 
         private void Shutdown() => App.Current.Shutdown();
@@ -39,7 +38,7 @@ namespace SpaceResidentClient.ViewModels.MainMenu
         {
             // open settings view if it`s already opened, close if opened
             CurrentUCViewModel = CurrentUCViewModel is SettingsViewModel ? null :
-                new SettingsViewModel(this, _windowViewModel);
+                new SettingsViewModel(this, _windowScreenMode);
         }
         #endregion
 
@@ -95,9 +94,10 @@ namespace SpaceResidentClient.ViewModels.MainMenu
         }
         #endregion
 
-        public MainMenuViewModel(IWindowNavigationStore windowViewModel)
+        public MainMenuViewModel(IWindowNavigationStore windowViewModel, IWindowScreenMode windowScreenMode)
         {
             _windowViewModel = windowViewModel;
+            _windowScreenMode = windowScreenMode;
 
             ShutdownCommand = new RelayCommand(Shutdown);
             SettingsViewSwitchCommand = new RelayCommand(SettingsViewSwitch);

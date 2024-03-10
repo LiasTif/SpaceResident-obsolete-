@@ -2,7 +2,6 @@
 using CommunityToolkit.Mvvm.Input;
 using SpaceResidentClient.Models;
 using SpaceResidentClient.ViewModels.MainMenu.Settings;
-using SpaceResidentClient.ViewModels.Windows;
 using System.Collections.ObjectModel;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -15,7 +14,8 @@ namespace SpaceResidentClient.ViewModels.MainMenu
     internal partial class SettingsViewModel : ObservableObject
     {
         public MainMenuViewModel _mainMenuViewModelInstance;
-        private readonly IWindowNavigationStore _windowViewModel;
+        //private readonly IWindowNavigationStore _windowViewModel;
+        private readonly IWindowScreenMode _windowScreenMode;
 
         #region props
         [ObservableProperty]
@@ -27,7 +27,7 @@ namespace SpaceResidentClient.ViewModels.MainMenu
         #region commands
         private void Close() => _mainMenuViewModelInstance.SettingsViewSwitch();
         private void OpenGamePage() => CurrentPage = new GameSettingsViewModel();
-        private void OpenVideoPage() => CurrentPage = new VideoSettingsViewModel(_windowViewModel);
+        private void OpenVideoPage() => CurrentPage = new VideoSettingsViewModel(_windowScreenMode);
 
         private void PreviousPage()
         {
@@ -72,9 +72,9 @@ namespace SpaceResidentClient.ViewModels.MainMenu
         }
         #endregion
 
-        public SettingsViewModel(MainMenuViewModel mainMenuViewModel, IWindowNavigationStore windowViewModel)
+        public SettingsViewModel(MainMenuViewModel mainMenuViewModel, IWindowScreenMode windowScreenMode)
         {
-            _windowViewModel = windowViewModel;
+            _windowScreenMode = windowScreenMode;
             _mainMenuViewModelInstance = mainMenuViewModel;
 
             CloseCommand = new RelayCommand(Close);

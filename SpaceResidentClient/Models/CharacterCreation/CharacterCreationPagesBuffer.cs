@@ -19,9 +19,9 @@ namespace SpaceResidentClient.Models.CharacterCreation
         /// </summary>
         /// <param name="vm">Window view model</param>
         /// <returns></returns>
-        public ObservableObject InitializeCharacterCreationVM(IWindowNavigationStore vm)
+        public ObservableObject InitializeCharacterCreationVM(IWindowNavigationStore winVM, IWindowScreenMode winScreenMode)
         {
-            return CharacterCreationViewModel ??= new CharacterCreationViewModel(vm);
+            return CharacterCreationViewModel ??= new CharacterCreationViewModel(winVM, winScreenMode);
         }
 
         public ObservableObject? GetPageFromCollection(Type pageType)

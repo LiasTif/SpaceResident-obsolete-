@@ -24,7 +24,7 @@ namespace SpaceResidentClient.ViewModels.Windows
 
         public MainWindowViewModel(NavigationStore navigationStore)
         {
-            navigationStore.CurrentViewModel = new MainMenuViewModel(this);
+            navigationStore.CurrentViewModel = new MainMenuViewModel(this, this);
             this.navigationStore = navigationStore;
 
             this.navigationStore.PropertyChanged += (sender, args) =>
@@ -37,7 +37,7 @@ namespace SpaceResidentClient.ViewModels.Windows
             BackgroundMusicPlayer.LoadMusic("Data/music/MenuMusic.mp3");
         }
 
-        internal void UpdateScreenMode(WindowMode mode)
+        void IWindowScreenMode.UpdateScreenMode(WindowMode mode)
         {
             this.ResizeMode = mode.ResizeMode;
             this.WinState = mode.State;

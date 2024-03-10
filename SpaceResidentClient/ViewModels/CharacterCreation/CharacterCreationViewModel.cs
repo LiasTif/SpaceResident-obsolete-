@@ -21,6 +21,7 @@ namespace SpaceResidentClient.ViewModels.CharacterCreation
     {
         #region fields
         private readonly IWindowNavigationStore _windowViewModel;
+        private readonly IWindowScreenMode _windowScreenMode;
         public CharacterImageProcessor ImageProcessor;
         public static MainCharacter MainCharacter = new
         (
@@ -33,13 +34,14 @@ namespace SpaceResidentClient.ViewModels.CharacterCreation
         );
         #endregion
 
-        public CharacterCreationViewModel(IWindowNavigationStore windowViewModel)
+        public CharacterCreationViewModel(IWindowNavigationStore windowViewModel, IWindowScreenMode windowScreenMode)
         {
             // set bg as unemployed by default
             if (ImageProcessor == null)
                 BgImageSource = (ImageProcessor = new(this)).SetBgImageSource(Lang.unemployed);
 
             _windowViewModel = windowViewModel;
+            _windowScreenMode = windowScreenMode;
 
             // open character menu by default
             OpenSomeMenu("character");
@@ -87,7 +89,7 @@ namespace SpaceResidentClient.ViewModels.CharacterCreation
 
         private void Close()
         {
-            _windowViewModel.NavigationStore.CurrentViewModel = new MainMenuViewModel(_windowViewModel);
+            _windowViewModel.NavigationStore.CurrentViewModel = new MainMenuViewModel(_windowViewModel, _windowScreenMode);
         }
 
         private void OpenSomeMenu(object? name)
