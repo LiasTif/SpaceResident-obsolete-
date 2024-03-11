@@ -3,73 +3,73 @@ using SpaceResidentClient.Models.Interfaces.Characters;
 
 namespace SpaceResidentClient.Models.CharacterCreation
 {
-    internal partial class MainCharacter(string job, string name, string surname, bool isFemale, char race, int age) : ObservableObject, IMainCharacter
+    internal partial class MainCharacter(string job, string name, string sName, bool isFemale, char race, int age) : ObservableObject, IMainCharacter
     {
         #region props
-        int ICharacter.Age { get; set; } = age;
-        string IMainCharacter.Job { get; set; } = job;
-        byte IMainCharacter.Linguistics { get; set; }
-        byte IMainCharacter.Naturalistics { get; set; }
-        byte IMainCharacter.Existentialism { get; set; }
-        byte IMainCharacter.Relationships { get; set; }
-        byte IMainCharacter.Logic { get; set; }
-        byte IMainCharacter.Space { get; set; }
-        byte IMainCharacter.Kinetics { get; set; }
-        byte IMainCharacter.HRManagement { get; set; }
-        byte IMainCharacter.Marketing { get; set; }
-        byte IMainCharacter.MacroFinancialManagement { get; set; }
-        byte IMainCharacter.BusinessPlanning { get; set; }
-        byte IMainCharacter.StationManagement { get; set; }
-        byte IMainCharacter.Doctor { get; set; }
-        byte IMainCharacter.Lawyer { get; set; }
-        byte IMainCharacter.Clerk { get; set; }
-        byte IMainCharacter.Musician { get; set; }
-        byte IMainCharacter.Artist { get; set; }
-        byte IMainCharacter.Architect { get; set; }
-        byte IMainCharacter.Programmer { get; set; }
-        byte IMainCharacter.Engineer { get; set; }
-        byte IMainCharacter.Laborer { get; set; }
-        byte IMainCharacter.SpaceСourier { get; set; }
-        byte IMainCharacter.PlanetaryСourier { get; set; }
-        byte IMainCharacter.LandTransportCourier { get; set; }
-        byte IMainCharacter.CorvetteControl { get; set; }
-        byte IMainCharacter.DestroyersControl { get; set; }
-        byte IMainCharacter.CruisersControl { get; set; }
-        byte IMainCharacter.BattleshipsControl { get; set; }
-        byte IMainCharacter.AircraftCarriersControl { get; set; }
-        byte IMainCharacter.TitansControl { get; set; }
-        byte IMainCharacter.LandTransportControl { get; set; }
-        byte IMainCharacter.FlyingAtmosphericTransportControl { get; set; }
-        byte IMainCharacter.Mathematics { get; set; }
-        byte IMainCharacter.Physics { get; set; }
-        byte IMainCharacter.Chemistry { get; set; }
-        byte IMainCharacter.Biology { get; set; }
-        byte IMainCharacter.Geography { get; set; }
-        byte IMainCharacter.Astronomy { get; set; }
-        byte IMainCharacter.Philosophy { get; set; }
-        byte IMainCharacter.Psychology { get; set; }
-        byte IMainCharacter.Empathy { get; set; }
-        byte IMainCharacter.Will { get; set; }
-        byte IMainCharacter.SelfDiscipline { get; set; }
-        byte IMainCharacter.CriticalThinking { get; set; }
-        byte IMainCharacter.SelfKnowledge { get; set; }
-        byte IMainCharacter.HumanSpeech { get; set; }
-        byte IMainCharacter.VibrationsOfVunTi { get; set; }
-        byte IMainCharacter.TickingOfVunMisak { get; set; }
-        byte IMainCharacter.CommunicationByVunFlantSpores { get; set; }
-        byte IMainCharacter.Software { get; set; }
-        byte IMainCharacter.AlgorithmsAndDataStructures { get; set; }
-        byte IMainCharacter.ProgrammingLanguages { get; set; }
-        byte IMainCharacter.ArtificialIntelligence { get; set; }
-        byte IMainCharacter.Cybersecurity { get; set; }
-        byte IMainCharacter.NeurophysicalSystems { get; set; }
-        byte IMainCharacter.CyberneticSystems { get; set; }
-        byte IMainCharacter.Engineering { get; set; }
-        byte IMainCharacter.Hardware { get; set; }
-        string ICharacter.Name { get; set; } = name;
-        string ICharacter.Surname { get; set; } = surname;
-        bool ICharacter.IsFemale { get; set; } = isFemale;
-        char ICharacter.Race { get; set; } = race;
+        public string Name { get; set; } = name;
+        public string Surname { get; set; } = sName;
+        public bool IsFemale { get; set; } = isFemale;
+        public char Race { get; set; } = race;
+        public int Age { get; set; } = age;
+        public string Job { get; set; } = job;
+        public byte Linguistics { get; set; }
+        public byte Naturalistics { get; set; }
+        public byte Existentialism { get; set; }
+        public byte Relationships { get; set; }
+        public byte Logic { get; set; }
+        public byte Space { get; set; }
+        public byte Kinetics { get; set; }
+        public byte HRManagement { get; set; }
+        public byte Marketing { get; set; }
+        public byte MacroFinancialManagement { get; set; }
+        public byte BusinessPlanning { get; set; }
+        public byte StationManagement { get; set; }
+        public byte Doctor { get; set; }
+        public byte Lawyer { get; set; }
+        public byte Clerk { get; set; }
+        public byte Musician { get; set; }
+        public byte Artist { get; set; }
+        public byte Architect { get; set; }
+        public byte Programmer { get; set; }
+        public byte Engineer { get; set; }
+        public byte Laborer { get; set; }
+        public byte SpaceСourier { get; set; }
+        public byte PlanetaryСourier { get; set; }
+        public byte LandTransportCourier { get; set; }
+        public byte CorvetteControl { get; set; }
+        public byte DestroyersControl { get; set; }
+        public byte CruisersControl { get; set; }
+        public byte BattleshipsControl { get; set; }
+        public byte AircraftCarriersControl { get; set; }
+        public byte TitansControl { get; set; }
+        public byte LandTransportControl { get; set; }
+        public byte FlyingAtmosphericTransportControl { get; set; }
+        public byte Mathematics { get; set; }
+        public byte Physics { get; set; }
+        public byte Chemistry { get; set; }
+        public byte Biology { get; set; }
+        public byte Geography { get; set; }
+        public byte Astronomy { get; set; }
+        public byte Philosophy { get; set; }
+        public byte Psychology { get; set; }
+        public byte Empathy { get; set; }
+        public byte Will { get; set; }
+        public byte SelfDiscipline { get; set; }
+        public byte CriticalThinking { get; set; }
+        public byte SelfKnowledge { get; set; }
+        public byte HumanSpeech { get; set; }
+        public byte VibrationsOfVunTi { get; set; }
+        public byte TickingOfVunMisak { get; set; }
+        public byte CommunicationByVunFlantSpores { get; set; }
+        public byte Software { get; set; }
+        public byte AlgorithmsAndDataStructures { get; set; }
+        public byte ProgrammingLanguages { get; set; }
+        public byte ArtificialIntelligence { get; set; }
+        public byte Cybersecurity { get; set; }
+        public byte NeurophysicalSystems { get; set; }
+        public byte CyberneticSystems { get; set; }
+        public byte Engineering { get; set; }
+        public byte Hardware { get; set; }
         #endregion
     }
 }

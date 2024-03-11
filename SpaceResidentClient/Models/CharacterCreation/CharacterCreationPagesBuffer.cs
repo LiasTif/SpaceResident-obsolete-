@@ -19,12 +19,12 @@ namespace SpaceResidentClient.Models.CharacterCreation
         /// <param name="winVM">Window navigation store interface</param>
         /// /// <param name="winScreenMode">Window screen mode interface</param>
         /// <returns>Character creation view model</returns>
-        internal ObservableObject InitializeCharacterCreationVM(IWindowNavigationStore winVM, IWindowScreenMode winScreenMode)
+        public ObservableObject InitializeCharacterCreationVM(IWindowNavigationStore winVM, IWindowScreenMode winScreenMode)
         {
             return CharacterCreationViewModel ??= new CharacterCreationViewModel(winVM, winScreenMode);
         }
 
-        internal ObservableObject? GetTabFromCollection(Type pageType)
+        public ObservableObject? GetTabFromCollection(Type pageType)
         {
             if (TabsCollection == null)
                 return null;
@@ -38,7 +38,7 @@ namespace SpaceResidentClient.Models.CharacterCreation
             return null;
         }
 
-        internal void AddTabToCollection(ObservableObject tab)
+        public void AddTabToCollection(ObservableObject tab)
         {
             if (TabsCollection != null)
             {

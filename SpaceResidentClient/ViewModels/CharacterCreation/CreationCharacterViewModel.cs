@@ -83,7 +83,7 @@ namespace SpaceResidentClient.ViewModels.CharacterCreation
         {
             // vun-ti (t) and vun_flant (f) don`t have a gender and go to GetAvalibleCharacterImages metod immedeatly
             if (Race == 't' || Race == 'f')
-                _characterCreationViewModel.ImageProcessor.GetAvalibleCharacterImages(Race);
+                _characterCreationViewModel.CharacterImageProcessor.GetAvalibleCharacterImages(Race);
             else
                 _characterCreationViewModel.ImageProcessor.GetAvalibleCharacterImages(Race, IsFemale);
         }

@@ -10,7 +10,7 @@ namespace SpaceResidentClient.Models.ImagesProcessors
         private readonly ObservableObject _parentViewModel = parentViewModel;
 
         #region metods
-        internal static string SetBgImageSource(string job)
+        public static string SetBgImageSource(string job)
         {
             string uri = "/Resources;component\\Data\\UI\\";
 
@@ -26,7 +26,7 @@ namespace SpaceResidentClient.Models.ImagesProcessors
             return uri += ".png";
         }
 
-        internal void GetAvalibleCharacterImages(char race, bool isFemale)
+        public void GetAvalibleCharacterImages(char race, bool isFemale)
         {
             if (_parentViewModel is CharacterCreationViewModel characterCreationVM)
             {
@@ -48,7 +48,7 @@ namespace SpaceResidentClient.Models.ImagesProcessors
             characterCreationVM.CharacterImagesDirectory = uri;
         }
 
-        internal void GetAvalibleCharacterImages(char Race)
+        public void GetAvalibleCharacterImages(char Race)
         {
             throw new NotImplementedException();
         }

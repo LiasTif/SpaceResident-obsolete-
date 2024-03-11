@@ -3,9 +3,9 @@ using System.Windows.Controls;
 
 namespace SpaceResidentClient.Models
 {
-    public class NavigatePagesByButtonsProcessor
+    internal class NavigatePagesByButtonsProcessor(ObservableCollection<RadioButton> pages)
     {
-        public ObservableCollection<RadioButton> Pages { private get; set; }
+        private ObservableCollection<RadioButton> Pages { get; set; } = pages;
 
         public void NavigatePages(bool isNext)
         {
@@ -14,25 +14,61 @@ namespace SpaceResidentClient.Models
 
             for (int i = 0; i < Pages.Count; i++)
             {
-                if (isNext && i != Pages.Count - 1 && Pages[i].IsChecked == true)
+                RadioButton currentPage = Pages[i];
+
+                if (isNext && currentPage.IsChecked == true)
                 {
-                    Pages[i].IsChecked = false;
-                    Pages[i + 1].IsChecked = true;
-                    Pages[i + 1].Command.Execute(Pages[i + 1].CommandParameter);
+                    if (i != Pages.Count - 1)
+                    {
+                        var nextPage = Pages[i + 1];
+                        currentPage.IsChecked = false;
+                        nextPage.IsChecked = true;
+                        nextPage.Command.Execute(nextPage.CommandParameter);
+                    }
+                    else
+                    {
+                        currentPage.IsChecked = false;
+                        Pages[0].IsChecked = true;
+                        Pages[0].Command.Execute(Pages[0].CommandParameter);
+                    }
                     return;
                 }
-                else if (!isNext && i - 1 >= 0 && Pages[i].IsChecked == true)
+                else if (!isNext && currentPage.IsChecked == true)
                 {
-                    Pages[i].IsChecked = false;
-                    Pages[i - 1].IsChecked = true;
-                    Pages[i - 1].Command.Execute(Pages[i - 1].CommandParameter);
+                    if (i >= 1)
+                    {
+                        var nextPage = Pages[i - 1];
+                        currentPage.IsChecked = false;
+                        nextPage.IsChecked = true;
+                        nextPage.Command.Execute(nextPage.CommandParameter);
+                    }
+                    else
+                    {
+                        currentPage.IsChecked = false;
+                        Pages[^1].IsChecked = true;
+                        Pages[^1].Command.Execute(Pages[^1].CommandParameter);
+                    }
+                    return;
                 }
-            }
-        }
 
-        public NavigatePagesByButtonsProcessor(ObservableCollection<RadioButton> pages)
-        {
-            Pages = pages;
+                //if (isNext && i != Pages.Count - 1 && currentPage.IsChecked == true)
+                //{
+                //    nextPage = Pages[i + 1];
+
+                //    currentPage.IsChecked = false;
+                //    nextPage.IsChecked = true;
+                //    nextPage.Command.Execute(nextPage.CommandParameter);
+                //    return;
+                //}
+                //else if (!isNext && i >= 1 && currentPage.IsChecked == true)
+                //{
+                //    nextPage = Pages[i - 1];
+
+                //    currentPage.IsChecked = false;
+                //    nextPage.IsChecked = true;
+                //    nextPage.Command.Execute(nextPage.CommandParameter);
+                //}
+            }
         }
     }
 }

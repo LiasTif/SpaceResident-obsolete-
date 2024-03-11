@@ -10,7 +10,7 @@ namespace SpaceResidentClient.Models.CharacterCreation
         /// <param name="points">Current points</param>
         /// <param name="value">Current value of skill</param>
         /// <returns>New points value</returns>
-        internal byte IncreaseSkill(byte points, byte value)
+        public byte IncreaseSkill(byte points, byte value)
         {
             if (points < 1 && value >= 20)
                 return points;
@@ -36,7 +36,7 @@ namespace SpaceResidentClient.Models.CharacterCreation
         /// <param name="points">Current points</param>
         /// <param name="value">Current value of skill</param>
         /// <returns>New points value</returns>
-        internal byte DecreaseSkill(byte points, byte value)
+        public byte DecreaseSkill(byte points, byte value)
         {
             if (value <= 1)
                 return points;

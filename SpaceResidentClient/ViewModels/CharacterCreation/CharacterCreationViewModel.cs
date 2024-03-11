@@ -3,9 +3,7 @@ using CommunityToolkit.Mvvm.Input;
 using SpaceResidentClient.Models;
 using SpaceResidentClient.Models.CharacterCreation;
 using SpaceResidentClient.Models.ImagesProcessors;
-using SpaceResidentClient.Services;
 using SpaceResidentClient.ViewModels.MainMenu;
-using SpaceResidentClient.ViewModels.Windows;
 using System;
 using System.Collections.ObjectModel;
 using System.Windows;
@@ -26,7 +24,7 @@ namespace SpaceResidentClient.ViewModels.CharacterCreation
         (
             job: "Unemployed",
             name: String.Empty,
-            surname: String.Empty,
+            sName: String.Empty,
             isFemale: true,
             race: 'l',
             age: 20
