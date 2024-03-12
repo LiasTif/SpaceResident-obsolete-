@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using SpaceResidentClient.Models.ImagesProcessors;
 using SpaceResidentClient.Services.UISounds;
 using System.Windows.Input;
 

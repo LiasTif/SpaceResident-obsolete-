@@ -2,16 +2,16 @@
 using CommunityToolkit.Mvvm.Input;
 using SpaceResidentClient.Models;
 using SpaceResidentClient.Models.CharacterCreation;
-using SpaceResidentClient.Models.ImagesProcessors;
 using SpaceResidentClient.ViewModels.MainMenu;
 using System;
 using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using SpaceResidentClient.Properties;
 using SpaceResidentClient.Services.UISounds;
 using SpaceResidentClient.ViewModels.Windows.Interfaces;
+using SpaceResidentClient.Views.CharacterCreation;
+using SpaceResidentClient.Models.ImagesProcessors;
 
 namespace SpaceResidentClient.ViewModels.CharacterCreation
 {
@@ -34,7 +34,8 @@ namespace SpaceResidentClient.ViewModels.CharacterCreation
         public CharacterCreationViewModel(IWindowNavigationStore windowViewModel, IWindowScreenMode windowScreenMode)
         {
             // set bg as unemployed by default
-            BgImageSource = CharacterImageProcessor.SetBgImageSource(Lang.unemployed);
+            //BgImageSource = CharacterImageProcessor.SetBgImageSource(Lang.unemployed);
+            portraitVM = new();
 
             _windowViewModel = windowViewModel;
             _windowScreenMode = windowScreenMode;
@@ -46,29 +47,31 @@ namespace SpaceResidentClient.ViewModels.CharacterCreation
         }
 
         #region props
-        public int ImageIndex { private get; set; } = 0;
-        public int ImageCount { private get; set; }
+        //public int ImageIndex { private get; set; } = 0;
+        //public int ImageCount { private get; set; }
 
-        private string? _characterImagesDirectory;
-        public string? CharacterImagesDirectory
-        {
-            get => _characterImagesDirectory;
-            set
-            {
-                if (_characterImagesDirectory != value)
-                {
-                    _characterImagesDirectory = value;
-                    ImageSource = "/Resources;component" + _characterImagesDirectory + ImageIndex + ".png";
-                }
-            }
-        }
+        //private string? _characterImagesDirectory;
+        //public string? CharacterImagesDirectory
+        //{
+        //    get => _characterImagesDirectory;
+        //    set
+        //    {
+        //        if (_characterImagesDirectory != value)
+        //        {
+        //            _characterImagesDirectory = value;
+        //            ImageSource = "/Resources;component" + _characterImagesDirectory + ImageIndex + ".png";
+        //        }
+        //    }
+        //}
 
         [ObservableProperty]
         public ObservableCollection<RadioButton> navigateButtons;
         [ObservableProperty]
-        public string imageSource = String.Empty;
-        [ObservableProperty]
-        public string? bgImageSource;
+        public PortraitViewModel portraitVM { get; private set; }
+        //[ObservableProperty]
+        //public string imageSource = String.Empty;
+        //[ObservableProperty]
+        //public string? bgImageSource;
         [ObservableProperty]
         public ObservableObject? currentUserControl;
         #endregion
@@ -78,8 +81,8 @@ namespace SpaceResidentClient.ViewModels.CharacterCreation
 
         public ICommand OpenSomeMenuCommand { get => new RelayCommand<object>(OpenSomeMenu); }
 
-        public ICommand NextImageCommand { get => new RelayCommand(NextImage); }
-        public ICommand PreviousImageCommand { get => new RelayCommand(PreviousImage); }
+        //public ICommand NextImageCommand { get => new RelayCommand(NextImage); }
+        //public ICommand PreviousImageCommand { get => new RelayCommand(PreviousImage); }
         public ICommand NextPageCommand { get => new RelayCommand(NextPage); }
         public ICommand PreviousPageCommand { get => new RelayCommand(PreviousPage); }
 
@@ -126,24 +129,24 @@ namespace SpaceResidentClient.ViewModels.CharacterCreation
             //}
         }
 
-        private void NextImage()
-        {
-            // set next image or set first image if it`s end of images collection
-            ImageIndex = ImageIndex >= ImageCount - 1 ? 1 : ImageIndex + 1;
-            LoadNewImage();
-        }
-        private void PreviousImage()
-        {
-            // set previous image or set last image if it`s start of images collection
-            ImageIndex = ImageIndex <= 1 ? ImageCount - 1 : ImageIndex - 1;
-            LoadNewImage();
-        }
+        //private void NextImage()
+        //{
+        //    // set next image or set first image if it`s end of images collection
+        //    ImageIndex = ImageIndex >= ImageCount - 1 ? 1 : ImageIndex + 1;
+        //    LoadNewImage();
+        //}
+        //private void PreviousImage()
+        //{
+        //    // set previous image or set last image if it`s start of images collection
+        //    ImageIndex = ImageIndex <= 1 ? ImageCount - 1 : ImageIndex - 1;
+        //    LoadNewImage();
+        //}
 
-        private void LoadNewImage()
-        {
-            ImageSource = "/Resources;component" + CharacterImagesDirectory + ImageIndex + ".png";
-            ArrowButtonClickPlayer.LoadClickPlayer();
-        }
+        //private void LoadNewImage()
+        //{
+        //    ImageSource = "/Resources;component" + CharacterImagesDirectory + ImageIndex + ".png";
+        //    ArrowButtonClickPlayer.LoadClickPlayer();
+        //}
 
         private void PreviousPage() => LoadNewPage(false);
 

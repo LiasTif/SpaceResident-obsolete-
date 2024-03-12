@@ -1,13 +1,12 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
-using SpaceResidentClient.ViewModels.CharacterCreation;
+﻿using SpaceResidentClient.ViewModels.CharacterCreation;
 using System;
 using SpaceResidentClient.Properties;
 
 namespace SpaceResidentClient.Models.ImagesProcessors
 {
-    internal class CharacterImageProcessor(ObservableObject parentViewModel)
+    internal class CharacterImageProcessor(PortraitViewModel portraitViewModel)
     {
-        private readonly ObservableObject _parentViewModel = parentViewModel;
+        private readonly PortraitViewModel _portraitViewModel = portraitViewModel;
 
         #region metods
         public static string SetBgImageSource(string job)
@@ -28,24 +27,18 @@ namespace SpaceResidentClient.Models.ImagesProcessors
 
         public void GetAvalibleCharacterImages(char race, bool isFemale)
         {
-            if (_parentViewModel is CharacterCreationViewModel characterCreationVM)
+            if (race == 'l')
             {
-                characterCreationVM.ImageIndex = 1;
-
-                if (race == 'l')
-                {
-                    if (isFemale)
-                        SetSourceToPortraits(characterCreationVM, 10, "\\Data\\UI\\Characters\\Vun-Lain\\Female\\fHuman");
-                    else
-                        SetSourceToPortraits(characterCreationVM, 6, "\\Data\\UI\\Characters\\Vun-Lain\\Male\\mHuman");
-                }
+                if (isFemale)
+                    SetSourceToPortraits(10, "\\Data\\UI\\Characters\\Vun-Lain\\Female\\fHuman");
+                else
+                    SetSourceToPortraits(6, "\\Data\\UI\\Characters\\Vun-Lain\\Male\\mHuman");
             }
         }
 
-        private static void SetSourceToPortraits(CharacterCreationViewModel characterCreationVM, int count, string uri)
+        private void SetSourceToPortraits(int count, String uri)
         {
-            characterCreationVM.ImageCount = count;
-            characterCreationVM.CharacterImagesDirectory = uri;
+            _portraitViewModel.SetPortraits(count, uri);
         }
 
         public void GetAvalibleCharacterImages(char Race)

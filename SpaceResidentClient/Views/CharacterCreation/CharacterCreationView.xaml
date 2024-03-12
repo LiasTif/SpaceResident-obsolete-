@@ -117,7 +117,20 @@
         </Grid>
 
         <!--#region image-->
-        <UniformGrid
+        <UserControl
+            x:Name="ucPortrait"
+            Margin="5"
+            Grid.Row="1"
+            Grid.Column="2"
+            Content="{Binding Path=DataContext.CurrentUCViewModel,
+                      RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}">
+            <ContentControl.Resources>
+                <DataTemplate DataType="{x:Type vmMM:SettingsViewModel}">
+                    <vMM:SettingsView/>
+                </DataTemplate>
+            </ContentControl.Resources>
+        </UserControl>
+        <!--<UniformGrid
             x:Name="btnCharacterImageMinus"
             Margin="5"
             Grid.Row="1"
@@ -162,7 +175,7 @@
                         ScaleY="1.5"/>
                 </Border.RenderTransform>
 
-                <!--Character Image-->
+                --><!--Character Image--><!--
                 <Grid>
                     <Image
                         Source="{Binding BgImageSource, Mode=OneWay}"/>
@@ -204,7 +217,7 @@
                     <RotateTransform Angle="90"/>
                 </Button.RenderTransform>
             </Button>
-        </UniformGrid>
+        </UniformGrid>-->
         <!--#endregion-->
 
         <!--#region bottom buttons-->
