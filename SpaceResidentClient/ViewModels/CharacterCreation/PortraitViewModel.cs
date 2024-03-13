@@ -10,9 +10,12 @@ namespace SpaceResidentClient.ViewModels.CharacterCreation
 {
     internal partial class PortraitViewModel : ObservableObject
     {
+        public readonly CharacterImageProcessor ImageProcessor; 
+
         public PortraitViewModel()
         {
             BgImageSource = CharacterImageProcessor.SetBgImageSource(Lang.unemployed);
+            ImageProcessor = new CharacterImageProcessor(this);
         }
 
         [ObservableProperty]

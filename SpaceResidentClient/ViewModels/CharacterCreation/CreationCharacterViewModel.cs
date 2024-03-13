@@ -1,6 +1,5 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using SpaceResidentClient.Models.ImagesProcessors;
 using SpaceResidentClient.Services.UISounds;
 using System.Windows.Input;
 
@@ -8,7 +7,7 @@ namespace SpaceResidentClient.ViewModels.CharacterCreation
 {
     partial class CreationCharacterViewModel : ObservableObject
     {
-        private readonly CharacterCreationViewModel _characterCreationViewModel;
+        private readonly PortraitViewModel _portraitVM;
 
         #region props
         public static string Name
@@ -84,15 +83,15 @@ namespace SpaceResidentClient.ViewModels.CharacterCreation
         {
             // vun-ti (t) and vun_flant (f) don`t have a gender and go to GetAvalibleCharacterImages metod immedeatly
             if (Race == 't' || Race == 'f')
-                _characterCreationViewModel.CharacterImageProcessor.GetAvalibleCharacterImages(Race);
+                _portraitVM.ImageProcessor.GetAvalibleCharacterImages(Race);
             else
-                _characterCreationViewModel.ImageProcessor.GetAvalibleCharacterImages(Race, IsFemale);
+                _portraitVM.ImageProcessor.GetAvalibleCharacterImages(Race, IsFemale);
         }
         #endregion
 
-        public CreationCharacterViewModel(CharacterCreationViewModel characterCreationViewModel)
+        public CreationCharacterViewModel(PortraitViewModel portraitVM)
         {
-            _characterCreationViewModel = characterCreationViewModel;
+            _portraitVM = portraitVM;
             RaceOrGenderHasChanged();
         }
     }

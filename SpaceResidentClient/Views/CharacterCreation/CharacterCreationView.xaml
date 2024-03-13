@@ -122,11 +122,11 @@
             Margin="5"
             Grid.Row="1"
             Grid.Column="2"
-            Content="{Binding Path=DataContext.CurrentUCViewModel,
+            Content="{Binding Path=DataContext.PortraitVM,
                       RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}">
             <ContentControl.Resources>
-                <DataTemplate DataType="{x:Type vmMM:SettingsViewModel}">
-                    <vMM:SettingsView/>
+                <DataTemplate DataType="{x:Type ccVM:PortraitViewModel}">
+                    <ccV:PortraitView/>
                 </DataTemplate>
             </ContentControl.Resources>
         </UserControl>

@@ -10,14 +10,13 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using SpaceResidentClient.Services.UISounds;
 using SpaceResidentClient.ViewModels.Windows.Interfaces;
-using SpaceResidentClient.Views.CharacterCreation;
-using SpaceResidentClient.Models.ImagesProcessors;
 
 namespace SpaceResidentClient.ViewModels.CharacterCreation
 {
     partial class CharacterCreationViewModel : ObservableObject
     {
         #region fields
+        public PortraitViewModel PortraitVM = new();
         private readonly IWindowNavigationStore _windowViewModel;
         private readonly IWindowScreenMode _windowScreenMode;
         public static MainCharacter MainCharacter = new
@@ -35,7 +34,6 @@ namespace SpaceResidentClient.ViewModels.CharacterCreation
         {
             // set bg as unemployed by default
             //BgImageSource = CharacterImageProcessor.SetBgImageSource(Lang.unemployed);
-            portraitVM = new();
 
             _windowViewModel = windowViewModel;
             _windowScreenMode = windowScreenMode;
@@ -66,8 +64,6 @@ namespace SpaceResidentClient.ViewModels.CharacterCreation
 
         [ObservableProperty]
         public ObservableCollection<RadioButton> navigateButtons;
-        [ObservableProperty]
-        public PortraitViewModel portraitVM { get; private set; }
         //[ObservableProperty]
         //public string imageSource = String.Empty;
         //[ObservableProperty]
@@ -98,13 +94,13 @@ namespace SpaceResidentClient.ViewModels.CharacterCreation
             switch (str)
             {
                 case "character":
-                    SetTabToCurrentUserControl(typeof(CreationCharacterViewModel), new CreationCharacterViewModel(this));
+                    SetTabToCurrentUserControl(typeof(CreationCharacterViewModel), new CreationCharacterViewModel(PortraitVM));
                     break;
                 case "skills":
                     SetTabToCurrentUserControl(typeof(CreationSkillsViewModel), new CreationSkillsViewModel());
                     break;
                 case "job":
-                    SetTabToCurrentUserControl(typeof(CreationJobViewModel), new CreationJobViewModel(this));
+                    SetTabToCurrentUserControl(typeof(CreationJobViewModel), new CreationJobViewModel(PortraitVM));
                     break;
                 case "location":
                     SetTabToCurrentUserControl(typeof(CreationLocationViewModel), new CreationLocationViewModel());

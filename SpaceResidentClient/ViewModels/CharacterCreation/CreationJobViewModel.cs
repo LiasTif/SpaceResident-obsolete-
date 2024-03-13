@@ -8,7 +8,7 @@ namespace SpaceResidentClient.ViewModels.CharacterCreation
 {
     partial class CreationJobViewModel : ObservableObject
     {
-        private readonly CharacterCreationViewModel _characterCreationVM;
+        private readonly PortraitViewModel? _portraitVM;
 
         #region props
         [ObservableProperty]
@@ -24,19 +24,16 @@ namespace SpaceResidentClient.ViewModels.CharacterCreation
                 {
                     _selectedJobTextBlock = value;
 
-                    _characterCreationVM.BgImageSource = CharacterImageProcessor.SetBgImageSource(value.Text);
+                    if (_portraitVM != null)
+                        _portraitVM.BgImageSource = CharacterImageProcessor.SetBgImageSource(value.Text);
                 }
             }
         }
         #endregion
 
-        public CreationJobViewModel(CharacterCreationViewModel vm)
+        public CreationJobViewModel(PortraitViewModel portraitVM)
         {
-            _characterCreationVM = vm;
-            CreateJobTextBlocksCollection();
-
-            if (SelectedJobTextBlock == null)
-                SetSelectedTextBlockFromCollection();
+            _portraitVM = portraitVM;
         }
 
         private static ObservableCollection<TextBlock> CreateJobTextBlocksCollection()
