@@ -3,6 +3,7 @@ using SpaceResidentClient.ViewModels.CharacterCreation;
 using SpaceResidentClient.ViewModels.Windows.Interfaces;
 using System;
 using System.Collections.ObjectModel;
+using System.Threading.Tasks;
 
 namespace SpaceResidentClient.Models.CharacterCreation
 {
@@ -11,7 +12,7 @@ namespace SpaceResidentClient.Models.CharacterCreation
         [ObservableProperty]
         private static ObservableObject? characterCreationViewModel;
         [ObservableProperty]
-        private static ObservableCollection<ObservableObject>? tabsCollection;
+        private static ObservableCollection<ObservableObject> tabsCollection = [];
 
         /// <summary>
         /// Set character creation view model in CharacterCreationPagesBuffer and return it
@@ -24,33 +25,25 @@ namespace SpaceResidentClient.Models.CharacterCreation
             return CharacterCreationViewModel ??= new CharacterCreationViewModel(winVM, winScreenMode);
         }
 
-        public ObservableObject? GetTabFromCollection(Type pageType)
+        public ObservableObject? GetTabFromCollectionAsync(ObservableObject tab)
         {
-            if (TabsCollection == null)
-                return null;
+            AddTabToCollection(tab);
 
             foreach (ObservableObject curTab in TabsCollection)
             {
-                if (curTab.GetType() == pageType)
+                if (curTab.GetType() == tab.GetType())
                     return curTab;
             }
 
             return null;
         }
 
-        public void AddTabToCollection(ObservableObject tab)
+        private void AddTabToCollection(ObservableObject tab)
         {
-            if (TabsCollection != null)
+            foreach (ObservableObject curTab in TabsCollection)
             {
-                foreach (ObservableObject curTab in TabsCollection)
-                {
-                    if (curTab.GetType() == tab.GetType())
-                        return;
-                }
-            }
-            else
-            {
-                TabsCollection = [];
+                if (curTab.GetType() == tab.GetType())
+                    return;
             }
 
             TabsCollection.Add(tab);

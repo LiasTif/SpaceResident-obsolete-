@@ -16,7 +16,7 @@ namespace SpaceResidentClient.ViewModels.CharacterCreation
     partial class CharacterCreationViewModel : ObservableObject
     {
         #region fields
-        public PortraitViewModel PortraitVM = new();
+        //public PortraitViewModel PortraitVM = new();
         private readonly IWindowNavigationStore _windowViewModel;
         private readonly IWindowScreenMode _windowScreenMode;
         public static MainCharacter MainCharacter = new
@@ -34,6 +34,7 @@ namespace SpaceResidentClient.ViewModels.CharacterCreation
         {
             // set bg as unemployed by default
             //BgImageSource = CharacterImageProcessor.SetBgImageSource(Lang.unemployed);
+            PortraitVM = new PortraitViewModel();
 
             _windowViewModel = windowViewModel;
             _windowScreenMode = windowScreenMode;
@@ -70,6 +71,7 @@ namespace SpaceResidentClient.ViewModels.CharacterCreation
         //public string? bgImageSource;
         [ObservableProperty]
         public ObservableObject? currentUserControl;
+        public PortraitViewModel PortraitVM { get; set; }
         #endregion
 
         #region commands
@@ -94,30 +96,31 @@ namespace SpaceResidentClient.ViewModels.CharacterCreation
             switch (str)
             {
                 case "character":
-                    SetTabToCurrentUserControl(typeof(CreationCharacterViewModel), new CreationCharacterViewModel(PortraitVM));
+                    SetTabToCurrentUserControl(new CreationCharacterViewModel(PortraitVM));
                     break;
                 case "skills":
-                    SetTabToCurrentUserControl(typeof(CreationSkillsViewModel), new CreationSkillsViewModel());
+                    SetTabToCurrentUserControl(new CreationSkillsViewModel());
                     break;
                 case "job":
-                    SetTabToCurrentUserControl(typeof(CreationJobViewModel), new CreationJobViewModel(PortraitVM));
+                    SetTabToCurrentUserControl(new CreationJobViewModel(PortraitVM));
                     break;
                 case "location":
-                    SetTabToCurrentUserControl(typeof(CreationLocationViewModel), new CreationLocationViewModel());
+                    SetTabToCurrentUserControl(new CreationLocationViewModel());
                     break;
                 case "stats":
-                    SetTabToCurrentUserControl(typeof(CreationStatsViewModel), new CreationStatsViewModel());
+                    SetTabToCurrentUserControl(new CreationStatsViewModel());
                     break;
             }
         }
 
-        private void SetTabToCurrentUserControl(Type type, ObservableObject instance)
+        private void SetTabToCurrentUserControl(ObservableObject instance)
         {
             CharacterCreationPagesBuffer b = new();
 
-            CurrentUserControl = b.GetTabFromCollection(type);
-            if (CurrentUserControl == null)
-                b.AddTabToCollection(instance);
+            //if (CurrentUserControl == null)
+            //    b.AddTabToCollection(instance);
+
+            CurrentUserControl = b.GetTabFromCollectionAsync(instance);
             //if (CurrentUserControl == null)
             //{
             //    b.AddPageToCollection(instance);
