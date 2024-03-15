@@ -10,24 +10,25 @@ namespace SpaceResidentClient.ViewModels.CharacterCreation
 {
     internal partial class PortraitViewModel : ObservableObject
     {
-        public readonly CharacterImageProcessor ImageProcessor; 
+        //private readonly CharacterImageProcessor ImageProcessor; 
 
         public PortraitViewModel()
         {
             ImageProcessor = new CharacterImageProcessor(this);
         }
 
+        #region props
+        public CharacterImageProcessor ImageProcessor { get; private set; }
         [ObservableProperty]
         public string imageSource = String.Empty;
         [ObservableProperty]
-        public string? bgImageSource = CharacterImageProcessor.SetBgImageSource(Lang.unemployed);
+        public string bgImageSource = CharacterImageProcessor.SetBgImageSource(Lang.unemployed);
 
-        #region props
         private int ImageIndex { get; set; } = 0;
         private int ImageCount { get; set; }
 
-        private string? _characterImagesDirectory;
-        public string? CharacterImagesDirectory
+        private string _characterImagesDirectory = String.Empty;
+        public string CharacterImagesDirectory
         {
             get => _characterImagesDirectory;
             set
@@ -46,16 +47,22 @@ namespace SpaceResidentClient.ViewModels.CharacterCreation
         public ICommand PreviousImageCommand { get => new RelayCommand(PreviousImage); }
         #endregion
 
-        private void NextImage()
+        private void NextImage() => SwitchImage(true);
+        private void PreviousImage() => SwitchImage(false);
+
+        private void SwitchImage(bool isNext)
         {
-            // set next image or set first image if it`s end of images collection
-            ImageIndex = ImageIndex >= ImageCount - 1 ? 1 : ImageIndex + 1;
-            LoadNewImage();
-        }
-        private void PreviousImage()
-        {
-            // set previous image or set last image if it`s start of images collection
-            ImageIndex = ImageIndex <= 1 ? ImageCount - 1 : ImageIndex - 1;
+            if (isNext)
+            {
+                // set next image or set first image if it`s end of images collection
+                ImageIndex = ImageIndex >= ImageCount - 1 ? 1 : ++ImageIndex;
+            }
+            else
+            {
+                // set previous image or set last image if it`s start of images collection
+                ImageIndex = ImageIndex <= 1 ? ImageCount - 1 : --ImageIndex;
+            }
+
             LoadNewImage();
         }
 
