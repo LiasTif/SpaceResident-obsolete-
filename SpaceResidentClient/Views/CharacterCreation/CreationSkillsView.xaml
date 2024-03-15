@@ -144,7 +144,7 @@
                     x:Name="btnLinguisticsMinus"
                     HorizontalAlignment="Left"
                     Width="{Binding ActualHeight, ElementName=btnLinguisticsMinus}"
-                    Style="{StaticResource btnArrowUp}">
+                    Style="{StaticResource btnArrow}">
                     <Button.RenderTransform>
                         <RotateTransform Angle="270"/>
                     </Button.RenderTransform>
@@ -157,7 +157,7 @@
                     x:Name="btnLinguisticsPlus"
                     HorizontalAlignment="Right"
                     Width="{Binding ActualHeight, ElementName=btnLinguisticsMinus}"
-                    Style="{StaticResource btnArrowUp}">
+                    Style="{StaticResource btnArrow}">
                     <Button.RenderTransform>
                         <RotateTransform Angle="90"/>
                     </Button.RenderTransform>
@@ -194,7 +194,7 @@
                     x:Name="btnNaturalisticsMinus"
                     HorizontalAlignment="Left"
                     Width="{Binding ActualHeight, ElementName=btnNaturalisticsMinus}"
-                    Style="{StaticResource btnArrowUp}">
+                    Style="{StaticResource btnArrow}">
                     <Button.RenderTransform>
                         <RotateTransform Angle="270"/>
                     </Button.RenderTransform>
@@ -207,7 +207,7 @@
                     x:Name="btnNaturalisticsPlus"
                     HorizontalAlignment="Right"
                     Width="{Binding ActualHeight, ElementName=btnNaturalisticsMinus}"
-                    Style="{StaticResource btnArrowUp}">
+                    Style="{StaticResource btnArrow}">
                     <Button.RenderTransform>
                         <RotateTransform Angle="90"/>
                     </Button.RenderTransform>
@@ -244,7 +244,7 @@
                     x:Name="btnExistentialismMinus"
                     HorizontalAlignment="Left"
                     Width="{Binding ActualHeight, ElementName=btnExistentialismMinus}"
-                    Style="{StaticResource btnArrowUp}">
+                    Style="{StaticResource btnArrow}">
                     <Button.RenderTransform>
                         <RotateTransform Angle="270"/>
                     </Button.RenderTransform>
@@ -257,7 +257,7 @@
                     x:Name="btnExistentialismPlus"
                     HorizontalAlignment="Right"
                     Width="{Binding ActualHeight, ElementName=btnExistentialismMinus}"
-                    Style="{StaticResource btnArrowUp}">
+                    Style="{StaticResource btnArrow}">
                     <Button.RenderTransform>
                         <RotateTransform Angle="90"/>
                     </Button.RenderTransform>
@@ -294,7 +294,7 @@
                     x:Name="btnRelationshipsMinus"
                     HorizontalAlignment="Left"
                     Width="{Binding ActualHeight, ElementName=btnRelationshipsMinus}"
-                    Style="{StaticResource btnArrowUp}">
+                    Style="{StaticResource btnArrow}">
                     <Button.RenderTransform>
                         <RotateTransform Angle="270"/>
                     </Button.RenderTransform>
@@ -307,7 +307,7 @@
                     x:Name="btnRelationshipsPlus"
                     HorizontalAlignment="Right"
                     Width="{Binding ActualHeight, ElementName=btnRelationshipsMinus}"
-                    Style="{StaticResource btnArrowUp}">
+                    Style="{StaticResource btnArrow}">
                     <Button.RenderTransform>
                         <RotateTransform Angle="90"/>
                     </Button.RenderTransform>
@@ -344,7 +344,7 @@
                     x:Name="btnLogicMinus"
                     HorizontalAlignment="Left"
                     Width="{Binding ActualHeight, ElementName=btnLogicMinus}"
-                    Style="{StaticResource btnArrowUp}">
+                    Style="{StaticResource btnArrow}">
                     <Button.RenderTransform>
                         <RotateTransform Angle="270"/>
                     </Button.RenderTransform>
@@ -357,7 +357,7 @@
                     x:Name="btnLogicPlus"
                     HorizontalAlignment="Right"
                     Width="{Binding ActualHeight, ElementName=btnLogicMinus}"
-                    Style="{StaticResource btnArrowUp}">
+                    Style="{StaticResource btnArrow}">
                     <Button.RenderTransform>
                         <RotateTransform Angle="90"/>
                     </Button.RenderTransform>
@@ -394,7 +394,7 @@
                     x:Name="btnSpaceMinus"
                     HorizontalAlignment="Left"
                     Width="{Binding ActualHeight, ElementName=btnSpaceMinus}"
-                    Style="{StaticResource btnArrowUp}">
+                    Style="{StaticResource btnArrow}">
                     <Button.RenderTransform>
                         <RotateTransform Angle="270"/>
                     </Button.RenderTransform>
@@ -407,7 +407,7 @@
                     x:Name="btnSpacePlus"
                     HorizontalAlignment="Right"
                     Width="{Binding ActualHeight, ElementName=btnSpaceMinus}"
-                    Style="{StaticResource btnArrowUp}">
+                    Style="{StaticResource btnArrow}">
                     <Button.RenderTransform>
                         <RotateTransform Angle="90"/>
                     </Button.RenderTransform>
@@ -444,7 +444,7 @@
                     x:Name="btnKineticsMinus"
                     HorizontalAlignment="Left"
                     Width="{Binding ActualHeight, ElementName=btnKineticsMinus}"
-                    Style="{StaticResource btnArrowUp}">
+                    Style="{StaticResource btnArrow}">
                     <Button.RenderTransform>
                         <RotateTransform Angle="270"/>
                     </Button.RenderTransform>
@@ -457,7 +457,7 @@
                     x:Name="btnKineticsPlus"
                     HorizontalAlignment="Right"
                     Width="{Binding ActualHeight, ElementName=btnKineticsMinus}"
-                    Style="{StaticResource btnArrowUp}">
+                    Style="{StaticResource btnArrow}">
                     <Button.RenderTransform>
                         <RotateTransform Angle="90"/>
                     </Button.RenderTransform>

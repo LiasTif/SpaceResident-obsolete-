@@ -29,17 +29,13 @@ namespace SpaceResidentClient.ViewModels.MainMenu
         private void OpenGamePage() => CurrentPage = new GameSettingsViewModel();
         private void OpenVideoPage() => CurrentPage = new VideoSettingsViewModel(_windowScreenMode);
 
-        private void PreviousPage()
-        {
-            NavigatePagesByButtonsProcessor navigatePagesByButtonsProcessor = new(MenuButtons);
-            navigatePagesByButtonsProcessor.NavigatePages(false);
-            ArrowButtonClickPlayer.LoadClickPlayer();
-        }
+        private void PreviousPage() => SwitchPage(false);
+        private void NextPage() => SwitchPage(true);
 
-        private void NextPage()
+        private void SwitchPage(bool isNext)
         {
             NavigatePagesByButtonsProcessor navigatePagesByButtonsProcessor = new(MenuButtons);
-            navigatePagesByButtonsProcessor.NavigatePages(true);
+            navigatePagesByButtonsProcessor.NavigatePages(isNext);
             ArrowButtonClickPlayer.LoadClickPlayer();
         }
 

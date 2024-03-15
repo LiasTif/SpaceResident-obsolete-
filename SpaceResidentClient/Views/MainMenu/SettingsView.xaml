@@ -90,7 +90,7 @@
             Grid.ColumnSpan="2">
             <Button
                 x:Name="btnMenuArrowUp"
-                Style="{StaticResource btnArrowUp}"
+                Style="{StaticResource btnArrow}"
                 Command="{Binding PreviousPageCommand}">
                 <Button.Height>
                     <MultiBinding Converter="{StaticResource SizeFromSizePercentageConventer}">
@@ -116,7 +116,7 @@
             </ItemsControl>
             
             <Button
-                Style="{StaticResource btnArrowUp}"
+                Style="{StaticResource btnArrow}"
                 Height="{Binding ActualHeight,
                                  ElementName=btnMenuArrowUp}"
                 Command="{Binding NextPageCommand}">

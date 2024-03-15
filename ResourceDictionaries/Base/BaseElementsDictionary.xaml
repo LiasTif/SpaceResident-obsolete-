@@ -367,7 +367,8 @@
 
     <Style
         TargetType="{x:Type Button}"
-        x:Key="btnArrowUp">
+        x:Key="btnArrow">
+        <Setter Property="RenderTransformOrigin" Value="0.5,0.5"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Button}">
@@ -382,7 +383,6 @@
                             <SolidColorBrush Color="{StaticResource PassiveColor}"/>
                         </Grid.Background>
 
-                        
                         <Image
                             Grid.Column="1"
                             Source="/Resources;component/Data/UI/Icons/arrow base.png"/>

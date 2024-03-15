@@ -23,7 +23,7 @@
             Command="{Binding PreviousImageCommand}"
             HorizontalAlignment="Left"
             RenderTransformOrigin="0.5, 0.5"
-            Style="{StaticResource btnArrowUp}">
+            Style="{StaticResource btnArrow}">
             <Button.Height>
                 <MultiBinding Converter="{StaticResource SizeFromSizePercentageConventer}">
                     <Binding
@@ -79,7 +79,7 @@
             Command="{Binding NextImageCommand}"
             HorizontalAlignment="Right"
             RenderTransformOrigin="0.5, 0.5"
-            Style="{StaticResource btnArrowUp}">
+            Style="{StaticResource btnArrow}">
             <Button.Height>
                 <MultiBinding Converter="{StaticResource SizeFromSizePercentageConventer}">
                     <Binding

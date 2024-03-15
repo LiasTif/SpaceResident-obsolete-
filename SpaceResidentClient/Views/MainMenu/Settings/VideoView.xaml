@@ -47,7 +47,7 @@
                     x:Name="btnResoMinus"
                     HorizontalAlignment="Left"
                     Width="{Binding ActualHeight, ElementName=btnResoMinus}"
-                    Style="{StaticResource btnArrowUp}">
+                    Style="{StaticResource btnArrow}">
                     <Button.RenderTransform>
                         <RotateTransform
                             Angle="270"/>
@@ -63,7 +63,7 @@
                     x:Name="btnResoPlus"
                     HorizontalAlignment="Right"
                     Width="{Binding ActualHeight, ElementName=btnResoMinus}"
-                    Style="{StaticResource btnArrowUp}">
+                    Style="{StaticResource btnArrow}">
                     <Button.RenderTransform>
                         <RotateTransform
                             Angle="90"/>

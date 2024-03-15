@@ -57,7 +57,7 @@
                     x:Name="btnMenuMinus"
                     HorizontalAlignment="Left"
                     Width="{Binding ActualHeight, ElementName=btnMenuMinus}"
-                    Style="{StaticResource btnArrowUp}"
+                    Style="{StaticResource btnArrow}"
                     Command="{Binding PreviousPageCommand}">
                     <Button.RenderTransform>
                         <RotateTransform Angle="270"/>
@@ -78,7 +78,7 @@
                     x:Name="btnMenuPlus"
                     HorizontalAlignment="Right"
                     Width="{Binding ActualHeight, ElementName=btnMenuMinus}"
-                    Style="{StaticResource btnArrowUp}"
+                    Style="{StaticResource btnArrow}"
                     Command="{Binding NextPageCommand}">
                     <Button.RenderTransform>
                         <RotateTransform Angle="90"/>
@@ -130,94 +130,6 @@
                 </DataTemplate>
             </ContentControl.Resources>
         </UserControl>
-        <!--<UniformGrid
-            x:Name="btnCharacterImageMinus"
-            Margin="5"
-            Grid.Row="1"
-            Grid.Column="2"
-            Columns="3">
-            <Button
-                Command="{Binding PreviousImageCommand}"
-                HorizontalAlignment="Left"
-                RenderTransformOrigin="0.5, 0.5"
-                Style="{StaticResource btnArrowUp}">
-                <Button.Height>
-                    <MultiBinding Converter="{StaticResource SizeFromSizePercentageConventer}">
-                        <Binding
-                            Path="ActualHeight"
-                            ElementName="btnMenuMinus"/>
-                        <Binding Source="100"/>
-                    </MultiBinding>
-                </Button.Height>
-                <Button.Width>
-                    <MultiBinding Converter="{StaticResource SizeFromSizePercentageConventer}">
-                        <Binding
-                            Path="ActualHeight"
-                            ElementName="btnMenuMinus"/>
-                        <Binding Source="300"/>
-                    </MultiBinding>
-                </Button.Width>
-                <Button.RenderTransform>
-                    <RotateTransform Angle="270"/>
-                </Button.RenderTransform>
-            </Button>
-
-            <Border
-                RenderTransformOrigin="0.5, 0.5"
-                Height="{Binding ActualWidth, RelativeSource={RelativeSource Self}}"
-                BorderThickness="3">
-                <Border.BorderBrush>
-                    <SolidColorBrush Color="{StaticResource PassiveColor}"/>
-                </Border.BorderBrush>
-                <Border.RenderTransform>
-                    <ScaleTransform
-                        ScaleX="1.5"
-                        ScaleY="1.5"/>
-                </Border.RenderTransform>
-
-                --><!--Character Image--><!--
-                <Grid>
-                    <Image
-                        Source="{Binding BgImageSource, Mode=OneWay}"/>
-                    <Border>
-                        <Border.Background>
-                            <SolidColorBrush
-                                Opacity=".12"
-                                Color="{StaticResource ActiveWhiterColor}"/>
-                        </Border.Background>
-                        <Image
-                            Source="{Binding ImageSource, Mode=OneWay}"/>
-                    </Border>
-                </Grid>
-                
-            </Border>
-
-            <Button
-                Command="{Binding NextImageCommand}"
-                HorizontalAlignment="Right"
-                RenderTransformOrigin="0.5, 0.5"
-                Style="{StaticResource btnArrowUp}">
-                <Button.Height>
-                    <MultiBinding Converter="{StaticResource SizeFromSizePercentageConventer}">
-                        <Binding
-                            Path="ActualHeight"
-                            ElementName="btnMenuMinus"/>
-                        <Binding Source="100"/>
-                    </MultiBinding>
-                </Button.Height>
-                <Button.Width>
-                    <MultiBinding Converter="{StaticResource SizeFromSizePercentageConventer}">
-                        <Binding
-                            Path="ActualHeight"
-                            ElementName="btnMenuMinus"/>
-                        <Binding Source="300"/>
-                    </MultiBinding>
-                </Button.Width>
-                <Button.RenderTransform>
-                    <RotateTransform Angle="90"/>
-                </Button.RenderTransform>
-            </Button>
-        </UniformGrid>-->
         <!--#endregion-->
 
         <!--#region bottom buttons-->
