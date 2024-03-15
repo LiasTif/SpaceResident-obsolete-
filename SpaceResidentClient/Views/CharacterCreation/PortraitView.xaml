@@ -61,15 +61,15 @@
             <!--Character Image-->
             <Grid>
                 <Image
-            Source="{Binding BgImageSource, Mode=OneWay}"/>
+                    Source="{Binding BgImageSource, Mode=OneWay}"/>
                 <Border>
                     <Border.Background>
                         <SolidColorBrush
-                    Opacity=".12"
-                    Color="{StaticResource ActiveWhiterColor}"/>
+                            Opacity=".12"
+                            Color="{StaticResource ActiveWhiterColor}"/>
                     </Border.Background>
                     <Image
-                Source="{Binding ImageSource, Mode=OneWay}"/>
+                        Source="{Binding ImageSource, Mode=OneWay}"/>
                 </Border>
             </Grid>
 

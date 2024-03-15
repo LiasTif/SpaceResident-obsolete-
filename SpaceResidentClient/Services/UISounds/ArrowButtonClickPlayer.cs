@@ -14,8 +14,7 @@ namespace SpaceResidentClient.Services.UISounds
             {
                 MessageBox.Show("Media Failed!!");
             };
-            ClickPlayer.Volume = 0.5;
-            ClickPlayer.Open(new Uri("Data/sounds/UI/ButtonHoverMinPlus.wav", UriKind.Relative));
+            ClickPlayer.Open(new Uri("Data/sounds/UI/ButtonHoverMinPlus.mp3", UriKind.Relative));
             ClickPlayer.Play();
         }
     }

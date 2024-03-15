@@ -14,14 +14,13 @@ namespace SpaceResidentClient.ViewModels.CharacterCreation
 
         public PortraitViewModel()
         {
-            BgImageSource = CharacterImageProcessor.SetBgImageSource(Lang.unemployed);
             ImageProcessor = new CharacterImageProcessor(this);
         }
 
         [ObservableProperty]
         public string imageSource = String.Empty;
         [ObservableProperty]
-        public string? bgImageSource;
+        public string? bgImageSource = CharacterImageProcessor.SetBgImageSource(Lang.unemployed);
 
         #region props
         private int ImageIndex { get; set; } = 0;
@@ -70,7 +69,7 @@ namespace SpaceResidentClient.ViewModels.CharacterCreation
         {
             ImageIndex = 1;
             ImageCount = count;
-            ImageSource += uri;
+            CharacterImagesDirectory = uri;
         }
     }
 }

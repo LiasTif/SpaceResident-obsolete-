@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Data\sounds\UI\ButtonHoverMinPlus1.wav" />
     <None Remove="Data\UI\arrow base.png" />
     <None Remove="Data\UI\characterIcon.png" />
     <None Remove="Data\UI\CharacterJobBGs\Fabric.png" />
@@ -118,6 +119,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="Data\sounds\UI\ButtonHover.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Data\sounds\UI\ButtonHoverMinPlus.mp3">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="Data\sounds\UI\ButtonHoverMinPlus.wav">

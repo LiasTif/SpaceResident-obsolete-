@@ -50,24 +50,6 @@ namespace SpaceResidentClient.Models
                     }
                     return;
                 }
-
-                //if (isNext && i != Pages.Count - 1 && currentPage.IsChecked == true)
-                //{
-                //    nextPage = Pages[i + 1];
-
-                //    currentPage.IsChecked = false;
-                //    nextPage.IsChecked = true;
-                //    nextPage.Command.Execute(nextPage.CommandParameter);
-                //    return;
-                //}
-                //else if (!isNext && i >= 1 && currentPage.IsChecked == true)
-                //{
-                //    nextPage = Pages[i - 1];
-
-                //    currentPage.IsChecked = false;
-                //    nextPage.IsChecked = true;
-                //    nextPage.Command.Execute(nextPage.CommandParameter);
-                //}
             }
         }
     }
