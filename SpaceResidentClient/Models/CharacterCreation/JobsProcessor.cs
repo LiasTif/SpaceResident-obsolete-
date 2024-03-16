@@ -5,6 +5,9 @@ namespace SpaceResidentClient.Models.CharacterCreation
 {
     internal class JobsProcessor
     {
+        /// <summary>
+        /// List of all jobs in the game
+        /// </summary>
         private static readonly List<string> _jobList =
         [
             Lang.unemployed,

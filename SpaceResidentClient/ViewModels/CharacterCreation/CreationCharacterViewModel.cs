@@ -9,6 +9,12 @@ namespace SpaceResidentClient.ViewModels.CharacterCreation
     {
         private readonly PortraitViewModel _portraitVM;
 
+        public CreationCharacterViewModel(PortraitViewModel portraitVM)
+        {
+            _portraitVM = portraitVM;
+            RaceOrGenderHasChanged();
+        }
+
         #region props
         public static string Name
         {
@@ -52,6 +58,12 @@ namespace SpaceResidentClient.ViewModels.CharacterCreation
         #endregion
 
         #region commands
+        public ICommand ChangeGenderCommand { get => new RelayCommand(ChangeGender); }
+        public ICommand MinusAgeCommand { get => new RelayCommand(MinusAge); }
+        public ICommand PlusAgeCommand { get => new RelayCommand(PlusAge); }
+        #endregion
+
+        #region methods
         private void ChangeGender()
         {
             IsFemale = !IsFemale;
@@ -73,12 +85,7 @@ namespace SpaceResidentClient.ViewModels.CharacterCreation
                 ArrowButtonClickPlayer.LoadClickPlayer();
             }
         }
-        public ICommand ChangeGenderCommand { get => new RelayCommand(ChangeGender); }
-        public ICommand MinusAgeCommand { get => new RelayCommand(MinusAge); }
-        public ICommand PlusAgeCommand { get => new RelayCommand(PlusAge); }
-        #endregion
 
-        #region methods
         private void RaceOrGenderHasChanged()
         {
             // vun-ti (t) and vun_flant (f) don`t have a gender and go to GetAvalibleCharacterImages metod immedeatly
@@ -88,11 +95,5 @@ namespace SpaceResidentClient.ViewModels.CharacterCreation
                 _portraitVM.ImageProcessor.GetAvalibleCharacterImages(Race, IsFemale);
         }
         #endregion
-
-        public CreationCharacterViewModel(PortraitViewModel portraitVM)
-        {
-            _portraitVM = portraitVM;
-            RaceOrGenderHasChanged();
-        }
     }
 }

@@ -9,6 +9,8 @@ namespace SpaceResidentClient.Models.ImagesProcessors
         private readonly PortraitViewModel _portraitViewModel = portraitViewModel;
 
         #region metods
+        private void SetSourceToPortraits(int count, String uri) => _portraitViewModel.SetPortraits(count, uri);
+
         public static string SetBgImageSource(string job)
         {
             string uri = "/Resources;component\\Data\\UI\\";
@@ -34,11 +36,6 @@ namespace SpaceResidentClient.Models.ImagesProcessors
                 else
                     SetSourceToPortraits(6, "\\Data\\UI\\Characters\\Vun-Lain\\Male\\mHuman");
             }
-        }
-
-        private void SetSourceToPortraits(int count, String uri)
-        {
-            _portraitViewModel.SetPortraits(count, uri);
         }
 
         public void GetAvalibleCharacterImages(char Race)

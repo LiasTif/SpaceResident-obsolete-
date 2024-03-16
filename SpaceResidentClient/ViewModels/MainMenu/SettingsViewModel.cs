@@ -34,8 +34,8 @@ namespace SpaceResidentClient.ViewModels.MainMenu
 
         private void SwitchPage(bool isNext)
         {
-            NavigatePagesByButtonsProcessor navigatePagesByButtonsProcessor = new(MenuButtons);
-            navigatePagesByButtonsProcessor.NavigatePages(isNext);
+            NavigateTabsByButtonsProcessor navigateTabsByButtonsProcessor = new(MenuButtons);
+            navigateTabsByButtonsProcessor.NavigateTabs(isNext);
             ArrowButtonClickPlayer.LoadClickPlayer();
         }
 

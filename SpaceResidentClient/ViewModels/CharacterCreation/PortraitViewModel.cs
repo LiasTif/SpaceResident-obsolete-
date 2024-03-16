@@ -10,23 +10,21 @@ namespace SpaceResidentClient.ViewModels.CharacterCreation
 {
     internal partial class PortraitViewModel : ObservableObject
     {
-        //private readonly CharacterImageProcessor ImageProcessor; 
-
         public PortraitViewModel()
         {
             ImageProcessor = new CharacterImageProcessor(this);
         }
 
         #region props
-        public CharacterImageProcessor ImageProcessor { get; private set; }
         [ObservableProperty]
-        public string imageSource = String.Empty;
-        [ObservableProperty]
-        public string bgImageSource = CharacterImageProcessor.SetBgImageSource(Lang.unemployed);
-
+        private string bgImageSource = CharacterImageProcessor.SetBgImageSource(Lang.unemployed);
         private int ImageIndex { get; set; } = 0;
         private int ImageCount { get; set; }
 
+        public CharacterImageProcessor ImageProcessor { get; private set; }
+        [ObservableProperty]
+        public string fullImageSource = String.Empty;
+        
         private string _characterImagesDirectory = String.Empty;
         public string CharacterImagesDirectory
         {
@@ -36,7 +34,7 @@ namespace SpaceResidentClient.ViewModels.CharacterCreation
                 if (_characterImagesDirectory != value)
                 {
                     _characterImagesDirectory = value;
-                    ImageSource = "/Resources;component" + _characterImagesDirectory + ImageIndex + ".png";
+                    FullImageSource = "/Resources;component" + _characterImagesDirectory + ImageIndex + ".png";
                 }
             }
         }
@@ -68,7 +66,7 @@ namespace SpaceResidentClient.ViewModels.CharacterCreation
 
         private void LoadNewImage()
         {
-            ImageSource = "/Resources;component" + CharacterImagesDirectory + ImageIndex + ".png";
+            FullImageSource = "/Resources;component" + CharacterImagesDirectory + ImageIndex + ".png";
             ArrowButtonClickPlayer.LoadClickPlayer();
         }
 

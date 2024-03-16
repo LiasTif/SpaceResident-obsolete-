@@ -69,7 +69,7 @@
                             Color="{StaticResource ActiveWhiterColor}"/>
                     </Border.Background>
                     <Image
-                        Source="{Binding ImageSource, Mode=OneWay}"/>
+                        Source="{Binding FullImageSource, Mode=OneWay}"/>
                 </Border>
             </Grid>
 

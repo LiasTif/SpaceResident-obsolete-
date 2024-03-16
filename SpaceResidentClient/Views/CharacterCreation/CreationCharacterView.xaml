@@ -149,7 +149,7 @@
                     x:Name="btnAgeMinus"
                     HorizontalAlignment="Left"
                     Width="{Binding ActualHeight, ElementName=btnAgeMinus}"
-                    Style="{StaticResource btnArrowUp}"
+                    Style="{StaticResource btnArrow}"
                     Command="{Binding MinusAgeCommand}">
                     <Button.RenderTransform>
                         <RotateTransform Angle="270"/>
@@ -161,7 +161,7 @@
                     x:Name="btnAgePlus"
                     HorizontalAlignment="Right"
                     Width="{Binding ActualHeight, ElementName=btnAgeMinus}"
-                    Style="{StaticResource btnArrowUp}"
+                    Style="{StaticResource btnArrow}"
                     Command="{Binding PlusAgeCommand}">
                     <Button.RenderTransform>
                         <RotateTransform Angle="90"/>
@@ -199,7 +199,7 @@
                     x:Name="btnRaceMinus"
                     HorizontalAlignment="Left"
                     Width="{Binding ActualHeight, ElementName=btnRaceMinus}"
-                    Style="{StaticResource btnArrowUp}">
+                    Style="{StaticResource btnArrow}">
                     <Button.RenderTransform>
                         <RotateTransform Angle="270"/>
                     </Button.RenderTransform>
@@ -210,7 +210,7 @@
                     x:Name="btnRacePlus"
                     HorizontalAlignment="Right"
                     Width="{Binding ActualHeight, ElementName=btnRaceMinus}"
-                    Style="{StaticResource btnArrowUp}">
+                    Style="{StaticResource btnArrow}">
                     <Button.RenderTransform>
                         <RotateTransform Angle="90"/>
                     </Button.RenderTransform>
@@ -248,7 +248,7 @@
                     x:Name="btnGenderMinus"
                     HorizontalAlignment="Left"
                     Width="{Binding ActualHeight, ElementName=btnGenderMinus}"
-                    Style="{StaticResource btnArrowUp}">
+                    Style="{StaticResource btnArrow}">
                     <Button.RenderTransform>
                         <RotateTransform Angle="270"/>
                     </Button.RenderTransform>
@@ -260,7 +260,7 @@
                     x:Name="btnGenderPlus"
                     HorizontalAlignment="Right"
                     Width="{Binding ActualHeight, ElementName=btnGenderMinus}"
-                    Style="{StaticResource btnArrowUp}">
+                    Style="{StaticResource btnArrow}">
                     <Button.RenderTransform>
                         <RotateTransform Angle="90"/>
                     </Button.RenderTransform>

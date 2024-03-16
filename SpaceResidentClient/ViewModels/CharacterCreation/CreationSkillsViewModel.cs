@@ -7,9 +7,19 @@ using System.Windows.Input;
 
 namespace SpaceResidentClient.ViewModels.CharacterCreation
 {
-    public partial class CreationSkillsViewModel : ObservableObject
+    internal partial class CreationSkillsViewModel : ObservableObject
     {
         private readonly CharacterCreationSkillPointsProcessor _characterCreationSkillPointsProcessor = new();
+
+        public CreationSkillsViewModel()
+        {
+            // set default values to characteristics
+            linguistics = naturalistics = existentialism =
+                relationships = logic = space = kinetics = 1;
+
+            IncreaseCharacteristicCommand = new RelayCommand<string>(IncreaseCharacteristic);
+            DecreaseCharacteristicCommand = new RelayCommand<string>(DecreaseCharacteristic);
+        }
 
         #region props
         [ObservableProperty]
@@ -32,15 +42,13 @@ namespace SpaceResidentClient.ViewModels.CharacterCreation
         #endregion
 
         #region commands
-        private void IncreaseCharacteristic(string? characteristic)
-        {
-            ChangeCharacteristic(characteristic, true);
-        }
+        public ICommand IncreaseCharacteristicCommand { get; }
+        public ICommand DecreaseCharacteristicCommand { get; }
+        #endregion
 
-        private void DecreaseCharacteristic(string? characteristic)
-        {
-            ChangeCharacteristic(characteristic, false);
-        }
+        private void IncreaseCharacteristic(string? characteristic) => ChangeCharacteristic(characteristic, true);
+
+        private void DecreaseCharacteristic(string? characteristic) => ChangeCharacteristic(characteristic, false);
 
         private void ChangeCharacteristic(string? characteristic, bool isIncrease)
         {
@@ -48,42 +56,23 @@ namespace SpaceResidentClient.ViewModels.CharacterCreation
                 return;
 
             byte value = Convert.ToByte(GetType().GetProperty(characteristic)?.GetValue(this));
-
             byte oldPoints = Points;
+
             if (isIncrease)
             {
                 Points = _characterCreationSkillPointsProcessor.IncreaseSkill(Points, value);
 
                 if (oldPoints != Points)
-                {
                     GetType().GetProperty(characteristic)?.SetValue(this, ++value);
-                    ArrowButtonClickPlayer.LoadClickPlayer();
-                }
             }
             else
             {
                 Points = _characterCreationSkillPointsProcessor.DecreaseSkill(Points, value);
 
                 if (oldPoints != Points)
-                {
                     GetType().GetProperty(characteristic)?.SetValue(this, --value);
-                    ArrowButtonClickPlayer.LoadClickPlayer();
-                }
             }
-        }
-
-        public ICommand IncreaseCharacteristicCommand { get; }
-        public ICommand DecreaseCharacteristicCommand { get; }
-        #endregion
-
-        public CreationSkillsViewModel()
-        {
-            // set default values to characteristics
-            linguistics = naturalistics = existentialism =
-                relationships = logic = space = kinetics = 1;
-
-            IncreaseCharacteristicCommand = new RelayCommand<string>(IncreaseCharacteristic);
-            DecreaseCharacteristicCommand = new RelayCommand<string>(DecreaseCharacteristic);
+            ArrowButtonClickPlayer.LoadClickPlayer();
         }
     }
 }

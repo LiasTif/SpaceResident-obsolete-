@@ -54,7 +54,7 @@ namespace SpaceResidentClient.Models.CharacterCreation
             return points;
         }
 
-        private byte[] _pointsThresholdArr =
+        private readonly byte[] _pointsThresholdArr =
         [
             5,
             8,

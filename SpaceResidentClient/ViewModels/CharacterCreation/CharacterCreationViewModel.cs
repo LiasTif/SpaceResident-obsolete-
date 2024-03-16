@@ -16,7 +16,6 @@ namespace SpaceResidentClient.ViewModels.CharacterCreation
     partial class CharacterCreationViewModel : ObservableObject
     {
         #region fields
-        //public PortraitViewModel PortraitVM = new();
         private readonly IWindowNavigationStore _windowViewModel;
         private readonly IWindowScreenMode _windowScreenMode;
         public static MainCharacter MainCharacter = new
@@ -32,8 +31,6 @@ namespace SpaceResidentClient.ViewModels.CharacterCreation
 
         public CharacterCreationViewModel(IWindowNavigationStore windowViewModel, IWindowScreenMode windowScreenMode)
         {
-            // set bg as unemployed by default
-            //BgImageSource = CharacterImageProcessor.SetBgImageSource(Lang.unemployed);
             PortraitVM = new PortraitViewModel();
 
             _windowViewModel = windowViewModel;
@@ -46,44 +43,21 @@ namespace SpaceResidentClient.ViewModels.CharacterCreation
         }
 
         #region props
-        //public int ImageIndex { private get; set; } = 0;
-        //public int ImageCount { private get; set; }
-
-        //private string? _characterImagesDirectory;
-        //public string? CharacterImagesDirectory
-        //{
-        //    get => _characterImagesDirectory;
-        //    set
-        //    {
-        //        if (_characterImagesDirectory != value)
-        //        {
-        //            _characterImagesDirectory = value;
-        //            ImageSource = "/Resources;component" + _characterImagesDirectory + ImageIndex + ".png";
-        //        }
-        //    }
-        //}
-
         [ObservableProperty]
         public ObservableCollection<RadioButton> navigateButtons;
-        //[ObservableProperty]
-        //public string imageSource = String.Empty;
-        //[ObservableProperty]
-        //public string? bgImageSource;
         [ObservableProperty]
         public ObservableObject? currentUserControl;
-        public PortraitViewModel PortraitVM { get; set; }
+        public PortraitViewModel PortraitVM { get; private set; }
         #endregion
 
         #region commands
         public ICommand CloseCommand { get => new RelayCommand(Close); }
-
         public ICommand OpenSomeMenuCommand { get => new RelayCommand<object>(OpenSomeMenu); }
-
-        //public ICommand NextImageCommand { get => new RelayCommand(NextImage); }
-        //public ICommand PreviousImageCommand { get => new RelayCommand(PreviousImage); }
         public ICommand NextPageCommand { get => new RelayCommand(NextPage); }
         public ICommand PreviousPageCommand { get => new RelayCommand(PreviousPage); }
+        #endregion
 
+        #region methods
         private void Close()
         {
             _windowViewModel.NavigationStore.CurrentViewModel = new MainMenuViewModel(_windowViewModel, _windowScreenMode);
@@ -117,35 +91,8 @@ namespace SpaceResidentClient.ViewModels.CharacterCreation
         {
             CharacterCreationPagesBuffer b = new();
 
-            //if (CurrentUserControl == null)
-            //    b.AddTabToCollection(instance);
-
             CurrentUserControl = b.GetTabFromCollectionAsync(instance);
-            //if (CurrentUserControl == null)
-            //{
-            //    b.AddPageToCollection(instance);
-            //    CurrentUserControl = b.GetPageFromCollection(type);
-            //}
         }
-
-        //private void NextImage()
-        //{
-        //    // set next image or set first image if it`s end of images collection
-        //    ImageIndex = ImageIndex >= ImageCount - 1 ? 1 : ImageIndex + 1;
-        //    LoadNewImage();
-        //}
-        //private void PreviousImage()
-        //{
-        //    // set previous image or set last image if it`s start of images collection
-        //    ImageIndex = ImageIndex <= 1 ? ImageCount - 1 : ImageIndex - 1;
-        //    LoadNewImage();
-        //}
-
-        //private void LoadNewImage()
-        //{
-        //    ImageSource = "/Resources;component" + CharacterImagesDirectory + ImageIndex + ".png";
-        //    ArrowButtonClickPlayer.LoadClickPlayer();
-        //}
 
         private void PreviousPage() => LoadNewPage(false);
 
@@ -153,8 +100,8 @@ namespace SpaceResidentClient.ViewModels.CharacterCreation
 
         private void LoadNewPage(bool isNext)
         {
-            NavigatePagesByButtonsProcessor navigatePagesByButtonsProcessor = new(NavigateButtons);
-            navigatePagesByButtonsProcessor.NavigatePages(isNext);
+            NavigateTabsByButtonsProcessor navigateTabsByButtonsProcessor = new(NavigateButtons);
+            navigateTabsByButtonsProcessor.NavigateTabs(isNext);
             ArrowButtonClickPlayer.LoadClickPlayer();
         }
         #endregion
