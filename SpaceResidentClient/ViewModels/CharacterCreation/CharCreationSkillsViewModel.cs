@@ -7,11 +7,11 @@ using System.Windows.Input;
 
 namespace SpaceResidentClient.ViewModels.CharacterCreation
 {
-    internal partial class CreationSkillsViewModel : ObservableObject
+    internal partial class CharCreationSkillsViewModel : ObservableObject
     {
         private readonly CharacterCreationSkillPointsProcessor _characterCreationSkillPointsProcessor = new();
 
-        public CreationSkillsViewModel()
+        public CharCreationSkillsViewModel()
         {
             // set default values to characteristics
             linguistics = naturalistics = existentialism =

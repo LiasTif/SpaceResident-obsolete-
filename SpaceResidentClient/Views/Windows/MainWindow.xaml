@@ -14,7 +14,8 @@
     ResizeMode="{Binding ResizeMode}"
     WindowStyle="{Binding WinStyle}"
     WindowState="{Binding WinState}"
-    Style="{StaticResource winBase}" Icon="/Resources;component/Data/UI/Icons/icon.ico">
+    Style="{StaticResource winBase}"
+    Icon="/Resources;component/Data/UI/Icons/icon.ico">
     <Grid>
         <ContentControl
             Content="{Binding Path=DataContext.CurrentViewModel,
@@ -23,8 +24,8 @@
                 <DataTemplate DataType="{x:Type vm:MainMenuViewModel}">
                     <v:MainMenuView/>
                 </DataTemplate>
-                <DataTemplate DataType="{x:Type vmCC:CharacterCreationViewModel}">
-                    <vCC:CharacterCreationView/>
+                <DataTemplate DataType="{x:Type vmCC:CharCreationMainViewModel}">
+                    <vCC:CharCreationMainView/>
                 </DataTemplate>
             </ContentControl.Resources>
         </ContentControl>

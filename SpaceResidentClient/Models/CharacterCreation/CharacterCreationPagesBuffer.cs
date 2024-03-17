@@ -22,10 +22,10 @@ namespace SpaceResidentClient.Models.CharacterCreation
         /// <returns>Character creation view model</returns>
         public ObservableObject InitializeCharacterCreationVM(IWindowNavigationStore winVM, IWindowScreenMode winScreenMode)
         {
-            return CharacterCreationViewModel ??= new CharacterCreationViewModel(winVM, winScreenMode);
+            return CharacterCreationViewModel ??= new CharCreationMainViewModel(winVM, winScreenMode);
         }
 
-        public ObservableObject? GetTabFromCollectionAsync(ObservableObject tab)
+        public ObservableObject? GetTabFromCollection(ObservableObject tab)
         {
             AddTabToCollection(tab);
 

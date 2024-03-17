@@ -1,14 +1,13 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using SpaceResidentClient.Models.CharacterCreation;
-using SpaceResidentClient.Properties;
 using System.Collections.ObjectModel;
 using System.Windows.Controls;
 
 namespace SpaceResidentClient.ViewModels.CharacterCreation
 {
-    internal partial class CreationLocationViewModel : ObservableObject
+    internal partial class CharCreationLocationViewModel : ObservableObject
     {
-        public CreationLocationViewModel()
+        public CharCreationLocationViewModel()
         {
             SetSelectedLocationTextBlockFromCollection();
         }

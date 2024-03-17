@@ -13,7 +13,7 @@ using SpaceResidentClient.ViewModels.Windows.Interfaces;
 
 namespace SpaceResidentClient.ViewModels.CharacterCreation
 {
-    partial class CharacterCreationViewModel : ObservableObject
+    partial class CharCreationMainViewModel : ObservableObject
     {
         #region fields
         private readonly IWindowNavigationStore _windowViewModel;
@@ -29,7 +29,7 @@ namespace SpaceResidentClient.ViewModels.CharacterCreation
         );
         #endregion
 
-        public CharacterCreationViewModel(IWindowNavigationStore windowViewModel, IWindowScreenMode windowScreenMode)
+        public CharCreationMainViewModel(IWindowNavigationStore windowViewModel, IWindowScreenMode windowScreenMode)
         {
             PortraitVM = new PortraitViewModel();
 
@@ -70,19 +70,19 @@ namespace SpaceResidentClient.ViewModels.CharacterCreation
             switch (str)
             {
                 case "character":
-                    SetTabToCurrentUserControl(new CreationCharacterViewModel(PortraitVM));
+                    SetTabToCurrentUserControl(new CharCreationPersonalityViewModel(PortraitVM));
                     break;
                 case "skills":
-                    SetTabToCurrentUserControl(new CreationSkillsViewModel());
+                    SetTabToCurrentUserControl(new CharCreationSkillsViewModel());
                     break;
                 case "job":
-                    SetTabToCurrentUserControl(new CreationJobViewModel(PortraitVM));
+                    SetTabToCurrentUserControl(new CharCreationJobViewModel(PortraitVM));
                     break;
                 case "location":
-                    SetTabToCurrentUserControl(new CreationLocationViewModel());
+                    SetTabToCurrentUserControl(new CharCreationLocationViewModel());
                     break;
                 case "stats":
-                    SetTabToCurrentUserControl(new CreationStatsViewModel());
+                    SetTabToCurrentUserControl(new CharCreationStatsViewModel());
                     break;
             }
         }
@@ -91,7 +91,7 @@ namespace SpaceResidentClient.ViewModels.CharacterCreation
         {
             CharacterCreationPagesBuffer b = new();
 
-            CurrentUserControl = b.GetTabFromCollectionAsync(instance);
+            CurrentUserControl = b.GetTabFromCollection(instance);
         }
 
         private void PreviousPage() => LoadNewPage(false);

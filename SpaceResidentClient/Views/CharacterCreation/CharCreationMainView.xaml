@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="SpaceResidentClient.Views.CharacterCreation.CharacterCreationView"
+﻿<UserControl x:Class="SpaceResidentClient.Views.CharacterCreation.CharCreationMainView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -96,20 +96,20 @@
                 Grid.Column="1"
                 Grid.Row="1">
                 <ContentControl.Resources>
-                    <DataTemplate DataType="{x:Type ccVM:CreationCharacterViewModel}">
-                        <ccV:CreationCharacterView/>
+                    <DataTemplate DataType="{x:Type ccVM:CharCreationPersonalityViewModel}">
+                        <ccV:CharCreationPersonalityView/>
                     </DataTemplate>
-                    <DataTemplate DataType="{x:Type ccVM:CreationJobViewModel}">
-                        <ccV:CreationJobView/>
+                    <DataTemplate DataType="{x:Type ccVM:CharCreationJobViewModel}">
+                        <ccV:CharCreationJobView/>
                     </DataTemplate>
-                    <DataTemplate DataType="{x:Type ccVM:CreationSkillsViewModel}">
-                        <ccV:CreationSkillsView/>
+                    <DataTemplate DataType="{x:Type ccVM:CharCreationSkillsViewModel}">
+                        <ccV:CharCreationSkillsView/>
                     </DataTemplate>
-                    <DataTemplate DataType="{x:Type ccVM:CreationLocationViewModel}">
-                        <ccV:CreationLocationView/>
+                    <DataTemplate DataType="{x:Type ccVM:CharCreationLocationViewModel}">
+                        <ccV:CharCreationLocationView/>
                     </DataTemplate>
-                    <DataTemplate DataType="{x:Type ccVM:CreationStatsViewModel}">
-                        <ccV:CreationStatsView/>
+                    <DataTemplate DataType="{x:Type ccVM:CharCreationStatsViewModel}">
+                        <ccV:CharCreationStatsView/>
                     </DataTemplate>
                 </ContentControl.Resources>
             </ContentControl>

@@ -3,11 +3,11 @@
 namespace SpaceResidentClient.Views.CharacterCreation
 {
     /// <summary>
-    /// Interaction logic for CreationStatsView.xaml
+    /// Interaction logic for CharCreationPersonalityView.xaml
     /// </summary>
-    public partial class CreationStatsView : UserControl
+    public partial class CharCreationPersonalityView : UserControl
     {
-        public CreationStatsView()
+        public CharCreationPersonalityView()
         {
             InitializeComponent();
         }

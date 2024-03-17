@@ -2,7 +2,7 @@
 
 namespace SpaceResidentClient.ViewModels.CharacterCreation
 {
-    internal class CreationStatsViewModel : ObservableObject
+    internal class CharCreationStatsViewModel : ObservableObject
     {
     }
 }

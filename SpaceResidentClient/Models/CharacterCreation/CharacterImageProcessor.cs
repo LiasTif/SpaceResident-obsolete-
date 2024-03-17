@@ -2,14 +2,14 @@
 using System;
 using SpaceResidentClient.Properties;
 
-namespace SpaceResidentClient.Models.ImagesProcessors
+namespace SpaceResidentClient.Models.CharacterCreation
 {
     internal class CharacterImageProcessor(PortraitViewModel portraitViewModel)
     {
         private readonly PortraitViewModel _portraitViewModel = portraitViewModel;
 
         #region metods
-        private void SetSourceToPortraits(int count, String uri) => _portraitViewModel.SetPortraits(count, uri);
+        private void SetSourceToPortraits(int count, string uri) => _portraitViewModel.SetPortraits(count, uri);
 
         public static string SetBgImageSource(string job)
         {

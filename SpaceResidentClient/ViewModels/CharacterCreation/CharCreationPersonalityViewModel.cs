@@ -5,11 +5,11 @@ using System.Windows.Input;
 
 namespace SpaceResidentClient.ViewModels.CharacterCreation
 {
-    partial class CreationCharacterViewModel : ObservableObject
+    partial class CharCreationPersonalityViewModel : ObservableObject
     {
         private readonly PortraitViewModel _portraitVM;
 
-        public CreationCharacterViewModel(PortraitViewModel portraitVM)
+        public CharCreationPersonalityViewModel(PortraitViewModel portraitVM)
         {
             _portraitVM = portraitVM;
             RaceOrGenderHasChanged();
@@ -18,39 +18,39 @@ namespace SpaceResidentClient.ViewModels.CharacterCreation
         #region props
         public static string Name
         {
-            get => CharacterCreationViewModel.MainCharacter.Name;
-            set => CharacterCreationViewModel.MainCharacter.Name = value;
+            get => CharCreationMainViewModel.MainCharacter.Name;
+            set => CharCreationMainViewModel.MainCharacter.Name = value;
         }
         public static string Surname
         {
-            get => CharacterCreationViewModel.MainCharacter.Surname;
-            set => CharacterCreationViewModel.MainCharacter.Surname = value;
+            get => CharCreationMainViewModel.MainCharacter.Surname;
+            set => CharCreationMainViewModel.MainCharacter.Surname = value;
         }
         public int Age
         {
-            get => CharacterCreationViewModel.MainCharacter.Age;
+            get => CharCreationMainViewModel.MainCharacter.Age;
             set
             {
-                CharacterCreationViewModel.MainCharacter.Age = value;
+                CharCreationMainViewModel.MainCharacter.Age = value;
                 OnPropertyChanged(nameof(Age));
             }
         }
         public bool IsFemale
         {
-            get => CharacterCreationViewModel.MainCharacter.IsFemale;
+            get => CharCreationMainViewModel.MainCharacter.IsFemale;
             set
             {
-                CharacterCreationViewModel.MainCharacter.IsFemale = value;
+                CharCreationMainViewModel.MainCharacter.IsFemale = value;
                 OnPropertyChanged(nameof(IsFemale));
                 RaceOrGenderHasChanged();
             }
         }
         public char Race
         {
-            get => CharacterCreationViewModel.MainCharacter.Race;
+            get => CharCreationMainViewModel.MainCharacter.Race;
             set
             {
-                CharacterCreationViewModel.MainCharacter.Race = value;
+                CharCreationMainViewModel.MainCharacter.Race = value;
                 OnPropertyChanged(nameof(Race));
                 RaceOrGenderHasChanged();
             }

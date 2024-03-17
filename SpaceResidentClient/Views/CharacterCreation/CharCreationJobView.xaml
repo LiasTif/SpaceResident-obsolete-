@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="SpaceResidentClient.Views.CharacterCreation.CreationLocationView"
+﻿<UserControl x:Class="SpaceResidentClient.Views.CharacterCreation.CharCreationJobView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -28,7 +28,7 @@
             Style="{StaticResource brdMainElementBase}">
             <Viewbox HorizontalAlignment="Left">
                 <TextBlock
-                    Text="{x:Static language:Lang.location}"
+                    Text="{x:Static language:Lang.job}"
                     Style="{StaticResource txtblWhiteTextBase}"/>
             </Viewbox>
         </Border>
@@ -39,8 +39,8 @@
             Style="{StaticResource brdMainElementBase}">
             <ComboBox
                 Style="{StaticResource cbBase}"
-                SelectedItem="{Binding SelectedLocationTextBlock}"
-                ItemsSource="{Binding LocationTextBlocks}"
+                SelectedItem="{Binding SelectedJobTextBlock}"
+                ItemsSource="{Binding JobTextBlocks}"
                 x:Name="cbLanguage">
             </ComboBox>
         </Border>

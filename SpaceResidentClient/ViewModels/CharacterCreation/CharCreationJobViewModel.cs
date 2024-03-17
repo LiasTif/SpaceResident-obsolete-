@@ -1,12 +1,11 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using System.Collections.ObjectModel;
 using System.Windows.Controls;
-using SpaceResidentClient.Models.ImagesProcessors;
 using SpaceResidentClient.Models.CharacterCreation;
 
 namespace SpaceResidentClient.ViewModels.CharacterCreation
 {
-    partial class CreationJobViewModel(PortraitViewModel portraitVM) : ObservableObject
+    partial class CharCreationJobViewModel(PortraitViewModel portraitVM) : ObservableObject
     {
         private readonly PortraitViewModel _portraitVM = portraitVM;
 
