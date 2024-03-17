@@ -3,11 +3,10 @@ using SpaceResidentClient.ViewModels.CharacterCreation;
 using SpaceResidentClient.ViewModels.Windows.Interfaces;
 using System;
 using System.Collections.ObjectModel;
-using System.Threading.Tasks;
 
 namespace SpaceResidentClient.Models.CharacterCreation
 {
-    internal partial class CharacterCreationPagesBuffer : ObservableObject
+    internal partial class CharacterCreationTabsBuffer : ObservableObject
     {
         [ObservableProperty]
         private static ObservableObject? characterCreationViewModel;
