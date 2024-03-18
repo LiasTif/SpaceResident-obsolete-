@@ -89,7 +89,7 @@ namespace SpaceResidentClient.ViewModels.CharacterCreation
 
         private void SetTabToCurrentUserControl(ObservableObject instance)
         {
-            CharacterCreationPagesBuffer b = new();
+            CharacterCreationTabsBuffer b = new();
 
             CurrentUserControl = b.GetTabFromCollection(instance);
         }

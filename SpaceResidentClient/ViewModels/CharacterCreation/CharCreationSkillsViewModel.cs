@@ -1,78 +1,41 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
-using CommunityToolkit.Mvvm.Input;
-using SpaceResidentClient.Models.CharacterCreation;
-using SpaceResidentClient.Services.UISounds;
-using System;
-using System.Windows.Input;
+using SpaceResidentClient.Models.CharacterCreation.Interfaces;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace SpaceResidentClient.ViewModels.CharacterCreation
 {
-    internal partial class CharCreationSkillsViewModel : ObservableObject
+    internal partial class CharCreationSkillsViewModel : ObservableObject, ICharCreationSkillsMain
     {
-        private readonly CharacterCreationSkillPointsProcessor _characterCreationSkillPointsProcessor = new();
-
         public CharCreationSkillsViewModel()
         {
-            // set default values to characteristics
-            linguistics = naturalistics = existentialism =
-                relationships = logic = space = kinetics = 1;
-
-            IncreaseCharacteristicCommand = new RelayCommand<string>(IncreaseCharacteristic);
-            DecreaseCharacteristicCommand = new RelayCommand<string>(DecreaseCharacteristic);
+            CreateSkillPointSwithers();
         }
 
         #region props
         [ObservableProperty]
-        public byte points = 60;
-
+        public int points = 60;
         [ObservableProperty]
-        public byte linguistics;
-        [ObservableProperty]
-        public byte naturalistics;
-        [ObservableProperty]
-        public byte existentialism;
-        [ObservableProperty]
-        public byte relationships;
-        [ObservableProperty]
-        public byte logic;
-        [ObservableProperty]
-        public byte space;
-        [ObservableProperty]
-        public byte kinetics;
+        public ObservableCollection<SkillPointsSwitcherViewModel> skillPointsSwitcherViewModels = [];
         #endregion
 
-        #region commands
-        public ICommand IncreaseCharacteristicCommand { get; }
-        public ICommand DecreaseCharacteristicCommand { get; }
-        #endregion
-
-        private void IncreaseCharacteristic(string? characteristic) => ChangeCharacteristic(characteristic, true);
-
-        private void DecreaseCharacteristic(string? characteristic) => ChangeCharacteristic(characteristic, false);
-
-        private void ChangeCharacteristic(string? characteristic, bool isIncrease)
+        private void CreateSkillPointSwithers()
         {
-            if (characteristic == null)
-                return;
-
-            byte value = Convert.ToByte(GetType().GetProperty(characteristic)?.GetValue(this));
-            byte oldPoints = Points;
-
-            if (isIncrease)
+            foreach (string skillName in SkillNames)
             {
-                Points = _characterCreationSkillPointsProcessor.IncreaseSkill(Points, value);
-
-                if (oldPoints != Points)
-                    GetType().GetProperty(characteristic)?.SetValue(this, ++value);
+                SkillPointsSwitcherViewModels.Add(new SkillPointsSwitcherViewModel(this, skillName));
             }
-            else
-            {
-                Points = _characterCreationSkillPointsProcessor.DecreaseSkill(Points, value);
-
-                if (oldPoints != Points)
-                    GetType().GetProperty(characteristic)?.SetValue(this, --value);
-            }
-            ArrowButtonClickPlayer.LoadClickPlayer();
         }
+
+        private readonly List<string> SkillNames =
+        [
+            "Linguistics",
+            "Naturalistics",
+            "Existentialism",
+            "Relationships",
+            "Logic",
+            "Space",
+            "Kinetics",
+        ];
     }
 }

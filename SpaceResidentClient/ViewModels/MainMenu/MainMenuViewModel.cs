@@ -29,10 +29,9 @@ namespace SpaceResidentClient.ViewModels.MainMenu
 
         private void OpenCharacterCreation()
         {
-            CharacterCreationPagesBuffer b = new();
+            CharacterCreationTabsBuffer b = new();
             _windowViewModel.NavigationStore.CurrentViewModel = b.InitializeCharacterCreationVM(_windowViewModel, _windowScreenMode);
         }
-
         private void Shutdown() => App.Current.Shutdown();
         public void SettingsViewSwitch()
         {

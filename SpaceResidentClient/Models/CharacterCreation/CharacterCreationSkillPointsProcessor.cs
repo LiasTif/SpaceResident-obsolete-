@@ -10,7 +10,7 @@ namespace SpaceResidentClient.Models.CharacterCreation
         /// <param name="points">Current points</param>
         /// <param name="value">Current value of skill</param>
         /// <returns>New points value</returns>
-        public byte IncreaseSkill(byte points, byte value)
+        public int IncreaseSkill(int points, byte value)
         {
             if (points < 1 && value >= 20)
                 return points;
@@ -22,8 +22,6 @@ namespace SpaceResidentClient.Models.CharacterCreation
             {
                 if (value > _pointsThresholdArr[i] - 1 && value < _pointsThresholdArr[i + 1] && points >= i + 2)
                 {
-                    //if (points < i + 2)
-                    //    return points;
                     return points -= Convert.ToByte(i + 2);
                 }
             }
@@ -36,7 +34,7 @@ namespace SpaceResidentClient.Models.CharacterCreation
         /// <param name="points">Current points</param>
         /// <param name="value">Current value of skill</param>
         /// <returns>New points value</returns>
-        public byte DecreaseSkill(byte points, byte value)
+        public int DecreaseSkill(int points, byte value)
         {
             if (value <= 1)
                 return points;

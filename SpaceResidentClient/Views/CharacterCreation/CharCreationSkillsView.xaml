@@ -5,6 +5,8 @@
              xmlns:c="clr-namespace:Converters;assembly=Converters"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:language="clr-namespace:SpaceResidentClient.Properties"
+             xmlns:characteristicSwitchersVMs="clr-namespace:SpaceResidentClient.ViewModels.CharacterCreation"
+             xmlns:local="clr-namespace:SpaceResidentClient.Views.CharacterCreation"
              mc:Ignorable="d" d:Height="450" d:Width="800">
 
     <UserControl.Resources>
@@ -116,355 +118,71 @@
         <!--#endregion-->
 
         <!--#region 2 column-->
-        <!--#region Linguistics-->
-        <Border
-            x:Name="LinguisticsBorder2clmn"
-            Panel.ZIndex="1"
-            Margin="10"
-            Grid.Column="1"
-            BorderThickness="3">
-            <Border.BorderBrush>
-                <SolidColorBrush Color="{StaticResource PassiveColor}"/>
-            </Border.BorderBrush>
-            <Viewbox HorizontalAlignment="Center">
-                <TextBlock
-                    Style="{StaticResource txtblWhiteTextBase}"
-                    Text="{Binding Linguistics, Mode=TwoWay}"/>
-            </Viewbox>
-        </Border>
-        <Border
-            Grid.Column="1"
-            Margin="10"
-            Style="{StaticResource brdMainElementBase}">
-            <UniformGrid Columns="2">
-                <Button
-                    Command="{Binding DecreaseCharacteristicCommand}"
-                    CommandParameter="Linguistics"
-                    RenderTransformOrigin="0.5, 0.5"
-                    x:Name="btnLinguisticsMinus"
-                    HorizontalAlignment="Left"
-                    Width="{Binding ActualHeight, ElementName=btnLinguisticsMinus}"
-                    Style="{StaticResource btnArrow}">
-                    <Button.RenderTransform>
-                        <RotateTransform Angle="270"/>
-                    </Button.RenderTransform>
-                </Button>
-
-                <Button
-                    Command="{Binding IncreaseCharacteristicCommand}"
-                    CommandParameter="Linguistics"
-                    RenderTransformOrigin="0.5, 0.5"
-                    x:Name="btnLinguisticsPlus"
-                    HorizontalAlignment="Right"
-                    Width="{Binding ActualHeight, ElementName=btnLinguisticsMinus}"
-                    Style="{StaticResource btnArrow}">
-                    <Button.RenderTransform>
-                        <RotateTransform Angle="90"/>
-                    </Button.RenderTransform>
-                </Button>
-            </UniformGrid>
-        </Border>
-        <!--#endregion-->
-        <!--#region Naturalistics-->
-        <Border
-            Panel.ZIndex="1"
-            Margin="10"
-            Grid.Row="1"
-            Grid.Column="1"
-            BorderThickness="3">
-            <Border.BorderBrush>
-                <SolidColorBrush Color="{StaticResource PassiveColor}"/>
-            </Border.BorderBrush>
-            <Viewbox HorizontalAlignment="Center">
-                <TextBlock
-                    Style="{StaticResource txtblWhiteTextBase}"
-                    Text="{Binding Naturalistics, Mode=TwoWay}"/>
-            </Viewbox>
-        </Border>
-        <Border
-            Grid.Row="1"
-            Grid.Column="1"
-            Margin="10"
-            Style="{StaticResource brdMainElementBase}">
-            <UniformGrid Columns="2">
-                <Button
-                    Command="{Binding DecreaseCharacteristicCommand}"
-                    CommandParameter="Naturalistics"
-                    RenderTransformOrigin="0.5, 0.5"
-                    x:Name="btnNaturalisticsMinus"
-                    HorizontalAlignment="Left"
-                    Width="{Binding ActualHeight, ElementName=btnNaturalisticsMinus}"
-                    Style="{StaticResource btnArrow}">
-                    <Button.RenderTransform>
-                        <RotateTransform Angle="270"/>
-                    </Button.RenderTransform>
-                </Button>
-
-                <Button
-                    Command="{Binding IncreaseCharacteristicCommand}"
-                    CommandParameter="Naturalistics"
-                    RenderTransformOrigin="0.5, 0.5"
-                    x:Name="btnNaturalisticsPlus"
-                    HorizontalAlignment="Right"
-                    Width="{Binding ActualHeight, ElementName=btnNaturalisticsMinus}"
-                    Style="{StaticResource btnArrow}">
-                    <Button.RenderTransform>
-                        <RotateTransform Angle="90"/>
-                    </Button.RenderTransform>
-                </Button>
-            </UniformGrid>
-        </Border>
-        <!--#endregion-->
-        <!--#region Existentialism-->
-        <Border
-            Panel.ZIndex="1"
-            Margin="10"
-            Grid.Row="2"
-            Grid.Column="1"
-            BorderThickness="3">
-            <Border.BorderBrush>
-                <SolidColorBrush Color="{StaticResource PassiveColor}"/>
-            </Border.BorderBrush>
-            <Viewbox HorizontalAlignment="Center">
-                <TextBlock
-                    Style="{StaticResource txtblWhiteTextBase}"
-                    Text="{Binding Existentialism, Mode=TwoWay}"/>
-            </Viewbox>
-        </Border>
-        <Border
-            Grid.Row="2"
-            Grid.Column="1"
-            Margin="10"
-            Style="{StaticResource brdMainElementBase}">
-            <UniformGrid Columns="2">
-                <Button
-                    Command="{Binding DecreaseCharacteristicCommand}"
-                    CommandParameter="Existentialism"
-                    RenderTransformOrigin="0.5, 0.5"
-                    x:Name="btnExistentialismMinus"
-                    HorizontalAlignment="Left"
-                    Width="{Binding ActualHeight, ElementName=btnExistentialismMinus}"
-                    Style="{StaticResource btnArrow}">
-                    <Button.RenderTransform>
-                        <RotateTransform Angle="270"/>
-                    </Button.RenderTransform>
-                </Button>
-
-                <Button
-                    Command="{Binding IncreaseCharacteristicCommand}"
-                    CommandParameter="Existentialism"
-                    RenderTransformOrigin="0.5, 0.5"
-                    x:Name="btnExistentialismPlus"
-                    HorizontalAlignment="Right"
-                    Width="{Binding ActualHeight, ElementName=btnExistentialismMinus}"
-                    Style="{StaticResource btnArrow}">
-                    <Button.RenderTransform>
-                        <RotateTransform Angle="90"/>
-                    </Button.RenderTransform>
-                </Button>
-            </UniformGrid>
-        </Border>
-        <!--#endregion-->
-        <!--#region Relationships-->
-        <Border
-            Grid.Row="3"
-            Panel.ZIndex="1"
-            Margin="10"
-            Grid.Column="1"
-            BorderThickness="3">
-            <Border.BorderBrush>
-                <SolidColorBrush Color="{StaticResource PassiveColor}"/>
-            </Border.BorderBrush>
-            <Viewbox HorizontalAlignment="Center">
-                <TextBlock
-                    Style="{StaticResource txtblWhiteTextBase}"
-                    Text="{Binding Relationships, Mode=TwoWay}"/>
-            </Viewbox>
-        </Border>
-        <Border
-            Grid.Row="3"
-            Grid.Column="1"
-            Margin="10"
-            Style="{StaticResource brdMainElementBase}">
-            <UniformGrid Columns="2">
-                <Button
-                    Command="{Binding DecreaseCharacteristicCommand}"
-                    CommandParameter="Relationships"
-                    RenderTransformOrigin="0.5, 0.5"
-                    x:Name="btnRelationshipsMinus"
-                    HorizontalAlignment="Left"
-                    Width="{Binding ActualHeight, ElementName=btnRelationshipsMinus}"
-                    Style="{StaticResource btnArrow}">
-                    <Button.RenderTransform>
-                        <RotateTransform Angle="270"/>
-                    </Button.RenderTransform>
-                </Button>
-
-                <Button
-                    Command="{Binding IncreaseCharacteristicCommand}"
-                    CommandParameter="Relationships"
-                    RenderTransformOrigin="0.5, 0.5"
-                    x:Name="btnRelationshipsPlus"
-                    HorizontalAlignment="Right"
-                    Width="{Binding ActualHeight, ElementName=btnRelationshipsMinus}"
-                    Style="{StaticResource btnArrow}">
-                    <Button.RenderTransform>
-                        <RotateTransform Angle="90"/>
-                    </Button.RenderTransform>
-                </Button>
-            </UniformGrid>
-        </Border>
-        <!--#endregion-->
-        <!--#region Logic-->
-        <Border
-            Grid.Row="4"
-            Panel.ZIndex="1"
-            Margin="10"
-            Grid.Column="1"
-            BorderThickness="3">
-            <Border.BorderBrush>
-                <SolidColorBrush Color="{StaticResource PassiveColor}"/>
-            </Border.BorderBrush>
-            <Viewbox HorizontalAlignment="Center">
-                <TextBlock
-                    Style="{StaticResource txtblWhiteTextBase}"
-                    Text="{Binding Logic, Mode=TwoWay}"/>
-            </Viewbox>
-        </Border>
-        <Border
-            Grid.Row="4"
-            Grid.Column="1"
-            Margin="10"
-            Style="{StaticResource brdMainElementBase}">
-            <UniformGrid Columns="2">
-                <Button
-                    Command="{Binding DecreaseCharacteristicCommand}"
-                    CommandParameter="Logic"
-                    RenderTransformOrigin="0.5, 0.5"
-                    x:Name="btnLogicMinus"
-                    HorizontalAlignment="Left"
-                    Width="{Binding ActualHeight, ElementName=btnLogicMinus}"
-                    Style="{StaticResource btnArrow}">
-                    <Button.RenderTransform>
-                        <RotateTransform Angle="270"/>
-                    </Button.RenderTransform>
-                </Button>
-
-                <Button
-                    Command="{Binding IncreaseCharacteristicCommand}"
-                    CommandParameter="Logic"
-                    RenderTransformOrigin="0.5, 0.5"
-                    x:Name="btnLogicPlus"
-                    HorizontalAlignment="Right"
-                    Width="{Binding ActualHeight, ElementName=btnLogicMinus}"
-                    Style="{StaticResource btnArrow}">
-                    <Button.RenderTransform>
-                        <RotateTransform Angle="90"/>
-                    </Button.RenderTransform>
-                </Button>
-            </UniformGrid>
-        </Border>
-        <!--#endregion-->
-        <!--#region Space-->
-        <Border
-            Grid.Row="5"
-            Panel.ZIndex="1"
-            Margin="10"
-            Grid.Column="1"
-            BorderThickness="3">
-            <Border.BorderBrush>
-                <SolidColorBrush Color="{StaticResource PassiveColor}"/>
-            </Border.BorderBrush>
-            <Viewbox HorizontalAlignment="Center">
-                <TextBlock
-                    Style="{StaticResource txtblWhiteTextBase}"
-                    Text="{Binding Space, Mode=TwoWay}"/>
-            </Viewbox>
-        </Border>
-        <Border
-            Grid.Row="5"
-            Grid.Column="1"
-            Margin="10"
-            Style="{StaticResource brdMainElementBase}">
-            <UniformGrid Columns="2">
-                <Button
-                    Command="{Binding DecreaseCharacteristicCommand}"
-                    CommandParameter="Space"
-                    RenderTransformOrigin="0.5, 0.5"
-                    x:Name="btnSpaceMinus"
-                    HorizontalAlignment="Left"
-                    Width="{Binding ActualHeight, ElementName=btnSpaceMinus}"
-                    Style="{StaticResource btnArrow}">
-                    <Button.RenderTransform>
-                        <RotateTransform Angle="270"/>
-                    </Button.RenderTransform>
-                </Button>
-
-                <Button
-                    Command="{Binding IncreaseCharacteristicCommand}"
-                    CommandParameter="Space"
-                    RenderTransformOrigin="0.5, 0.5"
-                    x:Name="btnSpacePlus"
-                    HorizontalAlignment="Right"
-                    Width="{Binding ActualHeight, ElementName=btnSpaceMinus}"
-                    Style="{StaticResource btnArrow}">
-                    <Button.RenderTransform>
-                        <RotateTransform Angle="90"/>
-                    </Button.RenderTransform>
-                </Button>
-            </UniformGrid>
-        </Border>
-        <!--#endregion-->
-        <!--#region Kinetics-->
-        <Border
-            Grid.Row="6"
-            Panel.ZIndex="1"
-            Margin="10"
-            Grid.Column="1"
-            BorderThickness="3">
-            <Border.BorderBrush>
-                <SolidColorBrush Color="{StaticResource PassiveColor}"/>
-            </Border.BorderBrush>
-            <Viewbox HorizontalAlignment="Center">
-                <TextBlock
-                    Style="{StaticResource txtblWhiteTextBase}"
-                    Text="{Binding Kinetics, Mode=TwoWay}"/>
-            </Viewbox>
-        </Border>
-        <Border
-            Grid.Row="6"
-            Grid.Column="1"
-            Margin="10"
-            Style="{StaticResource brdMainElementBase}">
-            <UniformGrid Columns="2">
-                <Button
-                    Command="{Binding DecreaseCharacteristicCommand}"
-                    CommandParameter="Kinetics"
-                    RenderTransformOrigin="0.5, 0.5"
-                    x:Name="btnKineticsMinus"
-                    HorizontalAlignment="Left"
-                    Width="{Binding ActualHeight, ElementName=btnKineticsMinus}"
-                    Style="{StaticResource btnArrow}">
-                    <Button.RenderTransform>
-                        <RotateTransform Angle="270"/>
-                    </Button.RenderTransform>
-                </Button>
-
-                <Button
-                    Command="{Binding IncreaseCharacteristicCommand}"
-                    CommandParameter="Kinetics"
-                    RenderTransformOrigin="0.5, 0.5"
-                    x:Name="btnKineticsPlus"
-                    HorizontalAlignment="Right"
-                    Width="{Binding ActualHeight, ElementName=btnKineticsMinus}"
-                    Style="{StaticResource btnArrow}">
-                    <Button.RenderTransform>
-                        <RotateTransform Angle="90"/>
-                    </Button.RenderTransform>
-                </Button>
-            </UniformGrid>
-        </Border>
-        <!--#endregion-->
+        <UniformGrid Rows="7" Grid.Column="1" Grid.RowSpan="7">
+            <ContentControl
+                Content="{Binding Path=DataContext.SkillPointsSwitcherViewModels[0],
+                    RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}">
+                <ContentControl.Resources>
+                    <DataTemplate DataType="{x:Type characteristicSwitchersVMs:SkillPointsSwitcherViewModel}">
+                        <local:SkillPointsSwitcherView/>
+                    </DataTemplate>
+                </ContentControl.Resources>
+            </ContentControl>
+            <ContentControl
+                Content="{Binding Path=DataContext.SkillPointsSwitcherViewModels[1],
+                    RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}">
+                <ContentControl.Resources>
+                    <DataTemplate DataType="{x:Type characteristicSwitchersVMs:SkillPointsSwitcherViewModel}">
+                        <local:SkillPointsSwitcherView/>
+                    </DataTemplate>
+                </ContentControl.Resources>
+            </ContentControl>
+            <ContentControl
+                Content="{Binding Path=DataContext.SkillPointsSwitcherViewModels[2],
+                    RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}">
+                <ContentControl.Resources>
+                    <DataTemplate DataType="{x:Type characteristicSwitchersVMs:SkillPointsSwitcherViewModel}">
+                        <local:SkillPointsSwitcherView/>
+                    </DataTemplate>
+                </ContentControl.Resources>
+            </ContentControl>
+            <ContentControl
+                Content="{Binding Path=DataContext.SkillPointsSwitcherViewModels[3],
+                    RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}">
+                <ContentControl.Resources>
+                    <DataTemplate DataType="{x:Type characteristicSwitchersVMs:SkillPointsSwitcherViewModel}">
+                        <local:SkillPointsSwitcherView/>
+                    </DataTemplate>
+                </ContentControl.Resources>
+            </ContentControl>
+            <ContentControl
+                Content="{Binding Path=DataContext.SkillPointsSwitcherViewModels[4],
+                    RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}">
+                <ContentControl.Resources>
+                    <DataTemplate DataType="{x:Type characteristicSwitchersVMs:SkillPointsSwitcherViewModel}">
+                        <local:SkillPointsSwitcherView/>
+                    </DataTemplate>
+                </ContentControl.Resources>
+            </ContentControl>
+            <ContentControl
+                Content="{Binding Path=DataContext.SkillPointsSwitcherViewModels[5],
+                    RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}">
+                <ContentControl.Resources>
+                    <DataTemplate DataType="{x:Type characteristicSwitchersVMs:SkillPointsSwitcherViewModel}">
+                        <local:SkillPointsSwitcherView/>
+                    </DataTemplate>
+                </ContentControl.Resources>
+            </ContentControl>
+            <ContentControl
+                Content="{Binding Path=DataContext.SkillPointsSwitcherViewModels[6],
+                    RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}">
+                <ContentControl.Resources>
+                    <DataTemplate DataType="{x:Type characteristicSwitchersVMs:SkillPointsSwitcherViewModel}">
+                        <local:SkillPointsSwitcherView/>
+                    </DataTemplate>
+                </ContentControl.Resources>
+            </ContentControl>
+        </UniformGrid>
 
         <!--#region Poins & tip-->
         <Grid
@@ -483,15 +201,6 @@
                 <TextBlock
                     Text="{x:Static language:Lang.characteristicTip1}"
                     Style="{StaticResource txtblWhiteTextBase}"/>
-                <Viewbox.Height>
-                    <MultiBinding
-                        Converter="{StaticResource SizeFromSizePercentageConventer}">
-                        <Binding
-                            ElementName="LinguisticsBorder2clmn"
-                            Path="ActualHeight"/>
-                        <Binding Source="60"/>
-                    </MultiBinding>
-                </Viewbox.Height>
             </Viewbox>
             
             <Viewbox
@@ -505,15 +214,6 @@
             <Viewbox
                 x:Name="vbPointsText"
                 Grid.Column="2">
-                <Viewbox.Height>
-                    <MultiBinding
-                        Converter="{StaticResource SizeFromSizePercentageConventer}">
-                        <Binding
-                            ElementName="LinguisticsBorder2clmn"
-                            Path="ActualHeight"/>
-                        <Binding Source="75"/>
-                    </MultiBinding>
-                </Viewbox.Height>
                 <TextBlock
                     Text="{x:Static language:Lang.points}"
                     Style="{StaticResource txtblWhiteTextBase}"/>
