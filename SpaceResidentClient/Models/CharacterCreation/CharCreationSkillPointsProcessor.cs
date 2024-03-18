@@ -2,7 +2,7 @@
 
 namespace SpaceResidentClient.Models.CharacterCreation
 {
-    internal class CharacterCreationSkillPointsProcessor
+    internal class CharCreationSkillPointsProcessor
     {
         /// <summary>
         /// Increase skill and get a new point value

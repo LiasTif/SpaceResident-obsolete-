@@ -9,7 +9,7 @@ namespace SpaceResidentClient.ViewModels.CharacterCreation
 {
     internal partial class SkillPointsSwitcherViewModel : ObservableObject
     {
-        private readonly CharacterCreationSkillPointsProcessor _characterCreationSkillPointsProcessor = new();
+        private readonly CharCreationSkillPointsProcessor _charCreationSkillPointsProcessor = new();
         private readonly ICharCreationSkillsMain _charCreationSkillsMain;
 
         [ObservableProperty]
@@ -39,9 +39,9 @@ namespace SpaceResidentClient.ViewModels.CharacterCreation
             int oldPoints = _charCreationSkillsMain.Points;
 
             if (isIncrease)
-                _charCreationSkillsMain.Points = _characterCreationSkillPointsProcessor.IncreaseSkill(_charCreationSkillsMain.Points, Skill);
+                _charCreationSkillsMain.Points = _charCreationSkillPointsProcessor.IncreaseSkill(_charCreationSkillsMain.Points, Skill);
             else
-                _charCreationSkillsMain.Points = _characterCreationSkillPointsProcessor.DecreaseSkill(_charCreationSkillsMain.Points, Skill);
+                _charCreationSkillsMain.Points = _charCreationSkillPointsProcessor.DecreaseSkill(_charCreationSkillsMain.Points, Skill);
 
             if (oldPoints != _charCreationSkillsMain.Points)
             {
