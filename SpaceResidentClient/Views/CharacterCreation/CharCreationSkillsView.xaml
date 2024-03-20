@@ -12,13 +12,16 @@
     <UserControl.Resources>
         <ResourceDictionary>
             <c:SizeFromSizePercentageConventer x:Key="SizeFromSizePercentageConventer"/>
-        
-        <Style
-            TargetType="{x:Type Border}"
-            BasedOn="{StaticResource brdSecondElementBase}"
-            x:Key="brdCharacterCreation">
-            <Setter Property="Margin" Value="10"/>
-        </Style>
+
+            <Style
+                TargetType="{x:Type Border}"
+                BasedOn="{StaticResource brdSecondElementBase}"
+                x:Key="brdCharacterCreation">
+                <Setter Property="Margin" Value="10"/>
+            </Style>
+            <DataTemplate DataType="{x:Type characteristicSwitchersVMs:SkillPointsSwitcherViewModel}">
+                <local:SkillPointsSwitcherView/>
+            </DataTemplate>
         </ResourceDictionary>
     </UserControl.Resources>
 
@@ -118,70 +121,31 @@
         <!--#endregion-->
 
         <!--#region 2 column-->
-        <UniformGrid Rows="7" Grid.Column="1" Grid.RowSpan="7">
+        <UniformGrid
+            Rows="7"
+            Grid.Column="1"
+            Grid.RowSpan="7">
             <ContentControl
                 Content="{Binding Path=DataContext.SkillPointsSwitcherViewModels[0],
-                    RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}">
-                <ContentControl.Resources>
-                    <DataTemplate DataType="{x:Type characteristicSwitchersVMs:SkillPointsSwitcherViewModel}">
-                        <local:SkillPointsSwitcherView/>
-                    </DataTemplate>
-                </ContentControl.Resources>
-            </ContentControl>
+                    RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"/>
             <ContentControl
                 Content="{Binding Path=DataContext.SkillPointsSwitcherViewModels[1],
-                    RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}">
-                <ContentControl.Resources>
-                    <DataTemplate DataType="{x:Type characteristicSwitchersVMs:SkillPointsSwitcherViewModel}">
-                        <local:SkillPointsSwitcherView/>
-                    </DataTemplate>
-                </ContentControl.Resources>
-            </ContentControl>
+                    RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"/>
             <ContentControl
                 Content="{Binding Path=DataContext.SkillPointsSwitcherViewModels[2],
-                    RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}">
-                <ContentControl.Resources>
-                    <DataTemplate DataType="{x:Type characteristicSwitchersVMs:SkillPointsSwitcherViewModel}">
-                        <local:SkillPointsSwitcherView/>
-                    </DataTemplate>
-                </ContentControl.Resources>
-            </ContentControl>
+                    RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"/>
             <ContentControl
                 Content="{Binding Path=DataContext.SkillPointsSwitcherViewModels[3],
-                    RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}">
-                <ContentControl.Resources>
-                    <DataTemplate DataType="{x:Type characteristicSwitchersVMs:SkillPointsSwitcherViewModel}">
-                        <local:SkillPointsSwitcherView/>
-                    </DataTemplate>
-                </ContentControl.Resources>
-            </ContentControl>
+                    RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"/>
             <ContentControl
                 Content="{Binding Path=DataContext.SkillPointsSwitcherViewModels[4],
-                    RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}">
-                <ContentControl.Resources>
-                    <DataTemplate DataType="{x:Type characteristicSwitchersVMs:SkillPointsSwitcherViewModel}">
-                        <local:SkillPointsSwitcherView/>
-                    </DataTemplate>
-                </ContentControl.Resources>
-            </ContentControl>
+                    RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"/>
             <ContentControl
                 Content="{Binding Path=DataContext.SkillPointsSwitcherViewModels[5],
-                    RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}">
-                <ContentControl.Resources>
-                    <DataTemplate DataType="{x:Type characteristicSwitchersVMs:SkillPointsSwitcherViewModel}">
-                        <local:SkillPointsSwitcherView/>
-                    </DataTemplate>
-                </ContentControl.Resources>
-            </ContentControl>
+                    RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"/>
             <ContentControl
                 Content="{Binding Path=DataContext.SkillPointsSwitcherViewModels[6],
-                    RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}">
-                <ContentControl.Resources>
-                    <DataTemplate DataType="{x:Type characteristicSwitchersVMs:SkillPointsSwitcherViewModel}">
-                        <local:SkillPointsSwitcherView/>
-                    </DataTemplate>
-                </ContentControl.Resources>
-            </ContentControl>
+                    RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"/>
         </UniformGrid>
 
         <!--#region Poins & tip-->
@@ -197,17 +161,22 @@
             </Grid.ColumnDefinitions>
 
             <!--Tip-->
-            <Viewbox x:Name="vbTipText">
-                <TextBlock
-                    Text="{x:Static language:Lang.characteristicTip1}"
-                    Style="{StaticResource txtblWhiteTextBase}"/>
-            </Viewbox>
-            
             <Viewbox
-                Height="{Binding ActualHeight, ElementName=vbTipText}"
                 Grid.Column="1"
-                Margin="15,0">
-                <Image Source="/Resources;component/Data/UI/Icons/info.png"/>
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center"
+                Margin="5">
+                <Image
+                    ToolTip="{x:Static language:Lang.characteristicTip1}"
+                    Source="/Resources;component/Data/UI/Icons/info.png"/>
+                <Viewbox.Height>
+                    <MultiBinding Converter="{StaticResource SizeFromSizePercentageConventer}">
+                        <Binding
+                            ElementName="vbPointsText"
+                            Path="ActualHeight"/>
+                        <Binding Source="40"/>
+                    </MultiBinding>
+                </Viewbox.Height>
             </Viewbox>
 
             <!--Points-->

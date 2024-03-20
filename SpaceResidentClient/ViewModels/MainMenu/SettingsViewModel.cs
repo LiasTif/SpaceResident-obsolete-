@@ -13,9 +13,22 @@ namespace SpaceResidentClient.ViewModels.MainMenu
 {
     internal partial class SettingsViewModel : ObservableObject
     {
-        public MainMenuViewModel _mainMenuViewModelInstance;
-        //private readonly IWindowNavigationStore _windowViewModel;
         private readonly IWindowScreenMode _windowScreenMode;
+        public MainMenuViewModel _mainMenuViewModelInstance;
+
+        public SettingsViewModel(MainMenuViewModel mainMenuViewModel, IWindowScreenMode windowScreenMode)
+        {
+            _windowScreenMode = windowScreenMode;
+            _mainMenuViewModelInstance = mainMenuViewModel;
+
+            CloseCommand = new RelayCommand(Close);
+            OpenGamePageCommand = new RelayCommand(OpenGamePage);
+            OpenVideoPageCommand = new RelayCommand(OpenVideoPage);
+            PreviousPageCommand = new RelayCommand(PreviousPage);
+            NextPageCommand = new RelayCommand(NextPage);
+
+            MenuButtons = CreateMenuButtons();
+        }
 
         #region props
         [ObservableProperty]
@@ -28,16 +41,8 @@ namespace SpaceResidentClient.ViewModels.MainMenu
         private void Close() => _mainMenuViewModelInstance.SettingsViewSwitch();
         private void OpenGamePage() => CurrentPage = new GameSettingsViewModel();
         private void OpenVideoPage() => CurrentPage = new VideoSettingsViewModel(_windowScreenMode);
-
         private void PreviousPage() => SwitchPage(false);
         private void NextPage() => SwitchPage(true);
-
-        private void SwitchPage(bool isNext)
-        {
-            NavigateTabsByButtonsProcessor navigateTabsByButtonsProcessor = new(MenuButtons);
-            navigateTabsByButtonsProcessor.NavigateTabs(isNext);
-            ArrowButtonClickPlayer.LoadClickPlayer();
-        }
 
         public ICommand CloseCommand { get; }
         public ICommand OpenGamePageCommand { get; }
@@ -47,6 +52,13 @@ namespace SpaceResidentClient.ViewModels.MainMenu
         #endregion
 
         #region methods
+        private void SwitchPage(bool isNext)
+        {
+            NavigateTabsByButtonsProcessor navigateTabsByButtonsProcessor = new(MenuButtons);
+            navigateTabsByButtonsProcessor.NavigateTabs(isNext);
+            ArrowButtonClickPlayer.LoadClickPlayer();
+        }
+
         private ObservableCollection<RadioButton> CreateMenuButtons()
         {
             return
@@ -67,19 +79,5 @@ namespace SpaceResidentClient.ViewModels.MainMenu
             ];
         }
         #endregion
-
-        public SettingsViewModel(MainMenuViewModel mainMenuViewModel, IWindowScreenMode windowScreenMode)
-        {
-            _windowScreenMode = windowScreenMode;
-            _mainMenuViewModelInstance = mainMenuViewModel;
-
-            CloseCommand = new RelayCommand(Close);
-            OpenGamePageCommand = new RelayCommand(OpenGamePage);
-            OpenVideoPageCommand = new RelayCommand(OpenVideoPage);
-            PreviousPageCommand = new RelayCommand(PreviousPage);
-            NextPageCommand = new RelayCommand(NextPage);
-
-            MenuButtons = CreateMenuButtons();
-        }
     }
 }

@@ -7,7 +7,7 @@ using System.Windows.Input;
 
 namespace SpaceResidentClient.ViewModels.CharacterCreation
 {
-    internal partial class SkillPointsSwitcherViewModel : ObservableObject
+    internal partial class SkillPointsSwitcherViewModel : ObservableObject, ISkillPointSwitcher
     {
         private readonly CharCreationSkillPointsProcessor _charCreationSkillPointsProcessor = new();
         private readonly ICharCreationSkillsMain _charCreationSkillsMain;

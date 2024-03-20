@@ -558,7 +558,8 @@
         x:Key="{x:Type ToolTip}"
         TargetType="{x:Type ToolTip}">
         <Setter Property="OverridesDefaultStyle" Value="True"/>
-        <Setter Property="HasDropShadow" Value="True" />
+        <Setter Property="HasDropShadow" Value="True"/>
+        <Setter Property="Foreground" Value="{StaticResource ActiveWhiterBrush}"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ToolTip}">
@@ -566,7 +567,7 @@
                         MinHeight="100"
                         MinWidth="400">
                         <Border.Background>
-                            <SolidColorBrush Color="Black"/>
+                            <SolidColorBrush Color="Black" Opacity=".5"/>
                         </Border.Background>
                         <Viewbox>
                             <ContentPresenter
