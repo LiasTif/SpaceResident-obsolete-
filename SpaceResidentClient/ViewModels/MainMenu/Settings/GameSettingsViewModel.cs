@@ -11,36 +11,49 @@ namespace SpaceResidentClient.ViewModels.MainMenu.Settings
     {
         public GameSettingsViewModel()
         {
-            LanguageSelectionChangedCommand = new RelayCommand(LanguageSelectionChanged);
-
-            languageTextBlocks =
-            [
-                new() { Text = Lang.ua},
-                new() { Text = Lang.en}
-            ];
-
-            if (Properties.Settings.Default.languageCode == "uk-UA")
-                SelectedLanguageTextBlock.Text = Lang.ua;
-            else if (Properties.Settings.Default.languageCode == "en-US")
-                SelectedLanguageTextBlock.Text = Lang.en;
+            SetSelecterLangTBText();
         }
 
         #region props
         [ObservableProperty]
-        public TextBlock selectedLanguageTextBlock = new();
+        public TextBlock? selectedLanguageTextBlock = null;
         [ObservableProperty]
-        public ObservableCollection<TextBlock> languageTextBlocks;
+        public ObservableCollection<TextBlock> languageTextBlocks =
+        [
+            new() { Text = Lang.ua},
+            new() { Text = Lang.en}
+        ];
         #endregion
 
         #region commands
-        public ICommand LanguageSelectionChangedCommand { get; }
+        public ICommand LanguageSelectionChangedCommand { get => new RelayCommand(LanguageSelectionChanged); }
         #endregion
+
+        private void SetSelecterLangTBText()
+        {
+            if (Properties.Settings.Default.languageCode == "uk-UA")
+                SearchLangTextBlocks(Lang.ua);
+            else if (Properties.Settings.Default.languageCode == "en-US")
+                SearchLangTextBlocks(Lang.en);
+        }
+
+        private void SearchLangTextBlocks(string str)
+        {
+            foreach (TextBlock textBlock in LanguageTextBlocks)
+            {
+                if (textBlock.Text.Contains(str))
+                    SelectedLanguageTextBlock = textBlock;
+            }
+        }
 
         private void LanguageSelectionChanged()
         {
-            if (Lang.ua == SelectedLanguageTextBlock.Text)
+            if (SelectedLanguageTextBlock == null)
+                return;
+
+            if (SelectedLanguageTextBlock.Text == Lang.ua)
                 Properties.Settings.Default.languageCode = "uk-UA";
-            else
+            else if (SelectedLanguageTextBlock.Text == Lang.en)
                 Properties.Settings.Default.languageCode = "en-US";
 
             Properties.Settings.Default.Save();

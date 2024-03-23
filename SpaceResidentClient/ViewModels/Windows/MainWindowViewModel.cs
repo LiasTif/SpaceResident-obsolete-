@@ -20,6 +20,7 @@ namespace SpaceResidentClient.ViewModels.Windows
         public WindowState winState = WindowState.Maximized;
         [ObservableProperty]
         public WindowStyle winStyle = WindowStyle.None;
+        public string ModeName { get; set; } = string.Empty;
         #endregion
 
         public MainWindowViewModel(NavigationStore navigationStore)

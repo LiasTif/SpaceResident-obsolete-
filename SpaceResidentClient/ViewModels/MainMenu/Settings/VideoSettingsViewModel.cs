@@ -7,6 +7,7 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using SpaceResidentClient.Properties;
 using SpaceResidentClient.ViewModels.Windows.Interfaces;
+using System.Linq;
 
 namespace SpaceResidentClient.ViewModels.MainMenu.Settings
 {
@@ -14,59 +15,63 @@ namespace SpaceResidentClient.ViewModels.MainMenu.Settings
     {
         private readonly IWindowScreenMode _windowScreenMode;
 
+        public VideoSettingsViewModel(IWindowScreenMode windowScreenMode)
+        {
+            _windowScreenMode = windowScreenMode;
+
+            ScreenModeSelectionChangedCommand = new RelayCommand(ScreenModeSelectionChanged);
+            SetScreenModeTextBlocksCollection();
+            SelectedScreenModeTextBlock = ScreenModeTextBlocks[0];
+        }
+
         #region props
         [ObservableProperty]
         public static TextBlock? selectedScreenModeTextBlock;
         [ObservableProperty]
-        public ObservableCollection<TextBlock> screenModeTextBlocks;
+        public ObservableCollection<TextBlock> screenModeTextBlocks = [];
         #endregion
 
         #region commands
-        private void CbScreenModeSelectionChanged()
+        public ICommand ScreenModeSelectionChangedCommand { get; }
+        #endregion
+
+        private void ScreenModeSelectionChanged()
         {
             if (SelectedScreenModeTextBlock != null)
             {
                 // fullscreen
                 if (SelectedScreenModeTextBlock.Text == Lang.fullscreen)
-                    _windowScreenMode.UpdateScreenMode(windowModes[0]);
+                    SearchWindowModes(Lang.fullscreen);
                 // windowed
                 else if (SelectedScreenModeTextBlock.Text == Lang.windowed)
-                    _windowScreenMode.UpdateScreenMode(windowModes[1]);
+                    SearchWindowModes(Lang.windowed);
                 // borderless window
-                else
-                    _windowScreenMode.UpdateScreenMode(windowModes[2]);
+                else if (SelectedScreenModeTextBlock.Text == Lang.borderlessWindow)
+                    SearchWindowModes(Lang.borderlessWindow);
             }
         }
 
-        public ICommand CbScreenModeSelectionChangedCommand { get; }
-        #endregion
+        private void SearchWindowModes(string str)
+        {
+            foreach (var windowMode in windowModes.Where(windowMode => windowMode.ModeName.Contains(str)))
+            {
+                _windowScreenMode.UpdateScreenMode(windowMode);
+            }
+        }
+
+        private void SetScreenModeTextBlocksCollection()
+        {
+            foreach (WindowMode windowMode in windowModes)
+            {
+                ScreenModeTextBlocks.Add(new() { Text = windowMode.ModeName });
+            }
+        }
 
         private static readonly WindowMode[] windowModes =
         {
-            new(WindowStyle.None, WindowState.Maximized, ResizeMode.NoResize),
-            new(WindowStyle.ThreeDBorderWindow, WindowState.Normal, ResizeMode.CanResize),
-            new(WindowStyle.None, WindowState.Normal, ResizeMode.NoResize)
+            new(WindowStyle.None, WindowState.Maximized, ResizeMode.NoResize, Lang.fullscreen),
+            new(WindowStyle.ThreeDBorderWindow, WindowState.Normal, ResizeMode.CanResize, Lang.windowed),
+            new(WindowStyle.None, WindowState.Normal, ResizeMode.NoResize, Lang.borderlessWindow)
         };
-
-        //private void ChangeWindowMode(IWindowScreenMode screenMode, WindowMode windowMode)
-        //{
-        //    screenMode.WinStyle = windowMode.Style;
-        //    screenMode.WinState = windowMode.State;
-        //    screenMode.ResizeMode = windowMode.ResizeMode;
-        //}
-
-        public VideoSettingsViewModel(IWindowScreenMode windowScreenMode)
-        {
-            _windowScreenMode = windowScreenMode;
-
-            CbScreenModeSelectionChangedCommand = new RelayCommand(CbScreenModeSelectionChanged);
-
-            screenModeTextBlocks =
-            [
-                new() { Text = Lang.fullscreen },
-                new() { Text = Lang.windowed },
-                new() { Text = Lang.borderlessWindow }
-            ];
-        }
     }
 }

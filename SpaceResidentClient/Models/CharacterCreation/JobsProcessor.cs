@@ -16,6 +16,6 @@ namespace SpaceResidentClient.Models.CharacterCreation
             Lang.productionWorker
         ];
 
-        public static List<string> GetJobList => _jobList;
+        public static List<string> GetJobList() => _jobList;
     }
 }

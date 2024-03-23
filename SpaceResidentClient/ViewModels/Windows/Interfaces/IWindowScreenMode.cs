@@ -8,6 +8,7 @@ namespace SpaceResidentClient.ViewModels.Windows.Interfaces
         ResizeMode ResizeMode { get; set; }
         WindowState WinState { get; set; }
         WindowStyle WinStyle { get; set; }
+        string ModeName { get; set; }
 
         void UpdateScreenMode(WindowMode mode);
     }

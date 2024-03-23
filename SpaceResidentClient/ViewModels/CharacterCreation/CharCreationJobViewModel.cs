@@ -5,9 +5,15 @@ using SpaceResidentClient.Models.CharacterCreation;
 
 namespace SpaceResidentClient.ViewModels.CharacterCreation
 {
-    partial class CharCreationJobViewModel(PortraitViewModel portraitVM) : ObservableObject
+    partial class CharCreationJobViewModel : ObservableObject
     {
-        private readonly PortraitViewModel _portraitVM = portraitVM;
+        private readonly PortraitViewModel _portraitVM;
+
+        public CharCreationJobViewModel(PortraitViewModel portraitVM)
+        {
+            _portraitVM = portraitVM;
+            SelectedJobTextBlock = JobTextBlocks[0];
+        }
 
         #region props
         private TextBlock? _selectedJobTextBlock;
@@ -34,7 +40,7 @@ namespace SpaceResidentClient.ViewModels.CharacterCreation
         private static ObservableCollection<TextBlock> CreateJobTextBlocksCollection()
         {
             ObservableCollection<TextBlock> result = [];
-            foreach (string str in JobsProcessor.GetJobList)
+            foreach (string str in JobsProcessor.GetJobList())
             {
                 result.Add(new() { Text = str });
             }

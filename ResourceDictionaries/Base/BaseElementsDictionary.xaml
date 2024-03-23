@@ -569,7 +569,7 @@
                                         <Setter.Value>
                                             <ControlTemplate TargetType="{x:Type ToggleButton}">
                                                 <Border BorderThickness="0" Background="Transparent">
-                                                    <ContentPresenter/>
+                                                    <ContentPresenter Content="{TemplateBinding Content}"/>
                                                 </Border>
                                             </ControlTemplate>
                                         </Setter.Value>
@@ -584,7 +584,7 @@
                                     <SolidColorBrush Color="{StaticResource ActiveWhiterColor}"/>
                                 </TextBlock.Foreground>
                             </TextBlock>
-                        </Viewbox>
+                        </Viewbox> 
                         
                         <Viewbox
                             Margin="5"
