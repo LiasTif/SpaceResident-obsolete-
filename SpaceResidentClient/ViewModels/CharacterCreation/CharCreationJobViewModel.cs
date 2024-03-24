@@ -1,50 +1,34 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
-using System.Collections.ObjectModel;
-using System.Windows.Controls;
+﻿using System.Windows.Controls;
 using SpaceResidentClient.Models.CharacterCreation;
+using SpaceResidentClient.Models;
+using SpaceResidentClient.Properties;
 
 namespace SpaceResidentClient.ViewModels.CharacterCreation
 {
-    partial class CharCreationJobViewModel : ObservableObject
+    partial class CharCreationJobViewModel : ComboBoxesRealization
     {
         private readonly PortraitViewModel _portraitVM;
-
         public CharCreationJobViewModel(PortraitViewModel portraitVM)
         {
             _portraitVM = portraitVM;
-            SelectedJobTextBlock = JobTextBlocks[0];
+            UpdateTBContent(JobsProcessor.GetJobList());
+            UpdateSelectedTB(Lang.unemployed);
         }
 
         #region props
-        private TextBlock? _selectedJobTextBlock;
-        public TextBlock? SelectedJobTextBlock
+        private TextBlock? selectedTextBlock;
+        public override TextBlock? SelectedTextBlock
         {
-            get => _selectedJobTextBlock;
+            get => selectedTextBlock;
             set
             {
-                if (value != _selectedJobTextBlock && value != null)
+                if (value != selectedTextBlock && value != null)
                 {
-                    _selectedJobTextBlock = value;
+                    selectedTextBlock = value;
                     _portraitVM.BgImageSource = CharacterImageProcessor.SetBgImageSource(value.Text);
                 }
             }
         }
-        [ObservableProperty]
-        public ObservableCollection<TextBlock> jobTextBlocks = CreateJobTextBlocksCollection();
         #endregion
-
-        /// <summary>
-        /// Generate text blocks based on job list
-        /// </summary>
-        /// <returns>Text blocks collection</returns>
-        private static ObservableCollection<TextBlock> CreateJobTextBlocksCollection()
-        {
-            ObservableCollection<TextBlock> result = [];
-            foreach (string str in JobsProcessor.GetJobList())
-            {
-                result.Add(new() { Text = str });
-            }
-            return result;
-        }
     }
 }

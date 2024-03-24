@@ -33,8 +33,8 @@
             Style="{StaticResource brdMainElementBase}">
             <ComboBox
                 Style="{StaticResource cbBase}"
-                SelectedItem="{Binding SelectedLanguageTextBlock}"
-                ItemsSource="{Binding LanguageTextBlocks}"
+                SelectedItem="{Binding SelectedTextBlock}"
+                ItemsSource="{Binding TextBlocks}"
                 x:Name="cbLanguage">
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="SelectionChanged">

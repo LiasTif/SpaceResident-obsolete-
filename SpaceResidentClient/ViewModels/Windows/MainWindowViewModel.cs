@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using SpaceResidentClient.Models.Settings;
+using SpaceResidentClient.Properties;
 using SpaceResidentClient.Services;
 using SpaceResidentClient.ViewModels.MainMenu;
 using SpaceResidentClient.ViewModels.Windows.Interfaces;
@@ -20,7 +21,7 @@ namespace SpaceResidentClient.ViewModels.Windows
         public WindowState winState = WindowState.Maximized;
         [ObservableProperty]
         public WindowStyle winStyle = WindowStyle.None;
-        public string ModeName { get; set; } = string.Empty;
+        public string ModeName { get; set; } = Lang.fullscreen;
         #endregion
 
         public MainWindowViewModel(NavigationStore navigationStore)
@@ -43,6 +44,7 @@ namespace SpaceResidentClient.ViewModels.Windows
             this.ResizeMode = mode.ResizeMode;
             this.WinState = mode.State;
             this.WinStyle = mode.Style;
+            this.ModeName = mode.ModeName;
         }
     }
 }

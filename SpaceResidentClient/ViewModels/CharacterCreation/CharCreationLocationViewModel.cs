@@ -1,28 +1,15 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
+﻿using SpaceResidentClient.Models;
 using SpaceResidentClient.Models.CharacterCreation;
-using System.Collections.ObjectModel;
-using System.Windows.Controls;
+using SpaceResidentClient.Properties;
 
 namespace SpaceResidentClient.ViewModels.CharacterCreation
 {
-    internal partial class CharCreationLocationViewModel : ObservableObject
+    internal partial class CharCreationLocationViewModel : ComboBoxesRealization
     {
         public CharCreationLocationViewModel()
         {
-            SetSelectedLocationTextBlockFromCollection();
-        }
-
-        #region props
-        [ObservableProperty]
-        public ObservableCollection<TextBlock> locationTextBlocks = SpawnLocationsProcessor.GetLocationTextBlocksCollcetion;
-        [ObservableProperty]
-        public TextBlock selectedLocationTextBlock = new();
-        #endregion
-
-        private void SetSelectedLocationTextBlockFromCollection()
-        {
-            if (LocationTextBlocks != null && LocationTextBlocks.Count > 0)
-                SelectedLocationTextBlock = LocationTextBlocks[0];
+            UpdateTBContent(SpawnLocationsProcessor.GetLocationTextBlocksCollcetion());
+            UpdateSelectedTB(Lang.locationPlanet);
         }
     }
 }

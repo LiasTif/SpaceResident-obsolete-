@@ -39,8 +39,8 @@
             Style="{StaticResource brdMainElementBase}">
             <ComboBox
                 Style="{StaticResource cbBase}"
-                SelectedItem="{Binding SelectedJobTextBlock}"
-                ItemsSource="{Binding JobTextBlocks}"
+                SelectedItem="{Binding SelectedTextBlock}"
+                ItemsSource="{Binding TextBlocks}"
                 x:Name="cbLanguage">
             </ComboBox>
         </Border>

@@ -1,62 +1,50 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
-using CommunityToolkit.Mvvm.Input;
-using System.Collections.ObjectModel;
-using System.Windows.Controls;
+﻿using CommunityToolkit.Mvvm.Input;
 using System.Windows.Input;
 using SpaceResidentClient.Properties;
+using SpaceResidentClient.Models;
+using System.Collections.Generic;
 
 namespace SpaceResidentClient.ViewModels.MainMenu.Settings
 {
-    partial class GameSettingsViewModel : ObservableObject
+    partial class GameSettingsViewModel : ComboBoxesRealization
     {
         public GameSettingsViewModel()
         {
-            SetSelecterLangTBText();
+            UpdateTBContent(Languages);
+            UpdateSelectedTB();
         }
-
-        #region props
-        [ObservableProperty]
-        public TextBlock? selectedLanguageTextBlock = null;
-        [ObservableProperty]
-        public ObservableCollection<TextBlock> languageTextBlocks =
-        [
-            new() { Text = Lang.ua},
-            new() { Text = Lang.en}
-        ];
-        #endregion
 
         #region commands
         public ICommand LanguageSelectionChangedCommand { get => new RelayCommand(LanguageSelectionChanged); }
         #endregion
 
-        private void SetSelecterLangTBText()
+        private void UpdateSelectedTB()
         {
-            if (Properties.Settings.Default.languageCode == "uk-UA")
-                SearchLangTextBlocks(Lang.ua);
-            else if (Properties.Settings.Default.languageCode == "en-US")
-                SearchLangTextBlocks(Lang.en);
-        }
+            string languageCode = Properties.Settings.Default.languageCode;
 
-        private void SearchLangTextBlocks(string str)
-        {
-            foreach (TextBlock textBlock in LanguageTextBlocks)
-            {
-                if (textBlock.Text.Contains(str))
-                    SelectedLanguageTextBlock = textBlock;
-            }
+            if (languageCode == "uk-UA")
+                base.UpdateSelectedTB(Lang.ua);
+            else if (languageCode == "en-US")
+                base.UpdateSelectedTB(Lang.en);
         }
 
         private void LanguageSelectionChanged()
         {
-            if (SelectedLanguageTextBlock == null)
+            if (SelectedTextBlock == null)
                 return;
 
-            if (SelectedLanguageTextBlock.Text == Lang.ua)
+            if (SelectedTextBlock.Text == Lang.ua)
                 Properties.Settings.Default.languageCode = "uk-UA";
-            else if (SelectedLanguageTextBlock.Text == Lang.en)
+            else if (SelectedTextBlock.Text == Lang.en)
                 Properties.Settings.Default.languageCode = "en-US";
 
             Properties.Settings.Default.Save();
         }
+
+        private readonly List<string> Languages =
+        [
+            Lang.ua,
+            Lang.en,
+        ];
     }
 }

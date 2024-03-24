@@ -2,7 +2,7 @@
 
 namespace SpaceResidentClient.Models.Settings
 {
-    internal class WindowMode(WindowStyle style, WindowState state, ResizeMode resizeMode, string name)
+    internal struct WindowMode(WindowStyle style, WindowState state, ResizeMode resizeMode, string name)
     {
         public WindowStyle Style { get; private set; } = style;
         public WindowState State { get; private set; } = state;

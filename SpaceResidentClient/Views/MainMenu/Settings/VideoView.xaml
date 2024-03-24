@@ -92,9 +92,8 @@
             Style="{StaticResource brdMainElementBase}">
             <ComboBox
                 Style="{StaticResource cbBase}"
-                SelectedItem="{Binding SelectedScreenModeTextBlock, Mode=TwoWay}"
-                Text="{Binding SelectedScreenModeTextBlock.Text, Mode=TwoWay}"
-                ItemsSource="{Binding ScreenModeTextBlocks}"
+                SelectedItem="{Binding SelectedTextBlock, Mode=TwoWay}"
+                ItemsSource="{Binding TextBlocks}"
                 x:Name="cbScreenMode">
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="SelectionChanged">
