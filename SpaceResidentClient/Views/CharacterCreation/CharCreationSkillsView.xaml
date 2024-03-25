@@ -154,18 +154,16 @@
             Grid.Row="8"
             HorizontalAlignment="Right">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="1.5*"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width=".8*"/>
+                <ColumnDefinition Width="1*"/>
                 <ColumnDefinition Width=".5*"/>
-                <ColumnDefinition Width=".4*"/>
-                <ColumnDefinition Width=".2*"/>
             </Grid.ColumnDefinitions>
 
             <!--Tip-->
             <Viewbox
-                Grid.Column="1"
-                VerticalAlignment="Center"
-                HorizontalAlignment="Center"
-                Margin="5">
+                Margin="5,0"
+                Grid.Column="1">
                 <Image
                     ToolTip="{x:Static language:Lang.characteristicTip1}"
                     Source="/Resources;component/Data/UI/Icons/info.png"/>

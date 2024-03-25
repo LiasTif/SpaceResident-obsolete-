@@ -103,6 +103,7 @@
     <Resource Include="Data\UI\Icons\icon.ico">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Data\UI\Icons\info.png" />
     <Resource Include="Data\UI\Icons\location.png" />
     <Resource Include="Data\UI\Icons\stats.png" />
     <Resource Include="Data\UI\Icons\jobIcon.png" />
