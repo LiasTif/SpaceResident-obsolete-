@@ -161,21 +161,22 @@
             </Grid.ColumnDefinitions>
 
             <!--Tip-->
-            <Viewbox
-                Margin="5,0"
-                Grid.Column="1">
+            <Border
+                Grid.Column="1"
+                Background="Transparent"
+                ToolTip="{x:Static language:Lang.characteristicTip1}">
                 <Image
-                    ToolTip="{x:Static language:Lang.characteristicTip1}"
                     Source="/Resources;component/Data/UI/Icons/info.png"/>
-                <Viewbox.Height>
+                <Border.Height>
                     <MultiBinding Converter="{StaticResource SizeFromSizePercentageConventer}">
                         <Binding
                             ElementName="vbPointsText"
                             Path="ActualHeight"/>
-                        <Binding Source="40"/>
+                        <Binding Source="60"/>
                     </MultiBinding>
-                </Viewbox.Height>
-            </Viewbox>
+                </Border.Height>
+            </Border>
+            
 
             <!--Points-->
             <Viewbox

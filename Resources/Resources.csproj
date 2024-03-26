@@ -37,6 +37,7 @@
     <None Remove="Data\UI\Icons\info.png" />
     <None Remove="Data\UI\Icons\location.png" />
     <None Remove="Data\UI\Icons\stats.png" />
+    <None Remove="Data\UI\Icons\toolTipBG.png" />
     <None Remove="Data\UI\jobIcon.png" />
     <None Remove="Data\UI\Locations\Houses\SpaceStationHome1.png" />
     <None Remove="Data\UI\plus.png" />
@@ -107,6 +108,7 @@
     <Resource Include="Data\UI\Icons\location.png" />
     <Resource Include="Data\UI\Icons\stats.png" />
     <Resource Include="Data\UI\Icons\jobIcon.png" />
+    <Resource Include="Data\UI\Icons\toolTipBG.png" />
     <Resource Include="Data\UI\Locations\Houses\SpaceStationHome1.png" />
     <Resource Include="Data\UI\Icons\plus.png">
       <CopyToOutputDirectory></CopyToOutputDirectory>
