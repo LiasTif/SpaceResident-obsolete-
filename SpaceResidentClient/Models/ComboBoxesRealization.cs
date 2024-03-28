@@ -25,6 +25,9 @@ namespace SpaceResidentClient.Models
 
         private protected virtual void UpdateSelectedTB(string text)
         {
+            if (SelectedTextBlock != null)
+                return;
+
             foreach (TextBlock tb in TextBlocks)
             {
                 if (tb.Text == text)

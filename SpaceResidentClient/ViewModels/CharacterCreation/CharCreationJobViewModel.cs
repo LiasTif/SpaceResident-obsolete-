@@ -12,6 +12,7 @@ namespace SpaceResidentClient.ViewModels.CharacterCreation
         {
             _portraitVM = portraitVM;
             UpdateTBContent(JobsProcessor.GetJobList());
+
             UpdateSelectedTB(Lang.unemployed);
         }
 

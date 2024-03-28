@@ -19,30 +19,20 @@ namespace SpaceResidentClient.ViewModels.MainMenu.Settings
         {
             _windowScreenMode = windowScreenMode;
 
-            ScreenModeSelectionChangedCommand = new RelayCommand(ScreenModeSelectionChanged);
-
             TextBlocks = SetTBCollection();
-            UpdateSelectedTB(GetNameOfCurrentWindowMode());
+            UpdateSelectedTB(GetNameOfCurrentTextBlock());
         }
 
         #region commands
-        public ICommand ScreenModeSelectionChangedCommand { get; }
+        public ICommand ScreenModeSelectionChangedCommand { get => new RelayCommand(ScreenModeSelectionChanged); }
         #endregion
 
         private void ScreenModeSelectionChanged()
         {
-            if (SelectedTextBlock != null)
-            {
-                // fullscreen
-                if (SelectedTextBlock.Text == Lang.fullscreen)
-                    SearchWindowModes(Lang.fullscreen);
-                // windowed
-                else if (SelectedTextBlock.Text == Lang.windowed)
-                    SearchWindowModes(Lang.windowed);
-                // borderless window
-                else if (SelectedTextBlock.Text == Lang.borderlessWindow)
-                    SearchWindowModes(Lang.borderlessWindow);
-            }
+            if (SelectedTextBlock == null)
+                return;
+
+            SearchWindowModes(SelectedTextBlock.Text);
         }
 
         private void SearchWindowModes(string str)
@@ -64,7 +54,7 @@ namespace SpaceResidentClient.ViewModels.MainMenu.Settings
             return result;
         }
 
-        private string GetNameOfCurrentWindowMode()
+        public string GetNameOfCurrentTextBlock()
         {
             string result = string.Empty;
 

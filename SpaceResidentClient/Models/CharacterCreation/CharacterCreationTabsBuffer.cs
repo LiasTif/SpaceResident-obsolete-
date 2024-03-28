@@ -24,28 +24,30 @@ namespace SpaceResidentClient.Models.CharacterCreation
             return CharacterCreationViewModel ??= new CharCreationMainViewModel(winVM, winScreenMode);
         }
 
-        public ObservableObject? GetTabFromCollection(ObservableObject tab)
+        public ObservableObject? GetTabFromCollection(Type type, PortraitViewModel portraitVM)
         {
-            AddTabToCollection(tab);
-
             foreach (ObservableObject curTab in TabsCollection)
             {
-                if (curTab.GetType() == tab.GetType())
+                if (curTab.GetType() == type)
                     return curTab;
             }
 
-            return null;
+            AddTabToCollection(type, portraitVM);
+            return GetTabFromCollection(type, portraitVM);
         }
 
-        private void AddTabToCollection(ObservableObject tab)
+        private void AddTabToCollection(Type type, PortraitViewModel portraitVM)
         {
-            foreach (ObservableObject curTab in TabsCollection)
-            {
-                if (curTab.GetType() == tab.GetType())
-                    return;
-            }
-
-            TabsCollection.Add(tab);
+            if (type == typeof(CharCreationJobViewModel))
+                TabsCollection.Add(new CharCreationJobViewModel(portraitVM));
+            else if (type == typeof(CharCreationLocationViewModel))
+                TabsCollection.Add(new CharCreationLocationViewModel());
+            else if (type == typeof(CharCreationPersonalityViewModel))
+                TabsCollection.Add(new CharCreationPersonalityViewModel(portraitVM));
+            else if (type == typeof(CharCreationSkillsViewModel))
+                TabsCollection.Add(new CharCreationSkillsViewModel());
+            else if (type == typeof(CharCreationStatsViewModel))
+                TabsCollection.Add(new CharCreationStatsViewModel());
         }
     }
 }

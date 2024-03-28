@@ -108,7 +108,6 @@
     <Resource Include="Data\UI\Icons\location.png" />
     <Resource Include="Data\UI\Icons\stats.png" />
     <Resource Include="Data\UI\Icons\jobIcon.png" />
-    <Resource Include="Data\UI\Icons\toolTipBG.png" />
     <Resource Include="Data\UI\Locations\Houses\SpaceStationHome1.png" />
     <Resource Include="Data\UI\Icons\plus.png">
       <CopyToOutputDirectory></CopyToOutputDirectory>

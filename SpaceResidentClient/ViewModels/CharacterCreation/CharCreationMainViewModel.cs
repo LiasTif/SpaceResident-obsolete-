@@ -15,7 +15,6 @@ namespace SpaceResidentClient.ViewModels.CharacterCreation
 {
     partial class CharCreationMainViewModel : ObservableObject
     {
-        #region fields
         private readonly IWindowNavigationStore _windowViewModel;
         private readonly IWindowScreenMode _windowScreenMode;
         public static MainCharacter MainCharacter = new
@@ -27,7 +26,6 @@ namespace SpaceResidentClient.ViewModels.CharacterCreation
             race: 'l',
             age: 20
         );
-        #endregion
 
         public CharCreationMainViewModel(IWindowNavigationStore windowViewModel, IWindowScreenMode windowScreenMode)
         {
@@ -70,28 +68,28 @@ namespace SpaceResidentClient.ViewModels.CharacterCreation
             switch (str)
             {
                 case "character":
-                    SetTabToCurrentUserControl(new CharCreationPersonalityViewModel(PortraitVM));
+                    SetTabToCurrentUserControl(typeof(CharCreationPersonalityViewModel));
                     break;
                 case "skills":
-                    SetTabToCurrentUserControl(new CharCreationSkillsViewModel());
+                    SetTabToCurrentUserControl(typeof(CharCreationSkillsViewModel));
                     break;
                 case "job":
-                    SetTabToCurrentUserControl(new CharCreationJobViewModel(PortraitVM));
+                    SetTabToCurrentUserControl(typeof(CharCreationJobViewModel));
                     break;
                 case "location":
-                    SetTabToCurrentUserControl(new CharCreationLocationViewModel());
+                    SetTabToCurrentUserControl(typeof(CharCreationLocationViewModel));
                     break;
                 case "stats":
-                    SetTabToCurrentUserControl(new CharCreationStatsViewModel());
+                    SetTabToCurrentUserControl(typeof(CharCreationStatsViewModel));
                     break;
             }
         }
 
-        private void SetTabToCurrentUserControl(ObservableObject instance)
+        private void SetTabToCurrentUserControl(Type type)
         {
             CharacterCreationTabsBuffer b = new();
 
-            CurrentUserControl = b.GetTabFromCollection(instance);
+            CurrentUserControl = b.GetTabFromCollection(type, PortraitVM);
         }
 
         private void PreviousPage() => LoadNewPage(false);
