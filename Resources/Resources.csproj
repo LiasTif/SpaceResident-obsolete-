@@ -34,9 +34,16 @@
     <None Remove="Data\UI\cross.png" />
     <None Remove="Data\UI\icon.ico" />
     <None Remove="Data\UI\Icons\characterIcon2.png" />
+    <None Remove="Data\UI\Icons\Characteristics\Existentialism.png" />
+    <None Remove="Data\UI\Icons\Characteristics\Kinetics.png" />
+    <None Remove="Data\UI\Icons\Characteristics\Linguistics.png" />
+    <None Remove="Data\UI\Icons\Characteristics\Logic.png" />
+    <None Remove="Data\UI\Icons\Characteristics\Naturalistics.png" />
+    <None Remove="Data\UI\Icons\Characteristics\Relationships.png" />
+    <None Remove="Data\UI\Icons\Characteristics\Space.png" />
     <None Remove="Data\UI\Icons\info.png" />
-    <None Remove="Data\UI\Icons\location.png" />
-    <None Remove="Data\UI\Icons\stats.png" />
+    <None Remove="Data\UI\Icons\locationIcon.png" />
+    <None Remove="Data\UI\Icons\statsIcon.png" />
     <None Remove="Data\UI\Icons\toolTipBG.png" />
     <None Remove="Data\UI\jobIcon.png" />
     <None Remove="Data\UI\Locations\Houses\SpaceStationHome1.png" />
@@ -101,12 +108,19 @@
     <Resource Include="Data\UI\Characters\Vun-Lain\Male\mHuman6.png">
       <CopyToOutputDirectory></CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Data\UI\Icons\Characteristics\Existentialism.png" />
+    <Resource Include="Data\UI\Icons\Characteristics\Kinetics.png" />
+    <Resource Include="Data\UI\Icons\Characteristics\Linguistics.png" />
+    <Resource Include="Data\UI\Icons\Characteristics\Logic.png" />
+    <Resource Include="Data\UI\Icons\Characteristics\Naturalistics.png" />
+    <Resource Include="Data\UI\Icons\Characteristics\Relationships.png" />
+    <Resource Include="Data\UI\Icons\Characteristics\Space.png" />
     <Resource Include="Data\UI\Icons\icon.ico">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Data\UI\Icons\info.png" />
-    <Resource Include="Data\UI\Icons\location.png" />
-    <Resource Include="Data\UI\Icons\stats.png" />
+    <Resource Include="Data\UI\Icons\locationIcon.png" />
+    <Resource Include="Data\UI\Icons\statsIcon.png" />
     <Resource Include="Data\UI\Icons\jobIcon.png" />
     <Resource Include="Data\UI\Locations\Houses\SpaceStationHome1.png" />
     <Resource Include="Data\UI\Icons\plus.png">

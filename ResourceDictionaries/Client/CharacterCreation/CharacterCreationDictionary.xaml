@@ -1,10 +1,13 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:cCC="clr-namespace:Converters.Client.CharacterCreation;assembly=Converters">
+
+    <cCC:CharacteristicIconsConverter x:Key="CharacteristicIconsConverter"/>
+
     <!--#region Radio buttons-->
     <Style
         TargetType="{x:Type RadioButton}"
-        x:Key="rbtnCharacterMenu">
+        x:Key="rbtnCharacteriscticMain">
         <Setter Property="Margin" Value="10,0"/>
         <Setter Property="Template">
             <Setter.Value>
@@ -13,140 +16,15 @@
                         <Image
                             Visibility="Hidden"
                             x:Name="enableEffect"
-                            Source="/Resources;component/Data/UI/Icons/characterIcon.png">
+                            RenderOptions.BitmapScalingMode="LowQuality"
+                            Source="{TemplateBinding Property=CommandParameter, Converter={StaticResource CharacteristicIconsConverter}}">
                             <Image.Effect>
                                 <BlurEffect Radius="20"/>
                             </Image.Effect>
                         </Image>
-                        <Image Source="/Resources;component/Data/UI/Icons/characterIcon.png"/>
-                    </Grid>
-
-                    <ControlTemplate.Triggers>
-                        <Trigger Property="IsChecked" Value="True">
-                            <Setter TargetName="enableEffect" Property="Visibility" Value="Visible"/>
-                        </Trigger>
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Cursor" Value="Hand"/>
-                        </Trigger>
-                    </ControlTemplate.Triggers>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-    </Style>
-
-    <Style
-        TargetType="{x:Type RadioButton}"
-        BasedOn="{StaticResource rbtnCharacterMenu}"
-        x:Key="rbtnSkillsMenu">
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="{x:Type RadioButton}">
-                    <Grid>
                         <Image
-                            Visibility="Hidden"
-                            x:Name="enableEffect"
-                            Source="/Resources;component/Data/UI/Icons/skillsIcon.png">
-                            <Image.Effect>
-                                <BlurEffect Radius="20"/>
-                            </Image.Effect>
-                        </Image>
-                        <Image Source="/Resources;component/Data/UI/Icons/skillsIcon.png"/>
-                    </Grid>
-
-                    <ControlTemplate.Triggers>
-                        <Trigger Property="IsChecked" Value="True">
-                            <Setter TargetName="enableEffect" Property="Visibility" Value="Visible"/>
-                        </Trigger>
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Cursor" Value="Hand"/>
-                        </Trigger>
-                    </ControlTemplate.Triggers>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-    </Style>
-
-    <Style
-        TargetType="{x:Type RadioButton}"
-        BasedOn="{StaticResource rbtnCharacterMenu}"
-        x:Key="rbtnJobMenu">
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="{x:Type RadioButton}">
-                    <Grid>
-                        <Image
-                            Visibility="Hidden"
-                            x:Name="enableEffect"
-                            Source="/Resources;component/Data/UI/Icons/jobIcon.png">
-                            <Image.Effect>
-                                <BlurEffect Radius="20"/>
-                            </Image.Effect>
-                        </Image>
-                        <Image Source="/Resources;component/Data/UI/Icons/jobIcon.png"/>
-                    </Grid>
-
-                    <ControlTemplate.Triggers>
-                        <Trigger Property="IsChecked" Value="True">
-                            <Setter TargetName="enableEffect" Property="Visibility" Value="Visible"/>
-                        </Trigger>
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Cursor" Value="Hand"/>
-                        </Trigger>
-                    </ControlTemplate.Triggers>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-    </Style>
-
-    <Style
-        TargetType="{x:Type RadioButton}"
-        BasedOn="{StaticResource rbtnCharacterMenu}"
-        x:Key="rbtnLocationMenu">
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="{x:Type RadioButton}">
-                    <Grid>
-                        <Image
-                            Visibility="Hidden"
-                            x:Name="enableEffect"
-                            Source="/Resources;component/Data/UI/Icons/location.png">
-                            <Image.Effect>
-                                <BlurEffect Radius="20"/>
-                            </Image.Effect>
-                        </Image>
-                        <Image Source="/Resources;component/Data/UI/Icons/location.png"/>
-                    </Grid>
-
-                    <ControlTemplate.Triggers>
-                        <Trigger Property="IsChecked" Value="True">
-                            <Setter TargetName="enableEffect" Property="Visibility" Value="Visible"/>
-                        </Trigger>
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Cursor" Value="Hand"/>
-                        </Trigger>
-                    </ControlTemplate.Triggers>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-    </Style>
-
-    <Style
-        TargetType="{x:Type RadioButton}"
-        BasedOn="{StaticResource rbtnCharacterMenu}"
-        x:Key="rbtnStatsMenu">
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="{x:Type RadioButton}">
-                    <Grid>
-                        <Image
-                            Visibility="Hidden"
-                            x:Name="enableEffect"
-                            Source="/Resources;component/Data/UI/Icons/stats.png">
-                            <Image.Effect>
-                                <BlurEffect Radius="20"/>
-                            </Image.Effect>
-                        </Image>
-                        <Image Source="/Resources;component/Data/UI/Icons/stats.png"/>
+                            RenderOptions.BitmapScalingMode="HighQuality"
+                            Source="{TemplateBinding Property=CommandParameter, Converter={StaticResource CharacteristicIconsConverter}}"/>
                     </Grid>
 
                     <ControlTemplate.Triggers>

@@ -116,38 +116,18 @@ namespace SpaceResidentClient.ViewModels.CharacterCreation
 
             ObservableCollection<RadioButton> buttonsCollection =
             [
-                new()
-                {
-                    IsChecked = true,
-                    CommandParameter = "character",
-                    Style = (Style)baseResourceDictionary["rbtnCharacterMenu"]
-                },
-                new()
-                {
-                    CommandParameter = "skills",
-                    Style = (Style)baseResourceDictionary["rbtnSkillsMenu"]
-                },
-                new()
-                {
-                    CommandParameter = "job",
-                    Style = (Style)baseResourceDictionary["rbtnJobMenu"]
-                },
-                new()
-                {
-                    CommandParameter = "location",
-                    Style = (Style)baseResourceDictionary["rbtnLocationMenu"],
-                },
-                new()
-                {
-                    CommandParameter = "stats",
-                    Style = (Style)baseResourceDictionary["rbtnStatsMenu"]
-                }
+                new() { CommandParameter = "character", IsChecked = true },
+                new() { CommandParameter = "skills", },
+                new() { CommandParameter = "job", },
+                new() { CommandParameter = "location", },
+                new() { CommandParameter = "stats", }
             ];
 
             // set default values to items in collection
             foreach (RadioButton rbtn in buttonsCollection)
             {
                 rbtn.Command = OpenSomeMenuCommand;
+                rbtn.Style = (Style)baseResourceDictionary["rbtnCharacteriscticMain"];
                 rbtn.GroupName = "rbtns";
             }
 

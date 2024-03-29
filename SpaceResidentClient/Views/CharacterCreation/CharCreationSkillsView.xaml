@@ -18,6 +18,13 @@
                 BasedOn="{StaticResource brdSecondElementBase}"
                 x:Key="brdCharacterCreation">
                 <Setter Property="Margin" Value="10"/>
+                <Setter Property="Grid.Column" Value="1"/>
+            </Style>
+            <Style
+                TargetType="{x:Type Image}"
+                x:Key="imgIcon">
+                <Setter Property="Margin" Value="5"/>
+                <Setter Property="RenderOptions.BitmapScalingMode" Value="HighQuality"/>
             </Style>
             <DataTemplate DataType="{x:Type characteristicSwitchersVMs:SkillPointsSwitcherViewModel}">
                 <local:SkillPointsSwitcherView/>
@@ -27,6 +34,7 @@
 
     <Grid>
         <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.15*"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
@@ -43,6 +51,34 @@
         </Grid.RowDefinitions>
 
         <!--#region 1 column-->
+        <UniformGrid
+            Grid.RowSpan="7"
+            Rows="7">
+            <Image
+                Style="{StaticResource imgIcon}"
+                Source="/Resources;component/Data/UI/Icons/Characteristics/Linguistics.png"/>
+            <Image
+                Style="{StaticResource imgIcon}"
+                Source="/Resources;component/Data/UI/Icons/Characteristics/Naturalistics.png"/>
+            <Image
+                Style="{StaticResource imgIcon}"
+                Source="/Resources;component/Data/UI/Icons/Characteristics/Existentialism.png"/>
+            <Image
+                Style="{StaticResource imgIcon}"
+                Source="/Resources;component/Data/UI/Icons/Characteristics/Relationships.png"/>
+            <Image
+                Style="{StaticResource imgIcon}"
+                Source="/Resources;component/Data/UI/Icons/Characteristics/Logic.png"/>
+            <Image
+                Style="{StaticResource imgIcon}"
+                Source="/Resources;component/Data/UI/Icons/Characteristics/Space.png"/>
+            <Image
+                Style="{StaticResource imgIcon}"
+                Source="/Resources;component/Data/UI/Icons/Characteristics/Kinetics.png"/>
+        </UniformGrid>
+        <!--#endregion-->
+        
+        <!--#region 2 column-->
         <Border
             Style="{StaticResource brdCharacterCreation}">
             <Viewbox HorizontalAlignment="Left">
@@ -120,10 +156,10 @@
         </Border>
         <!--#endregion-->
 
-        <!--#region 2 column-->
+        <!--#region 3 column-->
         <UniformGrid
             Rows="7"
-            Grid.Column="1"
+            Grid.Column="2"
             Grid.RowSpan="7">
             <ContentControl
                 Content="{Binding Path=DataContext.SkillPointsSwitcherViewModels[0],
@@ -150,6 +186,7 @@
 
         <!--#region Poins & tip-->
         <Grid
+            Grid.Column="1"
             Grid.ColumnSpan="2"
             Grid.Row="8"
             HorizontalAlignment="Right">

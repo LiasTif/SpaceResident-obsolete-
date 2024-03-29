@@ -1,12 +1,14 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:c="clr-namespace:Converters;assembly=Converters">
+                    xmlns:c="clr-namespace:Converters;assembly=Converters"
+                    xmlns:cCC="clr-namespace:Converters.Client.CharacterCreation;assembly=Converters">
 
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="/ResourceDictionaries;component/Colors/Colors.xaml"/>
         <ResourceDictionary Source="/ResourceDictionaries;component/Colors/Brushes.xaml"/>
     </ResourceDictionary.MergedDictionaries>
     <c:SizeFromSizePercentageConventer x:Key="SizeFromSizePercentageConventer"/>
+    <cCC:CharacteristicIconsConverter x:Key="CharacteristicIconsConverter"/>
 
     <!--region Windows-->
     <Style TargetType="{x:Type Window}" x:Key="winBase">
