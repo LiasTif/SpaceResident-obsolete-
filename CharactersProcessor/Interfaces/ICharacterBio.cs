@@ -2,10 +2,10 @@
 {
     internal interface ICharacterBio
     {
-        string FirstName { get; }
-        string LastName { get; }
-        char Race { get; }
-        bool IsFemale { get; }
-        ushort Age { get; }
+        string FirstName { get; private protected set; }
+        string LastName { get; private protected set; }
+        char Race { get; private protected set; }
+        bool IsFemale { get; private protected set; }
+        ushort Age { get; private protected set; }
     }
 }

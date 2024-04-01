@@ -2,12 +2,14 @@
 {
     internal interface ICharacteristics
     {
-        byte Linguistics { get; }
-        byte Naturalistics { get; }
-        byte Existentialism { get; }
-        byte Relationships { get; }
-        byte Logic { get; }
-        byte Space { get; }
-        byte Kinetics { get; }
+        byte Linguistics { get; private protected set; }
+        byte Naturalistics { get; private protected set; }
+        byte Existentialism { get; private protected set; }
+        byte Relationships { get; private protected set; }
+        byte Logic { get; private protected set; }
+        byte Space { get; private protected set; }
+        byte Kinetics { get; private protected set; }
+
+        void SetCharacteristics(List<byte> characteristics);
     }
 }
