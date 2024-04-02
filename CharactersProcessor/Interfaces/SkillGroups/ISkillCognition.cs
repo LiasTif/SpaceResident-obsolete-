@@ -1,6 +1,4 @@
-﻿using System.Threading;
-
-namespace CharactersProcessor.Interfaces.Skills
+﻿namespace CharactersProcessor.Interfaces.SkillGroups
 {
     internal interface ISkillCognition
     {

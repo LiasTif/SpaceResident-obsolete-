@@ -1,4 +1,5 @@
 ﻿using CharactersProcessor.Interfaces;
+using CharactersProcessor.Interfaces.ObserverSkillInterfaces;
 
 namespace CharactersProcessor
 {

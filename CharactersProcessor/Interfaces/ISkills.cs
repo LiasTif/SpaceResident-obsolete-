@@ -1,10 +1,6 @@
-﻿using CharactersProcessor.Interfaces.Skills;
-
-namespace CharactersProcessor.Interfaces
+﻿namespace CharactersProcessor.Interfaces
 {
-    internal interface ISkills : ICharacteristics, ISkillSciences, ISkillInformatics,
-        ISkillSpacecrafts, ISkillCognition, ISkillTransport, ISkillCommunication,
-        ISkillPolitics, ISkillPsychology, ISkillAugmentations, ISkillBuisness
+    internal interface ISkills
     {
         void CalcAllSkills();
     }

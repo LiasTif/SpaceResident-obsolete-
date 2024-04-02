@@ -1,9 +1,13 @@
 ﻿using CharactersProcessor.Interfaces;
+using CharactersProcessor.Interfaces.ObserverSkillInterfaces;
 
 namespace CharactersProcessor
 {
-    internal class SkillsProcessor : ISkills, ISkillObserver
+    internal class SkillsProcessor(CharacteristicsProcessor characteristicsProcessor) :
+        ISkills, ISkillObserver
     {
+        public CharacteristicsProcessor CharacteristicsProcessor { get; set; } = characteristicsProcessor;
+
         public void CalcAllSkills()
         {
             //CalcSkillAugmentations(Kinetics, Naturalistics);
@@ -18,11 +22,18 @@ namespace CharactersProcessor
             //CalcSkillTransport(Logic, Kinetics);
         }
 
-        public void SetCharacteristics(List<byte> characteristics)
-        {
-            throw new NotImplementedException();
-        }
-
         public void Update() => CalcAllSkills();
+
+        public static byte CalcSomeSkill(IDictionary<byte, double> characteristicsPersent)
+        {
+            double result = 0;
+            foreach (var c in characteristicsPersent)
+            {
+                result += c.Value * c.Key;
+            }
+
+            result *= 3;
+            return (byte)result;
+        }
     }
 }

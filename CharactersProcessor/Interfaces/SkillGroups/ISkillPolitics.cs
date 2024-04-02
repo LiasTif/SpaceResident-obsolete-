@@ -1,4 +1,4 @@
-﻿namespace CharactersProcessor.Interfaces.Skills
+﻿namespace CharactersProcessor.Interfaces.SkillGroups
 {
     internal interface ISkillPolitics
     {

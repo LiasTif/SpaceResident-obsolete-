@@ -9,7 +9,5 @@
         byte Logic { get; private protected set; }
         byte Space { get; private protected set; }
         byte Kinetics { get; private protected set; }
-
-        void SetCharacteristics(List<byte> characteristics);
     }
 }

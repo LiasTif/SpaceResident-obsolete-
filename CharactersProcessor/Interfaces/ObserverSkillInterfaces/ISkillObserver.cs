@@ -1,4 +1,4 @@
-﻿namespace CharactersProcessor.Interfaces
+﻿namespace CharactersProcessor.Interfaces.ObserverSkillInterfaces
 {
     internal interface ISkillObserver
     {
